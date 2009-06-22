@@ -1,550 +1,549 @@
-Metadata for arkiv¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M001¤systemID¤AR.ARKIV¤¤1¤A¤Tekststreng
-M020¤tittel¤AR.BETEGN¤¤1¤A¤Tekststreng
-M021¤beskrivelse¤(AR.MERKNAD)¤¤0-1¤A¤Tekststreng
-M050¤arkivstatus¤ ¤¤0-1¤A¤Tekststreng
-M300¤dokumentmedium¤ ¤¤0-1¤ ¤Tekststreng
-M301¤oppbevaringssted¤ ¤¤0-M¤A¤Tekststreng
-M600¤opprettetDato¤AR.FRADATO¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M602¤avsluttetDato¤AR.TILDATO¤¤1¤A¤Dato/klokkeslett
-M603¤avsluttetAv¤ ¤¤1¤A¤Tekststreng
-M200¤referanseForelder¤ ¤¤0-1¤A¤arkiv.systemID
-M201¤referanseBarn¤ ¤¤1-M¤A¤arkivdel.systemID/ arkiv.systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for arkivskaper¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Arkiv¤¤¤¤¤¤
-Forekomst:               1-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M006¤arkivskaperID¤(AR.ABASEID)¤¤1¤A¤Tekststreng
-M023¤arkivskaperNavn¤AR.SKAPER¤¤1¤A¤Tekststreng
-M021¤beskrivelse¤ ¤¤0-1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for arkivdel¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M001¤systemID¤AD.ARKDEL¤¤1¤A¤Tekststreng
-M020¤tittel¤AD.BETEGN¤¤1¤A¤Tekststreng
-M021¤beskrivelse¤ ¤¤0-1¤A¤Tekststreng
-M051¤arkivdelstatus¤AD.ASTATUS¤¤1¤A¤Tekststreng
-M300¤dokumentmedium¤AD.PAPIR¤¤1¤A¤Tekststreng
-M301¤oppbevaringssted¤AD.LOK¤¤0-M¤ ¤Tekststreng
-M600¤opprettetDato¤AD.FRADATO¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M602¤avsluttetDato¤AD.TILDATO¤¤1¤A¤Dato/klokkeslett
-M603¤avsluttetAv¤ ¤¤1¤A¤Tekststreng
-M107¤arkivperiodeStartDato¤AP.FRADATO¤¤1¤A¤Dato
-M108¤arkivperiodeSluttDato¤AP.TILDATO¤¤1¤A¤Dato
-M200¤referanseForelder¤AD.ARKIV¤¤1¤A¤arkiv.systemID
-M202¤referanseForløper¤ ¤¤1¤A¤arkivdel.systemID
-M203¤referanseArvtaker¤AD.FORTS¤¤1¤A¤arkivdel.systemID
-M204¤referanseKlassifikasjons system¤AD.PRIMNOK¤¤1¤A¤klassifikasjonssystem. systemID
-M205¤referanseMappe¤ ¤¤1-M¤A¤basismappe.systemID
-M206¤referanseRegistrering¤ ¤¤0-M¤A¤forenkletRegistrering. systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for klassifikasjonssystem¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M001¤systemID¤OP.ORDNPRI¤¤1¤A¤Tekststreng
-M086¤klassifikasjonstype¤OP.TYPE¤¤0-1¤A¤Tekststreng
-M020¤tittel¤OP.BETEGN¤¤1¤A¤Tekststreng
-M021¤beskrivelse¤ ¤¤0-1¤A¤Tekststreng
-M600¤opprettetDato¤OP.FRADATO¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M602¤avsluttetDato¤OP.TILDATO¤¤0-1¤A¤Dato/klokkeslett
-M603¤avsluttetAv¤ ¤¤0-1¤A¤Tekststreng
-M201¤referanseBarn¤ ¤¤1-M¤A¤klasse.systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for klasse¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M001¤systemID¤ ¤¤1¤A¤Tekststreng
-M002¤klasseID¤OV.ORDNVER¤¤1¤A¤Tekststreng
-M020¤tittel¤OV.BESKR¤¤1¤A¤Tekststreng
-M021¤beskrivelse¤ ¤¤0-1¤A¤Tekststreng
-M022¤nøkkelord¤EA.ORD¤¤0-M¤A¤Tekststreng
-M600¤opprettetDato¤ ¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M602¤avsluttetDato¤ ¤¤0-1¤A¤Dato/klokkeslett
-M603¤avsluttetAv¤ ¤¤0-1¤A¤Tekststreng
-M200¤referanseForelder¤OV.ORDNPRI/ OV.FAR¤¤1¤A¤klassifikasjonssystem. systemID/klasse.systemID
-M201¤referanseBarn¤ ¤¤1-M¤A¤klasse.systemID/basismappe. systemID/forenkletRegistrer ing.systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for basismappe¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M001¤systemID¤SA.ID¤¤1¤A¤Tekststreng
-M003¤mappeID¤(SA.SAAR+SA. SEKN)¤¤1¤A¤Tekststreng
-M080¤mappetype¤SA.TYPE¤¤1¤A¤Tekststreng
-M020¤tittel¤SA.TITTEL¤¤1¤A¤Tekststreng
-M025¤offentligTittel¤SA.OFFTITTEL¤¤0-1¤A¤Tekststreng
-M021¤beskrivelse¤ ¤¤0-1¤A¤Tekststreng
-M022¤nøkkelord¤ ¤¤0-M¤A¤Tekststreng
-M300¤dokumentmedium¤SA.PAPIR¤¤0-1¤A¤Tekststreng
-M301¤oppbevaringssted¤ ¤¤0-M¤ ¤Tekststreng
-M600¤opprettetDato¤ ¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M602¤avsluttetDato¤ ¤¤1¤A¤Dato/klokkeslett
-M603¤avsluttetAv¤ ¤¤1¤A¤Tekststreng
-M200¤referanseForelder¤KL.ORDNVER¤¤1¤A¤klasse.systemID/mappe. systemID
-M201¤referanseBarn¤ ¤¤1-M¤A¤forenkletRegistrering. systemID/mappe.systemID
-M208¤referanseArkivdel¤SA.ARKDEL¤¤1¤A¤arkivdel.systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for saksmappe¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg.¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M100¤saksdato¤SA.DATO¤¤1¤A¤Dato
-M305¤administrativEnhet¤(SA.ADMID)¤¤1¤A¤Tekststreng
-M306¤saksansvarlig¤(SA.ANSVID)¤¤1¤A¤Tekststreng
-M308¤journalenhet¤(SA.JENHET)¤¤0-1¤A¤Tekststreng
-M052¤saksstatus¤SA.STATUS¤¤1¤A¤Tekststreng
-M106¤utlåntDato¤SA.UTLDATO¤¤0-1¤ ¤Dato
-M309¤utlåntTil¤(SA.UTLTIL)¤¤0-1¤ ¤Tekststreng
-M209¤referanseSekundær Klassifikasjon¤(KL.ORDNVER)¤¤0-M¤A¤klasse.systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for sakspart¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Saksmappe¤¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M010¤sakspartID¤ ¤¤0-1¤A¤Tekststreng
-M302¤sakspartNavn¤SP.NAVN¤¤1¤A¤Tekststreng
-M303¤sakspartRolle¤SP.ROLLE¤¤1¤A¤Tekststreng
-M406¤postadresse¤SP.ADRESSE¤¤0-1¤A¤Tekststreng
-M407¤postnummer¤SP.POSTNR¤¤0-1¤A¤Tekststreng
-M408¤poststed¤SP.POSTSTED¤¤0-1¤A¤Tekststreng
-M409¤utenlandsadresse¤SP.UTLAND¤¤0-1¤A¤Tekststreng
-M410¤epostadresse¤SP.EPOSTADR¤¤0-1¤A¤Tekststreng
-M411¤telefonnummer¤SP.TLF¤¤0-1¤A¤Tekststreng
-M412¤kontaktperson¤SP.KONTAKT¤¤0-1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for møtemappe¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg.¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M008¤møtenummer¤MO.NR¤¤1¤A¤Tekststreng
-M370¤utvalg¤(MO.UTVID)¤¤1¤A¤Tekststreng
-M102¤møtedato¤MO.DATO¤¤1¤A¤Dato
-M371¤møtested¤MO.STED¤¤0-1¤A¤Tekststreng
-M221¤referanseForrigeMøte¤MO.FORTS¤¤0-1¤A¤basismappe.systemID
-M222¤referanseNesteMøte¤ ¤¤0-1¤A¤basismappe.systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for møtedeltaker¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Møtemappe¤¤¤¤¤¤
-Forekomst:               1-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M372¤møtedeltakerNavn¤(UM.PNID)¤¤1¤A¤Tekststreng
-M373¤møtedeltakerFunksjon¤(UM.FUNK)¤¤1¤A¤Teksstreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for forenklet registrering¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M001¤systemID¤JP.ID¤¤1¤A¤Tekststreng
-M081¤registreringstype¤ ¤¤1¤A¤Tekststreng
-M600¤opprettetDato¤ ¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M604¤arkivertDato¤ ¤¤1¤A¤Dato/klokkeslett
-M605¤arkivertAv¤ ¤¤1¤A¤Tekststreng
-M200¤referanseForelder¤JP.SAID¤¤1¤A¤mappe.systemID/klasse. systemID
-M208¤referanseArkivdel¤JP.ARKDEL¤¤0-1¤A¤arkivdel.systemID
-M207¤referanseDokument
-beskrivelse¤ ¤¤0-M¤A¤dokumentbeskrivelse. systemID
-M216¤referanseDokument objekt¤ ¤¤0-M¤A¤dokumentobjekt.sysemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for basisregistrering¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for forenklet registrering inngår i basisregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M004¤registreringsID¤(SA.SAAR+ SA.SEKNR+ JP.POSTNR)¤¤1¤A¤Tekststreng
-M020¤tittel¤JP.INNHOLD¤¤1¤A¤Tekststreng
-M025¤offentligTittel¤JP.OFFINNHOLD¤¤0-1¤A¤Tekststreng
-M021¤beskrivelse¤ ¤¤0-1¤A¤Tekststreng
-M022¤nøkkelord¤ ¤¤0-M¤A¤Tekststreng
-M024¤forfatter¤ ¤¤0-M¤A¤Tekststreng
-M300¤dokumentmedium¤JP.PAPIR¤¤0-1¤A¤Tekststreng
-M301¤oppbevaringssted¤ ¤¤0-M¤ ¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for journalpost¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg.¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M009¤løpenummer¤(JP.JAAR+ JP.SEKNR)¤¤1¤A¤Tekststreng
-M082¤journalposttype¤JP.NDOKTYPE¤¤1¤A¤Tekststreng
-M053¤journalstatus¤JP.STATUS¤¤1¤A¤Tekststreng
-M101¤journaldato¤JP.JDATO¤¤1¤A¤Dato
-M103¤dokumentetsDato¤JP.DOKDATO¤¤0-1¤A¤Dato
-M104¤mottattDato¤ ¤¤0-1¤A¤Dato
-M105¤sendtDato¤JP.EKSPDATO¤¤0-1¤A¤Dato
-M109¤forfallsdato¤JP.FORFDATO¤¤0-1¤ ¤Dato
-M110¤offentlighetsvurdertDato¤JP.OVDATO¤¤0-1¤ ¤Dato
-M304¤antallVedlegg¤JP.ANTVED¤¤0-1¤A¤Tekststreng
-M106¤utlåntDato¤JP.UTLDATO¤¤0-1¤ ¤Dato
-M309¤utlåntTil¤(JP.UTLTIL)¤¤0-1¤ ¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for korrespondansepart¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Journalpost¤¤¤¤¤¤
-Forekomst:               1-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M087¤korrespondanseparttype¤(AM.IHTYPE, AM.KOPIMOT, AM.GRUPPE MOT)¤¤1¤A¤Tekststreng
-M400¤korrespondansepartNavn¤AM.NAVN¤¤1¤A¤Tekststreng
-M406¤postadresse¤AM.ADRESSE¤¤0-1¤A¤Tekststreng
-M407¤postnummer¤AM.POSTNR¤¤0-1¤A¤Tekststreng
-M408¤poststed¤AM.POSTSTED¤¤0-1¤A¤Tekststreng
-M409¤utenlandsadresse¤AM.UTLAND¤¤0-1¤A¤Tekststreng
-M410¤epostadresse¤AM.EPOSTADR¤¤0-1¤A¤Tekststreng
-M411¤telefonnummer¤ ¤¤0-1¤A¤Tekststreng
-M412¤kontaktperson¤ ¤¤0-1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for saksansvar¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Journalpost¤¤¤¤¤¤
-Forekomst:               1-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Ved organinterne dokumenter som skal følges opp, er det behov for å gruppere informasjon om saksansvar fordi denne  kan forekomme flere ganger. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M305¤administrativEnhet¤(AM.ADMID)¤¤1¤A¤Tekststreng
-M307¤saksbehandler¤(AM.SBHID)¤¤1¤A¤Tekststreng
-M308¤journalenhet¤(AM.JENHET)¤¤0-1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for avskrivning¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Journalpost¤¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp.¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M617¤avskrivningsdato¤AM.AVSKDATO¤¤1¤A¤Dato/klokkeslett
-M618¤avskrevetAv¤ ¤¤1¤A¤Tekststreng
-M619¤avskrivningsmåte¤AM.AVSKM¤¤1¤A¤Tekststreng
-M214¤referanseAvskriver Journalpost¤AM.BESVAR¤¤0-1¤A¤forenkletRegistrering. systemID
-M215¤referanseAvskrivesAv Journalpost¤AM.AVSKAV¤¤0-1¤A¤forenkletRegistrering. systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for dokumentflyt¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Journalpost¤¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M660¤flytTil¤ ¤¤1¤A¤Tekststreng
-M665¤flytFra¤ ¤¤1¤A¤Tekststreng
-M661¤flytMottattDato¤ ¤¤1¤A¤Dato/klokkeslett
-M662¤flytSendtDato¤ ¤¤1¤A¤Dato/klokkeslett
-M663¤flytStatus¤ ¤¤1¤A¤Tekststreng
-M664¤flytMerknad¤ ¤¤0-1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for saksfordeling¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Saksmappe, journalpost¤¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M666¤fordeltTil¤ ¤¤1¤A¤Tekststreng
-M667¤fordeltAv¤ ¤¤1¤A¤Tekststreng
-M668¤fordeltDato¤ ¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for møteregistrering¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M085¤møteregistreringstype¤MD.DOKTYPE¤¤1¤A¤Tekststreng
-M088¤møtesakstype¤ ¤¤1¤A¤Tekststreng
-M055¤møteregistreringsstatus¤MD.STATUS¤¤0-1¤A¤Tekststreng
-M305¤administrativEnhet¤(MD.ADMID)¤¤1¤A¤Tekststreng
-M307¤saksbehandler¤(MD.SBHID)¤¤1¤A¤Tekststreng
-M223¤referanseTil Møteregistrering¤ ¤¤0-M¤A¤forenkletRegistrering. systemID
-M224¤referanseFraMøteregistrering¤ ¤¤0-M¤A¤forenkletRegistrering. system ID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for dokumentbeskrivelse¤¤¤¤¤¤
- ¤¤¤¤¤¤
-En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M001¤systemID¤DB.DOKID¤¤1¤A¤Tekststreng
-M083¤dokumenttype¤DB.KATEGORI¤¤1¤A¤Tekststreng
-M054¤dokumentstatus¤DB.STATUS¤¤1¤A¤Tekststreng
-M020¤tittel¤DB.TITTEL¤¤1¤A¤Tekststreng
-M021¤beskrivelse¤ ¤¤0-1¤A¤Tekststreng
-M024¤forfatter¤(DB.UTARBAV)¤¤0-1¤A¤Tekststreng
-M600¤opprettetDato¤ ¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M300¤dokumentmedium¤DB.PAPIR¤¤0-1¤A¤Tekststreng
-M301¤oppbevaringssted¤DB.LOKPAPIR¤¤0-1¤ ¤Tekststreng
-M216¤referanseDokument objekt¤ ¤¤0-M¤A¤dokumentobjekt.systemID
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for dokumentlink¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Dokumentbeskrivelse¤¤¤¤¤¤
-Forekomst:               1¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M206¤referanseRegistrering¤DL.JPID¤¤1¤A¤forenkletRegistrering. systemID
-M217¤tilknyttetRegistrering Som¤DL.TYPE¤¤1¤A¤Tekststreng
-M007¤dokumentnummer¤DL.RNR¤¤1¤A¤Tekststreng
-M620¤tilknyttetDato¤DL.TKDATO¤¤1¤A¤Dato/klokkeslett
-M621¤tilknyttetAv¤(DL.TKAV)¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for dokumentobjekt¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M001¤systemID¤ ¤¤1¤A¤Tekststreng
-M005¤versjonsnummer¤VE.VERSJON¤¤1¤A¤Tekststreng
-M700¤variantformat¤(VE.VARIANT)¤¤1¤A¤Tekststreng
-M701¤format¤(VE.DOK FORMAT)¤¤1¤A¤Tekststreng
-M702¤formatDetaljer¤LF.BESKRIV¤¤0-1¤A¤Tekststreng
-M600¤opprettetDato¤ ¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M207¤referanseDokument beskrivelse¤VE.DOKID¤¤1¤A¤dokumentbeskrivelse. systemID
-M206¤referanseRegistrering¤ ¤¤1¤A¤forenkletRegistrering. systemID
-M218¤referanseDokumentfil¤VE.FILREF¤¤1¤A¤Tekststreng (filkatalogstruktur + filnavn)
-M705¤sjekksumDokument¤ ¤¤1¤A¤Tekststreng
-M706¤sjekksumAlgoritme¤ ¤¤1¤A¤Tekststreng
-M707¤filstørrelse¤ ¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for kryssreferanse¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Klasse, Basismappe, Basisregistrering¤¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Referansen kan gå fra en klasse til en annen klasse, fra en mappe til en annen mappe, fra en registrering til en annen registrering, fra en mappe til en registrering og fra en registrering til en mappe. Kryssreferansen  vil også omfatte spesialiseringer.  En kryssreferanse kan derfor gå fra en møtemappe til en saksmappe. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M219¤referanseTilKlasse¤JO.ORDNPRI2¤¤1¤A¤Tekststreng
-M220¤referanseFraKlasse¤JO.ORDNPRI1¤¤1¤A¤Tekststreng
-M210¤referanseTilMappe¤JF.TSAID¤¤1¤A¤Tekststreng
-M211¤referanseFraMappe¤JF.FSAID¤¤1¤A¤Tekststreng
-M212¤referanseTilRegistrering¤JF.TJPID¤¤1¤A¤Tekststreng
-M213¤referanseFraRegistrering¤JF.FJPID¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for merknad¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Basismappe, Basisregistrering, Dokumentbeskrivelse¤¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M310¤merknadstekst¤ME.TEKST¤¤1¤A¤Tekststreng
-M084¤merknadstype¤ME.ITYPE¤¤0-1¤A¤Tekststreng
-M611¤merknadsdato¤ME.REGDATO¤¤1¤A¤Dato/klokkseslett
-M612¤merknadRegistrertAv¤PN.NAVN¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for bevaring og kassasjon¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤¤
- ¤¤¤¤¤¤
-I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået.¤¤¤¤¤¤
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M450¤kassasjonsvedtak¤SA.KASSKODE¤¤1¤A¤Tekststreng
-M453¤kassasjonshjemmel¤ ¤¤0-1¤A¤Tekststreng
-M451¤bevaringstid¤SA.BEVTID¤¤1¤A¤Tekststreng
-M452¤kassasjonsdato¤SA.KASSDATO¤¤1¤A¤Dato
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for skjerming¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤¤
- ¤¤¤¤¤¤
-I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på journalpostnivået.¤¤¤¤¤¤
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M500¤tilgangsrestriksjon¤JP.TGKODE¤¤1¤A¤Tekststreng
-M501¤skjermingshjemmel¤JP.UOFF¤¤1¤A¤Tekststreng
-M502¤skjermingMetadata¤ ¤¤1-M¤A¤Tekststreng
-M503¤skjermingDokument¤ ¤¤0-1¤A¤Tekststreng
-M504¤skjermingsvarighet¤ ¤¤1¤A¤Tekststreng
-M505¤skjermingOpphørerDato¤JP.AGDATO¤¤1¤A¤Dato
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for gradering¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Basismappe, Forenklet registrering, Dokmentbeskrivelse.¤¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M506¤gradering¤ ¤¤1¤A¤Tekststreng
-M624¤graderingsdato¤ ¤¤1¤A¤Dato
-M625¤gradertAv¤ ¤¤1¤A¤Tekststreng
-M626¤nedgraderingsdato¤ ¤¤0-1¤A¤Dato
-M627¤nedgradertAv¤ ¤¤0-1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for presedens¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Saksmappe, Journalpost¤¤¤¤¤¤
-Forekomst:               0-M        ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M111¤presedensDato¤PS.DATO¤¤1¤A¤Dato
-M600¤opprettetDato¤ ¤¤1¤A¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤1¤A¤Tekststreng
-M020¤tittel¤PS.TITTEL¤¤1¤A¤Tekststreng
-M021¤beskrivelse¤ ¤¤0-1¤A¤Tekststreng
-M311¤presedensHjemmel¤PS.HJEMMEL¤¤0-1¤A¤Tekststreng
-M312¤rettskildefaktor¤ ¤¤1¤A¤Tekststreng
-M628¤presedensGodkjentDato¤ ¤¤0-1¤A¤Dato/klokkeslett
-M629¤presedensGodkjentAv¤ ¤¤0-1¤A¤Tekststreng
-M602¤avsluttetDato¤ ¤¤0-1¤A¤Dato/klokkeslett
-M603¤avsluttetAv¤ ¤¤0-1¤A¤Tekststreng
-M056¤presedensStatus¤ ¤¤0-1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for verifisering av elektronisk signatur¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:        Journalpost¤¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M507¤elektroniskSignatur Sikkerhetsnivå¤ ¤¤1¤A¤Tekststreng
-M508¤elektroniskSignatur Verfisert¤ ¤¤1¤A¤Tekststreng
-M622¤verifisertDato¤DI.SIGVER DATO¤¤1¤A¤Dato/klokkeslett
-M623¤verfisertAv¤DI.SIGVERAV¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for konvertering til arkivformat¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Dokumentobjekt¤¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konvertering er valgfritt, og kan forekomme en gang.¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M615¤konvertertDato¤ ¤¤1¤A¤Dato/klokkeslett
-M616¤konvertertAv¤ ¤¤1¤A¤Tekststreng
-M703¤tidligereFormat¤ ¤¤1¤A¤Tekststreng
-M704¤tidligereFormatDetaljer¤ ¤¤0-1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for utført kassasjon¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Dokumentbeskrivelse¤¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Ved kassasjon skal dokumentobjektet slettes. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M630¤kassertDato¤ ¤¤1¤A¤Dato/klokkeslett
-M631¤kassertAv¤ ¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for sletting av dokumenter¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Grupperes inn i:       Arkivdel, dokumentbeskrivelse¤¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Ved sletting av tidligere versjoner (siste versjon kan ikke slettes), produksjonsformat og varianter skal metadata grupperes inn i dokumentbeskrivelse. De tilhørende dokumentobjekter skal da slettes. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Ved sletting av innholdet i en arkivdel (som ikke har bevaringsverdi), skal alle mapper og underordnede arkivenheter som tilhørere arkivdelen slettes. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M089¤slettingstype¤ ¤¤1¤A¤Tekststreng
-M613¤slettetDato¤ ¤¤1¤A¤Dato/klokkeslett
-M614¤slettetAv¤ ¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for avlevering¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for avlevering skal avleveres som en egen fil.¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M606¤ansvarligEksport¤AD.KONTRAV¤¤1¤A¤Tekststreng
-M607¤eksportertDato¤AD.EKSPDATO¤¤1¤A¤Dato/klokkeslett
-M608¤antallMapperEksportert¤ ¤¤1¤A¤Tekststreng
-M609¤antallRegistreringer Eksportert¤ ¤¤1¤A¤Tekststreng
-M610¤antallDokumenter Eksportert¤ ¤¤1¤A¤Tekststreng
-M708¤sjekksumMetadata¤ ¤¤1¤A¤Tekststreng
-M709¤sjekksumAvlevering¤ ¤¤1¤A¤Tekststreng
-M706¤sjekksumAlgoritme¤ ¤¤1¤A¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for endringslogg¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for endringslogg skal ikke grupperes inn i en annen arkivenhet, men avleveres som en egen fil.  Endringsloggen må derfor ha referanse til hvilken arkivenhet endringen tilhører, og hvilket metadataelement som er blitt endret. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Ikke alle endringer skal avleveres. Aktuelle endringer kan  være  endring av saksstatus, journal-status, tilgangsrestriksjon, klassifikasjon (referanse til klasse), saksansvarlig, saksbehandler. Nærmere spesifikasjon av hvilke endringer som skal avleveres, vil komme i en senere versjon. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M680¤referanseArkivenhet¤ ¤¤1¤A¤Tekststreng (arkivenhetens systemID
-M681¤referanseMetadata ¤ ¤¤1¤A¤Tekststreng (metadata-elementets navn)
-M682¤endretDato¤ ¤¤1¤A¤Dato/klokkeslett
-M683¤endretAv¤ ¤¤1¤A¤Teksstreng
-M684¤tidligereVerdi¤ ¤¤1¤A¤Teksstreng
-M685¤nyVerdi¤ ¤¤1¤A¤Teksstreng       
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for brukeradministrasjon¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her.¤¤¤¤¤¤
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤Noark 4¤¤Forek.¤Avl. ¤Datatype
-M580¤brukerNavn¤PN.NAVN¤¤1¤ ¤Tekststreng
-M581¤brukerRolle¤RO.NAVN¤¤1¤ ¤Tekststreng
-M600¤opprettetDato¤PE.FRADATO¤¤1¤ ¤Dato/klokkeslett
-M601¤opprettetAv¤ ¤¤0-1¤ ¤Tekststreng
-M602¤avsluttetDato¤PE.TILDATO¤¤0-1¤ ¤Dato/klokkeslett
-M582¤brukerstatus¤ ¤¤0-1¤ ¤Tekststreng
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for administrasjonsstruktur¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Metadata for administrasjonsstruktur skal ikke avleves, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata enn det som er listet opp her. ¤¤¤¤¤¤
- ¤¤¤¤¤¤
-Nr.¤Navn¤¤Noark 4¤Forek.¤Avl. ¤Datatype
-M583¤administrativEnhetNavn¤¤AI.ADMBET¤1¤ ¤Tekststreng
-M600¤opprettetDato¤¤AI.FRADATO¤1¤ ¤Dato/klokkeslett
-M601¤opprettetAv¤¤ ¤0-1¤ ¤Tekststreng
-M602¤avsluttetDato¤¤AI.TILDATO¤0-1¤ ¤Dato/klokkeslett
-M584¤administrativEnhetsstatus¤¤ ¤0-1¤ ¤Tekststreng
-M585¤referanseOverordnet Enhet¤¤(AI.IDFAR)¤0-1¤ ¤Tekststreng (administrativEnhetNavn)
- ¤¤¤¤¤¤
- ¤¤¤¤¤¤
+Metadata for arkiv¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M001¤systemID¤AR.ARKIV¤1¤A¤Tekststreng
+M020¤tittel¤AR.BETEGN¤1¤A¤Tekststreng
+M021¤beskrivelse¤(AR.MERKNAD)¤0-1¤A¤Tekststreng
+M050¤arkivstatus¤ ¤0-1¤A¤Tekststreng
+M300¤dokumentmedium¤ ¤0-1¤ ¤Tekststreng
+M301¤oppbevaringssted¤ ¤0-M¤A¤Tekststreng
+M600¤opprettetDato¤AR.FRADATO¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M602¤avsluttetDato¤AR.TILDATO¤1¤A¤Dato/klokkeslett
+M603¤avsluttetAv¤ ¤1¤A¤Tekststreng
+M200¤referanseForelder¤ ¤0-1¤A¤arkiv.systemID
+M201¤referanseBarn¤ ¤1-M¤A¤arkivdel.systemID/ arkiv.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for arkivskaper¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Arkiv¤¤¤¤¤
+Forekomst:               1-M¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M006¤arkivskaperID¤(AR.ABASEID)¤1¤A¤Tekststreng
+M023¤arkivskaperNavn¤AR.SKAPER¤1¤A¤Tekststreng
+M021¤beskrivelse¤ ¤0-1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for arkivdel¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M001¤systemID¤AD.ARKDEL¤1¤A¤Tekststreng
+M020¤tittel¤AD.BETEGN¤1¤A¤Tekststreng
+M021¤beskrivelse¤ ¤0-1¤A¤Tekststreng
+M051¤arkivdelstatus¤AD.ASTATUS¤1¤A¤Tekststreng
+M300¤dokumentmedium¤AD.PAPIR¤1¤A¤Tekststreng
+M301¤oppbevaringssted¤AD.LOK¤0-M¤ ¤Tekststreng
+M600¤opprettetDato¤AD.FRADATO¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M602¤avsluttetDato¤AD.TILDATO¤1¤A¤Dato/klokkeslett
+M603¤avsluttetAv¤ ¤1¤A¤Tekststreng
+M107¤arkivperiodeStartDato¤AP.FRADATO¤1¤A¤Dato
+M108¤arkivperiodeSluttDato¤AP.TILDATO¤1¤A¤Dato
+M200¤referanseForelder¤AD.ARKIV¤1¤A¤arkiv.systemID
+M202¤referanseForløper¤ ¤1¤A¤arkivdel.systemID
+M203¤referanseArvtaker¤AD.FORTS¤1¤A¤arkivdel.systemID
+M204¤referanseKlassifikasjons system¤AD.PRIMNOK¤1¤A¤klassifikasjonssystem. systemID
+M205¤referanseMappe¤ ¤1-M¤A¤basismappe.systemID
+M206¤referanseRegistrering¤ ¤0-M¤A¤forenkletRegistrering. systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for klassifikasjonssystem¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M001¤systemID¤OP.ORDNPRI¤1¤A¤Tekststreng
+M086¤klassifikasjonstype¤OP.TYPE¤0-1¤A¤Tekststreng
+M020¤tittel¤OP.BETEGN¤1¤A¤Tekststreng
+M021¤beskrivelse¤ ¤0-1¤A¤Tekststreng
+M600¤opprettetDato¤OP.FRADATO¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M602¤avsluttetDato¤OP.TILDATO¤0-1¤A¤Dato/klokkeslett
+M603¤avsluttetAv¤ ¤0-1¤A¤Tekststreng
+M201¤referanseBarn¤ ¤1-M¤A¤klasse.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for klasse¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M001¤systemID¤ ¤1¤A¤Tekststreng
+M002¤klasseID¤OV.ORDNVER¤1¤A¤Tekststreng
+M020¤tittel¤OV.BESKR¤1¤A¤Tekststreng
+M021¤beskrivelse¤ ¤0-1¤A¤Tekststreng
+M022¤nøkkelord¤EA.ORD¤0-M¤A¤Tekststreng
+M600¤opprettetDato¤ ¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M602¤avsluttetDato¤ ¤0-1¤A¤Dato/klokkeslett
+M603¤avsluttetAv¤ ¤0-1¤A¤Tekststreng
+M200¤referanseForelder¤OV.ORDNPRI/ OV.FAR¤1¤A¤klassifikasjonssystem. systemID/klasse.systemID
+M201¤referanseBarn¤ ¤1-M¤A¤klasse.systemID/basismappe. systemID/forenkletRegistrer ing.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basismappe¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M001¤systemID¤SA.ID¤1¤A¤Tekststreng
+M003¤mappeID¤(SA.SAAR+SA. SEKN)¤1¤A¤Tekststreng
+M080¤mappetype¤SA.TYPE¤1¤A¤Tekststreng
+M020¤tittel¤SA.TITTEL¤1¤A¤Tekststreng
+M025¤offentligTittel¤SA.OFFTITTEL¤0-1¤A¤Tekststreng
+M021¤beskrivelse¤ ¤0-1¤A¤Tekststreng
+M022¤nøkkelord¤ ¤0-M¤A¤Tekststreng
+M300¤dokumentmedium¤SA.PAPIR¤0-1¤A¤Tekststreng
+M301¤oppbevaringssted¤ ¤0-M¤ ¤Tekststreng
+M600¤opprettetDato¤ ¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M602¤avsluttetDato¤ ¤1¤A¤Dato/klokkeslett
+M603¤avsluttetAv¤ ¤1¤A¤Tekststreng
+M200¤referanseForelder¤KL.ORDNVER¤1¤A¤klasse.systemID/mappe. systemID
+M201¤referanseBarn¤ ¤1-M¤A¤forenkletRegistrering. systemID/mappe.systemID
+M208¤referanseArkivdel¤SA.ARKDEL¤1¤A¤arkivdel.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for saksmappe¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M100¤saksdato¤SA.DATO¤1¤A¤Dato
+M305¤administrativEnhet¤(SA.ADMID)¤1¤A¤Tekststreng
+M306¤saksansvarlig¤(SA.ANSVID)¤1¤A¤Tekststreng
+M308¤journalenhet¤(SA.JENHET)¤0-1¤A¤Tekststreng
+M052¤saksstatus¤SA.STATUS¤1¤A¤Tekststreng
+M106¤utlåntDato¤SA.UTLDATO¤0-1¤ ¤Dato
+M309¤utlåntTil¤(SA.UTLTIL)¤0-1¤ ¤Tekststreng
+M209¤referanseSekundær Klassifikasjon¤(KL.ORDNVER)¤0-M¤A¤klasse.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for sakspart¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Saksmappe¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M010¤sakspartID¤ ¤0-1¤A¤Tekststreng
+M302¤sakspartNavn¤SP.NAVN¤1¤A¤Tekststreng
+M303¤sakspartRolle¤SP.ROLLE¤1¤A¤Tekststreng
+M406¤postadresse¤SP.ADRESSE¤0-1¤A¤Tekststreng
+M407¤postnummer¤SP.POSTNR¤0-1¤A¤Tekststreng
+M408¤poststed¤SP.POSTSTED¤0-1¤A¤Tekststreng
+M409¤utenlandsadresse¤SP.UTLAND¤0-1¤A¤Tekststreng
+M410¤epostadresse¤SP.EPOSTADR¤0-1¤A¤Tekststreng
+M411¤telefonnummer¤SP.TLF¤0-1¤A¤Tekststreng
+M412¤kontaktperson¤SP.KONTAKT¤0-1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for møtemappe¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M008¤møtenummer¤MO.NR¤1¤A¤Tekststreng
+M370¤utvalg¤(MO.UTVID)¤1¤A¤Tekststreng
+M102¤møtedato¤MO.DATO¤1¤A¤Dato
+M371¤møtested¤MO.STED¤0-1¤A¤Tekststreng
+M221¤referanseForrigeMøte¤MO.FORTS¤0-1¤A¤basismappe.systemID
+M222¤referanseNesteMøte¤ ¤0-1¤A¤basismappe.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for møtedeltaker¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Møtemappe¤¤¤¤¤
+Forekomst:               1-M¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M372¤møtedeltakerNavn¤(UM.PNID)¤1¤A¤Tekststreng
+M373¤møtedeltakerFunksjon¤(UM.FUNK)¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for forenklet registrering¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M001¤systemID¤JP.ID¤1¤A¤Tekststreng
+M081¤registreringstype¤ ¤1¤A¤Tekststreng
+M600¤opprettetDato¤ ¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M604¤arkivertDato¤ ¤1¤A¤Dato/klokkeslett
+M605¤arkivertAv¤ ¤1¤A¤Tekststreng
+M200¤referanseForelder¤JP.SAID¤1¤A¤mappe.systemID/klasse.systemID
+M208¤referanseArkivdel¤JP.ARKDEL¤0-1¤A¤arkivdel.systemID
+M207¤referanseDokument beskrivelse¤ ¤0-M¤A¤dokumentbeskrivelse.systemID
+M216¤referanseDokument objekt¤ ¤0-M¤A¤dokumentobjekt.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basisregistrering¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for forenklet registrering inngår i basisregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M004¤registreringsID¤(SA.SAAR+ SA.SEKNR+ JP.POSTNR)¤1¤A¤Tekststreng
+M020¤tittel¤JP.INNHOLD¤1¤A¤Tekststreng
+M025¤offentligTittel¤JP.OFFINNHOLD¤0-1¤A¤Tekststreng
+M021¤beskrivelse¤ ¤0-1¤A¤Tekststreng
+M022¤nøkkelord¤ ¤0-M¤A¤Tekststreng
+M024¤forfatter¤ ¤0-M¤A¤Tekststreng
+M300¤dokumentmedium¤JP.PAPIR¤0-1¤A¤Tekststreng
+M301¤oppbevaringssted¤ ¤0-M¤ ¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for journalpost¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M009¤løpenummer¤(JP.JAAR+ JP.SEKNR)¤1¤A¤Tekststreng
+M082¤journalposttype¤JP.NDOKTYPE¤1¤A¤Tekststreng
+M053¤journalstatus¤JP.STATUS¤1¤A¤Tekststreng
+M101¤journaldato¤JP.JDATO¤1¤A¤Dato
+M103¤dokumentetsDato¤JP.DOKDATO¤0-1¤A¤Dato
+M104¤mottattDato¤ ¤0-1¤A¤Dato
+M105¤sendtDato¤JP.EKSPDATO¤0-1¤A¤Dato
+M109¤forfallsdato¤JP.FORFDATO¤0-1¤ ¤Dato
+M110¤offentlighetsvurdertDato¤JP.OVDATO¤0-1¤ ¤Dato
+M304¤antallVedlegg¤JP.ANTVED¤0-1¤A¤Tekststreng
+M106¤utlåntDato¤JP.UTLDATO¤0-1¤ ¤Dato
+M309¤utlåntTil¤(JP.UTLTIL)¤0-1¤ ¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for korrespondansepart¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Journalpost¤¤¤¤¤
+Forekomst:               1-M¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M087¤korrespondanseparttype¤(AM.IHTYPE, AM.KOPIMOT, AM.GRUPPE MOT)¤1¤A¤Tekststreng
+M400¤korrespondansepartNavn¤AM.NAVN¤1¤A¤Tekststreng
+M406¤postadresse¤AM.ADRESSE¤0-1¤A¤Tekststreng
+M407¤postnummer¤AM.POSTNR¤0-1¤A¤Tekststreng
+M408¤poststed¤AM.POSTSTED¤0-1¤A¤Tekststreng
+M409¤utenlandsadresse¤AM.UTLAND¤0-1¤A¤Tekststreng
+M410¤epostadresse¤AM.EPOSTADR¤0-1¤A¤Tekststreng
+M411¤telefonnummer¤ ¤0-1¤A¤Tekststreng
+M412¤kontaktperson¤ ¤0-1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for saksansvar¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Journalpost¤¤¤¤¤
+Forekomst:               1-M¤¤¤¤¤
+ ¤¤¤¤¤
+Ved organinterne dokumenter som skal følges opp, er det behov for å gruppere informasjon om saksansvar fordi denne  kan forekomme flere ganger. ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M305¤administrativEnhet¤(AM.ADMID)¤1¤A¤Tekststreng
+M307¤saksbehandler¤(AM.SBHID)¤1¤A¤Tekststreng
+M308¤journalenhet¤(AM.JENHET)¤0-1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for avskrivning¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Journalpost¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp.¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M617¤avskrivningsdato¤AM.AVSKDATO¤1¤A¤Dato/klokkeslett
+M618¤avskrevetAv¤ ¤1¤A¤Tekststreng
+M619¤avskrivningsmåte¤AM.AVSKM¤1¤A¤Tekststreng
+M214¤referanseAvskriver Journalpost¤AM.BESVAR¤0-1¤A¤forenkletRegistrering. systemID
+M215¤referanseAvskrivesAv Journalpost¤AM.AVSKAV¤0-1¤A¤forenkletRegistrering. systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for dokumentflyt¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Journalpost¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M660¤flytTil¤ ¤1¤A¤Tekststreng
+M665¤flytFra¤ ¤1¤A¤Tekststreng
+M661¤flytMottattDato¤ ¤1¤A¤Dato/klokkeslett
+M662¤flytSendtDato¤ ¤1¤A¤Dato/klokkeslett
+M663¤flytStatus¤ ¤1¤A¤Tekststreng
+M664¤flytMerknad¤ ¤0-1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for saksfordeling¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Saksmappe, journalpost¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M666¤fordeltTil¤ ¤1¤A¤Tekststreng
+M667¤fordeltAv¤ ¤1¤A¤Tekststreng
+M668¤fordeltDato¤ ¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for møteregistrering¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M085¤møteregistreringstype¤MD.DOKTYPE¤1¤A¤Tekststreng
+M088¤møtesakstype¤ ¤1¤A¤Tekststreng
+M055¤møteregistreringsstatus¤MD.STATUS¤0-1¤A¤Tekststreng
+M305¤administrativEnhet¤(MD.ADMID)¤1¤A¤Tekststreng
+M307¤saksbehandler¤(MD.SBHID)¤1¤A¤Tekststreng
+M223¤referanseTil Møteregistrering¤ ¤0-M¤A¤forenkletRegistrering.systemID
+M224¤referanseFraMøteregistrering¤ ¤0-M¤A¤forenkletRegistrering.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for dokumentbeskrivelse¤¤¤¤¤
+ ¤¤¤¤¤
+En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M001¤systemID¤DB.DOKID¤1¤A¤Tekststreng
+M083¤dokumenttype¤DB.KATEGORI¤1¤A¤Tekststreng
+M054¤dokumentstatus¤DB.STATUS¤1¤A¤Tekststreng
+M020¤tittel¤DB.TITTEL¤1¤A¤Tekststreng
+M021¤beskrivelse¤ ¤0-1¤A¤Tekststreng
+M024¤forfatter¤(DB.UTARBAV)¤0-1¤A¤Tekststreng
+M600¤opprettetDato¤ ¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M300¤dokumentmedium¤DB.PAPIR¤0-1¤A¤Tekststreng
+M301¤oppbevaringssted¤DB.LOKPAPIR¤0-1¤ ¤Tekststreng
+M216¤referanseDokument objekt¤ ¤0-M¤A¤dokumentobjekt.systemID
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for dokumentlink¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               1¤¤¤¤¤
+ ¤¤¤¤¤
+Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M206¤referanseRegistrering¤DL.JPID¤1¤A¤forenkletRegistrering. systemID
+M217¤tilknyttetRegistrering Som¤DL.TYPE¤1¤A¤Tekststreng
+M007¤dokumentnummer¤DL.RNR¤1¤A¤Tekststreng
+M620¤tilknyttetDato¤DL.TKDATO¤1¤A¤Dato/klokkeslett
+M621¤tilknyttetAv¤(DL.TKAV)¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for dokumentobjekt¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M001¤systemID¤ ¤1¤A¤Tekststreng
+M005¤versjonsnummer¤VE.VERSJON¤1¤A¤Tekststreng
+M700¤variantformat¤(VE.VARIANT)¤1¤A¤Tekststreng
+M701¤format¤(VE.DOK FORMAT)¤1¤A¤Tekststreng
+M702¤formatDetaljer¤LF.BESKRIV¤0-1¤A¤Tekststreng
+M600¤opprettetDato¤ ¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M207¤referanseDokument beskrivelse¤VE.DOKID¤1¤A¤dokumentbeskrivelse. systemID
+M206¤referanseRegistrering¤ ¤1¤A¤forenkletRegistrering. systemID
+M218¤referanseDokumentfil¤VE.FILREF¤1¤A¤Tekststreng (filkatalogstruktur + filnavn)
+M705¤sjekksumDokument¤ ¤1¤A¤Tekststreng
+M706¤sjekksumAlgoritme¤ ¤1¤A¤Tekststreng
+M707¤filstørrelse¤ ¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for kryssreferanse¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Klasse, Basismappe, Basisregistrering¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+Referansen kan gå fra en klasse til en annen klasse, fra en mappe til en annen mappe, fra en registrering til en annen registrering, fra en mappe til en registrering og fra en registrering til en mappe. Kryssreferansen  vil også omfatte spesialiseringer.  En kryssreferanse kan derfor gå fra en møtemappe til en saksmappe. ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M219¤referanseTilKlasse¤JO.ORDNPRI2¤1¤A¤Tekststreng
+M220¤referanseFraKlasse¤JO.ORDNPRI1¤1¤A¤Tekststreng
+M210¤referanseTilMappe¤JF.TSAID¤1¤A¤Tekststreng
+M211¤referanseFraMappe¤JF.FSAID¤1¤A¤Tekststreng
+M212¤referanseTilRegistrering¤JF.TJPID¤1¤A¤Tekststreng
+M213¤referanseFraRegistrering¤JF.FJPID¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for merknad¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Basismappe, Basisregistrering, Dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M310¤merknadstekst¤ME.TEKST¤1¤A¤Tekststreng
+M084¤merknadstype¤ME.ITYPE¤0-1¤A¤Tekststreng
+M611¤merknadsdato¤ME.REGDATO¤1¤A¤Dato/klokkeslett
+M612¤merknadRegistrertAv¤PN.NAVN¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for bevaring og kassasjon¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået.¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M450¤kassasjonsvedtak¤SA.KASSKODE¤1¤A¤Tekststreng
+M453¤kassasjonshjemmel¤ ¤0-1¤A¤Tekststreng
+M451¤bevaringstid¤SA.BEVTID¤1¤A¤Tekststreng
+M452¤kassasjonsdato¤SA.KASSDATO¤1¤A¤Dato
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for skjerming¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤
+ ¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på journalpostnivået.¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M500¤tilgangsrestriksjon¤JP.TGKODE¤1¤A¤Tekststreng
+M501¤skjermingshjemmel¤JP.UOFF¤1¤A¤Tekststreng
+M502¤skjermingMetadata¤ ¤1-M¤A¤Tekststreng
+M503¤skjermingDokument¤ ¤0-1¤A¤Tekststreng
+M504¤skjermingsvarighet¤ ¤1¤A¤Tekststreng
+M505¤skjermingOpphørerDato¤JP.AGDATO¤1¤A¤Dato
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for gradering¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Basismappe, Forenklet registrering, Dokmentbeskrivelse.¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M506¤gradering¤ ¤1¤A¤Tekststreng
+M624¤graderingsdato¤ ¤1¤A¤Dato
+M625¤gradertAv¤ ¤1¤A¤Tekststreng
+M626¤nedgraderingsdato¤ ¤0-1¤A¤Dato
+M627¤nedgradertAv¤ ¤0-1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for presedens¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Saksmappe, Journalpost¤¤¤¤¤
+Forekomst:               0-M        ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M111¤presedensDato¤PS.DATO¤1¤A¤Dato
+M600¤opprettetDato¤ ¤1¤A¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤1¤A¤Tekststreng
+M020¤tittel¤PS.TITTEL¤1¤A¤Tekststreng
+M021¤beskrivelse¤ ¤0-1¤A¤Tekststreng
+M311¤presedensHjemmel¤PS.HJEMMEL¤0-1¤A¤Tekststreng
+M312¤rettskildefaktor¤ ¤1¤A¤Tekststreng
+M628¤presedensGodkjentDato¤ ¤0-1¤A¤Dato/klokkeslett
+M629¤presedensGodkjentAv¤ ¤0-1¤A¤Tekststreng
+M602¤avsluttetDato¤ ¤0-1¤A¤Dato/klokkeslett
+M603¤avsluttetAv¤ ¤0-1¤A¤Tekststreng
+M056¤presedensStatus¤ ¤0-1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for verifisering av elektronisk signatur¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Journalpost¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M507¤elektroniskSignatur Sikkerhetsnivå¤ ¤1¤A¤Tekststreng
+M508¤elektroniskSignatur Verfisert¤ ¤1¤A¤Tekststreng
+M622¤verifisertDato¤DI.SIGVER DATO¤1¤A¤Dato/klokkeslett
+M623¤verfisertAv¤DI.SIGVERAV¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for konvertering til arkivformat¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Dokumentobjekt¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konvertering er valgfritt, og kan forekomme en gang.¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M615¤konvertertDato¤ ¤1¤A¤Dato/klokkeslett
+M616¤konvertertAv¤ ¤1¤A¤Tekststreng
+M703¤tidligereFormat¤ ¤1¤A¤Tekststreng
+M704¤tidligereFormatDetaljer¤ ¤0-1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for utført kassasjon¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+Ved kassasjon skal dokumentobjektet slettes. ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M630¤kassertDato¤ ¤1¤A¤Dato/klokkeslett
+M631¤kassertAv¤ ¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for sletting av dokumenter¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Arkivdel, dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+Ved sletting av tidligere versjoner (siste versjon kan ikke slettes), produksjonsformat og varianter skal metadata grupperes inn i dokumentbeskrivelse. De tilhørende dokumentobjekter skal da slettes. ¤¤¤¤¤
+ ¤¤¤¤¤
+Ved sletting av innholdet i en arkivdel (som ikke har bevaringsverdi), skal alle mapper og underordnede arkivenheter som tilhørere arkivdelen slettes. ¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M089¤slettingstype¤ ¤1¤A¤Tekststreng
+M613¤slettetDato¤ ¤1¤A¤Dato/klokkeslett
+M614¤slettetAv¤ ¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for avlevering¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for avlevering skal avleveres som en egen fil.¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M606¤ansvarligEksport¤AD.KONTRAV¤1¤A¤Tekststreng
+M607¤eksportertDato¤AD.EKSPDATO¤1¤A¤Dato/klokkeslett
+M608¤antallMapperEksportert¤ ¤1¤A¤Tekststreng
+M609¤antallRegistreringer Eksportert¤ ¤1¤A¤Tekststreng
+M610¤antallDokumenter Eksportert¤ ¤1¤A¤Tekststreng
+M708¤sjekksumMetadata¤ ¤1¤A¤Tekststreng
+M709¤sjekksumAvlevering¤ ¤1¤A¤Tekststreng
+M706¤sjekksumAlgoritme¤ ¤1¤A¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for endringslogg¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for endringslogg skal ikke grupperes inn i en annen arkivenhet, men avleveres som en egen fil.  Endringsloggen må derfor ha referanse til hvilken arkivenhet endringen tilhører, og hvilket metadataelement som er blitt endret. ¤¤¤¤¤
+ ¤¤¤¤¤
+Ikke alle endringer skal avleveres. Aktuelle endringer kan  være  endring av saksstatus, journal-status, tilgangsrestriksjon, klassifikasjon (referanse til klasse), saksansvarlig, saksbehandler. Nærmere spesifikasjon av hvilke endringer som skal avleveres, vil komme i en senere versjon. ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M680¤referanseArkivenhet¤ ¤1¤A¤Tekststreng (arkivenhetens systemID
+M681¤referanseMetadata ¤ ¤1¤A¤Tekststreng (metadata-elementets navn)
+M682¤endretDato¤ ¤1¤A¤Dato/klokkeslett
+M683¤endretAv¤ ¤1¤A¤Tekststreng
+M684¤tidligereVerdi¤ ¤1¤A¤Tekststreng
+M685¤nyVerdi¤ ¤1¤A¤Tekststreng       
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for brukeradministrasjon¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her.¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
+M580¤brukerNavn¤PN.NAVN¤1¤ ¤Tekststreng
+M581¤brukerRolle¤RO.NAVN¤1¤ ¤Tekststreng
+M600¤opprettetDato¤PE.FRADATO¤1¤ ¤Dato/klokkeslett
+M601¤opprettetAv¤ ¤0-1¤ ¤Tekststreng
+M602¤avsluttetDato¤PE.TILDATO¤0-1¤ ¤Dato/klokkeslett
+M582¤brukerstatus¤ ¤0-1¤ ¤Tekststreng
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for administrasjonsstruktur¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for administrasjonsstruktur skal ikke avleves, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata enn det som er listet opp her. ¤¤¤¤¤
+ ¤¤¤¤¤
+Nr.¤Navn¤¤Forek.¤Avl. ¤Datatype
+M583¤administrativEnhetNavn¤¤1¤ ¤Tekststreng
+M600¤opprettetDato¤¤1¤ ¤Dato/klokkeslett
+M601¤opprettetAv¤¤0-1¤ ¤Tekststreng
+M602¤avsluttetDato¤¤0-1¤ ¤Dato/klokkeslett
+M584¤administrativEnhetsstatus¤¤0-1¤ ¤Tekststreng
+M585¤referanseOverordnet Enhet¤¤0-1¤ ¤Tekststreng (administrativEnhetNavn)
+ ¤¤¤¤¤
+ ¤¤¤¤¤
