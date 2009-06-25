@@ -76,7 +76,7 @@ M601¤opprettetAv¤ ¤1¤A¤Tekststreng
 M602¤avsluttetDato¤ ¤0-1¤A¤Dato/klokkeslett
 M603¤avsluttetAv¤ ¤0-1¤A¤Tekststreng
 M200¤referanseForelder¤OV.ORDNPRI/ OV.FAR¤1¤A¤klassifikasjonssystem. systemID/klasse.systemID
-M201¤referanseBarn¤ ¤1-M¤A¤klasse.systemID/basismappe. systemID/forenkletRegistrer ing.systemID
+M201¤referanseBarn¤ ¤1-M¤A¤klasse.systemID/basismappe. systemID/forenkletRegistrering.systemID
  ¤¤¤¤¤
  ¤¤¤¤¤
 Metadata for basismappe¤¤¤¤¤
@@ -95,8 +95,8 @@ M600¤opprettetDato¤ ¤1¤A¤Dato/klokkeslett
 M601¤opprettetAv¤ ¤1¤A¤Tekststreng
 M602¤avsluttetDato¤ ¤1¤A¤Dato/klokkeslett
 M603¤avsluttetAv¤ ¤1¤A¤Tekststreng
-M200¤referanseForelder¤KL.ORDNVER¤1¤A¤klasse.systemID/mappe. systemID
-M201¤referanseBarn¤ ¤1-M¤A¤forenkletRegistrering. systemID/mappe.systemID
+M200¤referanseForelder¤KL.ORDNVER¤1¤A¤klasse.systemID/basismappe. systemID
+M201¤referanseBarn¤ ¤1-M¤A¤forenkletRegistrering. systemID/basismappe.systemID
 M208¤referanseArkivdel¤SA.ARKDEL¤1¤A¤arkivdel.systemID
  ¤¤¤¤¤
  ¤¤¤¤¤
@@ -167,7 +167,7 @@ M600¤opprettetDato¤ ¤1¤A¤Dato/klokkeslett
 M601¤opprettetAv¤ ¤1¤A¤Tekststreng
 M604¤arkivertDato¤ ¤1¤A¤Dato/klokkeslett
 M605¤arkivertAv¤ ¤1¤A¤Tekststreng
-M200¤referanseForelder¤JP.SAID¤1¤A¤mappe.systemID/klasse.systemID
+M200¤referanseForelder¤JP.SAID¤1¤A¤basismappe.systemID/klasse.systemID
 M208¤referanseArkivdel¤JP.ARKDEL¤0-1¤A¤arkivdel.systemID
 M207¤referanseDokument beskrivelse¤ ¤0-M¤A¤dokumentbeskrivelse.systemID
 M216¤referanseDokument objekt¤ ¤0-M¤A¤dokumentobjekt.systemID
