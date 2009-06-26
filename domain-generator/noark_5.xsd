@@ -1,0 +1,416 @@
+<xsd:schema targetNamespace='http://www.machina.no/noark' xmlns:ecore='http://www.eclipse.org/emf/2002/Ecore' xmlns:noark='http://www.machina.no/noark' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+  <xsd:complexType name='Arkiv'>
+    <xsd:sequence>
+      <xsd:element name='Systemid' type='xsd:string' />
+      <xsd:element name='Tittel' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Arkivstatus' type='xsd:string' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
+      <xsd:element name='Avsluttetav' type='xsd:string' />
+      <xsd:element name='Referanseforelder' type='noark:Arkiv' />
+      <xsd:element name='Referansebarn_arkivdel' type='noark:Arkivdel' />
+      <xsd:element name='Referansebarn_arkiv' type='noark:Arkiv' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Arkivskaper'>
+    <xsd:sequence>
+      <xsd:element name='Arkivskaperid' type='xsd:string' />
+      <xsd:element name='Arkivskapernavn' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Arkivdel'>
+    <xsd:sequence>
+      <xsd:element name='Systemid' type='xsd:string' />
+      <xsd:element name='Tittel' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Arkivdelstatus' type='xsd:string' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
+      <xsd:element name='Avsluttetav' type='xsd:string' />
+      <xsd:element name='Arkivperiodestartdato' type='xsd:dateTime' />
+      <xsd:element name='Arkivperiodesluttdato' type='xsd:dateTime' />
+      <xsd:element name='Referanseforelder' type='noark:Arkiv' />
+      <xsd:element name='Referanseforløper' type='noark:Arkivdel' />
+      <xsd:element name='Referansearvtaker' type='noark:Arkivdel' />
+      <xsd:element name='ReferanseklassifikasjonsSystem' type='noark:Klassifikasjonssystem' />
+      <xsd:element name='Referansemappe' type='noark:Basismappe' />
+      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Klassifikasjonssystem'>
+    <xsd:sequence>
+      <xsd:element name='Systemid' type='xsd:string' />
+      <xsd:element name='Klassifikasjonstype' type='xsd:string' />
+      <xsd:element name='Tittel' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
+      <xsd:element name='Avsluttetav' type='xsd:string' />
+      <xsd:element name='Referansebarn' type='noark:Klasse' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Klasse'>
+    <xsd:sequence>
+      <xsd:element name='Systemid' type='xsd:string' />
+      <xsd:element name='Klasseid' type='xsd:string' />
+      <xsd:element name='Tittel' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Nøkkelord' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
+      <xsd:element name='Avsluttetav' type='xsd:string' />
+      <xsd:element name='Referanseforelder_klassifikasjonssystem' type='noark:Klassifikasjonssystem' />
+      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' />
+      <xsd:element name='Referansebarn_klasse' type='noark:Klasse' />
+      <xsd:element name='Referansebarn_basismappe' type='noark:Basismappe' />
+      <xsd:element name='Referansebarn_forenkletRegistrering' type='noark:ForenkletRegistrering' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Basismappe'>
+    <xsd:sequence>
+      <xsd:element name='Systemid' type='xsd:string' />
+      <xsd:element name='Mappeid' type='xsd:string' />
+      <xsd:element name='Mappetype' type='xsd:string' />
+      <xsd:element name='Tittel' type='xsd:string' />
+      <xsd:element name='Offentligtittel' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Nøkkelord' type='xsd:string' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
+      <xsd:element name='Avsluttetav' type='xsd:string' />
+      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' />
+      <xsd:element name='Referanseforelder_basismappe' type='noark:Basismappe' />
+      <xsd:element name='Referansebarn_forenkletRegistrering' type='noark:ForenkletRegistrering' />
+      <xsd:element name='Referansebarn_basismappe' type='noark:Basismappe' />
+      <xsd:element name='Referansearkivdel' type='noark:Arkivdel' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Saksmappe'>
+    <xsd:sequence>
+      <xsd:element name='Saksdato' type='xsd:dateTime' />
+      <xsd:element name='Administrativenhet' type='xsd:string' />
+      <xsd:element name='Saksansvarlig' type='xsd:string' />
+      <xsd:element name='Journalenhet' type='xsd:string' />
+      <xsd:element name='Saksstatus' type='xsd:string' />
+      <xsd:element name='Utlåntdato' type='xsd:dateTime' />
+      <xsd:element name='Utlånttil' type='xsd:string' />
+      <xsd:element name='ReferansesekundærKlassifikasjon' type='noark:Klasse' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Sakspart'>
+    <xsd:sequence>
+      <xsd:element name='Sakspartid' type='xsd:string' />
+      <xsd:element name='Sakspartnavn' type='xsd:string' />
+      <xsd:element name='Sakspartrolle' type='xsd:string' />
+      <xsd:element name='Postadresse' type='xsd:string' />
+      <xsd:element name='Postnummer' type='xsd:string' />
+      <xsd:element name='Poststed' type='xsd:string' />
+      <xsd:element name='Utenlandsadresse' type='xsd:string' />
+      <xsd:element name='Epostadresse' type='xsd:string' />
+      <xsd:element name='Telefonnummer' type='xsd:string' />
+      <xsd:element name='Kontaktperson' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Møtemappe'>
+    <xsd:sequence>
+      <xsd:element name='Møtenummer' type='xsd:string' />
+      <xsd:element name='Utvalg' type='xsd:string' />
+      <xsd:element name='Møtedato' type='xsd:dateTime' />
+      <xsd:element name='Møtested' type='xsd:string' />
+      <xsd:element name='Referanseforrigemøte' type='noark:Basismappe' />
+      <xsd:element name='Referansenestemøte' type='noark:Basismappe' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Møtedeltaker'>
+    <xsd:sequence>
+      <xsd:element name='Møtedeltakernavn' type='xsd:string' />
+      <xsd:element name='Møtedeltakerfunksjon' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='ForenkletRegistrering'>
+    <xsd:sequence>
+      <xsd:element name='Systemid' type='xsd:string' />
+      <xsd:element name='Registreringstype' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Arkivertdato' type='xsd:dateTime' />
+      <xsd:element name='Arkivertav' type='xsd:string' />
+      <xsd:element name='Referanseforelder_basismappe' type='noark:Basismappe' />
+      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' />
+      <xsd:element name='Referansearkivdel' type='noark:Arkivdel' />
+      <xsd:element name='ReferansedokumentBeskrivelse' type='noark:Dokumentbeskrivelse' />
+      <xsd:element name='ReferansedokumentObjekt' type='noark:Dokumentobjekt' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Basisregistrering'>
+    <xsd:sequence>
+      <xsd:element name='Registreringsid' type='xsd:string' />
+      <xsd:element name='Tittel' type='xsd:string' />
+      <xsd:element name='Offentligtittel' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Nøkkelord' type='xsd:string' />
+      <xsd:element name='Forfatter' type='xsd:string' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Journalpost'>
+    <xsd:sequence>
+      <xsd:element name='Løpenummer' type='xsd:string' />
+      <xsd:element name='Journalposttype' type='xsd:string' />
+      <xsd:element name='Journalstatus' type='xsd:string' />
+      <xsd:element name='Journaldato' type='xsd:dateTime' />
+      <xsd:element name='Dokumentetsdato' type='xsd:dateTime' />
+      <xsd:element name='Mottattdato' type='xsd:dateTime' />
+      <xsd:element name='Sendtdato' type='xsd:dateTime' />
+      <xsd:element name='Forfallsdato' type='xsd:dateTime' />
+      <xsd:element name='Offentlighetsvurdertdato' type='xsd:dateTime' />
+      <xsd:element name='Antallvedlegg' type='xsd:string' />
+      <xsd:element name='Utlåntdato' type='xsd:dateTime' />
+      <xsd:element name='Utlånttil' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Korrespondansepart'>
+    <xsd:sequence>
+      <xsd:element name='Korrespondanseparttype' type='xsd:string' />
+      <xsd:element name='Korrespondansepartnavn' type='xsd:string' />
+      <xsd:element name='Postadresse' type='xsd:string' />
+      <xsd:element name='Postnummer' type='xsd:string' />
+      <xsd:element name='Poststed' type='xsd:string' />
+      <xsd:element name='Utenlandsadresse' type='xsd:string' />
+      <xsd:element name='Epostadresse' type='xsd:string' />
+      <xsd:element name='Telefonnummer' type='xsd:string' />
+      <xsd:element name='Kontaktperson' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Saksansvar'>
+    <xsd:sequence>
+      <xsd:element name='Administrativenhet' type='xsd:string' />
+      <xsd:element name='Saksbehandler' type='xsd:string' />
+      <xsd:element name='Journalenhet' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Avskrivning'>
+    <xsd:sequence>
+      <xsd:element name='Avskrivningsdato' type='xsd:dateTime' />
+      <xsd:element name='Avskrevetav' type='xsd:string' />
+      <xsd:element name='Avskrivningsmåte' type='xsd:string' />
+      <xsd:element name='ReferanseavskriverJournalpost' type='noark:ForenkletRegistrering' />
+      <xsd:element name='ReferanseavskrivesavJournalpost' type='noark:ForenkletRegistrering' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Dokumentflyt'>
+    <xsd:sequence>
+      <xsd:element name='Flyttil' type='xsd:string' />
+      <xsd:element name='Flytfra' type='xsd:string' />
+      <xsd:element name='Flytmottattdato' type='xsd:dateTime' />
+      <xsd:element name='Flytsendtdato' type='xsd:dateTime' />
+      <xsd:element name='Flytstatus' type='xsd:string' />
+      <xsd:element name='Flytmerknad' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Saksfordeling'>
+    <xsd:sequence>
+      <xsd:element name='Fordelttil' type='xsd:string' />
+      <xsd:element name='Fordeltav' type='xsd:string' />
+      <xsd:element name='Fordeltdato' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Møteregistrering'>
+    <xsd:sequence>
+      <xsd:element name='Møteregistreringstype' type='xsd:string' />
+      <xsd:element name='Møtesakstype' type='xsd:string' />
+      <xsd:element name='Møteregistreringsstatus' type='xsd:string' />
+      <xsd:element name='Administrativenhet' type='xsd:string' />
+      <xsd:element name='Saksbehandler' type='xsd:string' />
+      <xsd:element name='ReferansetilMøteregistrering' type='noark:ForenkletRegistrering' />
+      <xsd:element name='Referanseframøteregistrering' type='noark:ForenkletRegistrering' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Dokumentbeskrivelse'>
+    <xsd:sequence>
+      <xsd:element name='Systemid' type='xsd:string' />
+      <xsd:element name='Dokumenttype' type='xsd:string' />
+      <xsd:element name='Dokumentstatus' type='xsd:string' />
+      <xsd:element name='Tittel' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Forfatter' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' />
+      <xsd:element name='ReferansedokumentObjekt' type='noark:Dokumentobjekt' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Dokumentlink'>
+    <xsd:sequence>
+      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' />
+      <xsd:element name='TilknyttetregistreringSom' type='xsd:string' />
+      <xsd:element name='Dokumentnummer' type='xsd:string' />
+      <xsd:element name='Tilknyttetdato' type='xsd:dateTime' />
+      <xsd:element name='Tilknyttetav' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Dokumentobjekt'>
+    <xsd:sequence>
+      <xsd:element name='Systemid' type='xsd:string' />
+      <xsd:element name='Versjonsnummer' type='xsd:string' />
+      <xsd:element name='Variantformat' type='xsd:string' />
+      <xsd:element name='Format' type='xsd:string' />
+      <xsd:element name='Formatdetaljer' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='ReferansedokumentBeskrivelse' type='noark:Dokumentbeskrivelse' />
+      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' />
+      <xsd:element name='Referansedokumentfil' type='xsd:string' />
+      <xsd:element name='Sjekksumdokument' type='xsd:string' />
+      <xsd:element name='Sjekksumalgoritme' type='xsd:string' />
+      <xsd:element name='Filstørrelse' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Kryssreferanse'>
+    <xsd:sequence>
+      <xsd:element name='Referansetilklasse' type='xsd:string' />
+      <xsd:element name='Referansefraklasse' type='xsd:string' />
+      <xsd:element name='Referansetilmappe' type='xsd:string' />
+      <xsd:element name='Referanseframappe' type='xsd:string' />
+      <xsd:element name='Referansetilregistrering' type='xsd:string' />
+      <xsd:element name='Referansefraregistrering' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Merknad'>
+    <xsd:sequence>
+      <xsd:element name='Merknadstekst' type='xsd:string' />
+      <xsd:element name='Merknadstype' type='xsd:string' />
+      <xsd:element name='Merknadsdato' type='xsd:dateTime' />
+      <xsd:element name='Merknadregistrertav' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='BevaringOgKassasjon'>
+    <xsd:sequence>
+      <xsd:element name='Kassasjonsvedtak' type='xsd:string' />
+      <xsd:element name='Kassasjonshjemmel' type='xsd:string' />
+      <xsd:element name='Bevaringstid' type='xsd:string' />
+      <xsd:element name='Kassasjonsdato' type='xsd:dateTime' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Skjerming'>
+    <xsd:sequence>
+      <xsd:element name='Tilgangsrestriksjon' type='xsd:string' />
+      <xsd:element name='Skjermingshjemmel' type='xsd:string' />
+      <xsd:element name='Skjermingmetadata' type='xsd:string' />
+      <xsd:element name='Skjermingdokument' type='xsd:string' />
+      <xsd:element name='Skjermingsvarighet' type='xsd:string' />
+      <xsd:element name='Skjermingopphørerdato' type='xsd:dateTime' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Gradering'>
+    <xsd:sequence>
+      <xsd:element name='Gradering' type='xsd:string' />
+      <xsd:element name='Graderingsdato' type='xsd:dateTime' />
+      <xsd:element name='Gradertav' type='xsd:string' />
+      <xsd:element name='Nedgraderingsdato' type='xsd:dateTime' />
+      <xsd:element name='Nedgradertav' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Presedens'>
+    <xsd:sequence>
+      <xsd:element name='Presedensdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Tittel' type='xsd:string' />
+      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Presedenshjemmel' type='xsd:string' />
+      <xsd:element name='Rettskildefaktor' type='xsd:string' />
+      <xsd:element name='Presedensgodkjentdato' type='xsd:dateTime' />
+      <xsd:element name='Presedensgodkjentav' type='xsd:string' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
+      <xsd:element name='Avsluttetav' type='xsd:string' />
+      <xsd:element name='Presedensstatus' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='VerifiseringAvElektroniskSignatur'>
+    <xsd:sequence>
+      <xsd:element name='ElektronisksignaturSikkerhetsnivå' type='xsd:string' />
+      <xsd:element name='ElektronisksignaturVerfisert' type='xsd:string' />
+      <xsd:element name='Verifisertdato' type='xsd:dateTime' />
+      <xsd:element name='Verfisertav' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='KonverteringTilArkivformat'>
+    <xsd:sequence>
+      <xsd:element name='Konvertertdato' type='xsd:dateTime' />
+      <xsd:element name='Konvertertav' type='xsd:string' />
+      <xsd:element name='Tidligereformat' type='xsd:string' />
+      <xsd:element name='Tidligereformatdetaljer' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='UtførtKassasjon'>
+    <xsd:sequence>
+      <xsd:element name='Kassertdato' type='xsd:dateTime' />
+      <xsd:element name='Kassertav' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SlettingAvDokumenter'>
+    <xsd:sequence>
+      <xsd:element name='Slettingstype' type='xsd:string' />
+      <xsd:element name='Slettetdato' type='xsd:dateTime' />
+      <xsd:element name='Slettetav' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Avlevering'>
+    <xsd:sequence>
+      <xsd:element name='Ansvarligeksport' type='xsd:string' />
+      <xsd:element name='Eksportertdato' type='xsd:dateTime' />
+      <xsd:element name='Antallmappereksportert' type='xsd:string' />
+      <xsd:element name='AntallregistreringerEksportert' type='xsd:string' />
+      <xsd:element name='AntalldokumenterEksportert' type='xsd:string' />
+      <xsd:element name='Sjekksummetadata' type='xsd:string' />
+      <xsd:element name='Sjekksumavlevering' type='xsd:string' />
+      <xsd:element name='Sjekksumalgoritme' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Endringslogg'>
+    <xsd:sequence>
+      <xsd:element name='Referansearkivenhet' type='xsd:string' />
+      <xsd:element name='Referansemetadata' type='xsd:string' />
+      <xsd:element name='Endretdato' type='xsd:dateTime' />
+      <xsd:element name='Endretav' type='xsd:string' />
+      <xsd:element name='Tidligereverdi' type='xsd:string' />
+      <xsd:element name='Nyverdi' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Brukeradministrasjon'>
+    <xsd:sequence>
+      <xsd:element name='Brukernavn' type='xsd:string' />
+      <xsd:element name='Brukerrolle' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
+      <xsd:element name='Brukerstatus' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Administrasjonsstruktur'>
+    <xsd:sequence>
+      <xsd:element name='Administrativenhetnavn' type='xsd:string' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
+      <xsd:element name='Opprettetav' type='xsd:string' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
+      <xsd:element name='Administrativenhetsstatus' type='xsd:string' />
+      <xsd:element name='ReferanseoverordnetEnhet' type='xsd:string' />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
