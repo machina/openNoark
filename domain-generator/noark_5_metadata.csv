@@ -175,7 +175,7 @@ M216¤referanseDokument objekt¤ ¤0-M¤A¤dokumentobjekt.systemID
  ¤¤¤¤¤
 Metadata for basisregistrering¤¤¤¤¤
  ¤¤¤¤¤
-Metadata for forenklet registrering inngår i basisregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
+Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
  ¤¤¤¤¤
 Nr.¤Navn¤Noark 4¤Forek.¤Avl. ¤Datatype
 M004¤registreringsID¤(SA.SAAR+ SA.SEKNR+ JP.POSTNR)¤1¤A¤Tekststreng

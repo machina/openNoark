@@ -7,33 +7,50 @@ def xsd = builder.'xsd:schema'( targetNamespace: "http://www.machina.no/noark", 
     'xmlns:noark': "http://www.machina.no/noark",
     'xmlns:xsd': "http://www.w3.org/2001/XMLSchema"){
 
+def createSequence = { lines ->
+	'xsd:sequence'() {
+		while(lines.hasNext()){
+			line = lines.next()
+			if(line == " ¤¤¤¤¤") break;
+			vals = line.split("¤")
+			def type = vals[5]
+			if(type.contains("/") && !type.contains("Dato")){
+				type.split("/").collect { t ->
+					def printableType = translateType(t)
+					'xsd:element'(name: "${camelize(vals[1])}_${t.substring(0,t.indexOf('.')).replace(' ','')}", type: printableType)
+				}
+			} else {
+				'xsd:element'(name: camelize(vals[1]), type: translateType(vals[5]))
+			}
+		}
+	}
+}
+
 	def lines = new File("noark_5_metadata.csv").readLines().iterator()
 	while(lines.hasNext()){
 		def line = lines.next()
 		if(line.startsWith("Metadata for ")){
 			'xsd:complexType'(name: camelize( line.substring(13, line.indexOf(DELIM)) )){
 				def state = "package"
-				'xsd:sequence'() {
-					println "complextype started"
-					while(lines.hasNext() && !line.startsWith("Nr.${DELIM}")){
-						println "zooming to parmas def with: ${line}"
-						line = lines.next()
-					}
-					while(lines.hasNext()){
-						line = lines.next()
-						if(line == " ¤¤¤¤¤") break;
-						vals = line.split("¤")
-						def type = vals[5]
-						if(type.contains("/") && !type.contains("Dato")){
-							type.split("/").collect { t ->
-								def printableType = translateType(t)
-								'xsd:element'(name: "${camelize(vals[1])}_${t.substring(0,t.indexOf('.')).replace(' ','')}", type: printableType)
-							}
-						} else {
-							'xsd:element'(name: camelize(vals[1]), type: translateType(vals[5]))
-						}
+				//println "complextype started"
+				def superClass
+				def classComment = ""
+		  	while(lines.hasNext() && !line.startsWith("Nr.${DELIM}")){
+					//println "zooming to parmas def with: ${line}"
+					if( line =~ /Metadata for .+ inngår i/ ) superClass = (line =~ /Metadata for (.+) inngår i/)[0][1]
+					classComment += "${line}\n"
+					line = lines.next()
+				}
+				'xsd:annotation'() { 'xsd:documentation'(classComment) }
 
+				if(superClass){
+					'xsd:complexContent'(){
+												'xsd:extension'(base: "noark:${capitalize(superClass)}"){
+							createSequence(lines)
+						}
 					}
+				} else {
+					createSequence(lines)
 				}
 				println "complextype complete"
 			}
