@@ -14,13 +14,21 @@ def createSequence = { lines ->
 			if(line == " ¤¤¤¤¤") break;
 			vals = line.split("¤")
 			def type = vals[5]
+			def minOccurs = "0"
+			def maxOccurs = "1"
+			if(vals[3].contains("-")){
+				minOccurs = vals[3].split("-")[0]
+				maxOccurs = vals[3].split("-")[1] == "M" ? "unbounded" : vals[3].split("-")[1]
+			} else {
+				minOccurs = maxOccurs = vals[3]
+			}
 			if(type.contains("/") && !type.contains("Dato")){
 				type.split("/").collect { t ->
 					def printableType = translateType(t)
-					'xsd:element'(name: "${camelize(vals[1])}_${t.substring(0,t.indexOf('.')).replace(' ','')}", type: printableType)
+					'xsd:element'(name: "${camelize(vals[1])}_${t.substring(0,t.indexOf('.')).replace(' ','')}", type: printableType, maxOccurs: maxOccurs, minOccurs: minOccurs)
 				}
 			} else {
-				'xsd:element'(name: camelize(vals[1]), type: translateType(vals[5]))
+				'xsd:element'(name: camelize(vals[1]), type: translateType(vals[5]), maxOccurs: maxOccurs, minOccurs: minOccurs)
 			}
 		}
 	}

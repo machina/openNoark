@@ -6,19 +6,19 @@
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Systemid' type='xsd:string' />
-      <xsd:element name='Tittel' type='xsd:string' />
-      <xsd:element name='Beskrivelse' type='xsd:string' />
-      <xsd:element name='Arkivstatus' type='xsd:string' />
-      <xsd:element name='Dokumentmedium' type='xsd:string' />
-      <xsd:element name='Oppbevaringssted' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
-      <xsd:element name='Avsluttetav' type='xsd:string' />
-      <xsd:element name='Referanseforelder' type='noark:Arkiv' />
-      <xsd:element name='Referansebarn_arkivdel' type='noark:Arkivdel' />
-      <xsd:element name='Referansebarn_arkiv' type='noark:Arkiv' />
+      <xsd:element name='Systemid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tittel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Arkivstatus' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' maxOccurs='unbounded' minOccurs='0' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avsluttetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseforelder' type='noark:Arkiv' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Referansebarn_arkivdel' type='noark:Arkivdel' maxOccurs='unbounded' minOccurs='1' />
+      <xsd:element name='Referansebarn_arkiv' type='noark:Arkiv' maxOccurs='unbounded' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Arkivskaper'>
@@ -31,9 +31,9 @@ Forekomst:               1-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Arkivskaperid' type='xsd:string' />
-      <xsd:element name='Arkivskapernavn' type='xsd:string' />
-      <xsd:element name='Beskrivelse' type='xsd:string' />
+      <xsd:element name='Arkivskaperid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Arkivskapernavn' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Arkivdel'>
@@ -43,24 +43,24 @@ Forekomst:               1-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Systemid' type='xsd:string' />
-      <xsd:element name='Tittel' type='xsd:string' />
-      <xsd:element name='Beskrivelse' type='xsd:string' />
-      <xsd:element name='Arkivdelstatus' type='xsd:string' />
-      <xsd:element name='Dokumentmedium' type='xsd:string' />
-      <xsd:element name='Oppbevaringssted' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
-      <xsd:element name='Avsluttetav' type='xsd:string' />
-      <xsd:element name='Arkivperiodestartdato' type='xsd:dateTime' />
-      <xsd:element name='Arkivperiodesluttdato' type='xsd:dateTime' />
-      <xsd:element name='Referanseforelder' type='noark:Arkiv' />
-      <xsd:element name='Referanseforløper' type='noark:Arkivdel' />
-      <xsd:element name='Referansearvtaker' type='noark:Arkivdel' />
-      <xsd:element name='ReferanseklassifikasjonsSystem' type='noark:Klassifikasjonssystem' />
-      <xsd:element name='Referansemappe' type='noark:Basismappe' />
-      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' />
+      <xsd:element name='Systemid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tittel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Arkivdelstatus' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' maxOccurs='unbounded' minOccurs='0' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avsluttetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Arkivperiodestartdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Arkivperiodesluttdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseforelder' type='noark:Arkiv' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseforløper' type='noark:Arkivdel' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansearvtaker' type='noark:Arkivdel' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='ReferanseklassifikasjonsSystem' type='noark:Klassifikasjonssystem' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansemappe' type='noark:Basismappe' maxOccurs='unbounded' minOccurs='1' />
+      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' maxOccurs='unbounded' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Klassifikasjonssystem'>
@@ -70,15 +70,15 @@ Forekomst:               1-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Systemid' type='xsd:string' />
-      <xsd:element name='Klassifikasjonstype' type='xsd:string' />
-      <xsd:element name='Tittel' type='xsd:string' />
-      <xsd:element name='Beskrivelse' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
-      <xsd:element name='Avsluttetav' type='xsd:string' />
-      <xsd:element name='Referansebarn' type='noark:Klasse' />
+      <xsd:element name='Systemid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Klassifikasjonstype' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Tittel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Avsluttetav' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Referansebarn' type='noark:Klasse' maxOccurs='unbounded' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Klasse'>
@@ -88,20 +88,20 @@ Forekomst:               1-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Systemid' type='xsd:string' />
-      <xsd:element name='Klasseid' type='xsd:string' />
-      <xsd:element name='Tittel' type='xsd:string' />
-      <xsd:element name='Beskrivelse' type='xsd:string' />
-      <xsd:element name='Nøkkelord' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
-      <xsd:element name='Avsluttetav' type='xsd:string' />
-      <xsd:element name='Referanseforelder_klassifikasjonssystem' type='noark:Klassifikasjonssystem' />
-      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' />
-      <xsd:element name='Referansebarn_klasse' type='noark:Klasse' />
-      <xsd:element name='Referansebarn_basismappe' type='noark:Basismappe' />
-      <xsd:element name='Referansebarn_forenkletRegistrering' type='noark:ForenkletRegistrering' />
+      <xsd:element name='Systemid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Klasseid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tittel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Nøkkelord' type='xsd:string' maxOccurs='unbounded' minOccurs='0' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Avsluttetav' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Referanseforelder_klassifikasjonssystem' type='noark:Klassifikasjonssystem' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansebarn_klasse' type='noark:Klasse' maxOccurs='unbounded' minOccurs='1' />
+      <xsd:element name='Referansebarn_basismappe' type='noark:Basismappe' maxOccurs='unbounded' minOccurs='1' />
+      <xsd:element name='Referansebarn_forenkletRegistrering' type='noark:ForenkletRegistrering' maxOccurs='unbounded' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Basismappe'>
@@ -111,24 +111,24 @@ Forekomst:               1-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Systemid' type='xsd:string' />
-      <xsd:element name='Mappeid' type='xsd:string' />
-      <xsd:element name='Mappetype' type='xsd:string' />
-      <xsd:element name='Tittel' type='xsd:string' />
-      <xsd:element name='Offentligtittel' type='xsd:string' />
-      <xsd:element name='Beskrivelse' type='xsd:string' />
-      <xsd:element name='Nøkkelord' type='xsd:string' />
-      <xsd:element name='Dokumentmedium' type='xsd:string' />
-      <xsd:element name='Oppbevaringssted' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
-      <xsd:element name='Avsluttetav' type='xsd:string' />
-      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' />
-      <xsd:element name='Referanseforelder_basismappe' type='noark:Basismappe' />
-      <xsd:element name='Referansebarn_forenkletRegistrering' type='noark:ForenkletRegistrering' />
-      <xsd:element name='Referansebarn_basismappe' type='noark:Basismappe' />
-      <xsd:element name='Referansearkivdel' type='noark:Arkivdel' />
+      <xsd:element name='Systemid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Mappeid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Mappetype' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tittel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Offentligtittel' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Nøkkelord' type='xsd:string' maxOccurs='unbounded' minOccurs='0' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' maxOccurs='unbounded' minOccurs='0' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avsluttetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseforelder_basismappe' type='noark:Basismappe' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansebarn_forenkletRegistrering' type='noark:ForenkletRegistrering' maxOccurs='unbounded' minOccurs='1' />
+      <xsd:element name='Referansebarn_basismappe' type='noark:Basismappe' maxOccurs='unbounded' minOccurs='1' />
+      <xsd:element name='Referansearkivdel' type='noark:Arkivdel' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Saksmappe'>
@@ -142,14 +142,14 @@ Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg
     <xsd:complexContent>
       <xsd:extension base='noark:Basismappe'>
         <xsd:sequence>
-          <xsd:element name='Saksdato' type='xsd:dateTime' />
-          <xsd:element name='Administrativenhet' type='xsd:string' />
-          <xsd:element name='Saksansvarlig' type='xsd:string' />
-          <xsd:element name='Journalenhet' type='xsd:string' />
-          <xsd:element name='Saksstatus' type='xsd:string' />
-          <xsd:element name='Utlåntdato' type='xsd:dateTime' />
-          <xsd:element name='Utlånttil' type='xsd:string' />
-          <xsd:element name='ReferansesekundærKlassifikasjon' type='noark:Klasse' />
+          <xsd:element name='Saksdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Administrativenhet' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Saksansvarlig' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Journalenhet' type='xsd:string' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Saksstatus' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Utlåntdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Utlånttil' type='xsd:string' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='ReferansesekundærKlassifikasjon' type='noark:Klasse' maxOccurs='unbounded' minOccurs='0' />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -164,16 +164,16 @@ Forekomst:               0-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Sakspartid' type='xsd:string' />
-      <xsd:element name='Sakspartnavn' type='xsd:string' />
-      <xsd:element name='Sakspartrolle' type='xsd:string' />
-      <xsd:element name='Postadresse' type='xsd:string' />
-      <xsd:element name='Postnummer' type='xsd:string' />
-      <xsd:element name='Poststed' type='xsd:string' />
-      <xsd:element name='Utenlandsadresse' type='xsd:string' />
-      <xsd:element name='Epostadresse' type='xsd:string' />
-      <xsd:element name='Telefonnummer' type='xsd:string' />
-      <xsd:element name='Kontaktperson' type='xsd:string' />
+      <xsd:element name='Sakspartid' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Sakspartnavn' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Sakspartrolle' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Postadresse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Postnummer' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Poststed' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Utenlandsadresse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Epostadresse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Telefonnummer' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Kontaktperson' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Møtemappe'>
@@ -187,12 +187,12 @@ Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tilleg
     <xsd:complexContent>
       <xsd:extension base='noark:Basismappe'>
         <xsd:sequence>
-          <xsd:element name='Møtenummer' type='xsd:string' />
-          <xsd:element name='Utvalg' type='xsd:string' />
-          <xsd:element name='Møtedato' type='xsd:dateTime' />
-          <xsd:element name='Møtested' type='xsd:string' />
-          <xsd:element name='Referanseforrigemøte' type='noark:Basismappe' />
-          <xsd:element name='Referansenestemøte' type='noark:Basismappe' />
+          <xsd:element name='Møtenummer' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Utvalg' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Møtedato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Møtested' type='xsd:string' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Referanseforrigemøte' type='noark:Basismappe' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Referansenestemøte' type='noark:Basismappe' maxOccurs='1' minOccurs='0' />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -207,8 +207,8 @@ Forekomst:               1-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Møtedeltakernavn' type='xsd:string' />
-      <xsd:element name='Møtedeltakerfunksjon' type='xsd:string' />
+      <xsd:element name='Møtedeltakernavn' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Møtedeltakerfunksjon' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='ForenkletRegistrering'>
@@ -218,17 +218,17 @@ Forekomst:               1-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Systemid' type='xsd:string' />
-      <xsd:element name='Registreringstype' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Arkivertdato' type='xsd:dateTime' />
-      <xsd:element name='Arkivertav' type='xsd:string' />
-      <xsd:element name='Referanseforelder_basismappe' type='noark:Basismappe' />
-      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' />
-      <xsd:element name='Referansearkivdel' type='noark:Arkivdel' />
-      <xsd:element name='ReferansedokumentBeskrivelse' type='noark:Dokumentbeskrivelse' />
-      <xsd:element name='ReferansedokumentObjekt' type='noark:Dokumentobjekt' />
+      <xsd:element name='Systemid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Registreringstype' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Arkivertdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Arkivertav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseforelder_basismappe' type='noark:Basismappe' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseforelder_klasse' type='noark:Klasse' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansearkivdel' type='noark:Arkivdel' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='ReferansedokumentBeskrivelse' type='noark:Dokumentbeskrivelse' maxOccurs='unbounded' minOccurs='0' />
+      <xsd:element name='ReferansedokumentObjekt' type='noark:Dokumentobjekt' maxOccurs='unbounded' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Basisregistrering'>
@@ -242,14 +242,14 @@ Metadata for forenkletRegistrering inngår i basisregistrering, følgende metada
     <xsd:complexContent>
       <xsd:extension base='noark:ForenkletRegistrering'>
         <xsd:sequence>
-          <xsd:element name='Registreringsid' type='xsd:string' />
-          <xsd:element name='Tittel' type='xsd:string' />
-          <xsd:element name='Offentligtittel' type='xsd:string' />
-          <xsd:element name='Beskrivelse' type='xsd:string' />
-          <xsd:element name='Nøkkelord' type='xsd:string' />
-          <xsd:element name='Forfatter' type='xsd:string' />
-          <xsd:element name='Dokumentmedium' type='xsd:string' />
-          <xsd:element name='Oppbevaringssted' type='xsd:string' />
+          <xsd:element name='Registreringsid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Tittel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Offentligtittel' type='xsd:string' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Nøkkelord' type='xsd:string' maxOccurs='unbounded' minOccurs='0' />
+          <xsd:element name='Forfatter' type='xsd:string' maxOccurs='unbounded' minOccurs='0' />
+          <xsd:element name='Dokumentmedium' type='xsd:string' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Oppbevaringssted' type='xsd:string' maxOccurs='unbounded' minOccurs='0' />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -265,18 +265,18 @@ Metadata for basisregistrering inngår i journalpost, følgende metadata kommer 
     <xsd:complexContent>
       <xsd:extension base='noark:Basisregistrering'>
         <xsd:sequence>
-          <xsd:element name='Løpenummer' type='xsd:string' />
-          <xsd:element name='Journalposttype' type='xsd:string' />
-          <xsd:element name='Journalstatus' type='xsd:string' />
-          <xsd:element name='Journaldato' type='xsd:dateTime' />
-          <xsd:element name='Dokumentetsdato' type='xsd:dateTime' />
-          <xsd:element name='Mottattdato' type='xsd:dateTime' />
-          <xsd:element name='Sendtdato' type='xsd:dateTime' />
-          <xsd:element name='Forfallsdato' type='xsd:dateTime' />
-          <xsd:element name='Offentlighetsvurdertdato' type='xsd:dateTime' />
-          <xsd:element name='Antallvedlegg' type='xsd:string' />
-          <xsd:element name='Utlåntdato' type='xsd:dateTime' />
-          <xsd:element name='Utlånttil' type='xsd:string' />
+          <xsd:element name='Løpenummer' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Journalposttype' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Journalstatus' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Journaldato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Dokumentetsdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Mottattdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Sendtdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Forfallsdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Offentlighetsvurdertdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Antallvedlegg' type='xsd:string' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Utlåntdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Utlånttil' type='xsd:string' maxOccurs='1' minOccurs='0' />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -291,15 +291,15 @@ Forekomst:               1-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Korrespondanseparttype' type='xsd:string' />
-      <xsd:element name='Korrespondansepartnavn' type='xsd:string' />
-      <xsd:element name='Postadresse' type='xsd:string' />
-      <xsd:element name='Postnummer' type='xsd:string' />
-      <xsd:element name='Poststed' type='xsd:string' />
-      <xsd:element name='Utenlandsadresse' type='xsd:string' />
-      <xsd:element name='Epostadresse' type='xsd:string' />
-      <xsd:element name='Telefonnummer' type='xsd:string' />
-      <xsd:element name='Kontaktperson' type='xsd:string' />
+      <xsd:element name='Korrespondanseparttype' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Korrespondansepartnavn' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Postadresse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Postnummer' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Poststed' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Utenlandsadresse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Epostadresse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Telefonnummer' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Kontaktperson' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Saksansvar'>
@@ -314,9 +314,9 @@ Ved organinterne dokumenter som skal følges opp, er det behov for å gruppere i
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Administrativenhet' type='xsd:string' />
-      <xsd:element name='Saksbehandler' type='xsd:string' />
-      <xsd:element name='Journalenhet' type='xsd:string' />
+      <xsd:element name='Administrativenhet' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Saksbehandler' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Journalenhet' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Avskrivning'>
@@ -331,11 +331,11 @@ Forekomst:               0-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Avskrivningsdato' type='xsd:dateTime' />
-      <xsd:element name='Avskrevetav' type='xsd:string' />
-      <xsd:element name='Avskrivningsmåte' type='xsd:string' />
-      <xsd:element name='ReferanseavskriverJournalpost' type='noark:ForenkletRegistrering' />
-      <xsd:element name='ReferanseavskrivesavJournalpost' type='noark:ForenkletRegistrering' />
+      <xsd:element name='Avskrivningsdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avskrevetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Avskrivningsmåte' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='ReferanseavskriverJournalpost' type='noark:ForenkletRegistrering' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='ReferanseavskrivesavJournalpost' type='noark:ForenkletRegistrering' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Dokumentflyt'>
@@ -348,12 +348,12 @@ Forekomst:               0-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Flyttil' type='xsd:string' />
-      <xsd:element name='Flytfra' type='xsd:string' />
-      <xsd:element name='Flytmottattdato' type='xsd:dateTime' />
-      <xsd:element name='Flytsendtdato' type='xsd:dateTime' />
-      <xsd:element name='Flytstatus' type='xsd:string' />
-      <xsd:element name='Flytmerknad' type='xsd:string' />
+      <xsd:element name='Flyttil' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Flytfra' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Flytmottattdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Flytsendtdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Flytstatus' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Flytmerknad' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Saksfordeling'>
@@ -366,9 +366,9 @@ Forekomst:               0-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Fordelttil' type='xsd:string' />
-      <xsd:element name='Fordeltav' type='xsd:string' />
-      <xsd:element name='Fordeltdato' type='xsd:string' />
+      <xsd:element name='Fordelttil' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Fordeltav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Fordeltdato' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Møteregistrering'>
@@ -382,13 +382,13 @@ Metadata for basisregistrering inngår i møteregistrering, følgende metadata k
     <xsd:complexContent>
       <xsd:extension base='noark:Basisregistrering'>
         <xsd:sequence>
-          <xsd:element name='Møteregistreringstype' type='xsd:string' />
-          <xsd:element name='Møtesakstype' type='xsd:string' />
-          <xsd:element name='Møteregistreringsstatus' type='xsd:string' />
-          <xsd:element name='Administrativenhet' type='xsd:string' />
-          <xsd:element name='Saksbehandler' type='xsd:string' />
-          <xsd:element name='ReferansetilMøteregistrering' type='noark:ForenkletRegistrering' />
-          <xsd:element name='Referanseframøteregistrering' type='noark:ForenkletRegistrering' />
+          <xsd:element name='Møteregistreringstype' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Møtesakstype' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Møteregistreringsstatus' type='xsd:string' maxOccurs='1' minOccurs='0' />
+          <xsd:element name='Administrativenhet' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='Saksbehandler' type='xsd:string' maxOccurs='1' minOccurs='1' />
+          <xsd:element name='ReferansetilMøteregistrering' type='noark:ForenkletRegistrering' maxOccurs='unbounded' minOccurs='0' />
+          <xsd:element name='Referanseframøteregistrering' type='noark:ForenkletRegistrering' maxOccurs='unbounded' minOccurs='0' />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -402,17 +402,17 @@ En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avl
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Systemid' type='xsd:string' />
-      <xsd:element name='Dokumenttype' type='xsd:string' />
-      <xsd:element name='Dokumentstatus' type='xsd:string' />
-      <xsd:element name='Tittel' type='xsd:string' />
-      <xsd:element name='Beskrivelse' type='xsd:string' />
-      <xsd:element name='Forfatter' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Dokumentmedium' type='xsd:string' />
-      <xsd:element name='Oppbevaringssted' type='xsd:string' />
-      <xsd:element name='ReferansedokumentObjekt' type='noark:Dokumentobjekt' />
+      <xsd:element name='Systemid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Dokumenttype' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Dokumentstatus' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tittel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Forfatter' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Dokumentmedium' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Oppbevaringssted' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='ReferansedokumentObjekt' type='noark:Dokumentobjekt' maxOccurs='unbounded' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Dokumentlink'>
@@ -427,11 +427,11 @@ Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en r
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' />
-      <xsd:element name='TilknyttetregistreringSom' type='xsd:string' />
-      <xsd:element name='Dokumentnummer' type='xsd:string' />
-      <xsd:element name='Tilknyttetdato' type='xsd:dateTime' />
-      <xsd:element name='Tilknyttetav' type='xsd:string' />
+      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='TilknyttetregistreringSom' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Dokumentnummer' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tilknyttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tilknyttetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Dokumentobjekt'>
@@ -441,19 +441,19 @@ Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en r
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Systemid' type='xsd:string' />
-      <xsd:element name='Versjonsnummer' type='xsd:string' />
-      <xsd:element name='Variantformat' type='xsd:string' />
-      <xsd:element name='Format' type='xsd:string' />
-      <xsd:element name='Formatdetaljer' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='ReferansedokumentBeskrivelse' type='noark:Dokumentbeskrivelse' />
-      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' />
-      <xsd:element name='Referansedokumentfil' type='xsd:string' />
-      <xsd:element name='Sjekksumdokument' type='xsd:string' />
-      <xsd:element name='Sjekksumalgoritme' type='xsd:string' />
-      <xsd:element name='Filstørrelse' type='xsd:string' />
+      <xsd:element name='Systemid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Versjonsnummer' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Variantformat' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Format' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Formatdetaljer' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='ReferansedokumentBeskrivelse' type='noark:Dokumentbeskrivelse' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseregistrering' type='noark:ForenkletRegistrering' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansedokumentfil' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Sjekksumdokument' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Sjekksumalgoritme' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Filstørrelse' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Kryssreferanse'>
@@ -468,12 +468,12 @@ Referansen kan gå fra en klasse til en annen klasse, fra en mappe til en annen 
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Referansetilklasse' type='xsd:string' />
-      <xsd:element name='Referansefraklasse' type='xsd:string' />
-      <xsd:element name='Referansetilmappe' type='xsd:string' />
-      <xsd:element name='Referanseframappe' type='xsd:string' />
-      <xsd:element name='Referansetilregistrering' type='xsd:string' />
-      <xsd:element name='Referansefraregistrering' type='xsd:string' />
+      <xsd:element name='Referansetilklasse' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansefraklasse' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansetilmappe' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referanseframappe' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansetilregistrering' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansefraregistrering' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Merknad'>
@@ -486,10 +486,10 @@ Forekomst:               0-M¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Merknadstekst' type='xsd:string' />
-      <xsd:element name='Merknadstype' type='xsd:string' />
-      <xsd:element name='Merknadsdato' type='xsd:dateTime' />
-      <xsd:element name='Merknadregistrertav' type='xsd:string' />
+      <xsd:element name='Merknadstekst' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Merknadstype' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Merknadsdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Merknadregistrertav' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='BevaringOgKassasjon'>
@@ -505,10 +505,10 @@ I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i ar
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Kassasjonsvedtak' type='xsd:string' />
-      <xsd:element name='Kassasjonshjemmel' type='xsd:string' />
-      <xsd:element name='Bevaringstid' type='xsd:string' />
-      <xsd:element name='Kassasjonsdato' type='xsd:dateTime' />
+      <xsd:element name='Kassasjonsvedtak' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Kassasjonshjemmel' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Bevaringstid' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Kassasjonsdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Skjerming'>
@@ -525,12 +525,12 @@ I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i ar
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Tilgangsrestriksjon' type='xsd:string' />
-      <xsd:element name='Skjermingshjemmel' type='xsd:string' />
-      <xsd:element name='Skjermingmetadata' type='xsd:string' />
-      <xsd:element name='Skjermingdokument' type='xsd:string' />
-      <xsd:element name='Skjermingsvarighet' type='xsd:string' />
-      <xsd:element name='Skjermingopphørerdato' type='xsd:dateTime' />
+      <xsd:element name='Tilgangsrestriksjon' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Skjermingshjemmel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Skjermingmetadata' type='xsd:string' maxOccurs='unbounded' minOccurs='1' />
+      <xsd:element name='Skjermingdokument' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Skjermingsvarighet' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Skjermingopphørerdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Gradering'>
@@ -543,11 +543,11 @@ Forekomst:               0-1¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Gradering' type='xsd:string' />
-      <xsd:element name='Graderingsdato' type='xsd:dateTime' />
-      <xsd:element name='Gradertav' type='xsd:string' />
-      <xsd:element name='Nedgraderingsdato' type='xsd:dateTime' />
-      <xsd:element name='Nedgradertav' type='xsd:string' />
+      <xsd:element name='Gradering' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Graderingsdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Gradertav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Nedgraderingsdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Nedgradertav' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Presedens'>
@@ -560,18 +560,18 @@ Forekomst:               0-M        ¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Presedensdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Tittel' type='xsd:string' />
-      <xsd:element name='Beskrivelse' type='xsd:string' />
-      <xsd:element name='Presedenshjemmel' type='xsd:string' />
-      <xsd:element name='Rettskildefaktor' type='xsd:string' />
-      <xsd:element name='Presedensgodkjentdato' type='xsd:dateTime' />
-      <xsd:element name='Presedensgodkjentav' type='xsd:string' />
-      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
-      <xsd:element name='Avsluttetav' type='xsd:string' />
-      <xsd:element name='Presedensstatus' type='xsd:string' />
+      <xsd:element name='Presedensdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tittel' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Beskrivelse' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Presedenshjemmel' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Rettskildefaktor' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Presedensgodkjentdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Presedensgodkjentav' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Avsluttetav' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Presedensstatus' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='VerifiseringAvElektroniskSignatur'>
@@ -584,10 +584,10 @@ Forekomst:               0-1¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='ElektronisksignaturSikkerhetsnivå' type='xsd:string' />
-      <xsd:element name='ElektronisksignaturVerfisert' type='xsd:string' />
-      <xsd:element name='Verifisertdato' type='xsd:dateTime' />
-      <xsd:element name='Verfisertav' type='xsd:string' />
+      <xsd:element name='ElektronisksignaturSikkerhetsnivå' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='ElektronisksignaturVerfisert' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Verifisertdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Verfisertav' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='KonverteringTilArkivformat'>
@@ -602,10 +602,10 @@ Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konverte
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Konvertertdato' type='xsd:dateTime' />
-      <xsd:element name='Konvertertav' type='xsd:string' />
-      <xsd:element name='Tidligereformat' type='xsd:string' />
-      <xsd:element name='Tidligereformatdetaljer' type='xsd:string' />
+      <xsd:element name='Konvertertdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Konvertertav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tidligereformat' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tidligereformatdetaljer' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='UtførtKassasjon'>
@@ -620,8 +620,8 @@ Ved kassasjon skal dokumentobjektet slettes. ¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Kassertdato' type='xsd:dateTime' />
-      <xsd:element name='Kassertav' type='xsd:string' />
+      <xsd:element name='Kassertdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Kassertav' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='SlettingAvDokumenter'>
@@ -639,9 +639,9 @@ Ved sletting av innholdet i en arkivdel (som ikke har bevaringsverdi), skal alle
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Slettingstype' type='xsd:string' />
-      <xsd:element name='Slettetdato' type='xsd:dateTime' />
-      <xsd:element name='Slettetav' type='xsd:string' />
+      <xsd:element name='Slettingstype' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Slettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Slettetav' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Avlevering'>
@@ -653,14 +653,14 @@ Metadata for avlevering skal avleveres som en egen fil.¤¤¤¤¤
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Ansvarligeksport' type='xsd:string' />
-      <xsd:element name='Eksportertdato' type='xsd:dateTime' />
-      <xsd:element name='Antallmappereksportert' type='xsd:string' />
-      <xsd:element name='AntallregistreringerEksportert' type='xsd:string' />
-      <xsd:element name='AntalldokumenterEksportert' type='xsd:string' />
-      <xsd:element name='Sjekksummetadata' type='xsd:string' />
-      <xsd:element name='Sjekksumavlevering' type='xsd:string' />
-      <xsd:element name='Sjekksumalgoritme' type='xsd:string' />
+      <xsd:element name='Ansvarligeksport' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Eksportertdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Antallmappereksportert' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='AntallregistreringerEksportert' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='AntalldokumenterEksportert' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Sjekksummetadata' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Sjekksumavlevering' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Sjekksumalgoritme' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Endringslogg'>
@@ -674,12 +674,12 @@ Ikke alle endringer skal avleveres. Aktuelle endringer kan  være  endring av 
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Referansearkivenhet' type='xsd:string' />
-      <xsd:element name='Referansemetadata' type='xsd:string' />
-      <xsd:element name='Endretdato' type='xsd:dateTime' />
-      <xsd:element name='Endretav' type='xsd:string' />
-      <xsd:element name='Tidligereverdi' type='xsd:string' />
-      <xsd:element name='Nyverdi' type='xsd:string' />
+      <xsd:element name='Referansearkivenhet' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Referansemetadata' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Endretdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Endretav' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Tidligereverdi' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Nyverdi' type='xsd:string' maxOccurs='1' minOccurs='1' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Brukeradministrasjon'>
@@ -692,12 +692,12 @@ Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres m
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Brukernavn' type='xsd:string' />
-      <xsd:element name='Brukerrolle' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
-      <xsd:element name='Brukerstatus' type='xsd:string' />
+      <xsd:element name='Brukernavn' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Brukerrolle' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Brukerstatus' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name='Administrasjonsstruktur'>
@@ -709,12 +709,12 @@ Metadata for administrasjonsstruktur skal ikke avleves, men skal kunne migreres 
 </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name='Administrativenhetnavn' type='xsd:string' />
-      <xsd:element name='Opprettetdato' type='xsd:dateTime' />
-      <xsd:element name='Opprettetav' type='xsd:string' />
-      <xsd:element name='Avsluttetdato' type='xsd:dateTime' />
-      <xsd:element name='Administrativenhetsstatus' type='xsd:string' />
-      <xsd:element name='ReferanseoverordnetEnhet' type='xsd:string' />
+      <xsd:element name='Administrativenhetnavn' type='xsd:string' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='1' />
+      <xsd:element name='Opprettetav' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Avsluttetdato' type='xsd:dateTime' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='Administrativenhetsstatus' type='xsd:string' maxOccurs='1' minOccurs='0' />
+      <xsd:element name='ReferanseoverordnetEnhet' type='xsd:string' maxOccurs='1' minOccurs='0' />
     </xsd:sequence>
   </xsd:complexType>
 </xsd:schema>
