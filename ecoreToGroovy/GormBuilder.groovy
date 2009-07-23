@@ -73,7 +73,7 @@ class GormBuilder extends BuilderSupport {
 
 	protected void nodeCompleted(Object parent, Object node) {
 		if(!node || !node['multiplicity']) {
-			out.println "constraints = {\n${constaints}}"
+			out.println "static constraints = {\n${constaints}}"
 			out.println "static hasMany = ${hasMany.toString()}"
 			out.println "}"
 		}
