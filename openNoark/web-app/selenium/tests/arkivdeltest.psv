@@ -11,7 +11,7 @@ open|/openNoark/arkivdel/create|
 type|tittel|Test Arkivdel
 select|referanseforelder|label=Test Arkiv for arkivdel
 clickAndWait|//input[@name='save']|
-verifyTextPresent|Nytt arkiv er opprettet|
+verifyTextPresent|Ny arkivdel er opprettet|
 verifyText|//tr[@id='title_row']/td[2]|Test Arkivdel
 verifyText|//tr[6]/td[1]/label|Arkivdel Status
 verifyText|//tr[6]/td[2]|Opprettet
