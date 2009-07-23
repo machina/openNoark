@@ -1,0 +1,26 @@
+open|/openNoark/arkiv/create|
+type|tittel|Test Arkiv oppdat
+clickAndWait|//input[@name='save']|
+verifyTextPresent|Nytt arkiv er opprettet|
+verifyText|//tr[@id='title_row']/td[2]|Test Arkiv oppdat
+verifyText|//tr[6]/td[1]/label|Status
+verifyText|//tr[6]/td[2]|Opprettet
+open|/openNoark/arkiv/list|
+verifyTextPresent|Test Arkiv oppdat|
+clickAndWait|link=Test Arkiv oppdat|
+type|tittel|Test Arkiv oppdatert
+clickAndWait|//input[@name='save']|
+assertTextNotPresent|Error 500|
+assertTextNotPresent|errors|
+verifyTextPresent|Test Arkiv oppdatert|
+open|/openNoark/arkiv/list|
+verifyTextPresent|Test Arkiv oppdatert|
+clickAndWait|link=Test Arkiv oppdatert|
+select|//form[@id='archive']/table/tbody/tr[7]/td[2]/select|label=Avsluttet
+click|save|
+verifyTextPresent|Avsluttet|
+open|/openNoark/arkiv/list|
+clickAndWait|link=Test Arkiv oppdatert|
+select|arkivstatus|label=Opprettet
+clickAndWait|save|
+verifyTextPresent|Opprettet|

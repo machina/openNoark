@@ -1,0 +1,14 @@
+open|/openNoark/arkiv/create|
+type|tittel|Avsluttet arkiv
+clickAndWait|//input[@name='save']|
+verifyTextPresent|Nytt arkiv er opprettet|
+open|/openNoark/arkiv/list|
+clickAndWait|link=Avsluttet arkiv|
+select|//form[@id='archive']/table/tbody/tr[7]/td[2]/select|label=Avsluttet
+clickAndWait|save|
+verifyTextPresent|Avsluttet|
+open|/openNoark/arkivdel/create|
+type|tittel|test akrivdel
+select|referanseforelder|label=Avsluttet arkiv
+clickAndWait|save|
+verifyTextPresent|Kan ikke legge inn arkivdeler under et avsluttet arkiv.|
