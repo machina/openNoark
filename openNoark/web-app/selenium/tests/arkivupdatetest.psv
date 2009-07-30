@@ -17,7 +17,7 @@ open|/openNoark/arkiv/list|
 verifyTextPresent|Test Arkiv oppdatert|
 clickAndWait|link=Test Arkiv oppdatert|
 select|//form[@id='archive']/table/tbody/tr[7]/td[2]/select|label=Avsluttet
-click|save|
+clickAndWait|save|
 verifyTextPresent|Avsluttet|
 open|/openNoark/arkiv/list|
 clickAndWait|link=Test Arkiv oppdatert|
