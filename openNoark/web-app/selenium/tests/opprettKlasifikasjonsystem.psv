@@ -1,0 +1,14 @@
+open|/openNoark/auth/login?targetUri=%2Farkiv%2Flist|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+clickAndWait|link=KlassifikasjonssystemController|
+clickAndWait|link=New Klassifikasjonssystem|
+type|klassifikasjonstype|test
+type|tittel|test1
+type|beskrivelse|test
+type|opprettetav|kent
+clickAndWait|//input[@value='Create']|
+verifyTextPresent|test1|
+clickAndWait|link=Klassifikasjonssystem List|
+verifyTextPresent|test1|

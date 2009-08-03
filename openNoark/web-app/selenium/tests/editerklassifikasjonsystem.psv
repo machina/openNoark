@@ -1,0 +1,17 @@
+open|/openNoark/auth/login?targetUri=%2F|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+clickAndWait|link=KlassifikasjonssystemController|
+clickAndWait|link=New Klassifikasjonssystem|
+type|klassifikasjonstype|test
+type|tittel|edittest1
+type|opprettetav|dill
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Klassifikasjonssystem List|
+verifyTextPresent|edittest1|
+clickAndWait|link=edittest1|
+clickAndWait|_action_Edit|
+type|beskrivelse|blabla
+clickAndWait|_action_Update|
+verifyTextPresent|blabla|
