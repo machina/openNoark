@@ -265,3 +265,28 @@ th.desc a {
     background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
     padding-left: 28px;
 }
+.menu{
+
+	float: left;
+	width: 20em;
+}
+
+.content{
+	float: left;
+	width: 120em;
+}
+
+.all{
+	width: 1400em;
+}
+
+.menu ul{
+  margin-top:3em;
+  padding-left:0px;
+  margin-left:0px;
+  list-style-type: none;
+}
+
+.menu li{
+	margin-top: 1em;
+}

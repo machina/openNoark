@@ -1,0 +1,20 @@
+open|/openNoark/auth/login?targetUri=%2F|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+clickAndWait|link=Arkiv|
+verifyTextPresent|Arkiv|
+clickAndWait|link=Arkivdeler|
+verifyTextPresent|Arkivdeler|
+clickAndWait|link=Klassifikasjonssystemer|
+verifyTextPresent|Klassifikasjonssystem|
+clickAndWait|link=Klasser|
+verifyTextPresent|Klasse|
+clickAndWait|link=Basismappeer|
+verifyTextPresent|Basismappe|
+clickAndWait|link=Dokumentobjekter|
+verifyTextPresent|Dokumentobjekt|
+clickAndWait|link=Dokumentbeskrivelser|
+verifyTextPresent|Dokumentbeskrivelse|
+click|link=Brukeradministrasjon|
+verifyTextPresent|Bruker|
