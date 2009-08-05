@@ -28,15 +28,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="systemid">Systemid:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'systemid','errors')}">
-                                    <input type="text" id="systemid" name="systemid" value="${fieldValue(bean:forenkletRegistreringInstance,field:'systemid')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="registreringstype">Registreringstype:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'registreringstype','errors')}">

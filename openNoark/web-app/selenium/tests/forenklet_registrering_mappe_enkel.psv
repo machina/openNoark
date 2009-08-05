@@ -1,0 +1,27 @@
+open|/openNoark/auth/login?targetUri=%2F|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+open|/openNoark/arkiv/create|
+type|tittel|regarkiv1
+type|opprettetav|test
+click|save|
+open|/openNoark/arkivdel/create|
+type|tittel|regarkivdel1
+type|opprettetav|test
+select|referanseforelder|label=regarkiv1
+clickAndWait|save|
+open|/openNoark|
+clickAndWait|link=BasismappeController|
+clickAndWait|link=New Basismappe|
+type|mappetype|dilldall
+type|tittel|regmappe1
+type|offentligtittel|regmappe1
+type|opprettetav|test
+clickAndWait|//input[@value='Create']|
+clickAndWait|create|
+type|registreringstype|dill
+type|opprettetav|dall
+type|arkivertav|sfsdfsdfsdfs
+clickAndWait|//input[@value='Create']|
+verifyTextPresent|created|

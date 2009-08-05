@@ -1,5 +1,3 @@
-
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -21,14 +19,6 @@
                 <table>
                     <tbody>
 
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name">Id:</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'id')}</td>
-                            
-                        </tr>
-                    
                         <tr class="prop">
                             <td valign="top" class="name">Systemid:</td>
                             
@@ -153,7 +143,19 @@
                             <td valign="top" class="value"><g:link controller="arkivdel" action="show" id="${basismappeInstance?.referansearkivdel?.id}">${basismappeInstance?.referansearkivdel?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
-                    
+                       <tr class="prop">
+                            <td valign="top" class="name">Registeringer</td>
+                            
+                            <td  valign="top" style="text-align:left;" class="value">
+                                <ul>
+                                <g:each var="r" in="${basismappeInstance.referansebarnForenkletRegistrering}">
+                                    <li><g:link controller="forenkletRegistrering" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+ 
                     </tbody>
                 </table>
             </div>
@@ -163,6 +165,10 @@
                     <span class="button"><g:actionSubmit class="edit" value="Edit" /></span>
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
                 </g:form>
+								<g:form controller="forenkletRegistrering" action="create" method="get">
+										<input type="hidden" name="mappe_id" value="${basismappeInstance?.id}" />
+										<span class="button"><g:submitButton class="create" name="create" value="Legg til registrering" /></span>
+								</g:form>
             </div>
         </div>
     </body>

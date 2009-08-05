@@ -88,6 +88,7 @@ class ForenkletRegistreringController {
 
     def save = {
         def forenkletRegistreringInstance = new ForenkletRegistrering(params)
+				forenkletRegistreringInstance.systemid = UUID.randomUUID().toString()
         if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
             flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
             redirect(action:show,id:forenkletRegistreringInstance.id)

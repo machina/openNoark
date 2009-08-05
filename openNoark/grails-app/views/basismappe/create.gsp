@@ -28,15 +28,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="systemid">Systemid:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'systemid','errors')}">
-                                    <input type="text" id="systemid" name="systemid" value="${fieldValue(bean:basismappeInstance,field:'systemid')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="mappeid">Mappeid:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'mappeid','errors')}">
