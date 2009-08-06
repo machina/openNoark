@@ -14,7 +14,7 @@
 				<div class="menu">
 				<ul>
           <li class="controller"><a href="/openNoark/arkiv/index">Arkiv</a></li>
-					<li class="controller"><a href="/openNoark/arkivdel/index">Arkiver</a></li>
+					<li class="controller"><a href="/openNoark/arkivdel/index">Arkivdeler</a></li>
           <li class="controller"><a href="/openNoark/klassifikasjonssystem/index">Klassifikasjonssystemer</a></li>
  					<li class="controller"><a href="/openNoark/klasse/index">Klasser</a></li>
           <li class="controller"><a href="/openNoark/basismappe/index">Basismappeer</a></li>
