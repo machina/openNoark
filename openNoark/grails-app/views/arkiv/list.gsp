@@ -4,6 +4,10 @@
     </head>
     <body>
         <h1>Arkiver</h1>
+					<div class="nav">
+            <span class="menuButton"><a class="home" href="${resource(dir:'')}">Hjem</a></span>
+            <span class="menuButton"><g:link class="create" action="create">Nytt Arkiv</g:link></span>
+        </div>
 
 					<table>
 						<th>SystemId</th>

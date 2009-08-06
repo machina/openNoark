@@ -16,5 +16,5 @@ clickAndWait|link=Dokumentobjekter|
 verifyTextPresent|Dokumentobjekt|
 clickAndWait|link=Dokumentbeskrivelser|
 verifyTextPresent|Dokumentbeskrivelse|
-click|link=Brukeradministrasjon|
+clickAndWait|link=Brukeradministrasjon|
 verifyTextPresent|Bruker|

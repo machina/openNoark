@@ -2,17 +2,18 @@ open|/openNoark/auth/login?targetUri=%2F|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
-open|/openNoark/arkiv/create|
+clickAndWait|link=Arkiv|
+clickAndWait|link=Nytt Arkiv|
 type|tittel|regarkiv1
 type|opprettetav|test
-click|save|
-open|/openNoark/arkivdel/create|
+clickAndWait|save|
+clickAndWait|link=Arkivdeler|
+clickAndWait|link=Ny Arkivdel|
 type|tittel|regarkivdel1
 type|opprettetav|test
 select|referanseforelder|label=regarkiv1
 clickAndWait|save|
-open|/openNoark|
-clickAndWait|link=BasismappeController|
+clickAndWait|link=Basismapper|
 clickAndWait|link=New Basismappe|
 type|mappetype|dilldall
 type|tittel|regmappe1
