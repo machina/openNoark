@@ -22,4 +22,7 @@ referansedokumentBeskrivelse(nullable: true)
 referansedokumentObjekt(nullable: true)
 }
 static hasMany = [referansedokumentBeskrivelse:Dokumentbeskrivelse, referansedokumentObjekt:Dokumentobjekt]
+static auditable = true
+
+
 }

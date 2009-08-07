@@ -1,0 +1,11 @@
+open|/openNoark/auth/login?targetUri=%2F|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+clickAndWait|link=Arkiv|
+click|link=Nytt Arkiv|
+type|tittel|LoggArkiv
+type|opprettetav|dill
+clickAndWait|save|
+clickAndWait|link=Log|
+verifyTextPresent|Arkiv|

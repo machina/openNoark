@@ -23,4 +23,7 @@ oppbevaringssted(nullable: true)
 referansedokumentObjekt(nullable: true)
 }
 static hasMany = [referansedokumentObjekt:Dokumentobjekt]
+static auditable = true
+
+
 }

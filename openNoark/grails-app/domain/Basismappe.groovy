@@ -34,4 +34,7 @@ referansebarnBasismappe(minSize: 1)
 referansearkivdel(nullable: false)
 }
 static hasMany = [nøkkelord:String, oppbevaringssted:String, referansebarnBasismappe:Basismappe, referansebarnForenkletRegistrering:ForenkletRegistrering ]
+static auditable = true
+
+
 }

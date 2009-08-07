@@ -28,4 +28,7 @@ sjekksumalgoritme(nullable: false)
 filstørrelse(nullable: false)
 }
 static hasMany = [:]
+static auditable = true
+
+
 }

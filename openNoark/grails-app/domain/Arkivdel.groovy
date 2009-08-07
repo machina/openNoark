@@ -39,4 +39,8 @@ referanseforelder( validator: {
 //referanseregistrering(nullable: true)
 }
 static hasMany = [oppbevaringssted:String]
+
+static auditable = true
+
+
 }

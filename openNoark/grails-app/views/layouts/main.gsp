@@ -22,6 +22,7 @@
           <li class="controller"><a href="/openNoark/dokumentobjekt/index">Dokumentobjekter</a></li>
 					<li class="controller"><a href="/openNoark/dokumentbeskrivelse/index">Dokumentbeskrivelser</a></li>
           <li class="controller"><a href="/openNoark/user/index">Brukeradministrasjon</a></li>
+          <li class="controller"><a href="/openNoark/auditLogEvent/list">Log</a></li>
 				</ul>
 				</div>
 				<div class="content">

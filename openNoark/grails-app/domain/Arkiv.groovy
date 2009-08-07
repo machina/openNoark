@@ -34,5 +34,7 @@ static mappedBy = [subArkiv:'forelder',referansebarnArkiv:'referanseforelder']
     if(referansebarnArkivdel && referansebarnArkivdel.size() == 0) referansebarnArkivdel = null
 		if(referansebarnArkiv && referansebarnArkiv.size() == 0) referansebarnArkiv = null
   }  
+	static auditable = true
+
 
 }

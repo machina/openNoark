@@ -22,8 +22,11 @@ avsluttetav(nullable: true)
 referanseforelderKlassifikasjonssystem(nullable: false)
 referanseforelderKlasse(nullable: false)
 referansebarnKlasse(minSize: 1)
-//referansebarnBasismappe(minSize: 1)
-//referansebarnForenkletRegistrering(minSize: 1)
+referansebarnBasismappe(minSize: 1)
+referansebarnForenkletRegistrering(minSize: 1)
 }
-static hasMany = [nøkkelord:String, referansebarnKlasse:Klasse] //, referansebarnBasismappe:Basismappe, referansebarnForenkletRegistrering:ForenkletRegistrering]
+static hasMany = [nøkkelord:String, referansebarnKlasse:Klasse, referansebarnBasismappe:Basismappe, referansebarnForenkletRegistrering:ForenkletRegistrering]
+static auditable = true
+
+
 }
