@@ -1,4 +1,4 @@
-
+import java.text.SimpleDateFormat
 
 class ForenkletRegistreringController {
     
@@ -87,13 +87,32 @@ class ForenkletRegistreringController {
     }
 
     def save = {
-        def forenkletRegistreringInstance = new ForenkletRegistrering(params)
+				println params
+				def df = new SimpleDateFormat("dd-MM-yyyy")
+        def forenkletRegistreringInstance = null
+				if(params.ForenkletRegistrering != null){
+					params.ForenkletRegistrering.arkivertdato = df.parse(params.ForenkletRegistrering.arkivertdato)
+					params.ForenkletRegistrering.opprettetdato = df.parse(params.ForenkletRegistrering.opprettetdato)
+					forenkletRegistreringInstance = new ForenkletRegistrering(params.ForenkletRegistrering)
+					if(params.ForenkletRegistrering.mappe_id != null){
+						forenkletRegistreringInstance.setReferanseforelderBasismappe(Basismappe.get(Long.parseLong(params.ForenkletRegistrering.mappe_id)))
+					}
+//					forenkletRegistreringInstance.arkivertdato = df.parse(params.ForenkletRegistrering.arkivertdato)
+	//				forenkletRegistreringInstance.opprettetdato = df.parse(params.ForenkletRegistrering.opprettetdato)
+				} else {
+					forenkletRegistreringInstance = new ForenkletRegistrering(params)
+				}
+				println "arkivertdato ${forenkletRegistreringInstance.arkivertdato}"
+				println "opprettetdato ${forenkletRegistreringInstance.opprettetdato}"
 				forenkletRegistreringInstance.systemid = UUID.randomUUID().toString()
         if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
             flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
             redirect(action:show,id:forenkletRegistreringInstance.id)
         }
         else {
+						println "arkivertdato2 ${forenkletRegistreringInstance.arkivertdato}"
+  	 	 		  println "opprettetdato2 ${forenkletRegistreringInstance.opprettetdato}"
+						println forenkletRegistreringInstance.errors
             render(view:'create',model:[forenkletRegistreringInstance:forenkletRegistreringInstance])
         }
     }

@@ -1,4 +1,4 @@
-
+import grails.converters.*
 
 class BasismappeController {
     
@@ -8,13 +8,24 @@ class BasismappeController {
     static allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
-        params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ basismappeInstanceList: Basismappe.list( params ), basismappeInstanceTotal: Basismappe.count() ]
+			  params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
+
+				withFormat {
+						html {
+			 	      return [ basismappeInstanceList: Basismappe.list( params ), basismappeInstanceTotal: Basismappe.count() ]
+						}
+						xml {
+							render Basismappe.list() as XML
+						}
+						json {
+							render Basismappe.list() as JSON
+						}
+				}
     }
 
     def show = {
         def basismappeInstance = Basismappe.get( params.id )
-
+		
         if(!basismappeInstance) {
             flash.message = "Basismappe not found with id ${params.id}"
             redirect(action:list)
