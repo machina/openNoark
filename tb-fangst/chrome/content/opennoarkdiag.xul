@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  id="catchDiag"
+  title="Fang dokument"
+  ondialogaccept="return onOK();"
+  onload="onLoad();"
+  persist="screenX screenY width height"
+  windowtype="myDialogWindowType">
+
+  <script type="application/x-javascript" src="chrome://opennoark/content/opennoark.js"/>
+  <grid>
+    <columns><column/><column/></columns>
+    <rows>
+      <row align="center"><label value="Name:"/><textbox id="regtype"/></row>
+			<row align="center"><label value="Mappe:"/>
+				<menulist id='folderlist' editable="true">
+				  <menupopup id="mappeliste">
+			  	</menupopup>
+				</menulist>
+			</row>
+    </rows>
+  </grid>
+</dialog>
+

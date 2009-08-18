@@ -1,0 +1,2 @@
+content     opennoark    chrome/content/
+overlay chrome://messenger/content/msgHdrViewOverlay.xul chrome://opennoark/content/opennoark.xul

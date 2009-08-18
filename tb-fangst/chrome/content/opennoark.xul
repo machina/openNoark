@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<overlay id="opennoark" 
+xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript" src="chrome://opennoark/content/opennoark.js"/>
+	<popup id="attachmentListContext">
+		<menuitem id="context-docfangst" label="Fang til arkiv" onclick="catchDoc()"/>
+	</popup>
+</overlay>
+
+
