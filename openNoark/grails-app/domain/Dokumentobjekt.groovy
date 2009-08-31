@@ -1,4 +1,5 @@
 class Dokumentobjekt {
+	Long id
   String systemid
   String versjonsnummer
   String variantformat
@@ -20,8 +21,8 @@ format(nullable: false)
 formatdetaljer(nullable: true)
 opprettetdato(nullable: false)
 opprettetav(nullable: false)
-referansedokumentBeskrivelse(nullable: false)
-referanseregistrering(nullable: false)
+referansedokumentBeskrivelse(nullable: true)
+referanseregistrering(nullable: true)
 referansedokumentfil(nullable: false)
 sjekksumdokument(nullable: false)
 sjekksumalgoritme(nullable: false)

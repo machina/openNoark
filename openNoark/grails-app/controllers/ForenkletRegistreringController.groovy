@@ -1,5 +1,5 @@
 import java.text.SimpleDateFormat
-
+import grails.converters.*
 class ForenkletRegistreringController {
     
     def index = { redirect(action:list,params:params) }
@@ -87,6 +87,7 @@ class ForenkletRegistreringController {
     }
 
     def save = {
+				println "forenkeltregistrering.save"
 				println params
 				def df = new SimpleDateFormat("dd-MM-yyyy")
         def forenkletRegistreringInstance = null
@@ -107,7 +108,17 @@ class ForenkletRegistreringController {
 				forenkletRegistreringInstance.systemid = UUID.randomUUID().toString()
         if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
             flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
-            redirect(action:show,id:forenkletRegistreringInstance.id)
+						withFormat {
+	            html {
+		            redirect(action:show,id:forenkletRegistreringInstance.id)
+							}
+							xml {
+								render forenkletRegistreringInstance as XML
+							}
+							json {
+								render forenkletRegistreringInstance as JSON
+							}
+						}
         }
         else {
 						println "arkivertdato2 ${forenkletRegistreringInstance.arkivertdato}"

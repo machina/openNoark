@@ -1,5 +1,5 @@
-
-
+import grails.converters.*
+import java.text.SimpleDateFormat
 class DokumentobjektController {
     
     def index = { redirect(action:list,params:params) }
@@ -87,12 +87,29 @@ class DokumentobjektController {
     }
 
     def save = {
-        def dokumentobjektInstance = new Dokumentobjekt(params)
+				println params
+				def df = new SimpleDateFormat("dd-MM-yyyy")
+				def dokumentobjektInstance = null
+				if(params.dokumentobjekt != null){
+					params.dokumentobjekt.opprettetdato = df.parse(params.dokumentobjekt.opprettetdato)
+					params.dokumentobjekt.referanseregistrering = ForenkletRegistrering.findBySystemid(params.dokumentobjekt.referanseregistrering)
+					dokumentobjektInstance = new Dokumentobjekt(params.dokumentobjekt)
+				} else {
+	        dokumentobjektInstance = new Dokumentobjekt(params)
+				}
+				dokumentobjektInstance.systemid = UUID.randomUUID().toString();
         if(!dokumentobjektInstance.hasErrors() && dokumentobjektInstance.save()) {
-            flash.message = "Dokumentobjekt ${dokumentobjektInstance.id} created"
-            redirect(action:show,id:dokumentobjektInstance.id)
+					flash.message = "Dokumentobjekt ${dokumentobjektInstance.id} created"
+					withFormat {
+  	        html {
+           	 redirect(action:show,id:dokumentobjektInstance.id)
+						}
+						xml { render dokumentobjektInstance as XML }
+						json { render dokumentobjektInstance as JSON}
+					}
         }
         else {
+						println dokumentobjektInstance.errors
             render(view:'create',model:[dokumentobjektInstance:dokumentobjektInstance])
         }
     }

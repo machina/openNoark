@@ -103,7 +103,14 @@ class BasismappeController {
 
         if(!basismappeInstance.hasErrors() && basismappeInstance.save()) {
             flash.message = "Basismappe ${basismappeInstance.id} created"
-            redirect(action:show,id:basismappeInstance.id)
+						withFormat {
+	            html {
+		            redirect(action:show,id:basismappeInstance.id)
+							}
+							xml {
+								render basismappeInstance as XML
+							}
+						}
         }
         else {
             render(view:'create',model:[basismappeInstance:basismappeInstance])

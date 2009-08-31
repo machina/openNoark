@@ -69,5 +69,4 @@ log4j = {
     warn   'org.mortbay.log'
 }
 
-
-     
+archivePath="/home/kent/tmp/opennoarkArchive" 

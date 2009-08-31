@@ -1,4 +1,5 @@
 class ForenkletRegistrering {
+	Long id
   String systemid
   String registreringstype
   Date opprettetdato
