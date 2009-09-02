@@ -28,15 +28,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="systemid">Systemid:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'systemid','errors')}">
-                                    <input type="text" id="systemid" name="systemid" value="${fieldValue(bean:klasseInstance,field:'systemid')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="klasseid">Klasseid:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'klasseid','errors')}">
@@ -82,28 +73,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="avsluttetdato">Avsluttetdato:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'avsluttetdato','errors')}">
-                                    <g:datePicker name="avsluttetdato" value="${klasseInstance?.avsluttetdato}" precision="minute" noSelection="['':'']"></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="avsluttetav">Avsluttetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'avsluttetav','errors')}">
-                                    <input type="text" id="avsluttetav" name="avsluttetav" value="${fieldValue(bean:klasseInstance,field:'avsluttetav')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="referanseforelderKlassifikasjonssystem">Referanseforelder Klassifikasjonssystem:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'referanseforelderKlassifikasjonssystem','errors')}">
-                                    <g:select optionKey="id" from="${Klassifikasjonssystem.list()}" name="referanseforelderKlassifikasjonssystem.id" value="${klasseInstance?.referanseforelderKlassifikasjonssystem?.id}" ></g:select>
+                                    <g:select optionKey="id" noSelection="${['null':'Velg...']}" from="${Klassifikasjonssystem.list()}" name="referanseforelderKlassifikasjonssystem.id" value="${klasseInstance?.referanseforelderKlassifikasjonssystem?.id}" ></g:select>
                                 </td>
                             </tr> 
                         
@@ -112,9 +85,9 @@
                                     <label for="referanseforelderKlasse">Referanseforelder Klasse:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'referanseforelderKlasse','errors')}">
-                                    <g:select optionKey="id" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${klasseInstance?.referanseforelderKlasse?.id}" ></g:select>
+                                    <g:select optionKey="id" noSelection="${['null':'Velg...']}" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${klasseInstance?.referanseforelderKlasse?.id}" ></g:select>
                                 </td>
-                            </tr> 
+                            </tr>
                         
                         </tbody>
                     </table>

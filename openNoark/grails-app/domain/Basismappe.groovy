@@ -36,5 +36,5 @@ referansearkivdel(nullable: false)
 static hasMany = [nøkkelord:String, oppbevaringssted:String, referansebarnBasismappe:Basismappe, referansebarnForenkletRegistrering:ForenkletRegistrering ]
 static auditable = true
 
-
+static searchable = true
 }

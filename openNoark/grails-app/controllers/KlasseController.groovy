@@ -87,8 +87,22 @@ class KlasseController {
     }
 
     def save = {
+				println params
+//				params.klasseid = null
+				println("klasser: ${Klasse.list()}")
         def klasseInstance = new Klasse(params)
-        if(!klasseInstance.hasErrors() && klasseInstance.save()) {
+				println("klasser: ${Klasse.list()}")
+				klasseInstance.systemid = UUID.randomUUID().toString()
+				println("klasser: ${Klasse.list()}")
+//				println("forelderklasse: ${klasseInstance.referanseforelderKlasse}")
+//				if(!klasseInstance.referanseforelderKlasse?.id) klasseInstance.referanseforelderKlasse = null
+//				klasseInstance = klasseInstance.merge()
+				println("klasser: ${Klasse.list()}")
+        if(!klasseInstance.hasErrors()) {
+						println("klasser: ${Klasse.list()}")
+						println "${klasseInstance}"
+						klasseInstance.save()
+						println("klasser: ${Klasse.list()}")
             flash.message = "Klasse ${klasseInstance.id} created"
             redirect(action:show,id:klasseInstance.id)
         }

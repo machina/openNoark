@@ -8,4 +8,5 @@ arkivskapernavn(nullable: false)
 beskrivelse(nullable: true)
 }
 static hasMany = [:]
+static searchable = true
 }

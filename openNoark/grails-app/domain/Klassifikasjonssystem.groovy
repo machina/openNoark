@@ -21,5 +21,5 @@ referansebarn(minSize: 0)
 static hasMany = [referansebarn:Klasse]
 static auditable = true
 
-
+static searchable = true
 }

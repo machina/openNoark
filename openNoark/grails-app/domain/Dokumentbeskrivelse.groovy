@@ -25,5 +25,5 @@ referansedokumentObjekt(nullable: true)
 static hasMany = [referansedokumentObjekt:Dokumentobjekt]
 static auditable = true
 
-
+static searchable = true
 }

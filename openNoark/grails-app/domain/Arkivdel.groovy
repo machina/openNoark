@@ -41,6 +41,6 @@ referanseforelder( validator: {
 static hasMany = [oppbevaringssted:String]
 
 static auditable = true
-
+static searchable = true
 
 }

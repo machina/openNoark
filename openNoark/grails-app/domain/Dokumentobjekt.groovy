@@ -31,5 +31,5 @@ filstørrelse(nullable: false)
 static hasMany = [:]
 static auditable = true
 
-
+static searchable = true
 }

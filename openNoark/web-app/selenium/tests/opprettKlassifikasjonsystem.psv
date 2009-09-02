@@ -1,0 +1,48 @@
+open|/openNoark/auth/login|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+clickAndWait|link=Klassifikasjonssystemer|
+clickAndWait|link=New Klassifikasjonssystem|
+type|klassifikasjonstype|Journal
+type|tittel|Test journal klassifikasjonsystem
+type|beskrivelse|testesystem
+type|opprettetav|kent
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Klasser|
+clickAndWait|link=New Klasse|
+type|klasseid|1
+type|tittel|epost
+type|beskrivelse|epost
+type|opprettetav|kent
+select|referanseforelderKlassifikasjonssystem.id|label=Klassifikasjonssystem : 1
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=New Klasse|
+type|klasseid|1
+type|tittel|Spam
+type|beskrivelse|Spam
+type|opprettetav|kent
+select|referanseforelderKlasse.id|label=Klasse : 1
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=New Klasse|
+type|klasseid|2
+type|tittel|nyttig
+type|beskrivelse|Nyttig
+type|opprettetav|meg
+select|referanseforelderKlasse.id|label=Klasse : 1
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=New Klasse|
+type|klasseid|1
+type|tittel|jobb
+type|beskrivelse|jobb
+type|opprettetav|kis
+select|referanseforelderKlasse.id|label=Klasse : 3
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=New Klasse|
+select|referanseforelderKlasse.id|label=Klasse : 3
+type|klasseid|2
+type|tittel|personlig
+type|beskrivelse|personlig
+type|opprettetav|me
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Klasse List|
