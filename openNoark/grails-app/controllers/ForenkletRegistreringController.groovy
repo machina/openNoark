@@ -98,6 +98,13 @@ class ForenkletRegistreringController {
 					if(params.ForenkletRegistrering.mappe_id != null){
 						forenkletRegistreringInstance.setReferanseforelderBasismappe(Basismappe.get(Long.parseLong(params.ForenkletRegistrering.mappe_id)))
 					}
+					if(params.ForenkletRegistrering.klasse_id != null){
+            forenkletRegistreringInstance.setReferanseforelderKlasse(Klasse.get(Long.parseLong(params.ForenkletRegistrering.klasse_id)))
+          }
+					if(params.ForenkletRegistrering.arkivdel_id != null){
+            forenkletRegistreringInstance.setReferansearkivdel(Arkivdel.get(Long.parseLong(params.ForenkletRegistrering.arkivdel_id)))
+          }
+					
 //					forenkletRegistreringInstance.arkivertdato = df.parse(params.ForenkletRegistrering.arkivertdato)
 	//				forenkletRegistreringInstance.opprettetdato = df.parse(params.ForenkletRegistrering.opprettetdato)
 				} else {

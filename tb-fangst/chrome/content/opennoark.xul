@@ -5,6 +5,10 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<popup id="attachmentListContext">
 		<menuitem id="context-docfangst" label="Fang til arkiv" onclick="catchDoc()"/>
 	</popup>
+	
+	<popup id="messagePaneContext">
+    <menuitem id="context-mailfangst" label="Fang til arkiv" onclick="catchMail()"/>
+  </popup>
 </overlay>
 
 

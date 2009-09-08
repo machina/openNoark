@@ -1,3 +1,4 @@
+import grails.converters.*
 class ArkivdelController {
 
     def index = { redirect(action:list,params:params)}
@@ -26,7 +27,20 @@ class ArkivdelController {
 
 		def list = {
 			println Arkivdel.list()
-			[arkivdeler: Arkivdel.findAll()]
+			withFormat {
+	      html {
+  	      return [arkivdeler: Arkivdel.findAll()]
+        }
+        xml {
+    	    render Arkivdel.findAll() as XML
+        }
+        json {
+       		 println Arkivdel.findAll() as JSON
+           render Arkivdel.findAll() as JSON
+        }
+     }
+
+			return [arkivdeler: Arkivdel.findAll()]
 		}
 	
 }

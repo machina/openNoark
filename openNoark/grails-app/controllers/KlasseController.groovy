@@ -1,4 +1,4 @@
-
+import grails.converters.*
 
 class KlasseController {
     
@@ -9,7 +9,18 @@ class KlasseController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ klasseInstanceList: Klasse.list( params ), klasseInstanceTotal: Klasse.count() ]
+				withFormat {
+            html {
+              return [ klasseInstanceList: Klasse.list( params ), klasseInstanceTotal: Klasse.count() ]
+            }
+            xml {
+              render Klasse.list() as XML
+            }
+            json {
+							println Klasse.list() as JSON
+              render Klasse.list() as JSON
+            }
+        }
     }
 
     def show = {

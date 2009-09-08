@@ -46,3 +46,28 @@ type|beskrivelse|personlig
 type|opprettetav|me
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Klasse List|
+clickAndWait|link=Arkiv|
+clickAndWait|link=Nytt Arkiv|
+type|tittel|dilldall
+type|beskrivelse|arkiv for dill og dall
+type|dokumentmedium|html
+type|opprettetav|meg
+clickAndWait|save|
+clickAndWait|link=Arkivdeler|
+clickAndWait|link=Ny Arkivdel|
+type|tittel|dill
+type|beskrivelse|arkivdel for dill
+type|dokumentmedium|email
+type|opprettetav|meg
+select|referanseforelder|label=dilldall
+clickAndWait|save|
+clickAndWait|link=Arkivdeler|
+clickAndWait|link=Ny Arkivdel|
+type|tittel|dall
+type|beskrivelse|arkivdel for dall
+type|dokumentmedium|epos
+type|dokumentmedium|epost
+type|opprettetav|meg
+select|referanseforelder|label=dilldall
+clickAndWait|save|
+clickAndWait|link=Arkivdeler|

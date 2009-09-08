@@ -28,5 +28,18 @@ referansebarnForenkletRegistrering(minSize: 1)
 static hasMany = [nøkkelord:String, referansebarnKlasse:Klasse, referansebarnBasismappe:Basismappe, referansebarnForenkletRegistrering:ForenkletRegistrering]
 static auditable = true
 
+String fullId
+static transients = [ "fullId" ]
+
+	def afterLoad = {
+			println "klasseid: ${owner.klasseid}"
+      if(referanseforelderKlasse){
+				fullId = "${referanseforelderKlasse.klasseid}.${klasseid}"
+			}else{
+				fullId = "${klasseid}"
+			}
+			println "fullId: ${fullId}"
+   }
+
 //static searchable = true
 }

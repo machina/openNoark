@@ -1,4 +1,7 @@
 import org.jsecurity.crypto.hash.Sha1Hash
+import grails.converters.*
+
+
 class BootStrap {
 
      def init = { servletContext ->
@@ -14,6 +17,17 @@ class BootStrap {
 																						tmp = null
 																					}
 																				}*/
+
+			JSON.registerObjectMarshaller(Klasse){	klasse, json ->
+			json.build{
+				"class(klasse)"
+				id(klasse.id)
+				fullId(klasse.fullId)
+			}
+		}
+		
+
+
 			// Administrator user and role. 
 			def adminRole = new JsecRole(name: "administrator").save() 
 			def adminUser = new JsecUser(username: "admin", passwordHash: new Sha1Hash("admin").toHex()).save()
