@@ -16,7 +16,7 @@ class ArchiveService {
 		def path = "${grailsApplication.config.archivePath}/${docId}"
 		def bytes
 		new File(path).eachFile{
-			bytes = it.bytes
+			bytes = it.text
 		}
 		return bytes
 	}

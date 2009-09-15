@@ -13,7 +13,7 @@ class Arkivdel {
   Arkiv referanseforelder
   Arkivdel referanseforløper
   Arkivdel referansearvtaker
-//  Klassifikasjonssystem referanseklassifikasjonsSystem
+  Klassifikasjonssystem referanseklassifikasjonsSystem
     static constraints = {
 systemid(nullable: false)
 tittel(nullable: false)
@@ -23,24 +23,16 @@ dokumentmedium(nullable: false)
 oppbevaringssted(nullable: true)
 opprettetdato(nullable: false)
 opprettetav(nullable: false)
-avsluttetdato(nullable: true)
-avsluttetav(nullable: true)
+avsluttetdato(nullable: false)
+avsluttetav(nullable: false)
 arkivperiodestartdato(nullable: false)
-arkivperiodesluttdato(nullable: true)
+arkivperiodesluttdato(nullable: false)
 referanseforelder(nullable: false)
-referanseforløper(nullable: true)
-referansearvtaker(nullable: true)
-referanseforelder( validator: {
-	if(it.arkivstatus == "Opprettet") return true
-	return "Kan ikke legge inn arkivdeler under et avsluttet arkiv."
-})
-//referanseklassifikasjonsSystem(nullable: false)
-//referansemappe(minSize: 1)
-//referanseregistrering(nullable: true)
+referanseforløper(nullable: false)
+referansearvtaker(nullable: false)
+referanseklassifikasjonsSystem(nullable: false)
+referansemappe(minSize: 1)
+referanseregistrering(nullable: true)
 }
-static hasMany = [oppbevaringssted:String, registreringer:ForenkletRegistrering]
-
-static auditable = true
-//static searchable = true
-
+static hasMany = [oppbevaringssted:String, referansemappe:Basismappe, referanseregistrering:ForenkletRegistrering]
 }

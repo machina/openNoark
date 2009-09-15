@@ -98,6 +98,7 @@ class DokumentobjektController {
 	        dokumentobjektInstance = new Dokumentobjekt(params)
 				}
 				dokumentobjektInstance.systemid = UUID.randomUUID().toString();
+				dokumentobjektInstance.referanseregistrering = params.dokumentobjekt.referanseregistrering
         if(!dokumentobjektInstance.hasErrors() && dokumentobjektInstance.save()) {
 					flash.message = "Dokumentobjekt ${dokumentobjektInstance.id} created"
 					withFormat {

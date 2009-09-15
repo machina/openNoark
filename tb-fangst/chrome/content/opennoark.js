@@ -21,7 +21,7 @@ function catchMail(){
 	var docobj =  registerDocObject(req, regId );
   docobj = docobj.getElementsByTagName('systemid')[0].textContent;
   archiveDoc(req, docobj, content);
-	alert(ferdig);
+	alert("ferdig");
 }
 
 function catchDoc()
@@ -154,7 +154,7 @@ function registerDocObject(req, regId){
 
 function archiveDoc(req, docObjId, doc){
 	req.open("POST", "http://localhost:8080/openNoark/fileStoage/save/"+docObjId, false);
-	var b64 = btoa(doc)
+	var b64 = btoa(doc);
 	//req.setRequestHeader("Content-Length", b64.length);  
 	req.send(b64);  
 	//alert(req.responseText);		
@@ -293,7 +293,7 @@ function onLoadMail() {
 	}
 
 	var archivePartsTxt = window.arguments[0].inn.archivePartsTxt;
-	alert(archivePartsTxt);
+	//alert(archivePartsTxt);
 	var archiveParts = eval(archivePartsTxt);
 
 	for(part in archiveParts){
