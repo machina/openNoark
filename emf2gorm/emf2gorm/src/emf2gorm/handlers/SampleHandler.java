@@ -66,7 +66,7 @@ public class SampleHandler extends AbstractHandler {
 		MessageDialog.openInformation(
 				window.getShell(),
 				"Emf2gorm Plug-in",
-				"Hello, Eclipse world  "+transformer.toString());
+				"Hello, Eclipse world"+transformer.toString());
 		
 		}catch(Throwable t){
 			StringWriter sw = new StringWriter();

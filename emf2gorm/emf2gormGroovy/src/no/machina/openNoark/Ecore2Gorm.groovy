@@ -17,6 +17,7 @@ class Ecore2Gorm {
 		  StringWriter writer = new StringWriter()
 		  def builder = new GormBuilder(writer)
 		  def parent = klass.eSuperTypes.size() > 0 ? klass.eSuperTypes[0].name : null
+	      def documentation = ""
 		  builder."${klass.name}"(parent: parent){
 		    println klass.eReferences
 		    println klass.eAttributes
@@ -24,6 +25,14 @@ class Ecore2Gorm {
 		      println it.getClass().name
 		      switch(it.getClass().name){
 		        case "org.eclipse.emf.ecore.impl.EAnnotationImpl":
+		        	 println "key ${it.details.key[0]}"
+		          	 //if(it.details.key[0] == "documentation") {
+		        	 //	  println "setting doc to ${it.details.value[0]}"
+		        	 //	  documentation = it.details.value[0]
+		        	 // } else {
+		        		  annotation(key: it.details.key, value: it.details.value, details: it.details )  
+		        	 // }
+		        	   
 		          break
 		        case "org.eclipse.emf.ecore.impl.EGenericTypeImpl":
 		          //TODO: these will have to be handled at some point
@@ -51,7 +60,8 @@ class Ecore2Gorm {
 		    } //end klass.eContents
 
 		  } //end builder
-		  new File("/home/kent/out/domain/${klass.name}.groovy").write writer.toString()
+		 
+		  new File("/home/kent/out/domain/${klass.name}.groovy").write writer.toString()"
 		}//end classes
 	}
 		def translateType(type) {
