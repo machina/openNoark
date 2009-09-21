@@ -1,6 +1,7 @@
 package no.machina.openNoark
 
 import groovy.util.BuilderSupport  
+import java.io.StringWriter
 
 class GormBuilder extends BuilderSupport {
 		
@@ -10,13 +11,19 @@ class GormBuilder extends BuilderSupport {
 		int state = CLASS
 
 		IndentPrinter out;
-		
+		StringWriter writer;
 		def constaints = ""
 		def hasMany = [:]	
 	
 
 		public GormBuilder(Writer writer) {
+			this.writer = writer
 			this.out =	new IndentPrinter(new PrintWriter(writer))
+			def printlnMethod = this.out.&println
+			this.out.metaClass.println = {String s ->
+			    printIndent()
+			    printlnMethod.call(s)
+			}
 		}
 
 	protected void setParent(Object parent, Object child) {  
@@ -48,25 +55,35 @@ class GormBuilder extends BuilderSupport {
 							state = ATTRS
 						break
 					case ATTRS:
-						println "name: ${name}"
-						println "attrs: ${attrs}"
-						out.printIndent()
-						if(attrs['multiplicity'] =~ /.*-M/){
-							hasMany[name] = attrs['type']
-						} else {
-							out.println "${attrs['type']} ${name}"
-						}
-						switch(attrs['multiplicity']){
-							case "1":
-								constaints += "${name}(nullable: false)\n"
-								break
-							case "1-M":
-								constaints += "${name}(minSize: 1)\n"
-								break
-							case "0-1":
-							case "0-M":
-								constaints += "${name}(nullable: true)\n"
-								break
+						//println "name: ${name}"
+						//println "attrs: ${attrs}"
+						//out.printIndent()
+						if(name == "annotation"){
+							if(attrs['key'] == "documentation"){
+								writer.buffer.insert(0,"/**\n${attrs['value']}\n*/")
+							}else {
+
+										
+							}
+						}else {
+						
+							if(attrs['multiplicity'] =~ /.*-M/){
+								hasMany[name] = attrs['type']
+							} else {
+								out.println "${attrs['type']} ${name}"
+							}
+							switch(attrs['multiplicity']){
+								case "1":
+									constaints += "${name}(nullable: false)\n"
+									break
+								case "1-M":
+									constaints += "${name}(minSize: 1)\n"
+									break
+								case "0-1":
+								case "0-M":
+									constaints += "${name}(nullable: true)\n"
+									break
+							}
 						}
 						break
 				}
@@ -76,9 +93,17 @@ class GormBuilder extends BuilderSupport {
    }
 
 	protected void nodeCompleted(Object parent, Object node) {
-		if(!node || !node['multiplicity']) {
-			out.println "static constraints = {\n${constaints}}"
+		if(!node || (!node['multiplicity']  && !node['key'])) {
+			out.println "static constraints = {" //\n${constaints}}"
+			out.incrementIndent()
+			constaints.eachLine{
+				out.println(it)
+			}
+			out.decrementIndent()
+			out.println("}")
+			
 			out.println "static hasMany = ${hasMany.toString()}"
+		    out.decrementIndent()
 			out.println "}"
 		}
 	}
