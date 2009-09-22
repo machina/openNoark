@@ -1,5 +1,4 @@
-class Arkiv {
-  String systemid
+class Arkiv extends Base{
   String tittel
   String beskrivelse
   String arkivstatus
@@ -11,7 +10,6 @@ class Arkiv {
   Arkiv referanseforelder
 	Arkiv forelder
     static constraints = {
-systemid(nullable: false)
 tittel(nullable: false)
 beskrivelse(nullable: true)
 arkivstatus(nullable: true)
