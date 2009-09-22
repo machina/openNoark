@@ -14,8 +14,10 @@ class GormBuilder extends BuilderSupport {
 		StringWriter writer;
 		def constaints = ""
 		def hasMany = [:]	
-	
-
+		def mappings = ""
+		def extras = ""
+		def transients = []
+			
 		public GormBuilder(Writer writer) {
 			this.writer = writer
 			this.out =	new IndentPrinter(new PrintWriter(writer))
@@ -60,11 +62,17 @@ class GormBuilder extends BuilderSupport {
 						//out.printIndent()
 						if(name == "annotation"){
 							if(attrs['key'] == "documentation"){
-								writer.buffer.insert(0,"/**\n${attrs['value']}\n*/")
-							}else {
-
-										
+								writer.buffer.insert(0,"/**\n${attrs['value']}\n*/\n")
+							}else if(attrs['key'] == "mapping"){
+								println "adding mapping: ${attrs['value']}"	
+								mappings = "${mappings}${attrs['value']}\n"
+							}else if(attrs['key'] == "attribute"){
+								extras = "${extras}${attrs['value']}\n"
+							}else if(attrs['key'] == "transient"){
+								extras = "${extras}${attrs['value']}\n"
+								transients << "\"${attrs['value'].tokenize()[1]}\""
 							}
+							
 						}else {
 						
 							if(attrs['multiplicity'] =~ /.*-M/){
@@ -97,12 +105,26 @@ class GormBuilder extends BuilderSupport {
 			out.println "static constraints = {" //\n${constaints}}"
 			out.incrementIndent()
 			constaints.eachLine{
-				out.println(it)
+				out.println it
 			}
 			out.decrementIndent()
-			out.println("}")
+			out.println "}"
 			
 			out.println "static hasMany = ${hasMany.toString()}"
+
+			out.println "static mapping = {"
+			out.incrementIndent()
+			println "MAPPINGS: ${mappings}"
+			mappings.eachLine{
+				out.println it
+			}
+			out.decrementIndent()
+			out.println "}"
+			
+			extras.eachLine { 
+				out.println it
+			}
+			
 		    out.decrementIndent()
 			out.println "}"
 		}
