@@ -30,7 +30,7 @@ class Ecore2Gorm {
 		        	 //	  println "setting doc to ${it.details.value[0]}"
 		        	 //	  documentation = it.details.value[0]
 		        	 // } else {
-		        		  annotation(key: it.details.key, value: it.details.value, details: it.details )  
+		        		  annotation(key: it.details.key[0], value: it.details.value[0], details: it.details )  
 		        	 // }
 		        	   
 		          break
@@ -61,14 +61,14 @@ class Ecore2Gorm {
 
 		  } //end builder
 		 
-		  new File("/home/kent/out/domain/${klass.name}.groovy").write writer.toString()"
+		  new File("/home/kent/out/domain/${klass.name}.groovy").write writer.toString()
 		}//end classes
 	}
-		def translateType(type) {
-		  if(type == "DateTime") return "Date"
-		  if(type == null || type == "null") return "String"
-		  return type
-		}
+	def translateType(type) {
+	    if(type == "DateTime") return "Date"
+		if(type == null || type == "null") return "String"
+		return type
+	}
 
 	
 	
