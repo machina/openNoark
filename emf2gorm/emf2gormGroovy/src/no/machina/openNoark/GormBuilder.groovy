@@ -16,8 +16,9 @@ class GormBuilder extends BuilderSupport {
 		def hasMany = [:]	
 		def mappings = ""
 		def extras = ""
+		def afterLoad = ""
 		def transients = []
-			
+		def toString = ""
 		public GormBuilder(Writer writer) {
 			this.writer = writer
 			this.out =	new IndentPrinter(new PrintWriter(writer))
@@ -71,6 +72,12 @@ class GormBuilder extends BuilderSupport {
 							}else if(attrs['key'] == "transient"){
 								extras = "${extras}${attrs['value']}\n"
 								transients << "\"${attrs['value'].tokenize()[1]}\""
+							}else if(attrs['key'] == "constraint"){
+								constaints += "${attrs['value']}\n"
+							}else if(attrs['key'] == "afterLoad"){
+								afterLoad += "${attrs['value']}\n"
+							}else if(attrs['key'] == "toString"){
+								toString = "String toString(){${attrs['value']}}"
 							}
 							
 						}else {
@@ -91,6 +98,9 @@ class GormBuilder extends BuilderSupport {
 								case "0-M":
 									constaints += "${name}(nullable: true)\n"
 									break
+							}
+							if(attrs['unique'] != null){
+								constaints += "${name}(unique: ${attrs['unique']})\n"
 							}
 						}
 						break
@@ -124,6 +134,19 @@ class GormBuilder extends BuilderSupport {
 			extras.eachLine { 
 				out.println it
 			}
+
+			if(transients.size() > 0)
+				out.println "static transients = ${transients}"
+
+			if(afterLoad.length() > 0){
+				out.println "def afterLoad = {"
+				out.incrementIndent()
+					afterLoad.eachLine { out.println it }
+				out.decrementIndent()
+				out.println "}"
+			}
+
+			if(toString.length() > 0) out.println toString
 			
 		    out.decrementIndent()
 			out.println "}"
