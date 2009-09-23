@@ -74,7 +74,7 @@ public class SampleHandler extends AbstractHandler {
 			MessageDialog.openInformation(
 					window.getShell(),
 					"Emf2gorm Plug-in",
-					""+sw.toString());
+					"Generation sucessfull");
 		}
 		return null;
 	}

@@ -1,5 +1,7 @@
 package no.machina.openNoark
 
+import sun.security.x509.UniqueIdentity;
+
 class Ecore2Gorm {
 
 	def transform(def pack){
@@ -51,10 +53,10 @@ class Ecore2Gorm {
 		            } else {
 		              mul = "0-1"
 		            }
-
 		          }
+		          
 		          println "building for ${it.name}" 
-		          "${it.name}"(type: translateType(it.eType.name) ,multiplicity: mul)
+		          "${it.name}"(type: translateType(it.eType.name) ,multiplicity: mul, unique: it.isUnique())
 		          break
 		      }//end switch
 		    } //end klass.eContents
