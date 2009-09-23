@@ -1,0 +1,1666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi.version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Model xmi:id="_23B7wGVzEd6mLuCD3BDWRQ" name="noark">
+    <packagedElement xmi:type="uml:Class" xmi:id="_23B7wWVzEd6mLuCD3BDWRQ" name="Administrasjonsstruktur">
+      <ownedComment xmi:id="_23B7wmVzEd6mLuCD3BDWRQ" annotatedElement="_23B7wWVzEd6mLuCD3BDWRQ">
+        <body>Metadata for administrasjonsstruktur¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for administrasjonsstruktur skal ikke avleves, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata enn det som er listet opp her. ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23B7w2VzEd6mLuCD3BDWRQ" name="administrativenhetnavn" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B7xGVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B7xWVzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B7xmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B7x2VzEd6mLuCD3BDWRQ" name="avsluttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B7yGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B7yWVzEd6mLuCD3BDWRQ" name="administrativenhetsstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B7ymVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B7y2VzEd6mLuCD3BDWRQ" name="referanseoverordnetEnhet" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B7zGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23B7zWVzEd6mLuCD3BDWRQ" name="Arkiv">
+      <ownedComment xmi:id="_23B7zmVzEd6mLuCD3BDWRQ" annotatedElement="_23B7zWVzEd6mLuCD3BDWRQ">
+        <body>Metadata for arkiv¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23B7z2VzEd6mLuCD3BDWRQ" name="systemid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B70GVzEd6mLuCD3BDWRQ" name="tittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B70WVzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B70mVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B702VzEd6mLuCD3BDWRQ" name="arkivstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B71GVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B71WVzEd6mLuCD3BDWRQ" name="dokumentmedium" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B71mVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B712VzEd6mLuCD3BDWRQ" name="oppbevaringssted" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23B72GVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B72WVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B72mVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B722VzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B73GVzEd6mLuCD3BDWRQ" name="avsluttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B73WVzEd6mLuCD3BDWRQ" name="avsluttetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B73mVzEd6mLuCD3BDWRQ" name="referanseforelder" type="_23B7zWVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23B75GVzEd6mLuCD3BDWRQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B732VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B74GVzEd6mLuCD3BDWRQ" name="referansebarnArkivdel" type="_23B75mVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ_mVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23B74WVzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B74mVzEd6mLuCD3BDWRQ" name="referansebarnArkiv" type="_23B7zWVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DKAGVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23B742VzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23B75GVzEd6mLuCD3BDWRQ" memberEnd="_23B73mVzEd6mLuCD3BDWRQ _23B75WVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23B75WVzEd6mLuCD3BDWRQ" type="_23B7zWVzEd6mLuCD3BDWRQ" association="_23B75GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23B75mVzEd6mLuCD3BDWRQ" name="Arkivdel">
+      <ownedComment xmi:id="_23B752VzEd6mLuCD3BDWRQ" annotatedElement="_23B75mVzEd6mLuCD3BDWRQ">
+        <body>Metadata for arkivdel¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23B76GVzEd6mLuCD3BDWRQ" name="systemid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B76WVzEd6mLuCD3BDWRQ" name="tittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B76mVzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B762VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B77GVzEd6mLuCD3BDWRQ" name="arkivdelstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B77WVzEd6mLuCD3BDWRQ" name="dokumentmedium" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B77mVzEd6mLuCD3BDWRQ" name="oppbevaringssted" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23B772VzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B78GVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B78WVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B78mVzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B782VzEd6mLuCD3BDWRQ" name="avsluttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B79GVzEd6mLuCD3BDWRQ" name="avsluttetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B79WVzEd6mLuCD3BDWRQ" name="arkivperiodestartdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B79mVzEd6mLuCD3BDWRQ" name="arkivperiodesluttdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B792VzEd6mLuCD3BDWRQ" name="referanseforelder" type="_23B7zWVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23B8AGVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23B7-GVzEd6mLuCD3BDWRQ" name="referanseforløper" type="_23B75mVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23Ci0WVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23B7-WVzEd6mLuCD3BDWRQ" name="referansearvtaker" type="_23B75mVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23Ci02VzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23B7-mVzEd6mLuCD3BDWRQ" name="referanseklassifikasjonsSystem" type="_23Ci1WVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ-GVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23B7-2VzEd6mLuCD3BDWRQ" name="referansemappe" type="_23CjA2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ-mVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23B7_GVzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23B7_WVzEd6mLuCD3BDWRQ" name="referanseregistrering" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ_GVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23B7_mVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23B7_2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23B8AGVzEd6mLuCD3BDWRQ" memberEnd="_23B792VzEd6mLuCD3BDWRQ _23Ci0GVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23Ci0GVzEd6mLuCD3BDWRQ" type="_23B75mVzEd6mLuCD3BDWRQ" association="_23B8AGVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23Ci0WVzEd6mLuCD3BDWRQ" memberEnd="_23B7-GVzEd6mLuCD3BDWRQ _23Ci0mVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23Ci0mVzEd6mLuCD3BDWRQ" type="_23B75mVzEd6mLuCD3BDWRQ" association="_23Ci0WVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23Ci02VzEd6mLuCD3BDWRQ" memberEnd="_23B7-WVzEd6mLuCD3BDWRQ _23Ci1GVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23Ci1GVzEd6mLuCD3BDWRQ" type="_23B75mVzEd6mLuCD3BDWRQ" association="_23Ci02VzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23Ci1WVzEd6mLuCD3BDWRQ" name="Klassifikasjonssystem">
+      <ownedComment xmi:id="_23Ci1mVzEd6mLuCD3BDWRQ" annotatedElement="_23Ci1WVzEd6mLuCD3BDWRQ">
+        <body>Metadata for klassifikasjonssystem¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23Ci12VzEd6mLuCD3BDWRQ" name="systemid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci2GVzEd6mLuCD3BDWRQ" name="klassifikasjonstype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Ci2WVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci2mVzEd6mLuCD3BDWRQ" name="tittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci22VzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Ci3GVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci3WVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci3mVzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci32VzEd6mLuCD3BDWRQ" name="avsluttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Ci4GVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci4WVzEd6mLuCD3BDWRQ" name="avsluttetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Ci4mVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci42VzEd6mLuCD3BDWRQ" name="referansebarn" type="_23Ci5WVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ9mVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23Ci5GVzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23Ci5WVzEd6mLuCD3BDWRQ" name="Klasse">
+      <ownedComment xmi:id="_23Ci5mVzEd6mLuCD3BDWRQ" annotatedElement="_23Ci5WVzEd6mLuCD3BDWRQ">
+        <body>Metadata for klasse¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23Ci52VzEd6mLuCD3BDWRQ" name="systemid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci6GVzEd6mLuCD3BDWRQ" name="klasseid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci6WVzEd6mLuCD3BDWRQ" name="tittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci6mVzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Ci62VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci7GVzEd6mLuCD3BDWRQ" name="nøkkelord" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23Ci7WVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Ci7mVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci72VzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci8GVzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci8WVzEd6mLuCD3BDWRQ" name="avsluttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Ci8mVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci82VzEd6mLuCD3BDWRQ" name="avsluttetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Ci9GVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci9WVzEd6mLuCD3BDWRQ" name="referanseforelderKlassifikasjonssystem" type="_23Ci1WVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23Ci_WVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23Ci9mVzEd6mLuCD3BDWRQ" name="referanseforelderKlasse" type="_23Ci5WVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23Ci_2VzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23Ci92VzEd6mLuCD3BDWRQ" name="referansebarnKlasse" type="_23Ci5WVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23CjAWVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23Ci-GVzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci-WVzEd6mLuCD3BDWRQ" name="referansebarnBasismappe" type="_23CjA2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ8mVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23Ci-mVzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Ci-2VzEd6mLuCD3BDWRQ" name="referansebarnForenkletRegistrering" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ9GVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23Ci_GVzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23Ci_WVzEd6mLuCD3BDWRQ" memberEnd="_23Ci9WVzEd6mLuCD3BDWRQ _23Ci_mVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23Ci_mVzEd6mLuCD3BDWRQ" type="_23Ci5WVzEd6mLuCD3BDWRQ" association="_23Ci_WVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23Ci_2VzEd6mLuCD3BDWRQ" memberEnd="_23Ci9mVzEd6mLuCD3BDWRQ _23CjAGVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23CjAGVzEd6mLuCD3BDWRQ" type="_23Ci5WVzEd6mLuCD3BDWRQ" association="_23Ci_2VzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23CjAWVzEd6mLuCD3BDWRQ" memberEnd="_23Ci92VzEd6mLuCD3BDWRQ _23CjAmVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23CjAmVzEd6mLuCD3BDWRQ" type="_23Ci5WVzEd6mLuCD3BDWRQ" association="_23CjAWVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23CjA2VzEd6mLuCD3BDWRQ" name="Basismappe">
+      <ownedComment xmi:id="_23CjBGVzEd6mLuCD3BDWRQ" annotatedElement="_23CjA2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for basismappe¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23CjBWVzEd6mLuCD3BDWRQ" name="systemid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjBmVzEd6mLuCD3BDWRQ" name="mappeid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjB2VzEd6mLuCD3BDWRQ" name="mappetype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjCGVzEd6mLuCD3BDWRQ" name="tittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjCWVzEd6mLuCD3BDWRQ" name="offentligtittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjCmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjC2VzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjDGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjDWVzEd6mLuCD3BDWRQ" name="nøkkelord" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23CjDmVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjD2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjEGVzEd6mLuCD3BDWRQ" name="dokumentmedium" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjEWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjEmVzEd6mLuCD3BDWRQ" name="oppbevaringssted" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23CjE2VzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjFGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjFWVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjFmVzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjF2VzEd6mLuCD3BDWRQ" name="avsluttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjGGVzEd6mLuCD3BDWRQ" name="avsluttetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjGWVzEd6mLuCD3BDWRQ" name="referanseforelderKlasse" type="_23Ci5WVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23CjIGVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23CjGmVzEd6mLuCD3BDWRQ" name="referanseforelderBasismappe" type="_23CjA2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23CjImVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23CjG2VzEd6mLuCD3BDWRQ" name="referansebarnForenkletRegistrering" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ7GVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23CjHGVzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjHWVzEd6mLuCD3BDWRQ" name="referansebarnBasismappe" type="_23CjA2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ7mVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23CjHmVzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjH2VzEd6mLuCD3BDWRQ" name="referansearkivdel" type="_23B75mVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ8GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23CjIGVzEd6mLuCD3BDWRQ" memberEnd="_23CjGWVzEd6mLuCD3BDWRQ _23CjIWVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23CjIWVzEd6mLuCD3BDWRQ" type="_23CjA2VzEd6mLuCD3BDWRQ" association="_23CjIGVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23CjImVzEd6mLuCD3BDWRQ" memberEnd="_23CjGmVzEd6mLuCD3BDWRQ _23CjI2VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23CjI2VzEd6mLuCD3BDWRQ" type="_23CjA2VzEd6mLuCD3BDWRQ" association="_23CjImVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23CjJGVzEd6mLuCD3BDWRQ" name="ForenkletRegistrering">
+      <ownedComment xmi:id="_23CjJWVzEd6mLuCD3BDWRQ" annotatedElement="_23CjJGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for forenklet registrering¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23CjJmVzEd6mLuCD3BDWRQ" name="systemid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjJ2VzEd6mLuCD3BDWRQ" name="registreringstype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjKGVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjKWVzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjKmVzEd6mLuCD3BDWRQ" name="arkivertdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjK2VzEd6mLuCD3BDWRQ" name="arkivertav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjLGVzEd6mLuCD3BDWRQ" name="referanseforelderBasismappe" type="_23CjA2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23CjNmVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23CjLWVzEd6mLuCD3BDWRQ" name="referanseforelderKlasse" type="_23Ci5WVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23CjOGVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23CjLmVzEd6mLuCD3BDWRQ" name="referansearkivdel" type="_23B75mVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23CjOmVzEd6mLuCD3BDWRQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjL2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjMGVzEd6mLuCD3BDWRQ" name="referansedokumentBeskrivelse" type="_23CjPGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ6GVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23CjMWVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjMmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjM2VzEd6mLuCD3BDWRQ" name="referansedokumentObjekt" type="_23CjT2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ6mVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23CjNGVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjNWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23CjNmVzEd6mLuCD3BDWRQ" memberEnd="_23CjLGVzEd6mLuCD3BDWRQ _23CjN2VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23CjN2VzEd6mLuCD3BDWRQ" type="_23CjJGVzEd6mLuCD3BDWRQ" association="_23CjNmVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23CjOGVzEd6mLuCD3BDWRQ" memberEnd="_23CjLWVzEd6mLuCD3BDWRQ _23CjOWVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23CjOWVzEd6mLuCD3BDWRQ" type="_23CjJGVzEd6mLuCD3BDWRQ" association="_23CjOGVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23CjOmVzEd6mLuCD3BDWRQ" memberEnd="_23CjLmVzEd6mLuCD3BDWRQ _23CjO2VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23CjO2VzEd6mLuCD3BDWRQ" type="_23CjJGVzEd6mLuCD3BDWRQ" association="_23CjOmVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23CjPGVzEd6mLuCD3BDWRQ" name="Dokumentbeskrivelse">
+      <ownedComment xmi:id="_23CjPWVzEd6mLuCD3BDWRQ" annotatedElement="_23CjPGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for dokumentbeskrivelse¤¤¤¤¤
+ ¤¤¤¤¤
+En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23CjPmVzEd6mLuCD3BDWRQ" name="systemid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjP2VzEd6mLuCD3BDWRQ" name="dokumenttype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjQGVzEd6mLuCD3BDWRQ" name="dokumentstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjQWVzEd6mLuCD3BDWRQ" name="tittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjQmVzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjQ2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjRGVzEd6mLuCD3BDWRQ" name="forfatter" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjRWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjRmVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjR2VzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjSGVzEd6mLuCD3BDWRQ" name="dokumentmedium" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjSWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjSmVzEd6mLuCD3BDWRQ" name="oppbevaringssted" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjS2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjTGVzEd6mLuCD3BDWRQ" name="referansedokumentObjekt" type="_23CjT2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ5mVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23CjTWVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjTmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23CjT2VzEd6mLuCD3BDWRQ" name="Dokumentobjekt">
+      <ownedComment xmi:id="_23CjUGVzEd6mLuCD3BDWRQ" annotatedElement="_23CjT2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for dokumentobjekt¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23CjUWVzEd6mLuCD3BDWRQ" name="systemid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjUmVzEd6mLuCD3BDWRQ" name="versjonsnummer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjU2VzEd6mLuCD3BDWRQ" name="variantformat" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjVGVzEd6mLuCD3BDWRQ" name="format" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjVWVzEd6mLuCD3BDWRQ" name="formatdetaljer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23CjVmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjV2VzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjWGVzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjWWVzEd6mLuCD3BDWRQ" name="referansedokumentBeskrivelse" type="_23CjPGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ4mVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23CjWmVzEd6mLuCD3BDWRQ" name="referanseregistrering" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DJ5GVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23CjW2VzEd6mLuCD3BDWRQ" name="referansedokumentfil" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23CjXGVzEd6mLuCD3BDWRQ" name="sjekksumdokument" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DJ4GVzEd6mLuCD3BDWRQ" name="sjekksumalgoritme" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DJ4WVzEd6mLuCD3BDWRQ" name="filstørrelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ4mVzEd6mLuCD3BDWRQ" memberEnd="_23CjWWVzEd6mLuCD3BDWRQ _23DJ42VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ42VzEd6mLuCD3BDWRQ" type="_23CjT2VzEd6mLuCD3BDWRQ" association="_23DJ4mVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ5GVzEd6mLuCD3BDWRQ" memberEnd="_23CjWmVzEd6mLuCD3BDWRQ _23DJ5WVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ5WVzEd6mLuCD3BDWRQ" type="_23CjT2VzEd6mLuCD3BDWRQ" association="_23DJ5GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ5mVzEd6mLuCD3BDWRQ" memberEnd="_23CjTGVzEd6mLuCD3BDWRQ _23DJ52VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ52VzEd6mLuCD3BDWRQ" type="_23CjPGVzEd6mLuCD3BDWRQ" association="_23DJ5mVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ6GVzEd6mLuCD3BDWRQ" memberEnd="_23CjMGVzEd6mLuCD3BDWRQ _23DJ6WVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ6WVzEd6mLuCD3BDWRQ" type="_23CjJGVzEd6mLuCD3BDWRQ" association="_23DJ6GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ6mVzEd6mLuCD3BDWRQ" memberEnd="_23CjM2VzEd6mLuCD3BDWRQ _23DJ62VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ62VzEd6mLuCD3BDWRQ" type="_23CjJGVzEd6mLuCD3BDWRQ" association="_23DJ6mVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ7GVzEd6mLuCD3BDWRQ" memberEnd="_23CjG2VzEd6mLuCD3BDWRQ _23DJ7WVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ7WVzEd6mLuCD3BDWRQ" type="_23CjA2VzEd6mLuCD3BDWRQ" association="_23DJ7GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ7mVzEd6mLuCD3BDWRQ" memberEnd="_23CjHWVzEd6mLuCD3BDWRQ _23DJ72VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ72VzEd6mLuCD3BDWRQ" type="_23CjA2VzEd6mLuCD3BDWRQ" association="_23DJ7mVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ8GVzEd6mLuCD3BDWRQ" memberEnd="_23CjH2VzEd6mLuCD3BDWRQ _23DJ8WVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ8WVzEd6mLuCD3BDWRQ" type="_23CjA2VzEd6mLuCD3BDWRQ" association="_23DJ8GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ8mVzEd6mLuCD3BDWRQ" memberEnd="_23Ci-WVzEd6mLuCD3BDWRQ _23DJ82VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ82VzEd6mLuCD3BDWRQ" type="_23Ci5WVzEd6mLuCD3BDWRQ" association="_23DJ8mVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ9GVzEd6mLuCD3BDWRQ" memberEnd="_23Ci-2VzEd6mLuCD3BDWRQ _23DJ9WVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ9WVzEd6mLuCD3BDWRQ" type="_23Ci5WVzEd6mLuCD3BDWRQ" association="_23DJ9GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ9mVzEd6mLuCD3BDWRQ" memberEnd="_23Ci42VzEd6mLuCD3BDWRQ _23DJ92VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ92VzEd6mLuCD3BDWRQ" type="_23Ci1WVzEd6mLuCD3BDWRQ" association="_23DJ9mVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ-GVzEd6mLuCD3BDWRQ" memberEnd="_23B7-mVzEd6mLuCD3BDWRQ _23DJ-WVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ-WVzEd6mLuCD3BDWRQ" type="_23B75mVzEd6mLuCD3BDWRQ" association="_23DJ-GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ-mVzEd6mLuCD3BDWRQ" memberEnd="_23B7-2VzEd6mLuCD3BDWRQ _23DJ-2VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ-2VzEd6mLuCD3BDWRQ" type="_23B75mVzEd6mLuCD3BDWRQ" association="_23DJ-mVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ_GVzEd6mLuCD3BDWRQ" memberEnd="_23B7_WVzEd6mLuCD3BDWRQ _23DJ_WVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ_WVzEd6mLuCD3BDWRQ" type="_23B75mVzEd6mLuCD3BDWRQ" association="_23DJ_GVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DJ_mVzEd6mLuCD3BDWRQ" memberEnd="_23B74GVzEd6mLuCD3BDWRQ _23DJ_2VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DJ_2VzEd6mLuCD3BDWRQ" type="_23B7zWVzEd6mLuCD3BDWRQ" association="_23DJ_mVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DKAGVzEd6mLuCD3BDWRQ" memberEnd="_23B74mVzEd6mLuCD3BDWRQ _23DKAWVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DKAWVzEd6mLuCD3BDWRQ" type="_23B7zWVzEd6mLuCD3BDWRQ" association="_23DKAGVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKAmVzEd6mLuCD3BDWRQ" name="Arkivskaper">
+      <ownedComment xmi:id="_23DKA2VzEd6mLuCD3BDWRQ" annotatedElement="_23DKAmVzEd6mLuCD3BDWRQ">
+        <body>Metadata for arkivskaper¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Arkiv¤¤¤¤¤
+Forekomst:               1-M¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKBGVzEd6mLuCD3BDWRQ" name="arkivskaperid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKBWVzEd6mLuCD3BDWRQ" name="arkivskapernavn" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKBmVzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKB2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKCGVzEd6mLuCD3BDWRQ" name="Avlevering">
+      <ownedComment xmi:id="_23DKCWVzEd6mLuCD3BDWRQ" annotatedElement="_23DKCGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for avlevering¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for avlevering skal avleveres som en egen fil.¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKCmVzEd6mLuCD3BDWRQ" name="ansvarligeksport" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKC2VzEd6mLuCD3BDWRQ" name="eksportertdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKDGVzEd6mLuCD3BDWRQ" name="antallmappereksportert" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKDWVzEd6mLuCD3BDWRQ" name="antallregistreringerEksportert" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKDmVzEd6mLuCD3BDWRQ" name="antalldokumenterEksportert" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKD2VzEd6mLuCD3BDWRQ" name="sjekksummetadata" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKEGVzEd6mLuCD3BDWRQ" name="sjekksumavlevering" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKEWVzEd6mLuCD3BDWRQ" name="sjekksumalgoritme" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKEmVzEd6mLuCD3BDWRQ" name="Avskrivning">
+      <ownedComment xmi:id="_23DKE2VzEd6mLuCD3BDWRQ" annotatedElement="_23DKEmVzEd6mLuCD3BDWRQ">
+        <body>Metadata for avskrivning¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Journalpost¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp.¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKFGVzEd6mLuCD3BDWRQ" name="avskrivningsdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKFWVzEd6mLuCD3BDWRQ" name="avskrevetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKFmVzEd6mLuCD3BDWRQ" name="avskrivningsmåte" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKF2VzEd6mLuCD3BDWRQ" name="referanseavskriverJournalpost" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DKG2VzEd6mLuCD3BDWRQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKGGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKGWVzEd6mLuCD3BDWRQ" name="referanseavskrivesavJournalpost" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DKHWVzEd6mLuCD3BDWRQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKGmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DKG2VzEd6mLuCD3BDWRQ" memberEnd="_23DKF2VzEd6mLuCD3BDWRQ _23DKHGVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DKHGVzEd6mLuCD3BDWRQ" type="_23DKEmVzEd6mLuCD3BDWRQ" association="_23DKG2VzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DKHWVzEd6mLuCD3BDWRQ" memberEnd="_23DKGWVzEd6mLuCD3BDWRQ _23DKHmVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DKHmVzEd6mLuCD3BDWRQ" type="_23DKEmVzEd6mLuCD3BDWRQ" association="_23DKHWVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKH2VzEd6mLuCD3BDWRQ" name="Basisregistrering">
+      <ownedComment xmi:id="_23DKIGVzEd6mLuCD3BDWRQ" annotatedElement="_23DKH2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for basisregistrering¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <generalization xmi:id="_23DKIWVzEd6mLuCD3BDWRQ" general="_23CjJGVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23DKImVzEd6mLuCD3BDWRQ" name="registreringsid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKI2VzEd6mLuCD3BDWRQ" name="tittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKJGVzEd6mLuCD3BDWRQ" name="offentligtittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKJWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKJmVzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKJ2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKKGVzEd6mLuCD3BDWRQ" name="nøkkelord" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23DKKWVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKKmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKK2VzEd6mLuCD3BDWRQ" name="forfatter" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23DKLGVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKLWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKLmVzEd6mLuCD3BDWRQ" name="dokumentmedium" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKL2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKMGVzEd6mLuCD3BDWRQ" name="oppbevaringssted" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23DKMWVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKMmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKM2VzEd6mLuCD3BDWRQ" name="BevaringOgKassasjon">
+      <ownedComment xmi:id="_23DKNGVzEd6mLuCD3BDWRQ" annotatedElement="_23DKM2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for bevaring og kassasjon¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået.¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKNWVzEd6mLuCD3BDWRQ" name="kassasjonsvedtak" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKNmVzEd6mLuCD3BDWRQ" name="kassasjonshjemmel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKN2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKOGVzEd6mLuCD3BDWRQ" name="bevaringstid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKOWVzEd6mLuCD3BDWRQ" name="kassasjonsdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKOmVzEd6mLuCD3BDWRQ" name="Brukeradministrasjon">
+      <ownedComment xmi:id="_23DKO2VzEd6mLuCD3BDWRQ" annotatedElement="_23DKOmVzEd6mLuCD3BDWRQ">
+        <body>Metadata for brukeradministrasjon¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her.¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKPGVzEd6mLuCD3BDWRQ" name="brukernavn" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKPWVzEd6mLuCD3BDWRQ" name="brukerrolle" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKPmVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKP2VzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKQGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKQWVzEd6mLuCD3BDWRQ" name="avsluttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKQmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKQ2VzEd6mLuCD3BDWRQ" name="brukerstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKRGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKRWVzEd6mLuCD3BDWRQ" name="Dokumentflyt">
+      <ownedComment xmi:id="_23DKRmVzEd6mLuCD3BDWRQ" annotatedElement="_23DKRWVzEd6mLuCD3BDWRQ">
+        <body>Metadata for dokumentflyt¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Journalpost¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKR2VzEd6mLuCD3BDWRQ" name="flyttil" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKSGVzEd6mLuCD3BDWRQ" name="flytfra" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKSWVzEd6mLuCD3BDWRQ" name="flytmottattdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKSmVzEd6mLuCD3BDWRQ" name="flytsendtdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKS2VzEd6mLuCD3BDWRQ" name="flytstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKTGVzEd6mLuCD3BDWRQ" name="flytmerknad" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKTWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKTmVzEd6mLuCD3BDWRQ" name="Dokumentlink">
+      <ownedComment xmi:id="_23DKT2VzEd6mLuCD3BDWRQ" annotatedElement="_23DKTmVzEd6mLuCD3BDWRQ">
+        <body>Metadata for dokumentlink¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               1¤¤¤¤¤
+ ¤¤¤¤¤
+Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKUGVzEd6mLuCD3BDWRQ" name="referanseregistrering" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DKVWVzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23DKUWVzEd6mLuCD3BDWRQ" name="tilknyttetregistreringSom" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKUmVzEd6mLuCD3BDWRQ" name="dokumentnummer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKU2VzEd6mLuCD3BDWRQ" name="tilknyttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKVGVzEd6mLuCD3BDWRQ" name="tilknyttetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DKVWVzEd6mLuCD3BDWRQ" memberEnd="_23DKUGVzEd6mLuCD3BDWRQ _23DKVmVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DKVmVzEd6mLuCD3BDWRQ" type="_23DKTmVzEd6mLuCD3BDWRQ" association="_23DKVWVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKV2VzEd6mLuCD3BDWRQ" name="Endringslogg">
+      <ownedComment xmi:id="_23DKWGVzEd6mLuCD3BDWRQ" annotatedElement="_23DKV2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for endringslogg¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for endringslogg skal ikke grupperes inn i en annen arkivenhet, men avleveres som en egen fil.  Endringsloggen må derfor ha referanse til hvilken arkivenhet endringen tilhører, og hvilket metadataelement som er blitt endret. ¤¤¤¤¤
+ ¤¤¤¤¤
+Ikke alle endringer skal avleveres. Aktuelle endringer kan  være  endring av saksstatus, journal-status, tilgangsrestriksjon, klassifikasjon (referanse til klasse), saksansvarlig, saksbehandler. Nærmere spesifikasjon av hvilke endringer som skal avleveres, vil komme i en senere versjon. ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKWWVzEd6mLuCD3BDWRQ" name="referansearkivenhet" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKWmVzEd6mLuCD3BDWRQ" name="referansemetadata" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKW2VzEd6mLuCD3BDWRQ" name="endretdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKXGVzEd6mLuCD3BDWRQ" name="endretav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKXWVzEd6mLuCD3BDWRQ" name="tidligereverdi" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKXmVzEd6mLuCD3BDWRQ" name="nyverdi" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKX2VzEd6mLuCD3BDWRQ" name="Gradering">
+      <ownedComment xmi:id="_23DKYGVzEd6mLuCD3BDWRQ" annotatedElement="_23DKX2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for gradering¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Basismappe, Forenklet registrering, Dokmentbeskrivelse.¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DKYWVzEd6mLuCD3BDWRQ" name="gradering" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKYmVzEd6mLuCD3BDWRQ" name="graderingsdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKY2VzEd6mLuCD3BDWRQ" name="gradertav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKZGVzEd6mLuCD3BDWRQ" name="nedgraderingsdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKZWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DKZmVzEd6mLuCD3BDWRQ" name="nedgradertav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DKZ2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DKaGVzEd6mLuCD3BDWRQ" name="Journalpost">
+      <ownedComment xmi:id="_23DKaWVzEd6mLuCD3BDWRQ" annotatedElement="_23DKaGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for journalpost¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <generalization xmi:id="_23DKamVzEd6mLuCD3BDWRQ" general="_23DKH2VzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23Dw8GVzEd6mLuCD3BDWRQ" name="løpenummer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw8WVzEd6mLuCD3BDWRQ" name="journalposttype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw8mVzEd6mLuCD3BDWRQ" name="journalstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw82VzEd6mLuCD3BDWRQ" name="journaldato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw9GVzEd6mLuCD3BDWRQ" name="dokumentetsdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Dw9WVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw9mVzEd6mLuCD3BDWRQ" name="mottattdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Dw92VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw-GVzEd6mLuCD3BDWRQ" name="sendtdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Dw-WVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw-mVzEd6mLuCD3BDWRQ" name="forfallsdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Dw-2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw_GVzEd6mLuCD3BDWRQ" name="offentlighetsvurdertdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Dw_WVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dw_mVzEd6mLuCD3BDWRQ" name="antallvedlegg" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23Dw_2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxAGVzEd6mLuCD3BDWRQ" name="utlåntdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxAWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxAmVzEd6mLuCD3BDWRQ" name="utlånttil" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxA2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxBGVzEd6mLuCD3BDWRQ" name="KonverteringTilArkivformat">
+      <ownedComment xmi:id="_23DxBWVzEd6mLuCD3BDWRQ" annotatedElement="_23DxBGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for konvertering til arkivformat¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Dokumentobjekt¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konvertering er valgfritt, og kan forekomme en gang.¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DxBmVzEd6mLuCD3BDWRQ" name="konvertertdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxB2VzEd6mLuCD3BDWRQ" name="konvertertav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxCGVzEd6mLuCD3BDWRQ" name="tidligereformat" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxCWVzEd6mLuCD3BDWRQ" name="tidligereformatdetaljer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxCmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxC2VzEd6mLuCD3BDWRQ" name="Korrespondansepart">
+      <ownedComment xmi:id="_23DxDGVzEd6mLuCD3BDWRQ" annotatedElement="_23DxC2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for korrespondansepart¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Journalpost¤¤¤¤¤
+Forekomst:               1-M¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DxDWVzEd6mLuCD3BDWRQ" name="korrespondanseparttype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxDmVzEd6mLuCD3BDWRQ" name="korrespondansepartnavn" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxD2VzEd6mLuCD3BDWRQ" name="postadresse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxEGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxEWVzEd6mLuCD3BDWRQ" name="postnummer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxEmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxE2VzEd6mLuCD3BDWRQ" name="poststed" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxFGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxFWVzEd6mLuCD3BDWRQ" name="utenlandsadresse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxFmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxF2VzEd6mLuCD3BDWRQ" name="epostadresse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxGGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxGWVzEd6mLuCD3BDWRQ" name="telefonnummer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxGmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxG2VzEd6mLuCD3BDWRQ" name="kontaktperson" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxHGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxHWVzEd6mLuCD3BDWRQ" name="Kryssreferanse">
+      <ownedComment xmi:id="_23DxHmVzEd6mLuCD3BDWRQ" annotatedElement="_23DxHWVzEd6mLuCD3BDWRQ">
+        <body>Metadata for kryssreferanse¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Klasse, Basismappe, Basisregistrering¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+Referansen kan gå fra en klasse til en annen klasse, fra en mappe til en annen mappe, fra en registrering til en annen registrering, fra en mappe til en registrering og fra en registrering til en mappe. Kryssreferansen  vil også omfatte spesialiseringer.  En kryssreferanse kan derfor gå fra en møtemappe til en saksmappe. ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DxH2VzEd6mLuCD3BDWRQ" name="referansetilklasse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxIGVzEd6mLuCD3BDWRQ" name="referansefraklasse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxIWVzEd6mLuCD3BDWRQ" name="referansetilmappe" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxImVzEd6mLuCD3BDWRQ" name="referanseframappe" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxI2VzEd6mLuCD3BDWRQ" name="referansetilregistrering" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxJGVzEd6mLuCD3BDWRQ" name="referansefraregistrering" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxJWVzEd6mLuCD3BDWRQ" name="Merknad">
+      <ownedComment xmi:id="_23DxJmVzEd6mLuCD3BDWRQ" annotatedElement="_23DxJWVzEd6mLuCD3BDWRQ">
+        <body>Metadata for merknad¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Basismappe, Basisregistrering, Dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DxJ2VzEd6mLuCD3BDWRQ" name="merknadstekst" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxKGVzEd6mLuCD3BDWRQ" name="merknadstype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxKWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxKmVzEd6mLuCD3BDWRQ" name="merknadsdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxK2VzEd6mLuCD3BDWRQ" name="merknadregistrertav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxLGVzEd6mLuCD3BDWRQ" name="Møtedeltaker">
+      <ownedComment xmi:id="_23DxLWVzEd6mLuCD3BDWRQ" annotatedElement="_23DxLGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for møtedeltaker¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Møtemappe¤¤¤¤¤
+Forekomst:               1-M¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DxLmVzEd6mLuCD3BDWRQ" name="møtedeltakernavn" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxL2VzEd6mLuCD3BDWRQ" name="møtedeltakerfunksjon" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxMGVzEd6mLuCD3BDWRQ" name="Møtemappe">
+      <ownedComment xmi:id="_23DxMWVzEd6mLuCD3BDWRQ" annotatedElement="_23DxMGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for møtemappe¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <generalization xmi:id="_23DxMmVzEd6mLuCD3BDWRQ" general="_23CjA2VzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23DxM2VzEd6mLuCD3BDWRQ" name="møtenummer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxNGVzEd6mLuCD3BDWRQ" name="utvalg" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxNWVzEd6mLuCD3BDWRQ" name="møtedato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxNmVzEd6mLuCD3BDWRQ" name="møtested" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxN2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxOGVzEd6mLuCD3BDWRQ" name="referanseforrigemøte" type="_23CjA2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DxPGVzEd6mLuCD3BDWRQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxOWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxOmVzEd6mLuCD3BDWRQ" name="referansenestemøte" type="_23CjA2VzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DxPmVzEd6mLuCD3BDWRQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxO2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DxPGVzEd6mLuCD3BDWRQ" memberEnd="_23DxOGVzEd6mLuCD3BDWRQ _23DxPWVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DxPWVzEd6mLuCD3BDWRQ" type="_23DxMGVzEd6mLuCD3BDWRQ" association="_23DxPGVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DxPmVzEd6mLuCD3BDWRQ" memberEnd="_23DxOmVzEd6mLuCD3BDWRQ _23DxP2VzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DxP2VzEd6mLuCD3BDWRQ" type="_23DxMGVzEd6mLuCD3BDWRQ" association="_23DxPmVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxQGVzEd6mLuCD3BDWRQ" name="Møteregistrering">
+      <ownedComment xmi:id="_23DxQWVzEd6mLuCD3BDWRQ" annotatedElement="_23DxQGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for møteregistrering¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <generalization xmi:id="_23DxQmVzEd6mLuCD3BDWRQ" general="_23DKH2VzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23DxQ2VzEd6mLuCD3BDWRQ" name="møteregistreringstype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxRGVzEd6mLuCD3BDWRQ" name="møtesakstype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxRWVzEd6mLuCD3BDWRQ" name="møteregistreringsstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxRmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxR2VzEd6mLuCD3BDWRQ" name="administrativenhet" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxSGVzEd6mLuCD3BDWRQ" name="saksbehandler" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxSWVzEd6mLuCD3BDWRQ" name="referansetilMøteregistrering" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DxT2VzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23DxSmVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxS2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxTGVzEd6mLuCD3BDWRQ" name="referanseframøteregistrering" type="_23CjJGVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23DxUWVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23DxTWVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxTmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DxT2VzEd6mLuCD3BDWRQ" memberEnd="_23DxSWVzEd6mLuCD3BDWRQ _23DxUGVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DxUGVzEd6mLuCD3BDWRQ" type="_23DxQGVzEd6mLuCD3BDWRQ" association="_23DxT2VzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23DxUWVzEd6mLuCD3BDWRQ" memberEnd="_23DxTGVzEd6mLuCD3BDWRQ _23DxUmVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23DxUmVzEd6mLuCD3BDWRQ" type="_23DxQGVzEd6mLuCD3BDWRQ" association="_23DxUWVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxU2VzEd6mLuCD3BDWRQ" name="Presedens">
+      <ownedComment xmi:id="_23DxVGVzEd6mLuCD3BDWRQ" annotatedElement="_23DxU2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for presedens¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Saksmappe, Journalpost¤¤¤¤¤
+Forekomst:               0-M        ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DxVWVzEd6mLuCD3BDWRQ" name="presedensdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxVmVzEd6mLuCD3BDWRQ" name="opprettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxV2VzEd6mLuCD3BDWRQ" name="opprettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxWGVzEd6mLuCD3BDWRQ" name="tittel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxWWVzEd6mLuCD3BDWRQ" name="beskrivelse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxWmVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxW2VzEd6mLuCD3BDWRQ" name="presedenshjemmel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxXGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxXWVzEd6mLuCD3BDWRQ" name="rettskildefaktor" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxXmVzEd6mLuCD3BDWRQ" name="presedensgodkjentdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxX2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxYGVzEd6mLuCD3BDWRQ" name="presedensgodkjentav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxYWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxYmVzEd6mLuCD3BDWRQ" name="avsluttetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxY2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxZGVzEd6mLuCD3BDWRQ" name="avsluttetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxZWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxZmVzEd6mLuCD3BDWRQ" name="presedensstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxZ2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxaGVzEd6mLuCD3BDWRQ" name="Saksansvar">
+      <ownedComment xmi:id="_23DxaWVzEd6mLuCD3BDWRQ" annotatedElement="_23DxaGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for saksansvar¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Journalpost¤¤¤¤¤
+Forekomst:               1-M¤¤¤¤¤
+ ¤¤¤¤¤
+Ved organinterne dokumenter som skal følges opp, er det behov for å gruppere informasjon om saksansvar fordi denne  kan forekomme flere ganger. ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DxamVzEd6mLuCD3BDWRQ" name="administrativenhet" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dxa2VzEd6mLuCD3BDWRQ" name="saksbehandler" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxbGVzEd6mLuCD3BDWRQ" name="journalenhet" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxbWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23DxbmVzEd6mLuCD3BDWRQ" name="Saksfordeling">
+      <ownedComment xmi:id="_23Dxb2VzEd6mLuCD3BDWRQ" annotatedElement="_23DxbmVzEd6mLuCD3BDWRQ">
+        <body>Metadata for saksfordeling¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Saksmappe, journalpost¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23DxcGVzEd6mLuCD3BDWRQ" name="fordelttil" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxcWVzEd6mLuCD3BDWRQ" name="fordeltav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxcmVzEd6mLuCD3BDWRQ" name="fordeltdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23Dxc2VzEd6mLuCD3BDWRQ" name="Saksmappe">
+      <ownedComment xmi:id="_23DxdGVzEd6mLuCD3BDWRQ" annotatedElement="_23Dxc2VzEd6mLuCD3BDWRQ">
+        <body>Metadata for saksmappe¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <generalization xmi:id="_23DxdWVzEd6mLuCD3BDWRQ" general="_23CjA2VzEd6mLuCD3BDWRQ"/>
+      <ownedAttribute xmi:id="_23DxdmVzEd6mLuCD3BDWRQ" name="saksdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dxd2VzEd6mLuCD3BDWRQ" name="administrativenhet" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxeGVzEd6mLuCD3BDWRQ" name="saksansvarlig" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxeWVzEd6mLuCD3BDWRQ" name="journalenhet" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxemVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23Dxe2VzEd6mLuCD3BDWRQ" name="saksstatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxfGVzEd6mLuCD3BDWRQ" name="utlåntdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23DxfWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23DxfmVzEd6mLuCD3BDWRQ" name="utlånttil" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYAGVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYAWVzEd6mLuCD3BDWRQ" name="referansesekundærKlassifikasjon" type="_23Ci5WVzEd6mLuCD3BDWRQ" isOrdered="true" aggregation="composite" association="_23EYBGVzEd6mLuCD3BDWRQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23EYAmVzEd6mLuCD3BDWRQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYA2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_23EYBGVzEd6mLuCD3BDWRQ" memberEnd="_23EYAWVzEd6mLuCD3BDWRQ _23EYBWVzEd6mLuCD3BDWRQ">
+      <ownedEnd xmi:id="_23EYBWVzEd6mLuCD3BDWRQ" type="_23Dxc2VzEd6mLuCD3BDWRQ" association="_23EYBGVzEd6mLuCD3BDWRQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23EYBmVzEd6mLuCD3BDWRQ" name="Sakspart">
+      <ownedComment xmi:id="_23EYB2VzEd6mLuCD3BDWRQ" annotatedElement="_23EYBmVzEd6mLuCD3BDWRQ">
+        <body>Metadata for sakspart¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Saksmappe¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23EYCGVzEd6mLuCD3BDWRQ" name="sakspartid" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYCWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYCmVzEd6mLuCD3BDWRQ" name="sakspartnavn" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYC2VzEd6mLuCD3BDWRQ" name="sakspartrolle" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYDGVzEd6mLuCD3BDWRQ" name="postadresse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYDWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYDmVzEd6mLuCD3BDWRQ" name="postnummer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYD2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYEGVzEd6mLuCD3BDWRQ" name="poststed" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYEWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYEmVzEd6mLuCD3BDWRQ" name="utenlandsadresse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYE2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYFGVzEd6mLuCD3BDWRQ" name="epostadresse" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYFWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYFmVzEd6mLuCD3BDWRQ" name="telefonnummer" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYF2VzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYGGVzEd6mLuCD3BDWRQ" name="kontaktperson" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYGWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23EYGmVzEd6mLuCD3BDWRQ" name="Skjerming">
+      <ownedComment xmi:id="_23EYG2VzEd6mLuCD3BDWRQ" annotatedElement="_23EYGmVzEd6mLuCD3BDWRQ">
+        <body>Metadata for skjerming¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤
+ ¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på journalpostnivået.¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23EYHGVzEd6mLuCD3BDWRQ" name="tilgangsrestriksjon" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYHWVzEd6mLuCD3BDWRQ" name="skjermingshjemmel" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYHmVzEd6mLuCD3BDWRQ" name="skjermingmetadata" visibility="public" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_23EYH2VzEd6mLuCD3BDWRQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYIGVzEd6mLuCD3BDWRQ" name="skjermingdokument" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_23EYIWVzEd6mLuCD3BDWRQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYImVzEd6mLuCD3BDWRQ" name="skjermingsvarighet" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYI2VzEd6mLuCD3BDWRQ" name="skjermingopphørerdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23EYJGVzEd6mLuCD3BDWRQ" name="SlettingAvDokumenter">
+      <ownedComment xmi:id="_23EYJWVzEd6mLuCD3BDWRQ" annotatedElement="_23EYJGVzEd6mLuCD3BDWRQ">
+        <body>Metadata for sletting av dokumenter¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Arkivdel, dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               0-M¤¤¤¤¤
+ ¤¤¤¤¤
+Ved sletting av tidligere versjoner (siste versjon kan ikke slettes), produksjonsformat og varianter skal metadata grupperes inn i dokumentbeskrivelse. De tilhørende dokumentobjekter skal da slettes. ¤¤¤¤¤
+ ¤¤¤¤¤
+Ved sletting av innholdet i en arkivdel (som ikke har bevaringsverdi), skal alle mapper og underordnede arkivenheter som tilhørere arkivdelen slettes. ¤¤¤¤¤
+ ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23EYJmVzEd6mLuCD3BDWRQ" name="slettingstype" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYJ2VzEd6mLuCD3BDWRQ" name="slettetdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYKGVzEd6mLuCD3BDWRQ" name="slettetav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23EYKWVzEd6mLuCD3BDWRQ" name="UtførtKassasjon">
+      <ownedComment xmi:id="_23EYKmVzEd6mLuCD3BDWRQ" annotatedElement="_23EYKWVzEd6mLuCD3BDWRQ">
+        <body>Metadata for utført kassasjon¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:       Dokumentbeskrivelse¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+Ved kassasjon skal dokumentobjektet slettes. ¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23EYK2VzEd6mLuCD3BDWRQ" name="kassertdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYLGVzEd6mLuCD3BDWRQ" name="kassertav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_23EYLWVzEd6mLuCD3BDWRQ" name="VerifiseringAvElektroniskSignatur">
+      <ownedComment xmi:id="_23EYLmVzEd6mLuCD3BDWRQ" annotatedElement="_23EYLWVzEd6mLuCD3BDWRQ">
+        <body>Metadata for verifisering av elektronisk signatur¤¤¤¤¤
+ ¤¤¤¤¤
+Grupperes inn i:        Journalpost¤¤¤¤¤
+Forekomst:               0-1¤¤¤¤¤
+ ¤¤¤¤¤
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_23EYL2VzEd6mLuCD3BDWRQ" name="elektronisksignaturSikkerhetsnivå" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYMGVzEd6mLuCD3BDWRQ" name="elektronisksignaturVerfisert" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYMWVzEd6mLuCD3BDWRQ" name="verifisertdato" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#DateTime"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_23EYMmVzEd6mLuCD3BDWRQ" name="verfisertav" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:id="_23EYM2VzEd6mLuCD3BDWRQ">
+      <eAnnotations xmi:id="_23EYNGVzEd6mLuCD3BDWRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_23EYNWVzEd6mLuCD3BDWRQ" base_Package="_23B7wGVzEd6mLuCD3BDWRQ" nsPrefix="noark" nsURI="http://www.machina.no/noark"/>
+  <Ecore:EClass xmi:id="_23EYNmVzEd6mLuCD3BDWRQ" base_Class="_23B7wWVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23EYN2VzEd6mLuCD3BDWRQ" xmlName="Administrativenhetnavn" xmlFeatureKind="Element" base_Property="_23B7w2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23EYOGVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23B7xGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23EYOWVzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23B7xWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23EYOmVzEd6mLuCD3BDWRQ" xmlName="Avsluttetdato" xmlFeatureKind="Element" base_Property="_23B7x2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23EYO2VzEd6mLuCD3BDWRQ" xmlName="Administrativenhetsstatus" xmlFeatureKind="Element" base_Property="_23B7yWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_EGVzEd6mLuCD3BDWRQ" xmlName="ReferanseoverordnetEnhet" xmlFeatureKind="Element" base_Property="_23B7y2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23E_EWVzEd6mLuCD3BDWRQ" base_Class="_23B7zWVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23E_EmVzEd6mLuCD3BDWRQ" xmlName="Systemid" xmlFeatureKind="Element" base_Property="_23B7z2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_E2VzEd6mLuCD3BDWRQ" xmlName="Tittel" xmlFeatureKind="Element" base_Property="_23B70GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_FGVzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23B70WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_FWVzEd6mLuCD3BDWRQ" xmlName="Arkivstatus" xmlFeatureKind="Element" base_Property="_23B702VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_FmVzEd6mLuCD3BDWRQ" xmlName="Dokumentmedium" xmlFeatureKind="Element" base_Property="_23B71WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_F2VzEd6mLuCD3BDWRQ" xmlName="Oppbevaringssted" xmlFeatureKind="Element" base_Property="_23B712VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_GGVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23B72mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_GWVzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23B722VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_GmVzEd6mLuCD3BDWRQ" xmlName="Avsluttetdato" xmlFeatureKind="Element" base_Property="_23B73GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_G2VzEd6mLuCD3BDWRQ" xmlName="Avsluttetav" xmlFeatureKind="Element" base_Property="_23B73WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23E_HGVzEd6mLuCD3BDWRQ" xmlName="Referanseforelder" xmlFeatureKind="Element" base_Property="_23B73mVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23E_HWVzEd6mLuCD3BDWRQ" xmlName="Referansebarn_arkivdel" xmlFeatureKind="Element" base_Property="_23B74GVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23E_HmVzEd6mLuCD3BDWRQ" xmlName="Referansebarn_arkiv" xmlFeatureKind="Element" base_Property="_23B74mVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23E_H2VzEd6mLuCD3BDWRQ" base_Class="_23B75mVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23E_IGVzEd6mLuCD3BDWRQ" xmlName="Systemid" xmlFeatureKind="Element" base_Property="_23B76GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_IWVzEd6mLuCD3BDWRQ" xmlName="Tittel" xmlFeatureKind="Element" base_Property="_23B76WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_ImVzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23B76mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_I2VzEd6mLuCD3BDWRQ" xmlName="Arkivdelstatus" xmlFeatureKind="Element" base_Property="_23B77GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_JGVzEd6mLuCD3BDWRQ" xmlName="Dokumentmedium" xmlFeatureKind="Element" base_Property="_23B77WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_JWVzEd6mLuCD3BDWRQ" xmlName="Oppbevaringssted" xmlFeatureKind="Element" base_Property="_23B77mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23E_JmVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23B78WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmIGVzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23B78mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmIWVzEd6mLuCD3BDWRQ" xmlName="Avsluttetdato" xmlFeatureKind="Element" base_Property="_23B782VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmImVzEd6mLuCD3BDWRQ" xmlName="Avsluttetav" xmlFeatureKind="Element" base_Property="_23B79GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmI2VzEd6mLuCD3BDWRQ" xmlName="Arkivperiodestartdato" xmlFeatureKind="Element" base_Property="_23B79WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmJGVzEd6mLuCD3BDWRQ" xmlName="Arkivperiodesluttdato" xmlFeatureKind="Element" base_Property="_23B79mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23FmJWVzEd6mLuCD3BDWRQ" xmlName="Referanseforelder" xmlFeatureKind="Element" base_Property="_23B792VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23FmJmVzEd6mLuCD3BDWRQ" xmlName="Referanseforløper" xmlFeatureKind="Element" base_Property="_23B7-GVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23FmJ2VzEd6mLuCD3BDWRQ" xmlName="Referansearvtaker" xmlFeatureKind="Element" base_Property="_23B7-WVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23FmKGVzEd6mLuCD3BDWRQ" xmlName="ReferanseklassifikasjonsSystem" xmlFeatureKind="Element" base_Property="_23B7-mVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23FmKWVzEd6mLuCD3BDWRQ" xmlName="Referansemappe" xmlFeatureKind="Element" base_Property="_23B7-2VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23FmKmVzEd6mLuCD3BDWRQ" xmlName="Referanseregistrering" xmlFeatureKind="Element" base_Property="_23B7_WVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23FmK2VzEd6mLuCD3BDWRQ" base_Class="_23Ci1WVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23FmLGVzEd6mLuCD3BDWRQ" xmlName="Systemid" xmlFeatureKind="Element" base_Property="_23Ci12VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmLWVzEd6mLuCD3BDWRQ" xmlName="Klassifikasjonstype" xmlFeatureKind="Element" base_Property="_23Ci2GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmLmVzEd6mLuCD3BDWRQ" xmlName="Tittel" xmlFeatureKind="Element" base_Property="_23Ci2mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmL2VzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23Ci22VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmMGVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23Ci3WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmMWVzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23Ci3mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmMmVzEd6mLuCD3BDWRQ" xmlName="Avsluttetdato" xmlFeatureKind="Element" base_Property="_23Ci32VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmM2VzEd6mLuCD3BDWRQ" xmlName="Avsluttetav" xmlFeatureKind="Element" base_Property="_23Ci4WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23FmNGVzEd6mLuCD3BDWRQ" xmlName="Referansebarn" xmlFeatureKind="Element" base_Property="_23Ci42VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23FmNWVzEd6mLuCD3BDWRQ" base_Class="_23Ci5WVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23FmNmVzEd6mLuCD3BDWRQ" xmlName="Systemid" xmlFeatureKind="Element" base_Property="_23Ci52VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmN2VzEd6mLuCD3BDWRQ" xmlName="Klasseid" xmlFeatureKind="Element" base_Property="_23Ci6GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23FmOGVzEd6mLuCD3BDWRQ" xmlName="Tittel" xmlFeatureKind="Element" base_Property="_23Ci6WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNMGVzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23Ci6mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNMWVzEd6mLuCD3BDWRQ" xmlName="Nøkkelord" xmlFeatureKind="Element" base_Property="_23Ci7GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNMmVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23Ci72VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNM2VzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23Ci8GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNNGVzEd6mLuCD3BDWRQ" xmlName="Avsluttetdato" xmlFeatureKind="Element" base_Property="_23Ci8WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNNWVzEd6mLuCD3BDWRQ" xmlName="Avsluttetav" xmlFeatureKind="Element" base_Property="_23Ci82VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23GNNmVzEd6mLuCD3BDWRQ" xmlName="Referanseforelder_klassifikasjonssystem" xmlFeatureKind="Element" base_Property="_23Ci9WVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23GNN2VzEd6mLuCD3BDWRQ" xmlName="Referanseforelder_klasse" xmlFeatureKind="Element" base_Property="_23Ci9mVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23GNOGVzEd6mLuCD3BDWRQ" xmlName="Referansebarn_klasse" xmlFeatureKind="Element" base_Property="_23Ci92VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23GNOWVzEd6mLuCD3BDWRQ" xmlName="Referansebarn_basismappe" xmlFeatureKind="Element" base_Property="_23Ci-WVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23GNOmVzEd6mLuCD3BDWRQ" xmlName="Referansebarn_forenkletRegistrering" xmlFeatureKind="Element" base_Property="_23Ci-2VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23GNO2VzEd6mLuCD3BDWRQ" base_Class="_23CjA2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23GNPGVzEd6mLuCD3BDWRQ" xmlName="Systemid" xmlFeatureKind="Element" base_Property="_23CjBWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNPWVzEd6mLuCD3BDWRQ" xmlName="Mappeid" xmlFeatureKind="Element" base_Property="_23CjBmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNPmVzEd6mLuCD3BDWRQ" xmlName="Mappetype" xmlFeatureKind="Element" base_Property="_23CjB2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNP2VzEd6mLuCD3BDWRQ" xmlName="Tittel" xmlFeatureKind="Element" base_Property="_23CjCGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNQGVzEd6mLuCD3BDWRQ" xmlName="Offentligtittel" xmlFeatureKind="Element" base_Property="_23CjCWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNQWVzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23CjC2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNQmVzEd6mLuCD3BDWRQ" xmlName="Nøkkelord" xmlFeatureKind="Element" base_Property="_23CjDWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNQ2VzEd6mLuCD3BDWRQ" xmlName="Dokumentmedium" xmlFeatureKind="Element" base_Property="_23CjEGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNRGVzEd6mLuCD3BDWRQ" xmlName="Oppbevaringssted" xmlFeatureKind="Element" base_Property="_23CjEmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNRWVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23CjFWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23GNRmVzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23CjFmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0QGVzEd6mLuCD3BDWRQ" xmlName="Avsluttetdato" xmlFeatureKind="Element" base_Property="_23CjF2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0QWVzEd6mLuCD3BDWRQ" xmlName="Avsluttetav" xmlFeatureKind="Element" base_Property="_23CjGGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23G0QmVzEd6mLuCD3BDWRQ" xmlName="Referanseforelder_klasse" xmlFeatureKind="Element" base_Property="_23CjGWVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23G0Q2VzEd6mLuCD3BDWRQ" xmlName="Referanseforelder_basismappe" xmlFeatureKind="Element" base_Property="_23CjGmVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23G0RGVzEd6mLuCD3BDWRQ" xmlName="Referansebarn_forenkletRegistrering" xmlFeatureKind="Element" base_Property="_23CjG2VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23G0RWVzEd6mLuCD3BDWRQ" xmlName="Referansebarn_basismappe" xmlFeatureKind="Element" base_Property="_23CjHWVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23G0RmVzEd6mLuCD3BDWRQ" xmlName="Referansearkivdel" xmlFeatureKind="Element" base_Property="_23CjH2VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23G0R2VzEd6mLuCD3BDWRQ" base_Class="_23CjJGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23G0SGVzEd6mLuCD3BDWRQ" xmlName="Systemid" xmlFeatureKind="Element" base_Property="_23CjJmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0SWVzEd6mLuCD3BDWRQ" xmlName="Registreringstype" xmlFeatureKind="Element" base_Property="_23CjJ2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0SmVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23CjKGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0S2VzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23CjKWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0TGVzEd6mLuCD3BDWRQ" xmlName="Arkivertdato" xmlFeatureKind="Element" base_Property="_23CjKmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0TWVzEd6mLuCD3BDWRQ" xmlName="Arkivertav" xmlFeatureKind="Element" base_Property="_23CjK2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23G0TmVzEd6mLuCD3BDWRQ" xmlName="Referanseforelder_basismappe" xmlFeatureKind="Element" base_Property="_23CjLGVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23G0T2VzEd6mLuCD3BDWRQ" xmlName="Referanseforelder_klasse" xmlFeatureKind="Element" base_Property="_23CjLWVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23G0UGVzEd6mLuCD3BDWRQ" xmlName="Referansearkivdel" xmlFeatureKind="Element" base_Property="_23CjLmVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23G0UWVzEd6mLuCD3BDWRQ" xmlName="ReferansedokumentBeskrivelse" xmlFeatureKind="Element" base_Property="_23CjMGVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23G0UmVzEd6mLuCD3BDWRQ" xmlName="ReferansedokumentObjekt" xmlFeatureKind="Element" base_Property="_23CjM2VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23G0U2VzEd6mLuCD3BDWRQ" base_Class="_23CjPGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23G0VGVzEd6mLuCD3BDWRQ" xmlName="Systemid" xmlFeatureKind="Element" base_Property="_23CjPmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0VWVzEd6mLuCD3BDWRQ" xmlName="Dokumenttype" xmlFeatureKind="Element" base_Property="_23CjP2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23G0VmVzEd6mLuCD3BDWRQ" xmlName="Dokumentstatus" xmlFeatureKind="Element" base_Property="_23CjQGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbUGVzEd6mLuCD3BDWRQ" xmlName="Tittel" xmlFeatureKind="Element" base_Property="_23CjQWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbUWVzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23CjQmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbUmVzEd6mLuCD3BDWRQ" xmlName="Forfatter" xmlFeatureKind="Element" base_Property="_23CjRGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbU2VzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23CjRmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbVGVzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23CjR2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbVWVzEd6mLuCD3BDWRQ" xmlName="Dokumentmedium" xmlFeatureKind="Element" base_Property="_23CjSGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbVmVzEd6mLuCD3BDWRQ" xmlName="Oppbevaringssted" xmlFeatureKind="Element" base_Property="_23CjSmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23HbV2VzEd6mLuCD3BDWRQ" xmlName="ReferansedokumentObjekt" xmlFeatureKind="Element" base_Property="_23CjTGVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23HbWGVzEd6mLuCD3BDWRQ" base_Class="_23CjT2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23HbWWVzEd6mLuCD3BDWRQ" xmlName="Systemid" xmlFeatureKind="Element" base_Property="_23CjUWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbWmVzEd6mLuCD3BDWRQ" xmlName="Versjonsnummer" xmlFeatureKind="Element" base_Property="_23CjUmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbW2VzEd6mLuCD3BDWRQ" xmlName="Variantformat" xmlFeatureKind="Element" base_Property="_23CjU2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbXGVzEd6mLuCD3BDWRQ" xmlName="Format" xmlFeatureKind="Element" base_Property="_23CjVGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbXWVzEd6mLuCD3BDWRQ" xmlName="Formatdetaljer" xmlFeatureKind="Element" base_Property="_23CjVWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbXmVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23CjV2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbX2VzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23CjWGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23HbYGVzEd6mLuCD3BDWRQ" xmlName="ReferansedokumentBeskrivelse" xmlFeatureKind="Element" base_Property="_23CjWWVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23HbYWVzEd6mLuCD3BDWRQ" xmlName="Referanseregistrering" xmlFeatureKind="Element" base_Property="_23CjWmVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EAttribute xmi:id="_23HbYmVzEd6mLuCD3BDWRQ" xmlName="Referansedokumentfil" xmlFeatureKind="Element" base_Property="_23CjW2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbY2VzEd6mLuCD3BDWRQ" xmlName="Sjekksumdokument" xmlFeatureKind="Element" base_Property="_23CjXGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbZGVzEd6mLuCD3BDWRQ" xmlName="Sjekksumalgoritme" xmlFeatureKind="Element" base_Property="_23DJ4GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23HbZWVzEd6mLuCD3BDWRQ" xmlName="Filstørrelse" xmlFeatureKind="Element" base_Property="_23DJ4WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23ICYGVzEd6mLuCD3BDWRQ" base_Class="_23DKAmVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23ICYWVzEd6mLuCD3BDWRQ" xmlName="Arkivskaperid" xmlFeatureKind="Element" base_Property="_23DKBGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICYmVzEd6mLuCD3BDWRQ" xmlName="Arkivskapernavn" xmlFeatureKind="Element" base_Property="_23DKBWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICY2VzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23DKBmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23ICZGVzEd6mLuCD3BDWRQ" base_Class="_23DKCGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23ICZWVzEd6mLuCD3BDWRQ" xmlName="Ansvarligeksport" xmlFeatureKind="Element" base_Property="_23DKCmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICZmVzEd6mLuCD3BDWRQ" xmlName="Eksportertdato" xmlFeatureKind="Element" base_Property="_23DKC2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICZ2VzEd6mLuCD3BDWRQ" xmlName="Antallmappereksportert" xmlFeatureKind="Element" base_Property="_23DKDGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICaGVzEd6mLuCD3BDWRQ" xmlName="AntallregistreringerEksportert" xmlFeatureKind="Element" base_Property="_23DKDWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICaWVzEd6mLuCD3BDWRQ" xmlName="AntalldokumenterEksportert" xmlFeatureKind="Element" base_Property="_23DKDmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICamVzEd6mLuCD3BDWRQ" xmlName="Sjekksummetadata" xmlFeatureKind="Element" base_Property="_23DKD2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICa2VzEd6mLuCD3BDWRQ" xmlName="Sjekksumavlevering" xmlFeatureKind="Element" base_Property="_23DKEGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICbGVzEd6mLuCD3BDWRQ" xmlName="Sjekksumalgoritme" xmlFeatureKind="Element" base_Property="_23DKEWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23ICbWVzEd6mLuCD3BDWRQ" base_Class="_23DKEmVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23ICbmVzEd6mLuCD3BDWRQ" xmlName="Avskrivningsdato" xmlFeatureKind="Element" base_Property="_23DKFGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICb2VzEd6mLuCD3BDWRQ" xmlName="Avskrevetav" xmlFeatureKind="Element" base_Property="_23DKFWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23ICcGVzEd6mLuCD3BDWRQ" xmlName="Avskrivningsmåte" xmlFeatureKind="Element" base_Property="_23DKFmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23ICcWVzEd6mLuCD3BDWRQ" xmlName="ReferanseavskriverJournalpost" xmlFeatureKind="Element" base_Property="_23DKF2VzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23ICcmVzEd6mLuCD3BDWRQ" xmlName="ReferanseavskrivesavJournalpost" xmlFeatureKind="Element" base_Property="_23DKGWVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23ICc2VzEd6mLuCD3BDWRQ" base_Class="_23DKH2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23ICdGVzEd6mLuCD3BDWRQ" xmlName="Registreringsid" xmlFeatureKind="Element" base_Property="_23DKImVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpcGVzEd6mLuCD3BDWRQ" xmlName="Tittel" xmlFeatureKind="Element" base_Property="_23DKI2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpcWVzEd6mLuCD3BDWRQ" xmlName="Offentligtittel" xmlFeatureKind="Element" base_Property="_23DKJGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpcmVzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23DKJmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ipc2VzEd6mLuCD3BDWRQ" xmlName="Nøkkelord" xmlFeatureKind="Element" base_Property="_23DKKGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpdGVzEd6mLuCD3BDWRQ" xmlName="Forfatter" xmlFeatureKind="Element" base_Property="_23DKK2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpdWVzEd6mLuCD3BDWRQ" xmlName="Dokumentmedium" xmlFeatureKind="Element" base_Property="_23DKLmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpdmVzEd6mLuCD3BDWRQ" xmlName="Oppbevaringssted" xmlFeatureKind="Element" base_Property="_23DKMGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23Ipd2VzEd6mLuCD3BDWRQ" base_Class="_23DKM2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23IpeGVzEd6mLuCD3BDWRQ" xmlName="Kassasjonsvedtak" xmlFeatureKind="Element" base_Property="_23DKNWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpeWVzEd6mLuCD3BDWRQ" xmlName="Kassasjonshjemmel" xmlFeatureKind="Element" base_Property="_23DKNmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpemVzEd6mLuCD3BDWRQ" xmlName="Bevaringstid" xmlFeatureKind="Element" base_Property="_23DKOGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ipe2VzEd6mLuCD3BDWRQ" xmlName="Kassasjonsdato" xmlFeatureKind="Element" base_Property="_23DKOWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23IpfGVzEd6mLuCD3BDWRQ" base_Class="_23DKOmVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23IpfWVzEd6mLuCD3BDWRQ" xmlName="Brukernavn" xmlFeatureKind="Element" base_Property="_23DKPGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpfmVzEd6mLuCD3BDWRQ" xmlName="Brukerrolle" xmlFeatureKind="Element" base_Property="_23DKPWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ipf2VzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23DKPmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpgGVzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23DKP2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpgWVzEd6mLuCD3BDWRQ" xmlName="Avsluttetdato" xmlFeatureKind="Element" base_Property="_23DKQWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpgmVzEd6mLuCD3BDWRQ" xmlName="Brukerstatus" xmlFeatureKind="Element" base_Property="_23DKQ2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23Ipg2VzEd6mLuCD3BDWRQ" base_Class="_23DKRWVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23IphGVzEd6mLuCD3BDWRQ" xmlName="Flyttil" xmlFeatureKind="Element" base_Property="_23DKR2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IphWVzEd6mLuCD3BDWRQ" xmlName="Flytfra" xmlFeatureKind="Element" base_Property="_23DKSGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IphmVzEd6mLuCD3BDWRQ" xmlName="Flytmottattdato" xmlFeatureKind="Element" base_Property="_23DKSWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Iph2VzEd6mLuCD3BDWRQ" xmlName="Flytsendtdato" xmlFeatureKind="Element" base_Property="_23DKSmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23IpiGVzEd6mLuCD3BDWRQ" xmlName="Flytstatus" xmlFeatureKind="Element" base_Property="_23DKS2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQgGVzEd6mLuCD3BDWRQ" xmlName="Flytmerknad" xmlFeatureKind="Element" base_Property="_23DKTGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23JQgWVzEd6mLuCD3BDWRQ" base_Class="_23DKTmVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EReference xmi:id="_23JQgmVzEd6mLuCD3BDWRQ" xmlName="Referanseregistrering" xmlFeatureKind="Element" base_Property="_23DKUGVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EAttribute xmi:id="_23JQg2VzEd6mLuCD3BDWRQ" xmlName="TilknyttetregistreringSom" xmlFeatureKind="Element" base_Property="_23DKUWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQhGVzEd6mLuCD3BDWRQ" xmlName="Dokumentnummer" xmlFeatureKind="Element" base_Property="_23DKUmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQhWVzEd6mLuCD3BDWRQ" xmlName="Tilknyttetdato" xmlFeatureKind="Element" base_Property="_23DKU2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQhmVzEd6mLuCD3BDWRQ" xmlName="Tilknyttetav" xmlFeatureKind="Element" base_Property="_23DKVGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23JQh2VzEd6mLuCD3BDWRQ" base_Class="_23DKV2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23JQiGVzEd6mLuCD3BDWRQ" xmlName="Referansearkivenhet" xmlFeatureKind="Element" base_Property="_23DKWWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQiWVzEd6mLuCD3BDWRQ" xmlName="Referansemetadata" xmlFeatureKind="Element" base_Property="_23DKWmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQimVzEd6mLuCD3BDWRQ" xmlName="Endretdato" xmlFeatureKind="Element" base_Property="_23DKW2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQi2VzEd6mLuCD3BDWRQ" xmlName="Endretav" xmlFeatureKind="Element" base_Property="_23DKXGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQjGVzEd6mLuCD3BDWRQ" xmlName="Tidligereverdi" xmlFeatureKind="Element" base_Property="_23DKXWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQjWVzEd6mLuCD3BDWRQ" xmlName="Nyverdi" xmlFeatureKind="Element" base_Property="_23DKXmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23JQjmVzEd6mLuCD3BDWRQ" base_Class="_23DKX2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23JQj2VzEd6mLuCD3BDWRQ" xmlName="Gradering" xmlFeatureKind="Element" base_Property="_23DKYWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQkGVzEd6mLuCD3BDWRQ" xmlName="Graderingsdato" xmlFeatureKind="Element" base_Property="_23DKYmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQkWVzEd6mLuCD3BDWRQ" xmlName="Gradertav" xmlFeatureKind="Element" base_Property="_23DKY2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQkmVzEd6mLuCD3BDWRQ" xmlName="Nedgraderingsdato" xmlFeatureKind="Element" base_Property="_23DKZGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQk2VzEd6mLuCD3BDWRQ" xmlName="Nedgradertav" xmlFeatureKind="Element" base_Property="_23DKZmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23JQlGVzEd6mLuCD3BDWRQ" base_Class="_23DKaGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23JQlWVzEd6mLuCD3BDWRQ" xmlName="Løpenummer" xmlFeatureKind="Element" base_Property="_23Dw8GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQlmVzEd6mLuCD3BDWRQ" xmlName="Journalposttype" xmlFeatureKind="Element" base_Property="_23Dw8WVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQl2VzEd6mLuCD3BDWRQ" xmlName="Journalstatus" xmlFeatureKind="Element" base_Property="_23Dw8mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQmGVzEd6mLuCD3BDWRQ" xmlName="Journaldato" xmlFeatureKind="Element" base_Property="_23Dw82VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQmWVzEd6mLuCD3BDWRQ" xmlName="Dokumentetsdato" xmlFeatureKind="Element" base_Property="_23Dw9GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23JQmmVzEd6mLuCD3BDWRQ" xmlName="Mottattdato" xmlFeatureKind="Element" base_Property="_23Dw9mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3kGVzEd6mLuCD3BDWRQ" xmlName="Sendtdato" xmlFeatureKind="Element" base_Property="_23Dw-GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3kWVzEd6mLuCD3BDWRQ" xmlName="Forfallsdato" xmlFeatureKind="Element" base_Property="_23Dw-mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3kmVzEd6mLuCD3BDWRQ" xmlName="Offentlighetsvurdertdato" xmlFeatureKind="Element" base_Property="_23Dw_GVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3k2VzEd6mLuCD3BDWRQ" xmlName="Antallvedlegg" xmlFeatureKind="Element" base_Property="_23Dw_mVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3lGVzEd6mLuCD3BDWRQ" xmlName="Utlåntdato" xmlFeatureKind="Element" base_Property="_23DxAGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3lWVzEd6mLuCD3BDWRQ" xmlName="Utlånttil" xmlFeatureKind="Element" base_Property="_23DxAmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23J3lmVzEd6mLuCD3BDWRQ" base_Class="_23DxBGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23J3l2VzEd6mLuCD3BDWRQ" xmlName="Konvertertdato" xmlFeatureKind="Element" base_Property="_23DxBmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3mGVzEd6mLuCD3BDWRQ" xmlName="Konvertertav" xmlFeatureKind="Element" base_Property="_23DxB2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3mWVzEd6mLuCD3BDWRQ" xmlName="Tidligereformat" xmlFeatureKind="Element" base_Property="_23DxCGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3mmVzEd6mLuCD3BDWRQ" xmlName="Tidligereformatdetaljer" xmlFeatureKind="Element" base_Property="_23DxCWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23J3m2VzEd6mLuCD3BDWRQ" base_Class="_23DxC2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23J3nGVzEd6mLuCD3BDWRQ" xmlName="Korrespondanseparttype" xmlFeatureKind="Element" base_Property="_23DxDWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3nWVzEd6mLuCD3BDWRQ" xmlName="Korrespondansepartnavn" xmlFeatureKind="Element" base_Property="_23DxDmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3nmVzEd6mLuCD3BDWRQ" xmlName="Postadresse" xmlFeatureKind="Element" base_Property="_23DxD2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3n2VzEd6mLuCD3BDWRQ" xmlName="Postnummer" xmlFeatureKind="Element" base_Property="_23DxEWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3oGVzEd6mLuCD3BDWRQ" xmlName="Poststed" xmlFeatureKind="Element" base_Property="_23DxE2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3oWVzEd6mLuCD3BDWRQ" xmlName="Utenlandsadresse" xmlFeatureKind="Element" base_Property="_23DxFWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3omVzEd6mLuCD3BDWRQ" xmlName="Epostadresse" xmlFeatureKind="Element" base_Property="_23DxF2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3o2VzEd6mLuCD3BDWRQ" xmlName="Telefonnummer" xmlFeatureKind="Element" base_Property="_23DxGWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3pGVzEd6mLuCD3BDWRQ" xmlName="Kontaktperson" xmlFeatureKind="Element" base_Property="_23DxG2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23J3pWVzEd6mLuCD3BDWRQ" base_Class="_23DxHWVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23J3pmVzEd6mLuCD3BDWRQ" xmlName="Referansetilklasse" xmlFeatureKind="Element" base_Property="_23DxH2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23J3p2VzEd6mLuCD3BDWRQ" xmlName="Referansefraklasse" xmlFeatureKind="Element" base_Property="_23DxIGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KeoGVzEd6mLuCD3BDWRQ" xmlName="Referansetilmappe" xmlFeatureKind="Element" base_Property="_23DxIWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KeoWVzEd6mLuCD3BDWRQ" xmlName="Referanseframappe" xmlFeatureKind="Element" base_Property="_23DxImVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KeomVzEd6mLuCD3BDWRQ" xmlName="Referansetilregistrering" xmlFeatureKind="Element" base_Property="_23DxI2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Keo2VzEd6mLuCD3BDWRQ" xmlName="Referansefraregistrering" xmlFeatureKind="Element" base_Property="_23DxJGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23KepGVzEd6mLuCD3BDWRQ" base_Class="_23DxJWVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23KepWVzEd6mLuCD3BDWRQ" xmlName="Merknadstekst" xmlFeatureKind="Element" base_Property="_23DxJ2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KepmVzEd6mLuCD3BDWRQ" xmlName="Merknadstype" xmlFeatureKind="Element" base_Property="_23DxKGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Kep2VzEd6mLuCD3BDWRQ" xmlName="Merknadsdato" xmlFeatureKind="Element" base_Property="_23DxKmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KeqGVzEd6mLuCD3BDWRQ" xmlName="Merknadregistrertav" xmlFeatureKind="Element" base_Property="_23DxK2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23KeqWVzEd6mLuCD3BDWRQ" base_Class="_23DxLGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23KeqmVzEd6mLuCD3BDWRQ" xmlName="Møtedeltakernavn" xmlFeatureKind="Element" base_Property="_23DxLmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Keq2VzEd6mLuCD3BDWRQ" xmlName="Møtedeltakerfunksjon" xmlFeatureKind="Element" base_Property="_23DxL2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23KerGVzEd6mLuCD3BDWRQ" base_Class="_23DxMGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23KerWVzEd6mLuCD3BDWRQ" xmlName="Møtenummer" xmlFeatureKind="Element" base_Property="_23DxM2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KermVzEd6mLuCD3BDWRQ" xmlName="Utvalg" xmlFeatureKind="Element" base_Property="_23DxNGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ker2VzEd6mLuCD3BDWRQ" xmlName="Møtedato" xmlFeatureKind="Element" base_Property="_23DxNWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KesGVzEd6mLuCD3BDWRQ" xmlName="Møtested" xmlFeatureKind="Element" base_Property="_23DxNmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23KesWVzEd6mLuCD3BDWRQ" xmlName="Referanseforrigemøte" xmlFeatureKind="Element" base_Property="_23DxOGVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23KesmVzEd6mLuCD3BDWRQ" xmlName="Referansenestemøte" xmlFeatureKind="Element" base_Property="_23DxOmVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23Kes2VzEd6mLuCD3BDWRQ" base_Class="_23DxQGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23KetGVzEd6mLuCD3BDWRQ" xmlName="Møteregistreringstype" xmlFeatureKind="Element" base_Property="_23DxQ2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KetWVzEd6mLuCD3BDWRQ" xmlName="Møtesakstype" xmlFeatureKind="Element" base_Property="_23DxRGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23KetmVzEd6mLuCD3BDWRQ" xmlName="Møteregistreringsstatus" xmlFeatureKind="Element" base_Property="_23DxRWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFsGVzEd6mLuCD3BDWRQ" xmlName="Administrativenhet" xmlFeatureKind="Element" base_Property="_23DxR2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFsWVzEd6mLuCD3BDWRQ" xmlName="Saksbehandler" xmlFeatureKind="Element" base_Property="_23DxSGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23LFsmVzEd6mLuCD3BDWRQ" xmlName="ReferansetilMøteregistrering" xmlFeatureKind="Element" base_Property="_23DxSWVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EReference xmi:id="_23LFs2VzEd6mLuCD3BDWRQ" xmlName="Referanseframøteregistrering" xmlFeatureKind="Element" base_Property="_23DxTGVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23LFtGVzEd6mLuCD3BDWRQ" base_Class="_23DxU2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23LFtWVzEd6mLuCD3BDWRQ" xmlName="Presedensdato" xmlFeatureKind="Element" base_Property="_23DxVWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFtmVzEd6mLuCD3BDWRQ" xmlName="Opprettetdato" xmlFeatureKind="Element" base_Property="_23DxVmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFt2VzEd6mLuCD3BDWRQ" xmlName="Opprettetav" xmlFeatureKind="Element" base_Property="_23DxV2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFuGVzEd6mLuCD3BDWRQ" xmlName="Tittel" xmlFeatureKind="Element" base_Property="_23DxWGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFuWVzEd6mLuCD3BDWRQ" xmlName="Beskrivelse" xmlFeatureKind="Element" base_Property="_23DxWWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFumVzEd6mLuCD3BDWRQ" xmlName="Presedenshjemmel" xmlFeatureKind="Element" base_Property="_23DxW2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFu2VzEd6mLuCD3BDWRQ" xmlName="Rettskildefaktor" xmlFeatureKind="Element" base_Property="_23DxXWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFvGVzEd6mLuCD3BDWRQ" xmlName="Presedensgodkjentdato" xmlFeatureKind="Element" base_Property="_23DxXmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFvWVzEd6mLuCD3BDWRQ" xmlName="Presedensgodkjentav" xmlFeatureKind="Element" base_Property="_23DxYGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFvmVzEd6mLuCD3BDWRQ" xmlName="Avsluttetdato" xmlFeatureKind="Element" base_Property="_23DxYmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFv2VzEd6mLuCD3BDWRQ" xmlName="Avsluttetav" xmlFeatureKind="Element" base_Property="_23DxZGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFwGVzEd6mLuCD3BDWRQ" xmlName="Presedensstatus" xmlFeatureKind="Element" base_Property="_23DxZmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23LFwWVzEd6mLuCD3BDWRQ" base_Class="_23DxaGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23LFwmVzEd6mLuCD3BDWRQ" xmlName="Administrativenhet" xmlFeatureKind="Element" base_Property="_23DxamVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFw2VzEd6mLuCD3BDWRQ" xmlName="Saksbehandler" xmlFeatureKind="Element" base_Property="_23Dxa2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LFxGVzEd6mLuCD3BDWRQ" xmlName="Journalenhet" xmlFeatureKind="Element" base_Property="_23DxbGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23LFxWVzEd6mLuCD3BDWRQ" base_Class="_23DxbmVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23LFxmVzEd6mLuCD3BDWRQ" xmlName="Fordelttil" xmlFeatureKind="Element" base_Property="_23DxcGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LswGVzEd6mLuCD3BDWRQ" xmlName="Fordeltav" xmlFeatureKind="Element" base_Property="_23DxcWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LswWVzEd6mLuCD3BDWRQ" xmlName="Fordeltdato" xmlFeatureKind="Element" base_Property="_23DxcmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23LswmVzEd6mLuCD3BDWRQ" base_Class="_23Dxc2VzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23Lsw2VzEd6mLuCD3BDWRQ" xmlName="Saksdato" xmlFeatureKind="Element" base_Property="_23DxdmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LsxGVzEd6mLuCD3BDWRQ" xmlName="Administrativenhet" xmlFeatureKind="Element" base_Property="_23Dxd2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LsxWVzEd6mLuCD3BDWRQ" xmlName="Saksansvarlig" xmlFeatureKind="Element" base_Property="_23DxeGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LsxmVzEd6mLuCD3BDWRQ" xmlName="Journalenhet" xmlFeatureKind="Element" base_Property="_23DxeWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Lsx2VzEd6mLuCD3BDWRQ" xmlName="Saksstatus" xmlFeatureKind="Element" base_Property="_23Dxe2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LsyGVzEd6mLuCD3BDWRQ" xmlName="Utlåntdato" xmlFeatureKind="Element" base_Property="_23DxfGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LsyWVzEd6mLuCD3BDWRQ" xmlName="Utlånttil" xmlFeatureKind="Element" base_Property="_23DxfmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EReference xmi:id="_23LsymVzEd6mLuCD3BDWRQ" xmlName="ReferansesekundærKlassifikasjon" xmlFeatureKind="Element" base_Property="_23EYAWVzEd6mLuCD3BDWRQ" isResolveProxies="false"/>
+  <Ecore:EClass xmi:id="_23Lsy2VzEd6mLuCD3BDWRQ" base_Class="_23EYBmVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23LszGVzEd6mLuCD3BDWRQ" xmlName="Sakspartid" xmlFeatureKind="Element" base_Property="_23EYCGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LszWVzEd6mLuCD3BDWRQ" xmlName="Sakspartnavn" xmlFeatureKind="Element" base_Property="_23EYCmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23LszmVzEd6mLuCD3BDWRQ" xmlName="Sakspartrolle" xmlFeatureKind="Element" base_Property="_23EYC2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Lsz2VzEd6mLuCD3BDWRQ" xmlName="Postadresse" xmlFeatureKind="Element" base_Property="_23EYDGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ls0GVzEd6mLuCD3BDWRQ" xmlName="Postnummer" xmlFeatureKind="Element" base_Property="_23EYDmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ls0WVzEd6mLuCD3BDWRQ" xmlName="Poststed" xmlFeatureKind="Element" base_Property="_23EYEGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ls0mVzEd6mLuCD3BDWRQ" xmlName="Utenlandsadresse" xmlFeatureKind="Element" base_Property="_23EYEmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ls02VzEd6mLuCD3BDWRQ" xmlName="Epostadresse" xmlFeatureKind="Element" base_Property="_23EYFGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ls1GVzEd6mLuCD3BDWRQ" xmlName="Telefonnummer" xmlFeatureKind="Element" base_Property="_23EYFmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23Ls1WVzEd6mLuCD3BDWRQ" xmlName="Kontaktperson" xmlFeatureKind="Element" base_Property="_23EYGGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23Ls1mVzEd6mLuCD3BDWRQ" base_Class="_23EYGmVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23Ls12VzEd6mLuCD3BDWRQ" xmlName="Tilgangsrestriksjon" xmlFeatureKind="Element" base_Property="_23EYHGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT0GVzEd6mLuCD3BDWRQ" xmlName="Skjermingshjemmel" xmlFeatureKind="Element" base_Property="_23EYHWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT0WVzEd6mLuCD3BDWRQ" xmlName="Skjermingmetadata" xmlFeatureKind="Element" base_Property="_23EYHmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT0mVzEd6mLuCD3BDWRQ" xmlName="Skjermingdokument" xmlFeatureKind="Element" base_Property="_23EYIGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT02VzEd6mLuCD3BDWRQ" xmlName="Skjermingsvarighet" xmlFeatureKind="Element" base_Property="_23EYImVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT1GVzEd6mLuCD3BDWRQ" xmlName="Skjermingopphørerdato" xmlFeatureKind="Element" base_Property="_23EYI2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23MT1WVzEd6mLuCD3BDWRQ" base_Class="_23EYJGVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23MT1mVzEd6mLuCD3BDWRQ" xmlName="Slettingstype" xmlFeatureKind="Element" base_Property="_23EYJmVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT12VzEd6mLuCD3BDWRQ" xmlName="Slettetdato" xmlFeatureKind="Element" base_Property="_23EYJ2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT2GVzEd6mLuCD3BDWRQ" xmlName="Slettetav" xmlFeatureKind="Element" base_Property="_23EYKGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23MT2WVzEd6mLuCD3BDWRQ" base_Class="_23EYKWVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23MT2mVzEd6mLuCD3BDWRQ" xmlName="Kassertdato" xmlFeatureKind="Element" base_Property="_23EYK2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT22VzEd6mLuCD3BDWRQ" xmlName="Kassertav" xmlFeatureKind="Element" base_Property="_23EYLGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EClass xmi:id="_23MT3GVzEd6mLuCD3BDWRQ" base_Class="_23EYLWVzEd6mLuCD3BDWRQ" xmlContentKind="ElementOnly"/>
+  <Ecore:EAttribute xmi:id="_23MT3WVzEd6mLuCD3BDWRQ" xmlName="ElektronisksignaturSikkerhetsnivå" xmlFeatureKind="Element" base_Property="_23EYL2VzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT3mVzEd6mLuCD3BDWRQ" xmlName="ElektronisksignaturVerfisert" xmlFeatureKind="Element" base_Property="_23EYMGVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT32VzEd6mLuCD3BDWRQ" xmlName="Verifisertdato" xmlFeatureKind="Element" base_Property="_23EYMWVzEd6mLuCD3BDWRQ"/>
+  <Ecore:EAttribute xmi:id="_23MT4GVzEd6mLuCD3BDWRQ" xmlName="Verfisertav" xmlFeatureKind="Element" base_Property="_23EYMmVzEd6mLuCD3BDWRQ"/>
+</xmi:XMI>
