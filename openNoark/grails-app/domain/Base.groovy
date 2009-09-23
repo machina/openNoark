@@ -1,11 +1,11 @@
 class Base {
-    String systemid
-    static constraints = {
-        systemid(nullable: false, unique: true)
-    }
-
-    static mapping = {
-        tablePerHierarchy false
-    }
-
+  String systemid
+  static constraints = {
+    systemid(nullable: false)
+    systemid(unique: true)
+  }
+  static hasMany = [:]
+  static mapping = {
+    tablePerHierarchy false
+  }
 }

@@ -1,3 +1,8 @@
+/**
+Metadata for arkiv¤¤¤¤¤
+ ¤¤¤¤¤
+
+*/
 class Arkiv extends Base{
   String tittel
   String beskrivelse
@@ -7,32 +12,35 @@ class Arkiv extends Base{
   String opprettetav
   Date avsluttetdato
   String avsluttetav
-  Arkiv referanseforelder
-	Arkiv forelder
-    static constraints = {
-tittel(nullable: false)
-beskrivelse(nullable: true)
-arkivstatus(nullable: true)
-dokumentmedium(nullable: true)
-oppbevaringssted(nullable: true)
-opprettetdato(nullable: false)
-opprettetav(nullable: false)
-avsluttetdato(nullable: true)
-avsluttetav(nullable: true)
-referanseforelder(nullable: true)
-//referansebarnArkivdel(minSize: 1)
-//referansebarnArkiv(minSize: 1)
-}
-static hasMany = [oppbevaringssted:String, referansebarnArkivdel:Arkivdel, referansebarnArkiv:Arkiv, subArkiv: Arkiv]
-static mappedBy = [subArkiv:'forelder',referansebarnArkiv:'referanseforelder']
-
-	def beforeUpdate = {
-		println "referansebarnArkivdel ${referansebarnArkivdel} ${referansebarnArkivdel?.size()}"
-		println "referansebarnArkiv ${referansebarnArkiv} ${referansebarnArkiv?.size()}"
-    if(referansebarnArkivdel && referansebarnArkivdel.size() == 0) referansebarnArkivdel = null
-		if(referansebarnArkiv && referansebarnArkiv.size() == 0) referansebarnArkiv = null
-  }  
-	static auditable = true
-	static searchable = true
-
+  Arkiv forelder
+  static constraints = {
+    tittel(nullable: false)
+    tittel(unique: false)
+    beskrivelse(nullable: true)
+    beskrivelse(unique: false)
+    arkivstatus(nullable: true)
+    arkivstatus(unique: false)
+    dokumentmedium(nullable: true)
+    dokumentmedium(unique: false)
+    oppbevaringssted(nullable: true)
+    oppbevaringssted(unique: false)
+    opprettetdato(nullable: false)
+    opprettetdato(unique: false)
+    opprettetav(nullable: false)
+    opprettetav(unique: false)
+    avsluttetdato(nullable: true)
+    avsluttetdato(unique: false)
+    avsluttetav(nullable: true)
+    avsluttetav(unique: false)
+    forelder(nullable: true)
+    forelder(unique: false)
+    referansebarnArkivdel(nullable: true)
+    referansebarnArkivdel(unique: false)
+    subArkiv(nullable: true)
+    subArkiv(unique: false)
+  }
+  static hasMany = [oppbevaringssted:String, referansebarnArkivdel:Arkivdel, subArkiv:Arkiv]
+  static mapping = {
+  }
+  static auditable = true
 }

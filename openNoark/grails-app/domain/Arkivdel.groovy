@@ -1,10 +1,14 @@
-class Arkivdel {
-  String systemid
+/**
+Metadata for arkivdel¤¤¤¤¤
+ ¤¤¤¤¤
+
+*/
+class Arkivdel extends Base{
   String tittel
   String beskrivelse
   String arkivdelstatus
   String dokumentmedium
-    Date opprettetdato
+  Date opprettetdato
   String opprettetav
   Date avsluttetdato
   String avsluttetav
@@ -13,34 +17,49 @@ class Arkivdel {
   Arkiv referanseforelder
   Arkivdel referanseforløper
   Arkivdel referansearvtaker
-//  Klassifikasjonssystem referanseklassifikasjonsSystem
-    static constraints = {
-systemid(nullable: false)
-tittel(nullable: false)
-beskrivelse(nullable: true)
-arkivdelstatus(nullable: false)
-dokumentmedium(nullable: false)
-oppbevaringssted(nullable: true)
-opprettetdato(nullable: false)
-opprettetav(nullable: false)
-avsluttetdato(nullable: true)
-avsluttetav(nullable: true)
-arkivperiodestartdato(nullable: false)
-arkivperiodesluttdato(nullable: true)
-referanseforelder(nullable: false)
-referanseforløper(nullable: true)
-referansearvtaker(nullable: true)
-referanseforelder( validator: {
-	if(it.arkivstatus == "Opprettet") return true
-	return "Kan ikke legge inn arkivdeler under et avsluttet arkiv."
-})
-//referanseklassifikasjonsSystem(nullable: false)
-//referansemappe(minSize: 1)
-//referanseregistrering(nullable: true)
-}
-static hasMany = [oppbevaringssted:String, registreringer:ForenkletRegistrering]
-
-static auditable = true
-//static searchable = true
-
+  Klassifikasjonssystem referanseklassifikasjonsSystem
+  static constraints = {
+    referanseforelder( validator: {
+      if(it.arkivstatus == "Opprettet") return true
+      return "Kan ikke legge inn arkivdeler under et avsluttet arkiv."
+    })
+    tittel(nullable: false)
+    tittel(unique: false)
+    beskrivelse(nullable: true)
+    beskrivelse(unique: false)
+    arkivdelstatus(nullable: false)
+    arkivdelstatus(unique: false)
+    dokumentmedium(nullable: false)
+    dokumentmedium(unique: false)
+    oppbevaringssted(nullable: true)
+    oppbevaringssted(unique: false)
+    opprettetdato(nullable: false)
+    opprettetdato(unique: false)
+    opprettetav(nullable: false)
+    opprettetav(unique: false)
+    avsluttetdato(nullable: true)
+    avsluttetdato(unique: false)
+    avsluttetav(nullable: true)
+    avsluttetav(unique: false)
+    arkivperiodestartdato(nullable: true)
+    arkivperiodestartdato(unique: false)
+    arkivperiodesluttdato(nullable: true)
+    arkivperiodesluttdato(unique: false)
+    referanseforelder(nullable: false)
+    referanseforelder(unique: false)
+    referanseforløper(nullable: true)
+    referanseforløper(unique: false)
+    referansearvtaker(nullable: true)
+    referansearvtaker(unique: false)
+    referanseklassifikasjonsSystem(nullable: true)
+    referanseklassifikasjonsSystem(unique: false)
+    referansemappe(minSize: 1)
+    referansemappe(unique: false)
+    referanseregistrering(nullable: true)
+    referanseregistrering(unique: false)
+  }
+  static hasMany = [oppbevaringssted:String, referansemappe:Basismappe, referanseregistrering:ForenkletRegistrering]
+  static mapping = {
+  }
+  static auditable = true
 }

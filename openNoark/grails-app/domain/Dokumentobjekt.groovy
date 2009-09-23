@@ -1,6 +1,9 @@
-class Dokumentobjekt {
-	Long id
-  String systemid
+/**
+Metadata for dokumentobjekt¤¤¤¤¤
+ ¤¤¤¤¤
+
+*/
+class Dokumentobjekt extends Base{
   String versjonsnummer
   String variantformat
   String format
@@ -13,23 +16,34 @@ class Dokumentobjekt {
   String sjekksumdokument
   String sjekksumalgoritme
   String filstørrelse
-static constraints = {
-systemid(nullable: false)
-versjonsnummer(nullable: false)
-variantformat(nullable: false)
-format(nullable: false)
-formatdetaljer(nullable: true)
-opprettetdato(nullable: false)
-opprettetav(nullable: false)
-referansedokumentBeskrivelse(nullable: true)
-referanseregistrering(nullable: true)
-referansedokumentfil(nullable: false)
-sjekksumdokument(nullable: false)
-sjekksumalgoritme(nullable: false)
-filstørrelse(nullable: false)
-}
-static hasMany = [:]
-static auditable = true
-
-//static searchable = true
+  static constraints = {
+    versjonsnummer(nullable: false)
+    versjonsnummer(unique: true)
+    variantformat(nullable: false)
+    variantformat(unique: true)
+    format(nullable: false)
+    format(unique: true)
+    formatdetaljer(nullable: true)
+    formatdetaljer(unique: true)
+    opprettetdato(nullable: false)
+    opprettetdato(unique: true)
+    opprettetav(nullable: false)
+    opprettetav(unique: true)
+    referansedokumentBeskrivelse(nullable: false)
+    referansedokumentBeskrivelse(unique: true)
+    referanseregistrering(nullable: false)
+    referanseregistrering(unique: true)
+    referansedokumentfil(nullable: false)
+    referansedokumentfil(unique: true)
+    sjekksumdokument(nullable: false)
+    sjekksumdokument(unique: true)
+    sjekksumalgoritme(nullable: false)
+    sjekksumalgoritme(unique: true)
+    filstørrelse(nullable: false)
+    filstørrelse(unique: true)
+  }
+  static hasMany = [:]
+  static mapping = {
+  }
+  static auditable = true
 }

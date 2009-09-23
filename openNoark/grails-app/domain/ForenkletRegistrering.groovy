@@ -1,6 +1,9 @@
-class ForenkletRegistrering {
-	Long id
-  String systemid
+/**
+Metadata for forenklet registrering¤¤¤¤¤
+ ¤¤¤¤¤
+
+*/
+class ForenkletRegistrering extends Base{
   String registreringstype
   Date opprettetdato
   String opprettetav
@@ -9,21 +12,32 @@ class ForenkletRegistrering {
   Basismappe referanseforelderBasismappe
   Klasse referanseforelderKlasse
   Arkivdel referansearkivdel
-    static constraints = {
-systemid(nullable: false)
-registreringstype(nullable: false)
-opprettetdato(nullable: false)
-opprettetav(nullable: false)
-arkivertdato(nullable: false)
-arkivertav(nullable: false)
-referanseforelderBasismappe(nullable: true)
-referanseforelderKlasse(nullable: true)
-referansearkivdel(nullable: true)
-referansedokumentBeskrivelse(nullable: true)
-referansedokumentObjekt(nullable: true)
-}
-static hasMany = [referansedokumentBeskrivelse:Dokumentbeskrivelse, referansedokumentObjekt:Dokumentobjekt]
-static auditable = true
-
-static searchable = true
+  static constraints = {
+    registreringstype(nullable: false)
+    registreringstype(unique: false)
+    opprettetdato(nullable: false)
+    opprettetdato(unique: false)
+    opprettetav(nullable: false)
+    opprettetav(unique: false)
+    arkivertdato(nullable: false)
+    arkivertdato(unique: false)
+    arkivertav(nullable: false)
+    arkivertav(unique: false)
+    referanseforelderBasismappe(nullable: true)
+    referanseforelderBasismappe(unique: false)
+    referanseforelderKlasse(nullable: true)
+    referanseforelderKlasse(unique: false)
+    referansearkivdel(nullable: true)
+    referansearkivdel(unique: false)
+    referansedokumentBeskrivelse(nullable: true)
+    referansedokumentBeskrivelse(unique: false)
+    referansedokumentObjekt(nullable: true)
+    referansedokumentObjekt(unique: false)
+  }
+  static hasMany = [referansedokumentBeskrivelse:Dokumentbeskrivelse, referansedokumentObjekt:Dokumentobjekt]
+  static mapping = {
+    tablePerHierarchy false
+  }
+  static searchable = true
+  static auditable = true
 }

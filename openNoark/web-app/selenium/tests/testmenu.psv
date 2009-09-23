@@ -10,7 +10,7 @@ clickAndWait|link=Klassifikasjonssystemer|
 verifyTextPresent|Klassifikasjonssystem|
 clickAndWait|link=Klasser|
 verifyTextPresent|Klasse|
-clickAndWait|link=Basismappeer|
+clickAndWait|link=Basismapper|
 verifyTextPresent|Basismappe|
 clickAndWait|link=Dokumentobjekter|
 verifyTextPresent|Dokumentobjekt|

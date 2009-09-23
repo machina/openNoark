@@ -3,7 +3,7 @@ type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
 clickAndWait|link=Arkiv|
-click|link=Nytt Arkiv|
+clickAndWait|link=Nytt Arkiv|
 type|tittel|LoggArkiv
 type|opprettetav|dill
 clickAndWait|save|

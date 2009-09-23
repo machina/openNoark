@@ -1,4 +1,4 @@
-open|/openNoark/auth/login?targetUri=%2Farkiv%2Flist|
+open|/openNoark/auth/login?targetUri=%2F|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|

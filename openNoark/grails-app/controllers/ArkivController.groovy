@@ -7,17 +7,21 @@ class ArkivController {
 		}
 
 	def save = {
+			fixParent(params)
 			def arkiv = new Arkiv(params)
 			arkiv.arkivstatus = "Opprettet"
 			arkiv.systemid = UUID.randomUUID().toString()
 			stripParent(params, arkiv)	
-			if(!arkiv.save()){
-				render(view: "create", model: [errors: arkiv.errors])
+			if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
+				println params
+				println arkiv.arkivstatus 
+				println arkiv.forelder
+				[arkiv: arkiv]
+
+			} else {
+					render(view: "create", model: [errors: arkiv.errors])
+
 			}
-			println params
-			println arkiv.arkivstatus 
-			println arkiv.forelder
-			[arkiv: arkiv]
 	}
 
 	def list = {
@@ -31,29 +35,42 @@ class ArkivController {
 				return [arkiv: Arkiv.get(params.id)]	
 				break
 			case 'POST':
-				def arkiv = Arkiv.get(params.id as Long)
+				def arkiv = Arkiv.get(params.id)
+				stripParent(params, arkiv)
 				arkiv.properties = params
 				println "arkiv.forelder: ${arkiv.forelder}"
 				println "arkiv.subArkiv: ${arkiv.subArkiv}"
-				println "arkiv.referansebarnArkivdel ${arkiv.referansebarnArkivdel} ${arkiv.referansebarnArkivdel?.size()}"
-		    println "arkiv.referansebarnArkiv ${arkiv.referansebarnArkiv} ${arkiv.referansebarnArkiv?.size()}"
-				stripParent(params, arkiv)
-				if(!arkiv.save()){
-    	   	render(view: "update", model: [errors: arkiv.errors, arkiv: arkiv])
-      	} else {
+				//println "arkiv.referansebarnArkivdel ${arkiv.referansebarnArkivdel} ${arkiv.referansebarnArkivdel?.size()}"
+		    //println "arkiv.referansebarnArkiv ${arkiv.referansebarnArkiv} ${arkiv.referansebarnArkiv?.size()}"
+				//stripParent(params, arkiv)
+				println "arkiv.forelder: ${arkiv.forelder}"
+				println "params.forelder: ${params.forelder}"
+				if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
 					render(view: "update_reciept", model: [arkiv: arkiv])
+    	  } else {
+					render(view: "update", model: [errors: arkiv.errors, arkiv: arkiv])
 				}
 				break
-	
 		}
 	}
 
 	def stripParent(params, arkiv) {
 		if(!params.forelder || params.forelder == "null") {
         println "nulling parent"
+				params.forelder = null
         arkiv.forelder = null
-      } else {
-        arkiv.forelder = Arkiv.get(params.forelder)
+      } else if(params.forelder instanceof String){
+        arkiv.forelder = Arkiv.get(Integer.parseInt(params.forelder))
       }
+	}
+	def fixParent(params){
+		if(!params.forelder || params.forelder == "null") {
+			params.forelder = null
+		} else if(params.forelder instanceof String){
+			println params.forelder
+			params.forelder = Arkiv.get(Integer.parseInt(params.forelder))
+		} else {
+			params.forelder.merge()
+		}
 	}
 }
