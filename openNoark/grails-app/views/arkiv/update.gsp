@@ -35,7 +35,7 @@
             </tr>
 						<tr>
 							<td><label for="forelder">Forelder</label></td>
-							<td><g:select name="forelder" value="${arkiv.forelder}" noSelection="${[null:'Velg forelder arkiv']}" from='${Arkiv.list()}' optionKey="id" optionValue="tittel"></g:select>
+							<td><g:select name="forelder" value="${arkiv.forelder}" noSelection="${['null':'Velg forelder arkiv']}" from='${Arkiv.list()}' optionKey="id" optionValue="tittel"></g:select>
 						</tr>
 						<tr>
 							<td><label for="forelder">Status</label></td>

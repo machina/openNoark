@@ -1,3 +1,7 @@
+open|/openNoark/auth/login|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
 open|/openNoark/arkiv/create|
 type|tittel|Test Arkiv
 clickAndWait|//input[@name='save']|

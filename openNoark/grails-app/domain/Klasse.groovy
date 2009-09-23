@@ -1,5 +1,9 @@
-class Klasse {
-  String systemid
+/**
+Metadata for klasse¤¤¤¤¤
+ ¤¤¤¤¤
+
+*/
+class Klasse extends Base{
   String klasseid
   String tittel
   String beskrivelse
@@ -9,37 +13,48 @@ class Klasse {
   String avsluttetav
   Klassifikasjonssystem referanseforelderKlassifikasjonssystem
   Klasse referanseforelderKlasse
-      static constraints = {
-systemid(nullable: false, unique: true)
-klasseid(nullable: false)
-tittel(nullable: false)
-beskrivelse(nullable: true)
-nøkkelord(nullable: true)
-opprettetdato(nullable: false)
-opprettetav(nullable: false)
-avsluttetdato(nullable: true)
-avsluttetav(nullable: true)
-referanseforelderKlassifikasjonssystem(nullable: true)
-referanseforelderKlasse(nullable: true)
-referansebarnKlasse(minSize: 1)
-referansebarnBasismappe(minSize: 1)
-referansebarnForenkletRegistrering(minSize: 1)
-}
-static hasMany = [nøkkelord:String, referansebarnKlasse:Klasse, referansebarnBasismappe:Basismappe, referansebarnForenkletRegistrering:ForenkletRegistrering]
-static auditable = true
-
-String fullId
-static transients = [ "fullId" ]
-
-	def afterLoad = {
-			println "klasseid: ${owner.klasseid}"
-      if(referanseforelderKlasse){
-				fullId = "${referanseforelderKlasse.klasseid}.${klasseid}"
-			}else{
-				fullId = "${klasseid}"
-			}
-			println "fullId: ${fullId}"
-   }
-
-//static searchable = true
+  static constraints = {
+    klasseid(nullable: false)
+    klasseid(unique: false)
+    tittel(nullable: false)
+    tittel(unique: false)
+    beskrivelse(nullable: true)
+    beskrivelse(unique: false)
+    nøkkelord(nullable: true)
+    nøkkelord(unique: false)
+    opprettetdato(nullable: false)
+    opprettetdato(unique: false)
+    opprettetav(nullable: false)
+    opprettetav(unique: false)
+    avsluttetdato(nullable: true)
+    avsluttetdato(unique: false)
+    avsluttetav(nullable: true)
+    avsluttetav(unique: false)
+    referanseforelderKlassifikasjonssystem(nullable: false)
+    referanseforelderKlassifikasjonssystem(unique: false)
+    referanseforelderKlasse(nullable: true)
+    referanseforelderKlasse(unique: false)
+    referansebarnKlasse(minSize: 1)
+    referansebarnKlasse(unique: false)
+    referansebarnBasismappe(minSize: 1)
+    referansebarnBasismappe(unique: false)
+    referansebarnForenkletRegistrering(minSize: 1)
+    referansebarnForenkletRegistrering(unique: false)
+  }
+  static hasMany = [nøkkelord:String, referansebarnKlasse:Klasse, referansebarnBasismappe:Basismappe, referansebarnForenkletRegistrering:ForenkletRegistrering]
+  static mapping = {
+  }
+  String fullId
+  static auditable = true
+  static transients = ["fullId"]
+  def afterLoad = {
+    println "klasseid: ${owner.klasseid}"
+    if(referanseforelderKlasse){
+    	fullId = "${referanseforelderKlasse.klasseid}.${klasseid}"
+    }else{
+    	fullId = "${klasseid}"
+    }
+    println "fullId: ${fullId}"
+  }
+  String toString(){"Klasse : ${fullId}"}
 }

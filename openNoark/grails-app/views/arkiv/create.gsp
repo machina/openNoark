@@ -11,7 +11,7 @@
 						</g:each>
 					</ul>
 				</g:if>
-				<g:form name='archive' id='archive' action="save">
+				<g:form name='archive' action="save">
 					<table>
 						<tr>
 							<td><label for="tittel">Tittel</label></td>

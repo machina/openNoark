@@ -105,14 +105,18 @@ class BasismappeController {
             flash.message = "Basismappe ${basismappeInstance.id} created"
 						withFormat {
 	            html {
-		            redirect(action:show,id:basismappeInstance.id)
+		            render(view:"show",[ basismappeInstance : basismappeInstance ])
 							}
 							xml {
 								render basismappeInstance as XML
 							}
 						}
+					 if(!response.isCommitted()){ //content negotioation failed, default to html
+						render(view:"show", model: [ basismappeInstance : basismappeInstance ])
+					 }
         }
         else {
+						println basismappeInstance.errors
             render(view:'create',model:[basismappeInstance:basismappeInstance])
         }
     }

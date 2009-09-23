@@ -109,10 +109,10 @@ class KlasseController {
 //				if(!klasseInstance.referanseforelderKlasse?.id) klasseInstance.referanseforelderKlasse = null
 //				klasseInstance = klasseInstance.merge()
 				println("klasser: ${Klasse.list()}")
-        if(!klasseInstance.hasErrors()) {
+        if(!klasseInstance.hasErrors() && klasseInstance.save()) {
 						println("klasser: ${Klasse.list()}")
 						println "${klasseInstance}"
-						klasseInstance.save()
+	//					klasseInstance.save()
 						println("klasser: ${Klasse.list()}")
             flash.message = "Klasse ${klasseInstance.id} created"
             redirect(action:show,id:klasseInstance.id)

@@ -1,3 +1,8 @@
+open|/openNoark/auth/login?targetUri=%2F|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+
 open|/openNoark/arkiv/create|
 type|tittel|Test Arkivforelder
 clickAndWait|//input[@name='save']|

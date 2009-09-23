@@ -15,13 +15,14 @@ type|klasseid|1
 type|tittel|epost
 type|beskrivelse|epost
 type|opprettetav|kent
-select|referanseforelderKlassifikasjonssystem.id|label=Klassifikasjonssystem : 1
+select|referanseforelderKlassifikasjonssystem.id|label=Test journal klassifikasjonsystem
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=New Klasse|
 type|klasseid|1
 type|tittel|Spam
 type|beskrivelse|Spam
 type|opprettetav|kent
+select|referanseforelderKlassifikasjonssystem.id|label=Test journal klassifikasjonsystem
 select|referanseforelderKlasse.id|label=Klasse : 1
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=New Klasse|
@@ -29,6 +30,7 @@ type|klasseid|2
 type|tittel|nyttig
 type|beskrivelse|Nyttig
 type|opprettetav|meg
+select|referanseforelderKlassifikasjonssystem.id|label=Test journal klassifikasjonsystem
 select|referanseforelderKlasse.id|label=Klasse : 1
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=New Klasse|
@@ -36,14 +38,16 @@ type|klasseid|1
 type|tittel|jobb
 type|beskrivelse|jobb
 type|opprettetav|kis
-select|referanseforelderKlasse.id|label=Klasse : 3
+select|referanseforelderKlassifikasjonssystem.id|label=Test journal klassifikasjonsystem
+select|referanseforelderKlasse.id|label=Klasse : 1.2
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=New Klasse|
-select|referanseforelderKlasse.id|label=Klasse : 3
+select|referanseforelderKlasse.id|label=Klasse : 1.2
 type|klasseid|2
 type|tittel|personlig
 type|beskrivelse|personlig
 type|opprettetav|me
+select|referanseforelderKlassifikasjonssystem.id|label=Test journal klassifikasjonsystem
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Klasse List|
 clickAndWait|link=Arkiv|

@@ -5,7 +5,7 @@ class SecurityFilters {
         auth(controller: "*", action: "*") {
             before = {
                 // Exclude the "public" controller.
-                if (controllerName == "public") return true
+                if (controllerName == "public" || controllerName == "selenium") return true
 
 								// This just means that the user must be authenticated. He does // not need any particular role or permission. 
 								accessControl { true } 
