@@ -20,9 +20,9 @@
                     <tbody>
 
                         <tr class="prop">
-                            <td valign="top" class="name">Systemid:</td>
+                            <td valign="top" class="name">SystemID:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'systemid')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'systemID')}</td>
                             
                         </tr>
                     

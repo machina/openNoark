@@ -23,7 +23,7 @@
                         
                    	        <g:sortableColumn property="id" title="Id" />
                         
-                   	        <g:sortableColumn property="systemid" title="Systemid" />
+                   	        <g:sortableColumn property="systemID" title="SystemID" />
                         
                    	        <g:sortableColumn property="registreringstype" title="Registreringstype" />
                         
@@ -41,7 +41,7 @@
                         
                             <td><g:link action="show" id="${forenkletRegistreringInstance.id}">${fieldValue(bean:forenkletRegistreringInstance, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:forenkletRegistreringInstance, field:'systemid')}</td>
+                            <td>${fieldValue(bean:forenkletRegistreringInstance, field:'systemID')}</td>
                         
                             <td>${fieldValue(bean:forenkletRegistreringInstance, field:'registreringstype')}</td>
                         

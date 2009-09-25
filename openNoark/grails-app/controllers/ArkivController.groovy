@@ -10,7 +10,7 @@ class ArkivController {
 			fixParent(params)
 			def arkiv = new Arkiv(params)
 			arkiv.arkivstatus = "Opprettet"
-			arkiv.systemid = UUID.randomUUID().toString()
+			arkiv.systemID = UUID.randomUUID().toString()
 			stripParent(params, arkiv)	
 			if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
 				println params

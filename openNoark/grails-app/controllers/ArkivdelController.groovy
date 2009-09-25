@@ -10,7 +10,7 @@ class ArkivdelController {
 		def save = {
 			def arkivdel = new Arkivdel(params)
 			arkivdel.arkivdelstatus = "Opprettet"
-			arkivdel.systemid = UUID.randomUUID().toString()
+			arkivdel.systemID = UUID.randomUUID().toString()
 			println params
 			if(!params.referanseforelder || params.referanseforelder == "null") {
 				print "nulling"

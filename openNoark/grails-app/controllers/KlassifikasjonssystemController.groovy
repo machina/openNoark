@@ -88,7 +88,7 @@ class KlassifikasjonssystemController {
 
     def save = {
         def klassifikasjonssystemInstance = new Klassifikasjonssystem(params)
-				klassifikasjonssystemInstance.systemid = UUID.randomUUID().toString()
+				klassifikasjonssystemInstance.systemID = UUID.randomUUID().toString()
         if(!klassifikasjonssystemInstance.hasErrors() && klassifikasjonssystemInstance.save()) {
             flash.message = "Klassifikasjonssystem ${klassifikasjonssystemInstance.id} created"
             redirect(action:show,id:klassifikasjonssystemInstance.id)

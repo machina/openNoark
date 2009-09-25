@@ -23,7 +23,7 @@
                         
                    	        <g:sortableColumn property="id" title="Id" />
                         
-                   	        <g:sortableColumn property="systemid" title="Systemid" />
+                   	        <g:sortableColumn property="systemID" title="SystemID" />
                         
                    	        <g:sortableColumn property="dokumenttype" title="Dokumenttype" />
                         
@@ -41,7 +41,7 @@
                         
                             <td><g:link action="show" id="${dokumentbeskrivelseInstance.id}">${fieldValue(bean:dokumentbeskrivelseInstance, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:dokumentbeskrivelseInstance, field:'systemid')}</td>
+                            <td>${fieldValue(bean:dokumentbeskrivelseInstance, field:'systemID')}</td>
                         
                             <td>${fieldValue(bean:dokumentbeskrivelseInstance, field:'dokumenttype')}</td>
                         

@@ -15,7 +15,7 @@
 						<th>Arkiv status</th>
 						<g:each in="${arkiver}" var="arkiv">
 							<tr>
-								<td>${arkiv.systemid}</td>
+								<td>${arkiv.systemID}</td>
 								<td><g:link action="update" id="${arkiv.id}">${arkiv.tittel}</g:link></td>
       	        <td>${arkiv.arkivstatus}</td>
         	    </tr>

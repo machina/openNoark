@@ -103,7 +103,7 @@ class KlasseController {
 				println("klasser: ${Klasse.list()}")
         def klasseInstance = new Klasse(params)
 				println("klasser: ${Klasse.list()}")
-				klasseInstance.systemid = UUID.randomUUID().toString()
+				klasseInstance.systemID = UUID.randomUUID().toString()
 				println("klasser: ${Klasse.list()}")
 //				println("forelderklasse: ${klasseInstance.referanseforelderKlasse}")
 //				if(!klasseInstance.referanseforelderKlasse?.id) klasseInstance.referanseforelderKlasse = null
