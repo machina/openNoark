@@ -92,12 +92,12 @@ class DokumentobjektController {
 				def dokumentobjektInstance = null
 				if(params.dokumentobjekt != null){
 					params.dokumentobjekt.opprettetdato = df.parse(params.dokumentobjekt.opprettetdato)
-					params.dokumentobjekt.referanseregistrering = ForenkletRegistrering.findBySystemid(params.dokumentobjekt.referanseregistrering)
+					params.dokumentobjekt.referanseregistrering = ForenkletRegistrering.findBySystemID(params.dokumentobjekt.referanseregistrering)
 					dokumentobjektInstance = new Dokumentobjekt(params.dokumentobjekt)
 				} else {
 	        dokumentobjektInstance = new Dokumentobjekt(params)
 				}
-				dokumentobjektInstance.systemid = UUID.randomUUID().toString();
+				dokumentobjektInstance.systemID = UUID.randomUUID().toString();
 				dokumentobjektInstance.referanseregistrering = params.dokumentobjekt.referanseregistrering
         if(!dokumentobjektInstance.hasErrors() && dokumentobjektInstance.save()) {
 					flash.message = "Dokumentobjekt ${dokumentobjektInstance.id} created"

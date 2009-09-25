@@ -21,7 +21,7 @@
                     <thead>
                         <tr>
                         
-                   	        <g:sortableColumn property="systemid" title="Systemid" />
+                   	        <g:sortableColumn property="systemID" title="SystemID" />
                         
                    	        <g:sortableColumn property="klassifikasjonstype" title="Klassifikasjonstype" />
                         
@@ -36,7 +36,7 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                         
-                            <td><g:link action="show" id="${klassifikasjonssystemInstance.id}">${fieldValue(bean:klassifikasjonssystemInstance, field:'systemid')}</g:link></td>
+                            <td><g:link action="show" id="${klassifikasjonssystemInstance.id}">${fieldValue(bean:klassifikasjonssystemInstance, field:'systemID')}</g:link></td>
                         
                             <td>${fieldValue(bean:klassifikasjonssystemInstance, field:'klassifikasjonstype')}</td>
                         

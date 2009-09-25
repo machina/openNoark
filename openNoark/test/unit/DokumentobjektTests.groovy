@@ -12,7 +12,7 @@ class DokumentobjektTests extends GrailsUnitTestCase {
 	
 		void testNullablereferansedokumentBeskrivelse(){
 
-    def dok = new Dokumentobjekt(systemid: "test",
+    def dok = new Dokumentobjekt(systemID: "test",
                                   versjonsnummer:"1",
                                   variantformat:"tekst",
                                   format: "ascii",

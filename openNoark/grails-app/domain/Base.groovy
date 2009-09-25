@@ -1,8 +1,8 @@
 class Base {
-  String systemid
+  String systemID
   static constraints = {
-    systemid(nullable: false)
-    systemid(unique: true)
+    systemID(nullable: false)
+    systemID(unique: true)
   }
   static hasMany = [:]
   static mapping = {

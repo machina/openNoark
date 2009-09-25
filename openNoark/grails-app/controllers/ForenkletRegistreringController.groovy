@@ -112,7 +112,7 @@ class ForenkletRegistreringController {
 				}
 				println "arkivertdato ${forenkletRegistreringInstance.arkivertdato}"
 				println "opprettetdato ${forenkletRegistreringInstance.opprettetdato}"
-				forenkletRegistreringInstance.systemid = UUID.randomUUID().toString()
+				forenkletRegistreringInstance.systemID = UUID.randomUUID().toString()
         if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
             flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
 						withFormat {

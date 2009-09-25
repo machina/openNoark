@@ -31,10 +31,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="systemid">Systemid:</label>
+                                    <label for="systemID">SystemID:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'systemid','errors')}">
-                                    <input type="text" id="systemid" name="systemid" value="${fieldValue(bean:forenkletRegistreringInstance,field:'systemid')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'systemID','errors')}">
+                                    <input type="text" id="systemID" name="systemID" value="${fieldValue(bean:forenkletRegistreringInstance,field:'systemID')}"/>
                                 </td>
                             </tr> 
                         

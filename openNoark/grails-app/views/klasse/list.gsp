@@ -23,7 +23,7 @@
                         
                    	        <g:sortableColumn property="id" title="Id" />
                         
-                   	        <g:sortableColumn property="systemid" title="Systemid" />
+                   	        <g:sortableColumn property="systemID" title="SystemID" />
                         
                    	        <g:sortableColumn property="klasseid" title="Klasseid" />
                         
@@ -41,7 +41,7 @@
                         
                             <td><g:link action="show" id="${klasseInstance.id}">${fieldValue(bean:klasseInstance, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:klasseInstance, field:'systemid')}</td>
+                            <td>${fieldValue(bean:klasseInstance, field:'systemID')}</td>
                         
                             <td>${fieldValue(bean:klasseInstance, field:'klasseid')}</td>
                         
