@@ -13,6 +13,7 @@ class Klasse extends Base{
   String avsluttetav
   Klassifikasjonssystem referanseforelderKlassifikasjonssystem
   Klasse referanseforelderKlasse
+  BevaringOgKassasjon bevaringOgKassasjon
   static constraints = {
     klasseid(nullable: false)
     klasseid(unique: false)
@@ -40,6 +41,8 @@ class Klasse extends Base{
     referansebarnBasismappe(unique: false)
     referansebarnForenkletRegistrering(minSize: 1)
     referansebarnForenkletRegistrering(unique: false)
+    bevaringOgKassasjon(nullable: true)
+    bevaringOgKassasjon(unique: false)
   }
   static hasMany = [nøkkelord:String, referansebarnKlasse:Klasse, referansebarnBasismappe:Basismappe, referansebarnForenkletRegistrering:ForenkletRegistrering]
   static mapping = {

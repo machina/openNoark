@@ -17,6 +17,7 @@ class Basismappe extends Base{
   Klasse referanseforelderKlasse
   Basismappe referanseforelderBasismappe
   Arkivdel referansearkivdel
+  BevaringOgKassasjon bevaringOgKassasjon
   static constraints = {
     mappeid(nullable: false)
     mappeid(unique: true)
@@ -52,8 +53,12 @@ class Basismappe extends Base{
     referansebarnBasismappe(unique: false)
     referansearkivdel(nullable: false)
     referansearkivdel(unique: false)
+    bevaringOgKassasjon(nullable: true)
+    bevaringOgKassasjon(unique: false)
+    merknad(nullable: true)
+    merknad(unique: false)
   }
-  static hasMany = [nøkkelord:String, oppbevaringssted:String, referansebarnForenkletRegistrering:ForenkletRegistrering, referansebarnBasismappe:Basismappe]
+  static hasMany = [nøkkelord:String, oppbevaringssted:String, referansebarnForenkletRegistrering:ForenkletRegistrering, referansebarnBasismappe:Basismappe, merknad:Merknad]
   static mapping = {
     tablePerHierarchy false
   }

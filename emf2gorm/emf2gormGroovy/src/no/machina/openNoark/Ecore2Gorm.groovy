@@ -5,6 +5,7 @@ import sun.security.x509.UniqueIdentity;
 class Ecore2Gorm {
 
 	def transform(def pack){
+		def packageName = getPackageName(pack);
 		def classes = pack.eContents()
 		classes.each{ tklass ->
 		def klass = tklass
@@ -20,7 +21,7 @@ class Ecore2Gorm {
 		  def builder = new GormBuilder(writer)
 		  def parent = klass.eSuperTypes.size() > 0 ? klass.eSuperTypes[0].name : null
 	      def documentation = ""
-		  builder."${klass.name}"(parent: parent){
+		  builder."${klass.name}"(parent: parent, packageName: packageName){
 		    println klass.eReferences
 		    println klass.eAttributes
 		    klass.eContents().each {
@@ -63,7 +64,7 @@ class Ecore2Gorm {
 
 		  } //end builder
 		 
-		  new File("/home/kent/out/domain/${klass.name}.groovy").write writer.toString()
+		  new File("/home/kent/out/domain/${packageName.split('.').join('/')}${klass.name}.groovy").write writer.toString()
 		}//end classes
 	}
 	def translateType(type) {
@@ -72,6 +73,13 @@ class Ecore2Gorm {
 		return type
 	}
 
-	
+	def getPackageName(def pack){
+		def name = ""
+		pack.eContents().each{
+			if(it.getClass().name == "org.eclipse.emf.ecore.impl.EAnnotationImpl" && it.name == "package"){
+				return it.details.value[0] //TODO: make safer
+			}
+		}
+	}
 	
 }

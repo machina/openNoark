@@ -15,6 +15,7 @@ class Dokumentbeskrivelse extends Base{
   String opprettetav
   String dokumentmedium
   String oppbevaringssted
+  BevaringOgKassasjon bevaringOgKassasjon
   static constraints = {
     dokumenttype(nullable: false)
     dokumenttype(unique: false)
@@ -36,8 +37,12 @@ class Dokumentbeskrivelse extends Base{
     oppbevaringssted(unique: false)
     referansedokumentObjekt(nullable: true)
     referansedokumentObjekt(unique: false)
+    bevaringOgKassasjon(nullable: true)
+    bevaringOgKassasjon(unique: false)
+    merknad(nullable: true)
+    merknad(unique: false)
   }
-  static hasMany = [referansedokumentObjekt:Dokumentobjekt]
+  static hasMany = [referansedokumentObjekt:Dokumentobjekt, merknad:Merknad]
   static mapping = {
   }
   static searchable = true

@@ -23,8 +23,18 @@ class BevaringOgKassasjon {
     bevaringstid(unique: true)
     kassasjonsdato(nullable: false)
     kassasjonsdato(unique: true)
+    registrering(nullable: true)
+    registrering(unique: false)
+    arkivdel(nullable: true)
+    arkivdel(unique: false)
+    mappe(nullable: true)
+    mappe(unique: false)
+    klasse(nullable: true)
+    klasse(unique: false)
+    dokumentBeskrivelse(nullable: true)
+    dokumentBeskrivelse(unique: false)
   }
-  static hasMany = [:]
+  static hasMany = [registrering:ForenkletRegistrering, arkivdel:Arkivdel, mappe:Basismappe, klasse:Klasse, dokumentBeskrivelse:Dokumentbeskrivelse]
   static mapping = {
   }
 }
