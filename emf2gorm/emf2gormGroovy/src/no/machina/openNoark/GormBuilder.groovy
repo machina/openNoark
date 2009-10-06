@@ -51,7 +51,9 @@ class GormBuilder extends BuilderSupport {
    protected Object createNode(Object name, Map attrs, Object value) {
 			  switch(state){
 					case CLASS:
+							if(attrs && attrs['packageName']) out.println "package ${attrs['packageName']}"
 							out.print "class ${name} "
+							
 							if(attrs && attrs['parent']) out.print "extends ${attrs['parent']}"
 							out.println "{"
 							out.incrementIndent()

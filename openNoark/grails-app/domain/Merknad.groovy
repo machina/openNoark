@@ -11,6 +11,9 @@ class Merknad {
   String merknadstype
   Date merknadsdato
   String merknadregistrertav
+  Basismappe mappe
+  Basisregistrering basisRegistrering
+  Dokumentbeskrivelse dokumentBeskrivelse
   static constraints = {
     merknadstekst(nullable: false)
     merknadstekst(unique: true)
@@ -20,6 +23,12 @@ class Merknad {
     merknadsdato(unique: true)
     merknadregistrertav(nullable: false)
     merknadregistrertav(unique: true)
+    mappe(nullable: true)
+    mappe(unique: false)
+    basisRegistrering(nullable: true)
+    basisRegistrering(unique: false)
+    dokumentBeskrivelse(nullable: true)
+    dokumentBeskrivelse(unique: false)
   }
   static hasMany = [:]
   static mapping = {

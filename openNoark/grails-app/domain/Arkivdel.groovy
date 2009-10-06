@@ -18,6 +18,7 @@ class Arkivdel extends Base{
   Arkivdel referanseforløper
   Arkivdel referansearvtaker
   Klassifikasjonssystem referanseklassifikasjonsSystem
+  BevaringOgKassasjon bevaringOgKassasjon
   static constraints = {
     referanseforelder( validator: {
       if(it.arkivstatus == "Opprettet") return true
@@ -57,6 +58,8 @@ class Arkivdel extends Base{
     referansemappe(unique: false)
     referanseregistrering(nullable: true)
     referanseregistrering(unique: false)
+    bevaringOgKassasjon(nullable: true)
+    bevaringOgKassasjon(unique: false)
   }
   static hasMany = [oppbevaringssted:String, referansemappe:Basismappe, referanseregistrering:ForenkletRegistrering]
   static mapping = {

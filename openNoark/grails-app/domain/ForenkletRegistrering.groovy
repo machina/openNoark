@@ -12,6 +12,7 @@ class ForenkletRegistrering extends Base{
   Basismappe referanseforelderBasismappe
   Klasse referanseforelderKlasse
   Arkivdel referansearkivdel
+  BevaringOgKassasjon bevaringOgKassasjon
   static constraints = {
     registreringstype(nullable: false)
     registreringstype(unique: false)
@@ -33,6 +34,8 @@ class ForenkletRegistrering extends Base{
     referansedokumentBeskrivelse(unique: false)
     referansedokumentObjekt(nullable: true)
     referansedokumentObjekt(unique: false)
+    bevaringOgKassasjon(nullable: true)
+    bevaringOgKassasjon(unique: false)
   }
   static hasMany = [referansedokumentBeskrivelse:Dokumentbeskrivelse, referansedokumentObjekt:Dokumentobjekt]
   static mapping = {

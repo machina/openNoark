@@ -3,6 +3,9 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="noark"
     nsURI="http://www.machina.no/noark" nsPrefix="noark">
+  <eAnnotations source="package">
+    <details key="name" value="no.opennoark.ds"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Administrasjonsstruktur">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Metadata for administrasjonsstruktur¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for administrasjonsstruktur skal ikke avleves, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata enn det som er listet opp her. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
@@ -282,6 +285,8 @@
         <details key="name" value="Referanseregistrering"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false"
+        eType="#//BevaringOgKassasjon"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arkivskaper">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -562,6 +567,10 @@
         <details key="name" value="Referansearkivdel"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false"
+        eType="#//BevaringOgKassasjon"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="merknad" unique="false"
+        upperBound="-1" eType="#//Merknad"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Basisregistrering" eSuperTypes="#//ForenkletRegistrering">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -627,6 +636,8 @@
         <details key="name" value="Oppbevaringssted"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="merknad" unique="false"
+        upperBound="-1" eType="#//Merknad"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BevaringOgKassasjon">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -663,6 +674,16 @@
         <details key="name" value="Kassasjonsdato"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="registrering" unique="false"
+        upperBound="-1" eType="#//ForenkletRegistrering"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arkivdel" unique="false"
+        upperBound="-1" eType="#//Arkivdel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappe" unique="false" upperBound="-1"
+        eType="#//Basismappe"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klasse" unique="false"
+        upperBound="-1" eType="#//Klasse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dokumentBeskrivelse" unique="false"
+        upperBound="-1" eType="#//Dokumentbeskrivelse"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Brukeradministrasjon">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -797,6 +818,10 @@
         <details key="name" value="ReferansedokumentObjekt"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false"
+        eType="#//BevaringOgKassasjon"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="merknad" unique="false"
+        upperBound="-1" eType="#//Merknad"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dokumentflyt">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -902,6 +927,9 @@
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="attribute" value="static auditable = true"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="constraint" value="referansedokumentBeskrivelse( validator: { val, obj ->&#xA;  if(obj.referansedokumentBeskrivelse == null &amp;&amp; obj.referanseregistrering == null) return &quot;Dokumentobjekt må være tinknyttet enten et dokumentobjekt eller en registrering.&quot;&#xA;  if(obj.referansedokumentBeskrivelse != null &amp;&amp; obj.referanseregistrering != null) return &quot;Dokumentobjekt må være tinknyttet enten et dokumentobjekt eller en registrering.&quot;&#xA;  return true&#xA;})"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versjonsnummer" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
@@ -1281,6 +1309,8 @@
         <details key="name" value="Referansebarn_forenkletRegistrering"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false"
+        eType="#//BevaringOgKassasjon"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Klassifikasjonssystem" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1544,6 +1574,11 @@
         <details key="name" value="Merknadregistrertav"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappe" unique="false" eType="#//Basismappe"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basisRegistrering" unique="false"
+        eType="#//Basisregistrering"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dokumentBeskrivelse" unique="false"
+        eType="#//Dokumentbeskrivelse"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Møtedeltaker">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2195,5 +2230,7 @@
         <details key="name" value="ReferansedokumentObjekt"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false"
+        eType="#//BevaringOgKassasjon"/>
   </eClassifiers>
 </ecore:EPackage>

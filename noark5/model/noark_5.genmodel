@@ -50,6 +50,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referanseklassifikasjonsSystem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referansemappe"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referanseregistrering"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/bevaringOgKassasjon"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Arkivskaper">
       <genAnnotations source="http://opennoark.machina.no">
@@ -97,6 +98,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/referansebarnForenkletRegistrering"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/referansebarnBasismappe"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/referansearkivdel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/bevaringOgKassasjon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/merknad"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Basisregistrering">
       <genAnnotations source="http://opennoark.machina.no">
@@ -110,12 +113,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/forfatter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/dokumentmedium"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/oppbevaringssted"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Basisregistrering/merknad"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//BevaringOgKassasjon">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BevaringOgKassasjon/kassasjonsvedtak"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BevaringOgKassasjon/kassasjonshjemmel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BevaringOgKassasjon/bevaringstid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BevaringOgKassasjon/kassasjonsdato"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/registrering"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/arkivdel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/mappe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/klasse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/dokumentBeskrivelse"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Brukeradministrasjon">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Brukeradministrasjon/brukernavn"/>
@@ -139,6 +148,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/dokumentmedium"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/oppbevaringssted"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/referansedokumentObjekt"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/bevaringOgKassasjon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/merknad"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Dokumentflyt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentflyt/flyttil"/>
@@ -215,6 +226,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referansebarnKlasse"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referansebarnBasismappe"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referansebarnForenkletRegistrering"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/bevaringOgKassasjon"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Klassifikasjonssystem">
       <genAnnotations source="http://opennoark.machina.no">
@@ -259,6 +271,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadstype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadsdato"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadregistrertav"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/mappe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/basisRegistrering"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/dokumentBeskrivelse"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Møtedeltaker">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møtedeltaker/møtedeltakernavn"/>
@@ -354,7 +369,7 @@
       <genAnnotations source="http://opennoark.machina.no">
         <details key="mapping" value="tablePerHierarchy false"/>
       </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Base/systemid"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Base/systemID"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//ForenkletRegistrering">
       <genAnnotations source="http://opennoark.machina.no">
@@ -373,6 +388,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referansearkivdel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referansedokumentBeskrivelse"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referansedokumentObjekt"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/bevaringOgKassasjon"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

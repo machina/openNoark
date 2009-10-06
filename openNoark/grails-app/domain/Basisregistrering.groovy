@@ -28,8 +28,10 @@ class Basisregistrering extends ForenkletRegistrering{
     dokumentmedium(unique: true)
     oppbevaringssted(nullable: true)
     oppbevaringssted(unique: false)
+    merknad(nullable: true)
+    merknad(unique: false)
   }
-  static hasMany = [nøkkelord:String, forfatter:String, oppbevaringssted:String]
+  static hasMany = [nøkkelord:String, forfatter:String, oppbevaringssted:String, merknad:Merknad]
   static mapping = {
     tablePerHierarchy false
   }

@@ -17,6 +17,11 @@ class Dokumentobjekt extends Base{
   String sjekksumalgoritme
   String filstørrelse
   static constraints = {
+    referansedokumentBeskrivelse( validator: { val, obj ->
+      if(obj.referansedokumentBeskrivelse == null && obj.referanseregistrering == null) return "Dokumentobjekt må være tinknyttet enten et dokumentobjekt eller en registrering."
+      if(obj.referansedokumentBeskrivelse != null && obj.referanseregistrering != null) return "Dokumentobjekt må være tinknyttet enten et dokumentobjekt eller en registrering."
+      return true
+    })
     versjonsnummer(nullable: false)
     versjonsnummer(unique: false)
     variantformat(nullable: false)
