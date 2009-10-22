@@ -126,13 +126,13 @@ class GormBuilder extends BuilderSupport {
 
 			out.println "static mapping = {"
 			out.incrementIndent()
-			println "MAPPINGS: ${mappings}"
+			println("MAPPINGS: ${mappings}")
 			mappings.eachLine{
 				out.println it
 			}
 			out.decrementIndent()
 			out.println "}"
-			
+			println("EXTRAS: ${extras}")
 			extras.eachLine { 
 				out.println it
 			}
