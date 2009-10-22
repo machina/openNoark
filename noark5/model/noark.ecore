@@ -66,6 +66,9 @@
     <eAnnotations source="http://opennoark.machina.no">
       <details key="attribute" value="static auditable = true"/>
     </eAnnotations>
+    <eAnnotations source="http://opennoark2.machina.no">
+      <details key="constraint" value="arkivstatus(inList: [&quot;Opprettet&quot;, &quot;Avsluttet&quot;])"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tittel" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -150,6 +153,7 @@
         <details key="name" value="Referansebarn_arkiv"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arkivskaper" eType="#//Arkivskaper"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arkivdel" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -164,6 +168,9 @@
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="constraint" value="referanseforelder( validator: {&#xA;  if(it.arkivstatus == &quot;Opprettet&quot;) return true&#xA;  return &quot;Kan ikke legge inn arkivdeler under et avsluttet arkiv.&quot;&#xA;})"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="constraint" value="arkivdelstatus(inList: [&quot;Opprettet&quot;, &quot;Avsluttet&quot;])"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tittel" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
@@ -287,6 +294,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false"
         eType="#//BevaringOgKassasjon"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodeStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arkivskaper">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -319,6 +327,8 @@
         <details key="name" value="Beskrivelse"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arkiv" upperBound="-1"
+        eType="#//Arkiv"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Avlevering">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

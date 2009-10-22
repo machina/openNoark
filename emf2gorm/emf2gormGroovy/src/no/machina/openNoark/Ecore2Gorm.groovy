@@ -1,11 +1,13 @@
 package no.machina.openNoark
 
+import java.io.File;
+
 import sun.security.x509.UniqueIdentity;
 
 class Ecore2Gorm {
 
 	def transform(def pack){
-		def packageName = getPackageName(pack);
+		String packageName = getPackageName(pack);
 		def classes = pack.eContents()
 		classes.each{ tklass ->
 		def klass = tklass
@@ -16,14 +18,14 @@ class Ecore2Gorm {
 		println klass
 
 		println klass.getClass().name
-		
+		println "packageName: ${packageName}"
 		  StringWriter writer = new StringWriter()
 		  def builder = new GormBuilder(writer)
 		  def parent = klass.eSuperTypes.size() > 0 ? klass.eSuperTypes[0].name : null
 	      def documentation = ""
 		  builder."${klass.name}"(parent: parent, packageName: packageName){
-		    println klass.eReferences
-		    println klass.eAttributes
+		    //println klass.eReferences
+		    //println klass.eAttributes
 		    klass.eContents().each {
 		      println it.getClass().name
 		      switch(it.getClass().name){
@@ -63,8 +65,21 @@ class Ecore2Gorm {
 		    } //end klass.eContents
 
 		  } //end builder
-		 
-		  new File("/home/kent/out/domain/${packageName.split('.').join('/')}${klass.name}.groovy").write writer.toString()
+
+		  println "writing to file, package: ${packageName}"
+		  try{
+			  File f = new File("/home/kent/out/domain/${packageName.split('.').join('/')}")
+			  boolean b = f.mkdirs()
+			  println "mkdirs: ${b}"
+			  f = new File("/home/kent/out/domain/${packageName.split('.').join('/')}/${klass.name}.groovy")
+			  
+			  f.write writer.toString()
+			  println "write successfull"
+		  }catch(Exception e){
+			  e.printStackTrace()
+		  }
+		  
+		  
 		}//end classes
 	}
 	def translateType(type) {
@@ -73,13 +88,14 @@ class Ecore2Gorm {
 		return type
 	}
 
-	def getPackageName(def pack){
+	String getPackageName(def pack){
 		def name = ""
 		pack.eContents().each{
 			if(it.getClass().name == "org.eclipse.emf.ecore.impl.EAnnotationImpl" && it.name == "package"){
-				return it.details.value[0] //TODO: make safer
+				return it.details.value[0].toString() //TODO: make safer
 			}
 		}
+		return ""
 	}
 	
 }

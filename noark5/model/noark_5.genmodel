@@ -31,6 +31,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkiv/forelder"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkiv/referansebarnArkivdel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkiv/subArkiv"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Arkiv/arkivskaper"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Arkivdel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/tittel"/>
@@ -51,6 +52,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referansemappe"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referanseregistrering"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/bevaringOgKassasjon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/periodeStatus"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Arkivskaper">
       <genAnnotations source="http://opennoark.machina.no">
@@ -59,6 +61,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivskaper/arkivskaperid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivskaper/arkivskapernavn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivskaper/beskrivelse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivskaper/arkiv"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Avlevering">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/ansvarligeksport"/>

@@ -19,11 +19,13 @@ class Arkivdel extends Base{
   Arkivdel referansearvtaker
   Klassifikasjonssystem referanseklassifikasjonsSystem
   BevaringOgKassasjon bevaringOgKassasjon
+  String periodeStatus
   static constraints = {
     referanseforelder( validator: {
       if(it.arkivstatus == "Opprettet") return true
       return "Kan ikke legge inn arkivdeler under et avsluttet arkiv."
     })
+    arkivdelstatus(inList: ["Opprettet", "Avsluttet"])
     tittel(nullable: false)
     tittel(unique: false)
     beskrivelse(nullable: true)
@@ -60,6 +62,8 @@ class Arkivdel extends Base{
     referanseregistrering(unique: false)
     bevaringOgKassasjon(nullable: true)
     bevaringOgKassasjon(unique: false)
+    periodeStatus(nullable: true)
+    periodeStatus(unique: true)
   }
   static hasMany = [oppbevaringssted:String, referansemappe:Basismappe, referanseregistrering:ForenkletRegistrering]
   static mapping = {

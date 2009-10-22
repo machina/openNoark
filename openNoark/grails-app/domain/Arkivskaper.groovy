@@ -17,8 +17,10 @@ class Arkivskaper {
     arkivskapernavn(unique: true)
     beskrivelse(nullable: true)
     beskrivelse(unique: true)
+    arkiv(nullable: true)
+    arkiv(unique: true)
   }
-  static hasMany = [:]
+  static hasMany = [arkiv:Arkiv]
   static mapping = {
   }
   static searchable = true
