@@ -2,7 +2,7 @@ package no.machina.openNoark
 
 import java.io.File;
 
-import sun.security.x509.UniqueIdentity;
+
 
 class Ecore2Gorm {
 
