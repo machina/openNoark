@@ -6,17 +6,17 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
-
+ 
 import no.machina.openNoark.Ecore2Gorm;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-/*import org.eclipse.emf.codegen.ecore.generator.Generator;
-import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelImpl;
-import org.eclipse.emf.codegen.ecore.genmodel.presentation.GenModelEditor;
-import org.eclipse.emf.ecore.EModelElement;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.swt.widgets.Shell;*/
+//import org.eclipse.emf.codegen.ecore.generator.Generator;
+//import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelImpl;
+//import org.eclipse.emf.codegen.ecore.genmodel.presentation.GenModelEditor;
+//import org.eclipse.emf.ecore.EModelElement;
+//import org.eclipse.emf.ecore.EObject;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -66,7 +66,7 @@ public class SampleHandler extends AbstractHandler {
 		MessageDialog.openInformation(
 				window.getShell(),
 				"Emf2gorm Plug-in",
-				"Hello, Eclipse world"+transformer.toString());
+				"Generation sucessfull");
 		
 		}catch(Throwable t){
 			StringWriter sw = new StringWriter();
@@ -74,7 +74,7 @@ public class SampleHandler extends AbstractHandler {
 			MessageDialog.openInformation(
 					window.getShell(),
 					"Emf2gorm Plug-in",
-					"Generation sucessfull");
+					"Generation failed: "+t.getMessage().toString());
 		}
 		return null;
 	}
