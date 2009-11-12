@@ -15,7 +15,7 @@ class BasismappeController {
 			 	      return [ basismappeInstanceList: Basismappe.list( params ), basismappeInstanceTotal: Basismappe.count() ]
 						}
 						xml {
-							render Basismappe.list() as XML
+							render (text: Basismappe.list() as XML, encoding: "UTF-8")
 						}
 						json {
 							render Basismappe.list() as JSON
@@ -30,7 +30,16 @@ class BasismappeController {
             flash.message = "Basismappe not found with id ${params.id}"
             redirect(action:list)
         }
-        else { return [ basismappeInstance : basismappeInstance ] }
+        else { 
+					withFormat {
+            html {
+							return [ basismappeInstance : basismappeInstance ] 
+						}
+						xml {
+							render (text: basismappeInstance as XML, encoding: "UTF-8")
+						}
+					}
+				}
     }
 
     def delete = {
