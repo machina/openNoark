@@ -3,15 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/org.eclipse.emf.codegen.ecore_2.4.2.v200902171115.jar"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/org.eclipse.emf.edit.ui_2.4.2.v200902171115.jar"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/org.eclipse.emf.edit_2.4.2.v200902171115.jar"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/org.eclipse.emf.common.ui_2.4.0.v200902171115.jar"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/org.eclipse.emf.common_2.4.0.v200902171115.jar"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/org.eclipse.ui.ide_3.4.2.M20090127-1700.jar"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/org.eclipse.emf_2.4.0.v200902171115.jar"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/org.eclipse.emf.ecore_2.4.2.v200902171115.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/emf2gormGroovy"/>
-	<classpathentry kind="lib" path="/home/kent/projects/opennoark/emf2gorm/emf2gorm/lib/emf2gormGroovy.jar"/>
+	<classpathentry exported="true" kind="con" path="GROOVY_SUPPORT"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
