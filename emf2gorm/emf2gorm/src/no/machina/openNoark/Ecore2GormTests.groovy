@@ -1,5 +1,5 @@
 package no.machina.openNoark;
-import sun.security.x509.UniqueIdentity;
+
 public class Ecore2GormTests {
 
 	def transform(def pack){
