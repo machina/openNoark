@@ -62,6 +62,5 @@ class Basismappe extends Base{
   static mapping = {
     tablePerHierarchy false
   }
-  static searchable = true
   static auditable = true
 }

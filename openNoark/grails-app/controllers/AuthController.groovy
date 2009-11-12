@@ -12,6 +12,7 @@ class AuthController {
     }
 
     def signIn = {
+				println "username ${params.username} password ${params.password}"
         def authToken = new UsernamePasswordToken(params.username, params.password)
 
         // Support for "remember me"
@@ -29,12 +30,17 @@ class AuthController {
             // to it. Otherwise redirect to the root URI.
             def targetUri = params.targetUri ?: "/"
 
-            log.info "Redirecting to '${targetUri}'."
-            redirect(uri: targetUri)
+						if(params.noredirect == "true"){
+							render "ok"
+						} else {
+							log.info "Redirecting to '${targetUri}'."
+	            redirect(uri: targetUri)
+						}
         }
         catch (AuthenticationException ex){
             // Authentication failed, so display the appropriate message
             // on the login page.
+						println ex.getMessage()
             log.info "Authentication failure for user '${params.username}'."
             flash.message = message(code: "login.failed")
 

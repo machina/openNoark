@@ -448,9 +448,6 @@
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
-      <details key="attribute" value="static searchable = true"/>
-    </eAnnotations>
-    <eAnnotations source="http://opennoark.machina.no">
       <details key="attribute" value="static auditable = true"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
@@ -935,12 +932,13 @@
       <details key="name" value="Dokumentobjekt"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eAnnotations source="http://opennoark.machina.no">
-      <details key="attribute" value="static auditable = true"/>
+    <eAnnotations source="http://opennoark.machina.no/attributes">
+      <details key="auditable" value="true"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="constraint" value="referansedokumentBeskrivelse( validator: { val, obj ->&#xA;  if(obj.referansedokumentBeskrivelse == null &amp;&amp; obj.referanseregistrering == null) return &quot;Dokumentobjekt må være tinknyttet enten et dokumentobjekt eller en registrering.&quot;&#xA;  if(obj.referansedokumentBeskrivelse != null &amp;&amp; obj.referanseregistrering != null) return &quot;Dokumentobjekt må være tinknyttet enten et dokumentobjekt eller en registrering.&quot;&#xA;  return true&#xA;})"/>
     </eAnnotations>
+    <eAnnotations/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versjonsnummer" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -2158,9 +2156,6 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="ForenkletRegistrering"/>
       <details key="kind" value="elementOnly"/>
-    </eAnnotations>
-    <eAnnotations source="http://opennoark.machina.no">
-      <details key="attribute" value="static searchable = true"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="attribute" value="static auditable = true"/>
