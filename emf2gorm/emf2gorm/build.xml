@@ -10,6 +10,7 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
+    <import file="openNoarkBuild.xml"/>
     <path id="Plug-in Dependencies.libraryclasspath">
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ui_3.4.2.M20090204-0800.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.swt_3.4.2.v3452b.jar"/>
@@ -43,10 +44,6 @@
         <pathelement location="bin"/>
         <path refid="Groovy Libraries.libraryclasspath"/>
     </path>
-		<taskdef name="groovyc"
-         classname="org.codehaus.groovy.ant.Groovyc"
-         classpathref="Groovy Libraries.libraryclasspath"/>
-
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
@@ -61,10 +58,6 @@
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-				<groovyc destdir="bin" >
-						<src path="src"/>
-            <classpath refid="emf2gorm.classpath"/>
-        </groovyc>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="emf2gorm.classpath"/>
@@ -84,12 +77,4 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-		
-		<target depends="clean, build" name="dist">
-			<jar destfile="./emf2gorm.jar" manifest="./META-INF/MANIFEST.MF">
-				<fileset dir="./bin"/>
-				<fileset file="./plugin.xml" />
-				<fileset dir="./icons"/>
-			</jar>
-		</target>
 </project>
