@@ -64,7 +64,14 @@
                         <tr class="prop">
                             <td valign="top" class="name">Nøkkelord:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'nøkkelord')}</td>
+                            <td valign="top" class="value">
+															<ul>
+															<g:each in="${basismappeInstance.nøkkelord}">
+																<li>${it}</li>
+															</g:each>
+															</ul>
+														</td>
+															
                             
                         </tr>
                     

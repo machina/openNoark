@@ -98,24 +98,15 @@
                                 </td>
                             </tr> 
                         
-                            <tr class="prop">
+ 														<tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="avsluttetdato">Avsluttetdato:</label>
+                                    <label for="opprettetav">Nøkkelord:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'avsluttetdato','errors')}">
-                                    <g:datePicker name="avsluttetdato" value="${basismappeInstance?.avsluttetdato}" precision="minute" ></g:datePicker>
+                                <td valign="top" class="value ${hasErrors(bean:ibasismappeInstance,field:'nøkkelord','errors')}">
+                                    <input type="text" id="nøkkelord" name="nøkkelord"/>
                                 </td>
                             </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="avsluttetav">Avsluttetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'avsluttetav','errors')}">
-                                    <input type="text" id="avsluttetav" name="avsluttetav" value="${fieldValue(bean:basismappeInstance,field:'avsluttetav')}"/>
-                                </td>
-                            </tr> 
-                        
+                      
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="referanseforelderKlasse">Referanseforelder Klasse:</label>
@@ -139,7 +130,7 @@
                                     <label for="referansearkivdel">Referansearkivdel:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referansearkivdel','errors')}">
-                                    <g:select optionKey="id" noSelection="${[null:'Velg forelder arkivdel']}" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}" ></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" noSelection="${[null:'Velg forelder arkivdel']}" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}"></g:select>
                                 </td>
                             </tr> 
                         

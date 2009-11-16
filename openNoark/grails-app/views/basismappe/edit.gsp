@@ -83,14 +83,21 @@
                                 </td>
                             </tr> 
                         
-                            <tr class="prop">
+                        
+                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="nøkkelord">Nøkkelord:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'nøkkelord','errors')}">
-                                    
+                                 	<ul>
+																		<g:each in="${basismappeInstance.nøkkelord}" var="ord">
+																			<li>${ord}</li>
+																		</g:each>
+																			<li><g:link controller="keyword" action="edit" id="${basismappeInstance.systemID}">Rediger nøkkelord</g:link>
+																	</ul> 
                                 </td>
                             </tr> 
+                        
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -185,7 +192,7 @@
                                     <label for="referansearkivdel">Referansearkivdel:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referansearkivdel','errors')}">
-                                    <g:select optionKey="id" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}" ></g:select>
+                                    <g:select optionKey="id" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}" optionvalue="tittel" ></g:select>
                                 </td>
                             </tr> 
                         

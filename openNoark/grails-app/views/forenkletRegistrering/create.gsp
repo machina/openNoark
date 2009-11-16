@@ -76,7 +76,7 @@
                                     <label for="referanseforelderBasismappe">Referanseforelder Basismappe:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referanseforelderBasismappe','errors')}">
-                                    <g:select optionKey="id" from="${Basismappe.list()}" name="referanseforelderBasismappe.id" value="${forenkletRegistreringInstance?.referanseforelderBasismappe?.id}" ></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" from="${Basismappe.list()}" name="referanseforelderBasismappe.id" value="${forenkletRegistreringInstance?.referanseforelderBasismappe?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
@@ -85,7 +85,7 @@
                                     <label for="referanseforelderKlasse">Referanseforelder Klasse:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referanseforelderKlasse','errors')}">
-                                    <g:select optionKey="id" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${forenkletRegistreringInstance?.referanseforelderKlasse?.id}" ></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${forenkletRegistreringInstance?.referanseforelderKlasse?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
@@ -94,7 +94,7 @@
                                     <label for="referansearkivdel">Referansearkivdel:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referansearkivdel','errors')}">
-                                    <g:select optionKey="id" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${forenkletRegistreringInstance?.referansearkivdel?.id}" noSelection="['null':'']"></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${forenkletRegistreringInstance?.referansearkivdel?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         

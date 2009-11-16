@@ -109,6 +109,7 @@ class BasismappeController {
     def save = {
         def basismappeInstance = new Basismappe(params)
 				basismappeInstance.systemID = UUID.randomUUID().toString()
+				if(params.nøkkelord && params.nøkkelord instanceof String) basismappeInstance.nøkkelord = params.nøkkelord.tokenize(" ")
 
         if(!basismappeInstance.hasErrors() && basismappeInstance.save()) {
             flash.message = "Basismappe ${basismappeInstance.id} created"
