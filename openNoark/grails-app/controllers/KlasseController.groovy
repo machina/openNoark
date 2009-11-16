@@ -100,15 +100,12 @@ class KlasseController {
     def save = {
 				println params
 //				params.klasseid = null
-				println("klasser: ${Klasse.list()}")
         def klasseInstance = new Klasse(params)
-				println("klasser: ${Klasse.list()}")
 				klasseInstance.systemID = UUID.randomUUID().toString()
-				println("klasser: ${Klasse.list()}")
 //				println("forelderklasse: ${klasseInstance.referanseforelderKlasse}")
 //				if(!klasseInstance.referanseforelderKlasse?.id) klasseInstance.referanseforelderKlasse = null
 //				klasseInstance = klasseInstance.merge()
-				println("klasser: ${Klasse.list()}")
+				if(params.nøkkelord && params.nøkkelord instanceof String) klasseInstance.nøkkelord = params.nøkkelord.tokenize(" ")
         if(!klasseInstance.hasErrors() && klasseInstance.save()) {
 						println("klasser: ${Klasse.list()}")
 						println "${klasseInstance}"

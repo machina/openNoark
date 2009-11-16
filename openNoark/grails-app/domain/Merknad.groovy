@@ -8,17 +8,15 @@ Forekomst:               0-M¤¤¤¤¤
 */
 class Merknad {
   String merknadstekst
-  String merknadstype
   Date merknadsdato
   String merknadregistrertav
   Basismappe mappe
   Basisregistrering basisRegistrering
   Dokumentbeskrivelse dokumentBeskrivelse
+  MerknadType merknadstype
   static constraints = {
     merknadstekst(nullable: false)
     merknadstekst(unique: true)
-    merknadstype(nullable: true)
-    merknadstype(unique: true)
     merknadsdato(nullable: false)
     merknadsdato(unique: true)
     merknadregistrertav(nullable: false)
@@ -29,6 +27,8 @@ class Merknad {
     basisRegistrering(unique: false)
     dokumentBeskrivelse(nullable: true)
     dokumentBeskrivelse(unique: false)
+    merknadstype(nullable: false)
+    merknadstype(unique: true)
   }
   static hasMany = [:]
   static mapping = {

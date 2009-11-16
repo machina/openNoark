@@ -70,7 +70,12 @@
                                     <label for="nøkkelord">Nøkkelord:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'nøkkelord','errors')}">
-                                    
+                                 	<ul>
+																		<g:each in="${klasseInstance.nøkkelord}" var="ord">
+																			<li>${ord}</li>
+																		</g:each>
+																			<li><g:link controller="keyword" action="edit" id="${klasseInstance.systemID}">Rediger nøkkelord</g:link>
+																	</ul> 
                                 </td>
                             </tr> 
                         

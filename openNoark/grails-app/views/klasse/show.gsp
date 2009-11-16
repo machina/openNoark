@@ -60,7 +60,13 @@
                         <tr class="prop">
                             <td valign="top" class="name">Nøkkelord:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:klasseInstance, field:'nøkkelord')}</td>
+                            <td valign="top" class="value">
+															<ul>
+																		<g:each in="${klasseInstance.nøkkelord}" var="ord">
+																			<li>${ord}</li>
+																		</g:each>
+																	</ul>   
+														</td>
                             
                         </tr>
                     

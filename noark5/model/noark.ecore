@@ -524,14 +524,14 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="avsluttetdato" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime">
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Avsluttetdato"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="avsluttetav" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Avsluttetav"/>
@@ -552,16 +552,15 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnForenkletRegistrering"
-        unique="false" lowerBound="1" upperBound="-1" eType="#//ForenkletRegistrering"
-        containment="true" resolveProxies="false">
+        unique="false" upperBound="-1" eType="#//ForenkletRegistrering" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_forenkletRegistrering"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnBasismappe"
-        unique="false" lowerBound="1" upperBound="-1" eType="#//Basismappe" containment="true"
-        resolveProxies="false">
+        unique="false" upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_basismappe"/>
@@ -938,7 +937,6 @@
     <eAnnotations source="http://opennoark.machina.no">
       <details key="constraint" value="referansedokumentBeskrivelse( validator: { val, obj ->&#xA;  if(obj.referansedokumentBeskrivelse == null &amp;&amp; obj.referanseregistrering == null) return &quot;Dokumentobjekt må være tinknyttet enten et dokumentobjekt eller en registrering.&quot;&#xA;  if(obj.referansedokumentBeskrivelse != null &amp;&amp; obj.referanseregistrering != null) return &quot;Dokumentobjekt må være tinknyttet enten et dokumentobjekt eller en registrering.&quot;&#xA;  return true&#xA;})"/>
     </eAnnotations>
-    <eAnnotations/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versjonsnummer" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1295,23 +1293,22 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnKlasse" unique="false"
-        lowerBound="1" upperBound="-1" eType="#//Klasse" containment="true" resolveProxies="false">
+        upperBound="-1" eType="#//Klasse" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_klasse"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnBasismappe"
-        unique="false" lowerBound="1" upperBound="-1" eType="#//Basismappe" containment="true"
-        resolveProxies="false">
+        unique="false" upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_basismappe"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnForenkletRegistrering"
-        unique="false" lowerBound="1" upperBound="-1" eType="#//ForenkletRegistrering"
-        containment="true" resolveProxies="false">
+        unique="false" upperBound="-1" eType="#//ForenkletRegistrering" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_forenkletRegistrering"/>
@@ -1562,12 +1559,6 @@
         <details key="name" value="Merknadstekst"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="merknadstype" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="Merknadstype"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="merknadsdato" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1587,6 +1578,18 @@
         eType="#//Basisregistrering"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dokumentBeskrivelse" unique="false"
         eType="#//Dokumentbeskrivelse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="merknadstype" lowerBound="1"
+        eType="#//MerknadType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MerknadType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="MerknadType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="navn" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="merknad" upperBound="-1"
+        eType="#//Merknad"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Møtedeltaker">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

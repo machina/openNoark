@@ -70,7 +70,15 @@
                                     <input type="text" id="opprettetav" name="opprettetav" value="${fieldValue(bean:klasseInstance,field:'opprettetav')}"/>
                                 </td>
                             </tr> 
-                        
+ 													  <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="opprettetav">Nøkkelord:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'nøkkelord','errors')}">
+                                    <input type="text" id="nøkkelord" name="nøkkelord"/>
+                                </td>
+                            </tr> 
+                       
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="referanseforelderKlassifikasjonssystem">Referanseforelder Klassifikasjonssystem:</label>

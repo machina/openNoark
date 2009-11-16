@@ -117,7 +117,7 @@ class ForenkletRegistreringController {
             flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
 						withFormat {
 	            html {
-		            redirect(action:show,id:forenkletRegistreringInstance.id)
+		            redirect(action: "show", id:forenkletRegistreringInstance.id)
 							}
 							xml {
 								render forenkletRegistreringInstance as XML
