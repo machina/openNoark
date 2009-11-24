@@ -1,0 +1,132 @@
+
+Autotest.add_hook :died do |at|
+	puts "DIED: #{$!.inspect}"
+	p $!.backtrace
+end
+
+module Autotest::GnomeNotify
+
+  # Time notification will be displayed before disappearing automatically
+  EXPIRATION_IN_SECONDS = 2
+  ERROR_STOCK_ICON = "gtk-dialog-error"
+  SUCCESS_STOCK_ICON = "gtk-dialog-info"
+
+  # Convenience method to send an error notification message
+  #
+  # [stock_icon]   Stock icon name of icon to display
+  # [title]        Notification message title
+  # [message]      Core message for the notification
+  def self.notify stock_icon, title, message
+    options = "-t #{EXPIRATION_IN_SECONDS * 1000} -i #{stock_icon}"
+    system "notify-send #{options} '#{title}' '#{message}'"
+  end
+
+  Autotest.add_hook :red do |at|
+    notify ERROR_STOCK_ICON, "Tests failed", "#{at.files_to_test.size} tests failed"
+  end
+
+  Autotest.add_hook :green do |at|
+    notify SUCCESS_STOCK_ICON, "All tests passed, good job!", ""
+  end
+
+end
+
+
+
+# Override autotest to make it understand grails
+#
+class Autotest
+
+	##
+	# Finding the right tests for changed files
+	#
+	def test_files_for(filename)
+		if filename =~ /.*Controller.groovy$/ 
+			f = filename.sub(/\.groovy/, '').sub(/.*\//, '')
+			return Dir["test/**/#{f}Tests.groovy"]
+		end
+	
+    return Dir["test/**/*.groovy"]
+  end 
+
+	def make_test_cmd(files_to_test)
+		cmds = []
+		full, partial = reorder(files_to_test).partition { |k,v| v.empty? }
+
+    classes = full.map {|k,v| k}.flatten.uniq if partial.empty?
+		classes = partial.map {|k,v| k}.flatten.uniq unless partial.empty?
+
+		tests = []
+    classes.each { |f|
+				next unless f =~ /.*Tests\.groovy$/
+				tests << f.sub(/Tests\.groovy/, '').sub(/.*\//, '').sub(/.*\./,'')
+    }
+		#testing each test once will suffice
+		tests.uniq!
+		cmds << "grails test-app #{tests.join(' ')}"
+
+		return cmds.join("#{SEP} ")
+  end
+
+	def handle_results(results)
+		
+		begin
+			units =  results.scan(/Starting unit tests(.*)Starting integration tests/m)[0][0].scan(/Running \d* \w+ test\w?\.\.\.\s(.*)\sTests Completed/m)[0]
+			integrations = results.scan(/Starting integration tests(.*)/m)[0][0].scan(/Running \d* \w+ test\w?\.\.\.\s(.*)\sTests Completed/m)[0]
+			texts = []
+			texts += units if units
+			texts += integrations if integrations
+			self.files_to_test = handle_grails_result_output( texts )
+		rescue
+			p $!
+			self.files_to_test = new_hash_of_arrays
+		end
+		#hooking for notifiers
+		color = self.files_to_test.empty? ? :green : :red
+    hook color unless $TESTING
+	end
+
+	def handle_grails_result_output(results)
+		filters = new_hash_of_arrays
+		current_test = ""
+		results.each { |result_texts|
+			result_texts.each_line { |line|
+				if(line =~ /^\s+/) then  #line starts with whitespace contais a result
+					unless line =~ /.*SUCCESS$/ then
+						filters["test/integration/#{current_test}.groovy"] = line.strip().sub(/\..*/,"")
+					end	
+				else
+					current_test = line.scan(/Running test (.+)\.\.\./)[0][0]
+				end
+			}
+		}
+		filters
+	end
+
+
+  def find_files
+    result = {}
+    targets = self.find_directories + self.extra_files
+    self.find_order.clear
+
+    targets.each do |target|
+      order = []
+      Find.find(target) do |f|
+        Find.prune if f =~ self.exceptions
+
+        next if test ?d, f
+        next if f =~ /(swp|~|rej|orig)$/ # temporary/patch files
+        next if f =~ /\/\.?#/            # Emacs autosave/cvs merge files
+				next unless f =~ /.*\.groovy$/
+       filename = f.sub(/^\.\//, '')
+
+        result[filename] = File.stat(filename).mtime rescue next
+        order << filename
+      end
+      self.find_order.push(*order.sort)
+    end
+
+    return result
+  end
+
+end
