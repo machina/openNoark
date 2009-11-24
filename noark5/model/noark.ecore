@@ -1501,48 +1501,24 @@
       <details key="name" value="Kryssreferanse"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referansetilklasse" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="Referansetilklasse"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referansefraklasse" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="Referansefraklasse"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referansetilmappe" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="Referansetilmappe"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referanseframappe" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="Referanseframappe"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referansetilregistrering"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="Referansetilregistrering"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referansefraregistrering"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="element"/>
-        <details key="name" value="Referansefraregistrering"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="constraint" value="tilKlasse( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.tilMappe != null || obj.tilRegistrering != null)) return &quot;Kryssreferanser kan bare ha en til attributt.&quot;&#xA;  return true&#xA;})&#xA;tilMappe( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.tilKlasse != null || obj.tilRegistrering != null)) return &quot;Kryssreferanser kan bare ha en til attributt.&quot;&#xA;  return true&#xA;})&#xA;tilRegistrering( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.tilMappe != null || obj.tilKlasse != null)) return &quot;Kryssreferanser kan bare ha en til attributt.&quot;&#xA;  return true&#xA;})"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="constraint" value="fraKlasse( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.fraMappe != null || obj.fraRegistrering != null)) return &quot;Kryssreferanser kan bare ha en fra attributt.&quot;&#xA;  return true&#xA;})&#xA;fraMappe( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.fraKlasse != null || obj.fraRegistrering != null)) return &quot;Kryssreferanser kan bare ha en fra attributt.&quot;&#xA;  return true&#xA;})&#xA;fraRegistrering( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.fraMappe != null || obj.fraKlasse != null)) return &quot;Kryssreferanser kan bare ha en fra attributt.&quot;&#xA;  return true&#xA;})"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tilKlasse" unique="false"
+        eType="#//Klasse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fraKlasse" unique="false"
+        eType="#//Klasse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fraMappe" unique="false"
+        eType="#//Basismappe"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tilMappe" unique="false"
+        eType="#//Basismappe"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fraRegistrering" unique="false"
+        eType="#//ForenkletRegistrering"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tilRegistrering" unique="false"
+        eType="#//ForenkletRegistrering"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Merknad">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
