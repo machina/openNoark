@@ -262,21 +262,25 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/kontaktperson"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Kryssreferanse">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Kryssreferanse/referansetilklasse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Kryssreferanse/referansefraklasse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Kryssreferanse/referansetilmappe"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Kryssreferanse/referanseframappe"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Kryssreferanse/referansetilregistrering"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Kryssreferanse/referansefraregistrering"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/tilKlasse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/fraKlasse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/fraMappe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/tilMappe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/fraRegistrering"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/tilRegistrering"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Merknad">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadstekst"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadstype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadsdato"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadregistrertav"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/mappe"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/basisRegistrering"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/dokumentBeskrivelse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference noark.ecore#//Merknad/merknadstype"/>
+    </genClasses>
+    <genClasses ecoreClass="noark.ecore#//MerknadType">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//MerknadType/navn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//MerknadType/merknad"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Møtedeltaker">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møtedeltaker/møtedeltakernavn"/>

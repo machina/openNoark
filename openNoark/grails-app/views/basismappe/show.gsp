@@ -162,6 +162,17 @@
                             </td>
                             
                         </tr>
+											<tr class="prop">
+                            <td valign="top" class="name">Merknader</td>
+														<td  valign="top" style="text-align:left;" class="value">
+                                <ul>
+																	<g:each var="m" in="${basismappeInstance.merknad}">
+																		<li><g:link controller="merknad" action="show" id="${m.id}">${r?.encodeAsHTML()}</g:link></li>
+																	</g:each>
+																</ul>
+														</td>
+																
+											</tr>
  
                     </tbody>
                 </table>
@@ -176,6 +187,10 @@
 										<input type="hidden" name="mappe_id" value="${basismappeInstance?.id}" />
 										<span class="button"><g:submitButton class="create" name="create" value="Legg til registrering" /></span>
 								</g:form>
+								<g:form controller="merknad" action="create" method="get">
+                    <input type="hidden" name="systemID" value="${basismappeInstance?.systemID}" />
+                    <span class="button"><g:submitButton class="create" name="create_merknad" value="Legg til merknad" /></span>
+                </g:form>
             </div>
         </div>
     </body>
