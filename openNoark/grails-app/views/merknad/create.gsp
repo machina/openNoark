@@ -62,6 +62,25 @@
                                     <g:select optionKey="id" optionValue="navn" from="${MerknadType.list()}" name="merknadstype.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.merknadstype?.id}" ></g:select>
                                 </td>
                             </tr> 
+
+														<tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="merknadstype">Baismappe:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'mappe','errors')}">
+                                    <g:select optionKey="id" optionValue="navn" from="${Basismappe.list()}" name="mappe.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.mappe?.id}" ></g:select>
+                                </td>
+                            </tr> 
+														<tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="merknadstype">Dokumentbeskrivelse:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'dokumentBeskrivelse','errors')}">
+                                    <g:select optionKey="id" optionValue="systemID" from="${Dokumentbeskrivelse.list()}" name="dokumentBeskrivelse.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.dokumentBeskrivelse?.id}" ></g:select>
+                                </td>
+                            </tr> 
+
+
                         
                         </tbody>
                     </table>

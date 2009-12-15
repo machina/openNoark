@@ -27,7 +27,7 @@
             </tr>
             <tr>
               <td><label for="opprettetdato">Opprettet</label></td>
-              <td><g:datePicker name="opprettetdato" value="${new Date()}" noSelection="['':'-Velg-']"/></td>
+              <td><g:datePicker precision="day" name="opprettetdato" value="${new Date()}" noSelection="['':'-Velg-']"/></td>
             </tr>
 						<tr>
               <td><label for="opprettetav">Opprettet av</label></td>

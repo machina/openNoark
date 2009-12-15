@@ -67,6 +67,9 @@ log4j = {
 	       'org.hibernate'
 
     warn   'org.mortbay.log'
+	
+		//debug  'org.codehaus.groovy.grails.plugins.searchable' //debug searchable
 }
 
-archivePath="/home/kent/tmp/opennoarkArchive" 
+archivePath="/home/kent/tmp/opennoarkArchive"
+docIdx=false

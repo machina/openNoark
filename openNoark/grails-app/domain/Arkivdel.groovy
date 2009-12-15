@@ -26,6 +26,7 @@ class Arkivdel extends Base{
       return "Kan ikke legge inn arkivdeler under et avsluttet arkiv."
     })
     arkivdelstatus(inList: ["Opprettet", "Avsluttet"])
+    periodeStatus(inList: ["Aktiv periode", "Overlappingsperiode","Avsluttet periode"])
     tittel(nullable: false)
     tittel(unique: false)
     beskrivelse(nullable: true)
@@ -56,17 +57,18 @@ class Arkivdel extends Base{
     referansearvtaker(unique: false)
     referanseklassifikasjonsSystem(nullable: true)
     referanseklassifikasjonsSystem(unique: false)
-    referansemappe(minSize: 1)
+    referansemappe(nullable: true)
     referansemappe(unique: false)
     referanseregistrering(nullable: true)
     referanseregistrering(unique: false)
     bevaringOgKassasjon(nullable: true)
     bevaringOgKassasjon(unique: false)
     periodeStatus(nullable: true)
-    periodeStatus(unique: true)
+    periodeStatus(unique: false)
   }
   static hasMany = [oppbevaringssted:String, referansemappe:Basismappe, referanseregistrering:ForenkletRegistrering]
   static mapping = {
   }
   static auditable = true
+  static searchable = [except: ['referanseforelder']]
 }

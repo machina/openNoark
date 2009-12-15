@@ -29,24 +29,33 @@ class ArkivController {
 		[arkiver: Arkiv.list()]
 	}
 
-	def update = {
+	def show = {
+		return [arkiv: Arkiv.get(params.id)]
+	}
+
+	def update = { UpdateArkivCommand updateCommand ->
 		switch(request.method){
 			case 'GET':
 				return [arkiv: Arkiv.get(params.id)]	
 				break
 			case 'POST':
 				def arkiv = Arkiv.get(params.id)
+				if(arkiv.opprettetdato != updateCommand.opprettetdato){
+						arkiv.errors.rejectValue "opprettetdato", "USER_ERROR",  "Kan ikke endre dato for opprettelse av arkiv."
+						return [errors: arkiv.errors, arkiv: arkiv]
+				}
+				println arkiv.avsluttetdato
+				println updateCommand.avsluttetdato
+				if(arkiv.avsluttetdato != null && updateCommand.avsluttetdato == null){
+						arkiv.errors.rejectValue "avsluttetdato", "USER_ERROR",  "Kan ikke fjerne avsluttetdato."
+						return [errors: arkiv.errors, arkiv: arkiv]
+				} else if(updateCommand.avsluttetdato == null){
+					params.avsluttetdato = null
+				}
 				stripParent(params, arkiv)
 				arkiv.properties = params
-				println "arkiv.forelder: ${arkiv.forelder}"
-				println "arkiv.subArkiv: ${arkiv.subArkiv}"
-				//println "arkiv.referansebarnArkivdel ${arkiv.referansebarnArkivdel} ${arkiv.referansebarnArkivdel?.size()}"
-		    //println "arkiv.referansebarnArkiv ${arkiv.referansebarnArkiv} ${arkiv.referansebarnArkiv?.size()}"
-				//stripParent(params, arkiv)
-				println "arkiv.forelder: ${arkiv.forelder}"
-				println "params.forelder: ${params.forelder}"
 				if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
-					render(view: "update_reciept", model: [arkiv: arkiv])
+					render(view: "show", model: [arkiv: arkiv])
     	  } else {
 					render(view: "update", model: [errors: arkiv.errors, arkiv: arkiv])
 				}
@@ -73,4 +82,9 @@ class ArkivController {
 			params.forelder.merge()
 		}
 	}
+}
+
+class UpdateArkivCommand {
+	Date opprettetdato
+	Date avsluttetdato
 }

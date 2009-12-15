@@ -47,4 +47,5 @@ class Arkiv extends Base{
   static mapping = {
   }
   static auditable = true
+  static searchable = true
 }

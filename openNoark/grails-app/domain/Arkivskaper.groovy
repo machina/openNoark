@@ -23,5 +23,5 @@ class Arkivskaper {
   static hasMany = [arkiv:Arkiv]
   static mapping = {
   }
-  static searchable = true
+  static searchable = [except: ['arkiv']]
 }

@@ -110,14 +110,12 @@ class ForenkletRegistreringController {
 				} else {
 					forenkletRegistreringInstance = new ForenkletRegistrering(params)
 				}
-				println "arkivertdato ${forenkletRegistreringInstance.arkivertdato}"
-				println "opprettetdato ${forenkletRegistreringInstance.opprettetdato}"
 				forenkletRegistreringInstance.systemID = UUID.randomUUID().toString()
         if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
             flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
 						withFormat {
 	            html {
-		            redirect(action: "show", id:forenkletRegistreringInstance.id)
+		            render(view: "show", model: [forenkletRegistreringInstance:forenkletRegistreringInstance] )
 							}
 							xml {
 								render forenkletRegistreringInstance as XML
@@ -128,9 +126,6 @@ class ForenkletRegistreringController {
 						}
         }
         else {
-						println "arkivertdato2 ${forenkletRegistreringInstance.arkivertdato}"
-  	 	 		  println "opprettetdato2 ${forenkletRegistreringInstance.opprettetdato}"
-						println forenkletRegistreringInstance.errors
             render(view:'create',model:[forenkletRegistreringInstance:forenkletRegistreringInstance])
         }
     }

@@ -19,6 +19,10 @@ class Basismappe extends Base{
   Arkivdel referansearkivdel
   BevaringOgKassasjon bevaringOgKassasjon
   static constraints = {
+    referansearkivdel( validator: {
+      if(it == null || it.avsluttetdato == null) return true
+      return "Kan ikke legge en mappe under en avsluttet arkivdel."
+    })
     mappeid(nullable: false)
     mappeid(unique: true)
     mappetype(nullable: false)
@@ -63,4 +67,5 @@ class Basismappe extends Base{
     tablePerHierarchy false
   }
   static auditable = true
+  static searchable = [except: ['referansearkivdel']]
 }

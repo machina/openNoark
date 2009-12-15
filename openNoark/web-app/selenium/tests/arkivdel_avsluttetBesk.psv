@@ -1,0 +1,54 @@
+open|/openNoark/auth/login|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+clickAndWait|link=Arkiv|
+clickAndWait|link=Nytt Arkiv|
+type|tittel|dilldall
+type|beskrivelse|arkiv for dill og dall
+type|dokumentmedium|html
+type|opprettetav|meg
+clickAndWait|save|
+clickAndWait|link=Arkivdeler|
+clickAndWait|link=Ny Arkivdel|
+type|tittel|dill
+type|beskrivelse|arkivdel for dill
+type|dokumentmedium|email
+type|opprettetav|meg
+select|referanseforelder|label=dilldall
+clickAndWait|save|
+clickAndWait|link=Arkivdeler|
+clickAndWait|link=Ny Arkivdel|
+type|tittel|dall
+type|beskrivelse|arkivdel for dall
+type|dokumentmedium|epos
+type|dokumentmedium|epost
+type|opprettetav|meg
+select|referanseforelder|label=dilldall
+clickAndWait|save|
+clickAndWait|link=Basismapper|
+clickAndWait|link=Arkivdeler|
+clickAndWait|link=dall|
+select|avsluttetdato_day|label=1
+select|avsluttetdato_month|label=January
+select|avsluttetdato_year|label=1920
+clickAndWait|save|
+clickAndWait|link=Basismapper|
+clickAndWait|link=New Basismappe|
+type|mappetype|aaa
+type|tittel|aaaaaaaaaaaaaa
+type|offentligtittel|a
+type|beskrivelse|aaa
+type|dokumentmedium|a
+type|opprettetav|aa
+type|nøkkelord|aa
+select|referansearkivdel.id|label=dall
+clickAndWait|//input[@value='Create']|
+verifyTextNotPresent|created|
+verifyTextPresent|Create Basismappe|
+open|/openNoark/forenkletRegistrering/create|
+type|registreringstype|asdasda
+type|opprettetav|dsadasd
+type|arkivertav|dsadasd
+select|referansearkivdel.id|label=dall
+verifyTextPresent|Create ForenkletRegistrering|

@@ -14,6 +14,14 @@ class ForenkletRegistrering extends Base{
   Arkivdel referansearkivdel
   BevaringOgKassasjon bevaringOgKassasjon
   static constraints = {
+    referansearkivdel( validator: {
+      if(it == null || it.avsluttetdato == null) return true
+      return "Kan ikke legge en registrering under en avsluttet arkivdel."
+    })
+    referanseforelderBasismappe( validator: {
+      if(it == null || it.avsluttetdato == null) return true
+      return "Kan ikke legge en registrering under en avsluttet mappe."
+    })
     registreringstype(nullable: false)
     registreringstype(unique: false)
     opprettetdato(nullable: false)
@@ -42,4 +50,5 @@ class ForenkletRegistrering extends Base{
     tablePerHierarchy false
   }
   static auditable = true
+  static searchable = [except: ['referanseforelderBasismappe','referansearkivdel']]
 }
