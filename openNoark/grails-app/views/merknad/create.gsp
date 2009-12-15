@@ -62,7 +62,6 @@
                                     <g:select optionKey="id" optionValue="navn" from="${MerknadType.list()}" name="merknadstype.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.merknadstype?.id}" ></g:select>
                                 </td>
                             </tr> 
-
 														<tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="merknadstype">Baismappe:</label>
@@ -79,8 +78,6 @@
                                     <g:select optionKey="id" optionValue="systemID" from="${Dokumentbeskrivelse.list()}" name="dokumentBeskrivelse.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.dokumentBeskrivelse?.id}" ></g:select>
                                 </td>
                             </tr> 
-
-
                         
                         </tbody>
                     </table>
