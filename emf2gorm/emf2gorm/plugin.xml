@@ -9,7 +9,7 @@
             id="emf2gorm.commands.category">
       </category>
       <command
-            name="Sample Command"
+            name="generate gorm classes"
             categoryId="emf2gorm.commands.category"
             id="emf2gorm.commands.sampleCommand">
       </command>
@@ -26,11 +26,11 @@
       <key
             commandId="emf2gorm.commands.sampleCommand"
             contextId="org.eclipse.ui.contexts.window"
-            sequence="M1+6"
+            sequence="M1+5"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
       </key>
    </extension>
-   <extension
+   <!-- <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
@@ -57,7 +57,7 @@
             </command>
          </toolbar>
       </menuContribution>
-   </extension>
+   </extension> -->
    <extension
          point="org.eclipse.ui.menus">
      <!--  <menuContribution
@@ -65,7 +65,7 @@
          <menuContribution
             locationURI="popup:org.eclipse.emf.codegen.ecore.genmodel.presentation.GenModelEditorID">
           <menu
-               label="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
+               label="emf2gorm"
                mnemonic="M"
                id="emf2gorm.menus.sampleMenu"> 
             <command
@@ -78,14 +78,14 @@
       <menuContribution
             locationURI="popup:org.eclipse.emf.ecore.presentation.EcoreEditorID">
           <menu
-               label="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
+               label="emf2gorm"
                mnemonic="M"
-               id="emf2gorm.menus.sampleMenu"> 
-            <command
+               id="emf2gorm.menus.ecore"> 
+            <!-- <command
                   commandId="emf2gorm.commands.sampleCommand"
                   mnemonic="S"
-                  id="emf2gorm.menus.sampleCommand">
-            </command>
+                  id="emf2gorm.menus.ecore.sampleCommand">
+            </command> -->
          </menu>
       </menuContribution>
    </extension>

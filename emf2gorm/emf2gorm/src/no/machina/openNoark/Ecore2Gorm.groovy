@@ -35,7 +35,12 @@ class Ecore2Gorm {
 		        	 //	  println "setting doc to ${it.details.value[0]}"
 		        	 //	  documentation = it.details.value[0]
 		        	 // } else {
-		        		  annotation(key: it.details.key[0], value: it.details.value[0], details: it.details )  
+		        	 	if(it.source == "http://opennoark.machina.no/searchable"){
+		        	 		println "searchable"
+		        	 		builder.annotation(annotation: it)
+		        	 	}else {
+		        		  builder.annotation(key: it.details.key[0], value: it.details.value[0], details: it.details )
+		        	 	}
 		        	 // }
 		        	   
 		          break

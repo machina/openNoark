@@ -20,7 +20,7 @@ class GormBuilder extends BuilderSupport {
 		def transients = []
 		def toString = ""
 		public GormBuilder(Writer writer) {
-			this.writer = writer
+			this.writer = writer 
 			this.out =	new IndentPrinter(new PrintWriter(writer))
 			def printlnMethod = this.out.&println
 			this.out.metaClass.println = {String s ->
@@ -64,24 +64,38 @@ class GormBuilder extends BuilderSupport {
 						//println "attrs: ${attrs}"
 						//out.printIndent()
 						if(name == "annotation"){
-							if(attrs['key'] == "documentation"){
-								writer.buffer.insert(0,"/**\n${attrs['value']}\n*/\n")
-							}else if(attrs['key'] == "mapping"){
-								println "adding mapping: ${attrs['value']}"	
-								mappings = "${mappings}${attrs['value']}\n"
-							}else if(attrs['key'] == "attribute"){
-								extras = "${extras}${attrs['value']}\n"
-							}else if(attrs['key'] == "transient"){
-								extras = "${extras}${attrs['value']}\n"
-								transients << "\"${attrs['value'].tokenize()[1]}\""
-							}else if(attrs['key'] == "constraint"){
-								constaints += "${attrs['value']}\n"
-							}else if(attrs['key'] == "afterLoad"){
-								afterLoad += "${attrs['value']}\n"
-							}else if(attrs['key'] == "toString"){
-								toString = "String toString(){${attrs['value']}}"
+							if(attrs['annotation']){
+								switch(attrs['annotation'].source){
+									case "http://opennoark.machina.no/searchable":
+										println "building http://opennoark.machina.no/searchable"
+										def searchable = "static searchable ="
+										attrs['annotation'].details.keySet().each{ skey ->
+											if(skey == "except")
+												searchable += " [except: ['${attrs['annotation'].details.get(skey).split(',').join('\',\'')}']]"
+										}
+										if(searchable == "static searchable =") searchable += " true"
+										extras = "${extras}${searchable}\n"
+										break
+								}
+							} else {
+								if(attrs['key'] == "documentation"){
+									writer.buffer.insert(0,"/**\n${attrs['value']}\n*/\n")
+								}else if(attrs['key'] == "mapping"){
+									println "adding mapping: ${attrs['value']}"	
+									mappings = "${mappings}${attrs['value']}\n"
+								}else if(attrs['key'] == "attribute"){
+									extras = "${extras}${attrs['value']}\n"
+								}else if(attrs['key'] == "transient"){
+									extras = "${extras}${attrs['value']}\n"
+									transients << "\"${attrs['value'].tokenize()[1]}\""
+								}else if(attrs['key'] == "constraint"){
+									constaints += "${attrs['value']}\n"
+								}else if(attrs['key'] == "afterLoad"){
+									afterLoad += "${attrs['value']}\n"
+								}else if(attrs['key'] == "toString"){
+									toString = "String toString(){${attrs['value']}}"
+								}
 							}
-							
 						}else {
 						
 							if(attrs['multiplicity'] =~ /.*-M/){
@@ -113,7 +127,7 @@ class GormBuilder extends BuilderSupport {
    }
 
 	protected void nodeCompleted(Object parent, Object node) {
-		if(!node || (!node['multiplicity']  && !node['key'])) {
+		if(!node || (!node['multiplicity']  && !node['key'] && !node['annotation'] )) {
 			out.println "static constraints = {" //\n${constaints}}"
 			out.incrementIndent()
 			constaints.eachLine{
