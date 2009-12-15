@@ -69,6 +69,9 @@
     <eAnnotations source="http://opennoark2.machina.no">
       <details key="constraint" value="arkivstatus(inList: [&quot;Opprettet&quot;, &quot;Avsluttet&quot;])"/>
     </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="attribute" value="static searchable = true"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tittel" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -171,6 +174,12 @@
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="constraint" value="arkivdelstatus(inList: [&quot;Opprettet&quot;, &quot;Avsluttet&quot;])"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no/searchable">
+      <details key="except" value="referanseforelder"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="constraint" value="periodeStatus(inList: [&quot;Aktiv periode&quot;, &quot;Overlappingsperiode&quot;,&quot;Avsluttet periode&quot;])"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tittel" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
@@ -278,7 +287,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansemappe" unique="false"
-        lowerBound="1" upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
+        upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansemappe"/>
@@ -294,7 +303,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false"
         eType="#//BevaringOgKassasjon"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodeStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodeStatus" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arkivskaper">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -304,8 +314,8 @@
       <details key="name" value="Arkivskaper"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eAnnotations source="http://opennoark.machina.no">
-      <details key="attribute" value="static searchable = true"/>
+    <eAnnotations source="http://opennoark.machina.no/searchable">
+      <details key="except" value="arkiv"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="arkivskaperid" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
@@ -452,6 +462,12 @@
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="mapping" value="tablePerHierarchy false"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no/searchable">
+      <details key="except" value="referansearkivdel"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="constraint" value="referansearkivdel( validator: {&#xA;  if(it == null || it.avsluttetdato == null) return true&#xA;  return &quot;Kan ikke legge en mappe under en avsluttet arkivdel.&quot;&#xA;})"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappeid" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
@@ -2141,6 +2157,15 @@
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="mapping" value="tablePerHierarchy false"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no/searchable">
+      <details key="except" value="referanseforelderBasismappe,referansearkivdel"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="constraint" value="referansearkivdel( validator: {&#xA;  if(it == null || it.avsluttetdato == null) return true&#xA;  return &quot;Kan ikke legge en registrering under en avsluttet arkivdel.&quot;&#xA;})"/>
+    </eAnnotations>
+    <eAnnotations source="http://opennoark.machina.no">
+      <details key="constraint" value="referanseforelderBasismappe( validator: {&#xA;  if(it == null || it.avsluttetdato == null) return true&#xA;  return &quot;Kan ikke legge en registrering under en avsluttet mappe.&quot;&#xA;})"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="registreringstype" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
