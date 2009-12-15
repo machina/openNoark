@@ -17,9 +17,9 @@ function catchMail(){
    "chrome, dialog, modal, resizable=yes", params).focus();
 	
 	var reg = registerRegistration(req, null, params.out.klasseId, params.out.archiveId );
-	var regId = reg.getElementsByTagName('systemid')[0].textContent;
+	var regId = reg.getElementsByTagName('systemID')[0].textContent;
 	var docobj =  registerDocObject(req, regId );
-  docobj = docobj.getElementsByTagName('systemid')[0].textContent;
+  docobj = docobj.getElementsByTagName('systemID')[0].textContent;
   archiveDoc(req, docobj, content);
 	alert("ferdig");
 }
@@ -132,7 +132,7 @@ function registerDocObject(req, regId){
   var reg = '<?xml version=\"1.0\"?>\n<dokumentobjekt>'
 						+ '<versjonsnummer>1</versjonsnummer>'
 						+ '<variantformat>?</variantformat>'
-						+ '<format>?</format>'
+						+ '<format>text/html</format>'
 						+ '<formatdetaljer>?</formatdetaljer>'
 						+ '<opprettetdato>02-02-2002</opprettetdato>'
             + '<opprettetav>meg</opprettetav>'
