@@ -48,7 +48,7 @@ class ArkivdelController {
 		}
 
 
-	def update = { 
+	def update = { UpdateArkivdelCommand updateCommand ->
 
 		switch(request.method){
       case 'GET':
@@ -56,6 +56,9 @@ class ArkivdelController {
         break
       case 'POST':
 				def arkivdel = Arkivdel.get(params.id)
+				if(updateCommand.avsluttetdato == null){
+          params.avsluttetdato = null
+        }
 				arkivdel.properties = params
         if(!arkivdel.hasErrors() && arkivdel.validate() && arkivdel.save()){
           render(view: "show", model: [arkivdel: arkivdel])
@@ -97,4 +100,8 @@ class ArkivdelController {
 
   }
 
+}
+class UpdateArkivdelCommand {
+  Date opprettetdato
+  Date avsluttetdato
 }
