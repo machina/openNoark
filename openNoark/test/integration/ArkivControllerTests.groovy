@@ -21,7 +21,7 @@ class ArkivControllerTests extends ControllerUnitTestCase {
 		controller.request.params = [id: ark.id, tittel:  "tittel", arkivstatus: "Opprettet",opprettetav: "meg", opprettetdato_day: 1, opprettetdato_month: 12, opprettetdato: "struct", opprettetdato_year: 2009]
 			controller.params.id = ark.id
 		 controller.request.method = "POST"
-		def retval = controller.update([opprettetdato: Date.parse("yyyy-MM-dd", "2009-12-1")])
+		def retval = controller.update([opprettetdato: Date.parse("yyyy-MM-dd", "2009-12-1")] as UpdateArkivCommand)
 		println "retval.errors: ${retval.errors}"
 		assertTrue( retval.errors.toString().contains("Kan ikke endre dato for opprettelse av arkiv.") )
 	}
@@ -36,7 +36,7 @@ class ArkivControllerTests extends ControllerUnitTestCase {
 		controller.params.id = ark.id
 		controller.request.method = "POST"
 
-    def retval = controller.update([opprettetdato: opprettetdato])
+    def retval = controller.update([opprettetdato: opprettetdato] as UpdateArkivCommand)
 		println "retval.errors: ${retval.errors}"
     assertTrue (retval.errors.toString().contains( "Kan ikke fjerne avsluttetdato.") )
 	
