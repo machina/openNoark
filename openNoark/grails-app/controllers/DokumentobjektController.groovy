@@ -1,7 +1,8 @@
 import grails.converters.*
 import java.text.SimpleDateFormat
+import no.friark.ds.*
 class DokumentobjektController {
-    
+ 		def commonService   
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
@@ -97,14 +98,15 @@ class DokumentobjektController {
 				} else {
 	        dokumentobjektInstance = new Dokumentobjekt(params)
 				}
-				dokumentobjektInstance.systemID = UUID.randomUUID().toString();
-				dokumentobjektInstance.referanseregistrering = params.dokumentobjekt.referanseregistrering
+				commonService.setNewSystemID dokumentobjektInstance
+				if(params.dokumentobjekt) dokumentobjektInstance.referanseregistrering = params.dokumentobjekt.referanseregistrering
         if(!dokumentobjektInstance.hasErrors() && dokumentobjektInstance.save()) {
 					flash.message = "Dokumentobjekt ${dokumentobjektInstance.id} created"
 					withFormat {
   	        html {
            	 redirect(action:show,id:dokumentobjektInstance.id)
 						}
+						form {redirect(action:show,id:dokumentobjektInstance.id) }
 						xml { render dokumentobjektInstance as XML }
 						json { render dokumentobjektInstance as JSON}
 					}

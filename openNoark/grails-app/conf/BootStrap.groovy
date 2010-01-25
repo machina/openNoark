@@ -1,7 +1,7 @@
 import org.jsecurity.crypto.hash.Sha1Hash
 import grails.converters.*
 
-
+import no.friark.ds.*
 class BootStrap {
 
      def init = { servletContext ->

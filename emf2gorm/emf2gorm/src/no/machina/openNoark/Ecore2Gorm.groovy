@@ -95,12 +95,9 @@ class Ecore2Gorm {
 
 	String getPackageName(def pack){
 		def name = ""
-		pack.eContents().each{
-			if(it.getClass().name == "org.eclipse.emf.ecore.impl.EAnnotationImpl" && it.name == "package"){
-				return it.details.value[0].toString() //TODO: make safer
-			}
-		}
-		return ""
+		if(pack.getClass().name == "org.eclipse.emf.codegen.ecore.genmodel.impl.GenPackageImpl") pack = pack.getEcorePackage()
+		return pack.getEAnnotation("package") == null ? "" : pack.getEAnnotation("package").details.value[0].toString()
+		
 	}
 	
 }

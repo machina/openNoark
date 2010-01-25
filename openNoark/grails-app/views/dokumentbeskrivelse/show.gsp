@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 
 
 <html>
@@ -111,6 +112,20 @@
                             </td>
                             
                         </tr>
+
+												<tr class="prop">
+                            <td valign="top" class="name">Registreringer:</td>
+                            
+                            <td  valign="top" style="text-align:left;" class="value">
+                                <ul>
+                                <g:each var="r" in="${dokumentbeskrivelseInstance.registreringer}">
+                                    <li><g:link controller="forenkletRegistrering" action="show" id="${r.referanseregistrering.id}">${r?.referanseregistrering?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+
                     
                     </tbody>
                 </table>

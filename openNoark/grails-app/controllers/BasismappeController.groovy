@@ -1,5 +1,5 @@
 import grails.converters.*
-
+import no.friark.ds.*
 class BasismappeController {
     
     def index = { redirect(action:list,params:params) }

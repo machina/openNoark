@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 
 
 <html>
@@ -110,19 +111,7 @@
                                 </td>
                             </tr> 
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="referansedokumentBeskrivelse">Referansedokument Beskrivelse:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referansedokumentBeskrivelse','errors')}">
-                                    <g:select name="referansedokumentBeskrivelse"
-from="${Dokumentbeskrivelse.list()}"
-size="5" multiple="yes" optionKey="id"
-value="${forenkletRegistreringInstance?.referansedokumentBeskrivelse}" />
-
-                                </td>
-                            </tr> 
-                        
+                      
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="referansedokumentObjekt">Referansedokument Objekt:</label>

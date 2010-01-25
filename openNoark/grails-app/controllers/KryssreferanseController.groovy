@@ -1,5 +1,5 @@
 
-
+import no.friark.ds.*
 class KryssreferanseController {
     
     def index = { redirect(action:list,params:params) }

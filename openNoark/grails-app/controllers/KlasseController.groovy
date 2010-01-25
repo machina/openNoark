@@ -1,5 +1,5 @@
 import grails.converters.*
-
+import no.friark.ds.*
 class KlasseController {
     
     def index = { redirect(action:list,params:params) }
@@ -76,6 +76,7 @@ class KlasseController {
                     return
                 }
             }
+						println "params.bevaringOgKassasjon ${params.bevaringOgKassasjon}"
             klasseInstance.properties = params
             if(!klasseInstance.hasErrors() && klasseInstance.save()) {
                 flash.message = "Klasse ${params.id} updated"

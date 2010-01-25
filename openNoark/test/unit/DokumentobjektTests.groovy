@@ -1,5 +1,5 @@
 import grails.test.*
-
+import no.friark.ds.*
 class DokumentobjektTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()

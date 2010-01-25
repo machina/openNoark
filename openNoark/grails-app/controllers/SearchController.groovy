@@ -1,5 +1,6 @@
 import grails.converters.*
 import org.compass.core.engine.SearchEngineQueryParseException
+import no.friark.ds.*
 class SearchController {
 		def searchableService
 		def archiveService

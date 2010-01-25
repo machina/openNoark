@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 
 
 <html>
@@ -93,12 +94,12 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Referansedokument Beskrivelse:</td>
+                            <td valign="top" class="name">Dokumenter:</td>
                             
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
-                                <g:each var="r" in="${forenkletRegistreringInstance.referansedokumentBeskrivelse}">
-                                    <li><g:link controller="dokumentbeskrivelse" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+                                <g:each var="dl" in="${forenkletRegistreringInstance.dokumenter}">
+                                    <li><g:link controller="dokumentbeskrivelse" action="show" id="${dl.dokumentbeskrivelse.id}">${dl.dokumentbeskrivelse.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>

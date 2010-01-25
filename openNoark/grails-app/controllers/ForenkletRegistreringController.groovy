@@ -1,6 +1,9 @@
 import java.text.SimpleDateFormat
 import grails.converters.*
+import no.friark.ds.*
 class ForenkletRegistreringController {
+
+	def commonService
     
     def index = { redirect(action:list,params:params) }
 
@@ -110,13 +113,20 @@ class ForenkletRegistreringController {
 				} else {
 					forenkletRegistreringInstance = new ForenkletRegistrering(params)
 				}
-				forenkletRegistreringInstance.systemID = UUID.randomUUID().toString()
+				//forenkletRegistreringInstance.systemID = UUID.randomUUID().toString()
+				commonService.setNewSystemID forenkletRegistreringInstance
         if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
+						println "saved"
+						println request.format
             flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
 						withFormat {
 	            html {
+								println "rendering show"
 		            render(view: "show", model: [forenkletRegistreringInstance:forenkletRegistreringInstance] )
 							}
+							form {
+                render(view: "show", model: [forenkletRegistreringInstance:forenkletRegistreringInstance] )
+    					}          
 							xml {
 								render forenkletRegistreringInstance as XML
 							}

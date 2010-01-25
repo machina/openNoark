@@ -1,0 +1,171 @@
+import no.friark.*
+import no.friark.ds.*
+class KassasjonService {
+
+    boolean transactional = true
+
+		def klasserIDokliste(def liste){
+			return iDokListe(liste) { retval, dok ->
+				dok.registreringer.each { reg -> 
+					if(reg.referanseregistrering.referanseforelderKlasse) retval << reg.referanseregistrering.referanseforelderKlasse
+					if(reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse) retval << reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse
+				}
+			} 
+		}
+
+		def mapperIDokliste(def liste){
+			return iDokListe(liste) { retval, dok ->
+				dok.registreringer.each { reg ->
+					if(reg.referanseregistrering.referanseforelderBasismappe) retval << reg.referanseregistrering.referanseforelderBasismappe
+				}
+      }
+		}
+
+		def arkivdelerIDokliste(def liste){
+			return iDokListe(liste) { retval, dok ->
+				dok.registreringer.each { reg ->
+					if(reg.referanseregistrering.referansearkivdel) retval << reg.referanseregistrering.referansearkivdel
+					if(reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel) retval << reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel
+				}
+			}
+		}
+
+		def iDokListe(def liste, def getter){
+			def retval = []
+			getter = getter.curry(retval)
+			//println getter
+			//getter(liste[0])
+			liste.each getter
+			return retval.unique()
+		}
+
+
+    def oversikt(def co) {
+			def retval = []
+			def c = BevaringOgKassasjon.createCriteria()
+
+			def results = c {
+				like("kassasjonsvedtak", co.kassasjonsvedtak)
+				between("kassasjonsdato", co.fra, co.til)
+			}
+			if(results){
+				results.each{
+/*					if(it.dokumentBeskrivelse) retval << it.dokumentBeskrivelse
+
+					if(it.registrering){
+						it.registrering.each{ reg ->
+							//Dokumentlink!!
+							reg.dokumenter.each{ dokLink ->
+								if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null) retval << dokLink.dokumentbeskrivelse
+							}
+						}
+					}
+
+	*/
+					retval << dokumenterFraDokument(it)
+					retval << dokumenterFraRegistrering(it)			
+					retval << dokumenterFraMappe(it)
+					retval << dokumenterFraArkivdel(it)
+					retval << dokumenterFraKlasse(it)
+				}
+			}
+			//println retval
+			retval.flatten()
+    }
+
+		def dokumenterFraDokument(def vedtak){
+			if(vedtak.dokumentBeskrivelse) return vedtak.dokumentBeskrivelse
+			return []
+		}
+
+		def dokumenterFraRegistrering(def vedtak){
+			def retval = []
+			if(vedtak.registrering){
+				vedtak.registrering.each{ reg ->
+  	      //Dokumentlink!!
+	        reg.dokumenter.each{ dokLink ->
+          if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null) retval << dokLink.dokumentbeskrivelse
+         }
+       }
+			}
+			return retval
+		}
+
+		def dokumenterFraMappe(def vedtak){
+			def retval = []
+			def leggTilFraReg = leggTilFraReg.curry(retval)
+			if(vedtak.mappe){
+				vedtak.mappe.each { mappe ->
+					mappe.referansebarnForenkletRegistrering.each leggTilFraReg
+				}
+			}
+			return retval
+		}
+
+		def dokumenterFraKlasse(def vedtak){
+			def retval = []
+			def leggTilFraReg = leggTilFraReg.curry(retval)
+			if(vedtak.klasse){
+				vedtak.klasse.each{ klasse ->
+					klasse.referansebarnForenkletRegistrering.each leggTilFraReg
+				}
+			}
+			return retval
+		}
+
+		def dokumenterFraArkivdel(def vedtak){
+			def retval = []
+			def leggTilFraMappe = leggTilFraMappe.curry(retval)
+			def leggTilFraReg = leggTilFraReg.curry(retval)
+			if(vedtak.arkivdel){
+				vedtak.arkivdel.each {arkivdel ->
+					arkivdel.referansemappe.each leggTilFraMappe
+					//println "arkivdel.referanseregistrering ${arkivdel.referanseregistrering}"
+					arkivdel.referanseregistrering.each leggTilFraReg
+				}
+			}
+			return retval
+		}
+
+		def leggTilFraMappe = {retval, mappe ->
+			def leggTilFraReg = leggTilFraMappe.curry(retval)
+			if(mappe.bevaringOgKassasjon == null) mappe.referansebarnForenkletRegistrering.each leggTilFraReg
+
+		}
+
+		def  leggTilFraReg = { retval, reg->
+			//println "reg ${reg}"
+			//println "retval ${retval}"
+			def leggTilFraDokLink = leggTilFraDokLink.curry(retval)
+			if(reg.bevaringOgKassasjon == null) reg.dokumenter.each leggTilFraDokLink	
+		}
+		
+		def leggTilFraDokLink = { retval, dokLink ->
+			if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null) retval << dokLink.dokumentbeskrivelse
+		}
+
+
+		def filter(liste, filter){
+			if(filter instanceof String) {
+				FilterBuilder fb = new FilterBuilder()
+		    Binding binding = new Binding()
+  		  binding.setVariable("builder", fb)
+				//TODO: this is wildly unsafe. must be
+	    	GroovyShell shell = new GroovyShell(binding); 
+  		  def builderString = "builder.build{\n${filter}\n}\n return builder.filter"
+		    filter = shell.evaluate(builderString);
+			}
+			if(filter == null) return liste
+			def retval = []
+			liste.each{
+				if(filter.isApplicable(it)){ 
+					retval << it 
+				//	println "${it} is applicable"
+				} /*else {
+					println "${it} is not applicable"
+				}*/
+			}
+			//println "returning: ${retval}"
+			return retval
+		}
+}

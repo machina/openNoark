@@ -1,3 +1,4 @@
+import no.friark.ds.*
 class ArkivController {
 
     def index = {redirect(action:list,params:params)}

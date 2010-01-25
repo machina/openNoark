@@ -1,3 +1,4 @@
+import no.friark.ds.*
 class KeywordController {
 
     def index = { }

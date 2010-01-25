@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 
 
 <html>
@@ -129,7 +130,7 @@
                                     <label for="referanseforelderKlasse">Referanseforelder Klasse:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'referanseforelderKlasse','errors')}">
-                                    <g:select optionKey="id" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${klasseInstance?.referanseforelderKlasse?.id}" ></g:select>
+                                    <g:select optionKey="id" from="${Klasse.list()}" noSelection="${[null:'Velg']}" name="referanseforelderKlasse.id" value="${klasseInstance?.referanseforelderKlasse?.id}" ></g:select>
                                 </td>
                             </tr> 
                         
@@ -148,7 +149,10 @@
 
                                 </td>
                             </tr> 
-                        
+               			       <tr>
+								            <td><label for="bevaringOgKassasjon">Kassasjonsvedtak</label></td>
+            							  <td><g:select name="bevaringOgKassasjon.id" noSelection="${[null:'Velg']}" from='${BevaringOgKassasjon.list()}' optionKey="id" value="${klasseInstance.bevaringOgKassasjon.id}"></g:select></td>
+      							      </tr> 
                         </tbody>
                     </table>
                 </div>

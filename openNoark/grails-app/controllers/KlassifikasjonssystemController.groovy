@@ -1,5 +1,5 @@
 
-
+import no.friark.ds.*
 class KlassifikasjonssystemController {
     
     def index = { redirect(action:list,params:params) }

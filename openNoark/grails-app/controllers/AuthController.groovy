@@ -1,7 +1,7 @@
 import org.jsecurity.authc.AuthenticationException
 import org.jsecurity.authc.UsernamePasswordToken
 import org.jsecurity.SecurityUtils
-
+import no.friark.ds.*
 class AuthController {
     def jsecSecurityManager
 

@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 <html>
     <head>
     <meta name="layout" content="main" />

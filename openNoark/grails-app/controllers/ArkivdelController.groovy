@@ -1,4 +1,5 @@
 import grails.converters.*
+import no.friark.ds.*
 class ArkivdelController {
 
     def index = { redirect(action:list,params:params)}

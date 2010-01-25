@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 <html>
     <head>
         <title><g:layoutTitle default="Grails" /></title>
@@ -21,6 +22,7 @@
 	      	    <li class="controller"><a href="/openNoark/klassifikasjonssystem/index">Klassifikasjonssystemer</a></li>
  							<li class="controller"><a href="/openNoark/klasse/index">Klasser</a></li>
     	      	<li class="controller"><a href="/openNoark/basismappe/index">Basismapper</a></li>
+							<li class="controller"><a href="/openNoark/dokumentlink/index">Dokumentlinker</a></li>
 	      	    <li class="controller"><a href="/openNoark/dokumentobjekt/index">Dokumentobjekter</a></li>
 							<li class="controller"><a href="/openNoark/dokumentbeskrivelse/index">Dokumentbeskrivelser</a></li>
     	      	<li class="controller"><a href="/openNoark/user/index">Brukeradministrasjon</a></li>
@@ -28,6 +30,8 @@
 							<li class="controller"><a href="/openNoark/merknad/list">Merknad</a></li>
 							<li class="controller"><a href="/openNoark/merknadType/list">Merknadstyper</a></li>
 							<li class="controller"><a href="/openNoark/kryssreferanse/list">Kryssreferanser</a></li>
+							<li class="controller"><a href="/openNoark/bevaringOgKassasjon">Bevaring og kassasjon</a></li>
+
 						</ul>
 					</div>
 					<div class="content">

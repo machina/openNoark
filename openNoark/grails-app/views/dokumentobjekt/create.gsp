@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 
 
 <html>
@@ -25,15 +26,6 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="systemID">SystemID:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:dokumentobjektInstance,field:'systemID','errors')}">
-                                    <input type="text" id="systemID" name="systemID" value="${fieldValue(bean:dokumentobjektInstance,field:'systemID')}"/>
-                                </td>
-                            </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -91,19 +83,19 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referansedokumentBeskrivelse">Referansedokument Beskrivelse:</label>
+                                    <label for="referansedokumentBeskrivelse">Dokumentbeskrivelse:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:dokumentobjektInstance,field:'referansedokumentBeskrivelse','errors')}">
-                                    <g:select optionKey="id" from="${Dokumentbeskrivelse.list()}" name="referansedokumentBeskrivelse.id" value="${dokumentobjektInstance?.referansedokumentBeskrivelse?.id}" ></g:select>
+                                    <g:select optionKey="id" from="${Dokumentbeskrivelse.list()}" name="referansedokumentBeskrivelse.id" value="${dokumentobjektInstance?.referansedokumentBeskrivelse?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referanseregistrering">Referanseregistrering:</label>
+                                    <label for="referanseregistrering">Registrering:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:dokumentobjektInstance,field:'referanseregistrering','errors')}">
-                                    <g:select optionKey="id" from="${ForenkletRegistrering.list()}" name="referanseregistrering.id" value="${dokumentobjektInstance?.referanseregistrering?.id}" ></g:select>
+                                    <g:select optionKey="id" from="${ForenkletRegistrering.list()}" name="referanseregistrering.id" value="${dokumentobjektInstance?.referanseregistrering?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         

@@ -4,7 +4,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="noark"
     nsURI="http://www.machina.no/noark" nsPrefix="noark">
   <eAnnotations source="package">
-    <details key="name" value="no.opennoark.ds"/>
+    <details key="name" value="no.friark.ds"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Administrasjonsstruktur">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -669,28 +669,32 @@
       <details key="name" value="BevaringOgKassasjon"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kassasjonsvedtak" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+    <eAnnotations source="http://opennoark2.machina.no">
+      <details key="constraint" value="kassasjonsvedtak(inList: [&quot;Bevares&quot;, &quot;Kasseres&quot;, &quot;Vurderes senere&quot;])"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kassasjonsvedtak" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Kassasjonsvedtak"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kassasjonshjemmel" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kassasjonshjemmel" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Kassasjonshjemmel"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bevaringstid" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bevaringstid" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Bevaringstid"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kassasjonsdato" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kassasjonsdato" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Kassasjonsdato"/>
@@ -844,6 +848,17 @@
         eType="#//BevaringOgKassasjon"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="merknad" unique="false"
         upperBound="-1" eType="#//Merknad"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="registreringer" unique="false"
+        upperBound="-1" eType="#//Dokumentlink" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="ReferansedokumentBeskrivelse"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kassertDato" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kassertAv" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String" defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dokumentflyt">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -904,40 +919,43 @@
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referanseregistrering"
-        lowerBound="1" eType="#//ForenkletRegistrering" containment="true" resolveProxies="false">
+        unique="false" lowerBound="1" eType="#//ForenkletRegistrering" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referanseregistrering"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tilknyttetregistreringSom"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="TilknyttetregistreringSom"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dokumentnummer" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dokumentnummer" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Dokumentnummer"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tilknyttetdato" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tilknyttetdato" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Tilknyttetdato"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tilknyttetav" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tilknyttetav" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Tilknyttetav"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dokumentbeskrivelse" unique="false"
+        eType="#//Dokumentbeskrivelse"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dokumentobjekt" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1924,6 +1942,8 @@
         <details key="name" value="ReferansesekundærKlassifikasjon"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="presedens" unique="false"
+        eType="#//Presedens"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sakspart">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2223,9 +2243,8 @@
         <details key="name" value="Referansearkivdel"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referansedokumentBeskrivelse"
-        unique="false" upperBound="-1" eType="#//Dokumentbeskrivelse" containment="true"
-        resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dokumenter" unique="false"
+        upperBound="-1" eType="#//Dokumentlink" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="ReferansedokumentBeskrivelse"/>

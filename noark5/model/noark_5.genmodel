@@ -153,6 +153,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/referansedokumentObjekt"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/bevaringOgKassasjon"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/merknad"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/registreringer"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Dokumentflyt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentflyt/flyttil"/>
@@ -168,6 +169,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentlink/dokumentnummer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentlink/tilknyttetdato"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentlink/tilknyttetav"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentlink/dokumentbeskrivelse"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Dokumentobjekt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/versjonsnummer"/>
@@ -393,7 +395,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referanseforelderBasismappe"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referanseforelderKlasse"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referansearkivdel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referansedokumentBeskrivelse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/dokumenter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referansedokumentObjekt"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/bevaringOgKassasjon"/>
     </genClasses>

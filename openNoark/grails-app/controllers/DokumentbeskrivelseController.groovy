@@ -1,7 +1,7 @@
 
-
+import no.friark.ds.*
 class DokumentbeskrivelseController {
-    
+ 		def commonService  
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
@@ -88,6 +88,7 @@ class DokumentbeskrivelseController {
 
     def save = {
         def dokumentbeskrivelseInstance = new Dokumentbeskrivelse(params)
+				commonService.setNewSystemID dokumentbeskrivelseInstance
         if(!dokumentbeskrivelseInstance.hasErrors() && dokumentbeskrivelseInstance.save()) {
             flash.message = "Dokumentbeskrivelse ${dokumentbeskrivelseInstance.id} created"
             redirect(action:show,id:dokumentbeskrivelseInstance.id)

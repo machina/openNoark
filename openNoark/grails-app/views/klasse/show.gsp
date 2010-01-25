@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 
 
 <html>
@@ -124,7 +125,13 @@
                             </td>
                             
                         </tr>
-                    
+                    <tr class="prop">
+                            <td valign="top" class="name">Bevaring og kassasjon:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:klasseInstance, field:'bevaringOgKassasjon')}</td>
+                            
+                        </tr>
+
                     </tbody>
                 </table>
             </div>

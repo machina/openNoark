@@ -1,3 +1,4 @@
+<%! import no.friark.ds.* %>
 <html>
     <head>
     <meta name="layout" content="main" />
@@ -43,10 +44,6 @@
               <td><g:select name="klasifikasjonystem" value="${arkivdel.referanseklassifikasjonsSystem}" noSelection="${['null':'Velg Klasifikasjonsystem']}" from='${Klassifikasjonssystem.list()}' optionKey="id" optionValue="tittel"></g:select>
             </tr>
 						<tr>
-              <td><label for="forelder">Bevaring og kassasjon</label></td>
-              <td><g:select name="forelder" value="${arkivdel.bevaringOgKassasjon}" noSelection="${['null':'Velg bevaringOgKassasjon']}" from='${BevaringOgKassasjon.list()}' optionKey="id" optionValue="tittel"></g:select>
-            </tr>
-						<tr>
               <td><label for="arkivperiodestartdato">Periode start</label></td>
               <td><g:datePicker name="arkivperiodestartdato" value="${arkivdel.arkivperiodestartdato}" noSelection="['':'-Velg-']"/></td>
             </tr>
@@ -77,7 +74,7 @@
             </tr>
             <tr>
               <td><label for="forelder">Avsluttet dato</label></td>
-              <td><fa:datePicker precision="day" default="none" name="avsluttetdato" noSelection="${['none':'Ikke valgt']}" value="${arkivdel.avsluttetdato}"/></td>
+              <td><fa:datePicker precision="day" default="none" name="avsluttetdato" noSelection="${[':':'Ikke valgt']}" value="${arkivdel.avsluttetdato}"/></td>
             </tr>
 						<tr>
               <td><label for="arkivdelstatus">Status</label></td>
@@ -110,6 +107,10 @@
 								<g:link controller="basismappe" params="['arkivdelid':arkivdel?.id]" action="create">Lag ny mappe</g:link>
               </td>
             </tr>
+						<tr>
+   						<td><label for="bevaringOgKassasjon">Kassasjonsvedtak</label></td>
+							<td><g:select name="bevaringOgKassasjon.id" noSelection="${[null:'Velg']}" from='${BevaringOgKassasjon.list()}' optionKey="id" value="${arkivdel.bevaringOgKassasjon}"></g:select></td>
+						</tr>
 
 
             <tr>

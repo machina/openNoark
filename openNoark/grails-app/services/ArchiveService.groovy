@@ -25,6 +25,8 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 
 import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
 import no.machina.utils.StringInputStream
+
+import no.friark.ds.*
 class ArchiveService implements org.springframework.context.ApplicationContextAware {
 	def grailsApplication
 	org.springframework.context.ApplicationContext applicationContext

@@ -1,0 +1,39 @@
+/**
+Metadata for basisregistrering¤¤¤¤¤
+ ¤¤¤¤¤
+Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
+ ¤¤¤¤¤
+
+*/
+package no.friark.ds
+class Basisregistrering extends ForenkletRegistrering{
+  String registreringsid
+  String tittel
+  String offentligtittel
+  String beskrivelse
+  String dokumentmedium
+  static constraints = {
+    registreringsid(nullable: false)
+    registreringsid(unique: true)
+    tittel(nullable: false)
+    tittel(unique: true)
+    offentligtittel(nullable: true)
+    offentligtittel(unique: true)
+    beskrivelse(nullable: true)
+    beskrivelse(unique: true)
+    nøkkelord(nullable: true)
+    nøkkelord(unique: false)
+    forfatter(nullable: true)
+    forfatter(unique: false)
+    dokumentmedium(nullable: true)
+    dokumentmedium(unique: true)
+    oppbevaringssted(nullable: true)
+    oppbevaringssted(unique: false)
+    merknad(nullable: true)
+    merknad(unique: false)
+  }
+  static hasMany = [nøkkelord:String, forfatter:String, oppbevaringssted:String, merknad:Merknad]
+  static mapping = {
+    tablePerHierarchy false
+  }
+}

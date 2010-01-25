@@ -1,4 +1,5 @@
 import org.jsecurity.crypto.hash.Sha1Hash
+import no.friark.ds.*
 class UserController {
 
     def index = {redirect(action: 'list', params: params) }

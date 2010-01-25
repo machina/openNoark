@@ -1,0 +1,61 @@
+open|/openNoark/auth/login?targetUri=%2F|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+clickAndWait|link=Arkiv|
+clickAndWait|link=Nytt Arkiv|
+type|tittel|regarkiv_boko_ad
+type|opprettetav|test
+clickAndWait|save|
+clickAndWait|link=Arkivdeler|
+clickAndWait|link=Ny Arkivdel|
+type|tittel|regarkivdel_boko_ad
+type|opprettetav|test
+select|referanseforelder|label=regarkiv_boko_ad
+clickAndWait|save|
+open|/openNoark/forenkletRegistrering/create|
+type|registreringstype|ad
+type|opprettetav|ad
+type|arkivertav|ad
+select|referansearkivdel.id|label=regarkivdel_boko_ad
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Dokumentbeskrivelser|
+clickAndWait|link=New Dokumentbeskrivelse|
+type|dokumenttype|ad
+type|dokumentstatus|ad
+type|tittel|ad
+type|beskrivelse|ad
+type|forfatter|ad
+type|opprettetav|ad
+type|dokumentmedium|ad
+type|oppbevaringssted|ad
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Dokumentlinker|
+clickAndWait|link=New Dokumentlink|
+select|referanseregistrering.id|label=ForenkletRegistrering : 3
+type|tilknyttetregistreringSom|ad
+type|dokumentnummer|ad
+type|tilknyttetav|ad
+select|dokumentbeskrivelse.id|label=Dokumentbeskrivelse : 4
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=New BevaringOgKassasjon|
+select|kassasjonsvedtak|label=Bevares
+type|kassasjonshjemmel|ad
+type|bevaringstid|3
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=BevaringOgKassasjon List|
+clickAndWait|link=Oversikt|
+select|til_year|label=2027
+clickAndWait|søk|
+verifyTextNotPresent|Treff|
+clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=1|
+clickAndWait|link=Referanser|
+select|arkivdel.id|label=Arkivdel : 2
+clickAndWait|//input[@value='Legg til']|
+clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=Oversikt|
+select|til_year|label=2035
+clickAndWait|søk|
+verifyTextPresent|Treff|
