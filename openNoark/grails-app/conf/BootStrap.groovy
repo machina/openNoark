@@ -5,6 +5,13 @@ import no.friark.ds.*
 class BootStrap {
 
      def init = { servletContext ->
+				ExpandoMetaClass.enableGlobally()
+				grails.test.GrailsUnitTestCase.metaClass.saveOrFail = { obj ->
+					if(!obj.save()){
+						println obj.errors
+						fail "unable to save: ${obj.errors}"
+					}		
+				}
 /*			InputStream.metaClass.eachBytes = {Integer buffSize, Closure closure ->
 																					byte[] buffer = new byte[buffSize]
 																					byte[] tmp = null

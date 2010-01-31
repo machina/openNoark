@@ -1,5 +1,5 @@
 import grails.test.*
-
+import no.friark.ds.*
 class ArkivControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
@@ -39,7 +39,6 @@ class ArkivControllerTests extends ControllerUnitTestCase {
     def retval = controller.update([opprettetdato: opprettetdato] as UpdateArkivCommand)
 		println "retval.errors: ${retval.errors}"
     assertTrue (retval.errors.toString().contains( "Kan ikke fjerne avsluttetdato.") )
-	
 		
   }
 }

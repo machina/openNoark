@@ -1,4 +1,6 @@
 import grails.test.*
+import no.friark.ds.*
+import no.friark.ds.Arkiv
 
 class KassasjonServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
@@ -127,27 +129,61 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 		}
 
 
+		void testKasser() {
+			def ark, del, reg = createStructure()
+      Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+
+      if(!desc.save()){
+        println desc.errors
+        fail "unable to save desc"
+      }
+			
+			Dokumentobjekt obj = new Dokumentobjekt(systemID: "AASA", versjonsnummer:"1", variantformat:"1", format:"1", formatdetaljer:"2", opprettetdato: new Date(), opprettetav:"dall", referansedokumentBeskrivelse:desc )
+			/*if(!obj.save(){
+				println desc.errors
+        fail "unable to save desc"
+			}*/
+			saveOrFail(obj)
+			
+			desc.addToReferansedokumentObjekt(obj)
+
+			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Kasseres", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc])
+      if(!bev.save()){
+        println bev.errors
+        fail "unable to save bev"
+      }
+
+			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Kasseres"]
+
+      KassasjonService service = new KassasjonService()
+
+      def list = service.oversikt(co)
+      assertEquals 1, list?.size()
+			
+			assertEquals 1, Dokumentobjekt.list().size()
+			println "kasserer ${desc}"
+			service.kasser(desc)
+
+			assertEquals 0, Dokumentobjekt.list().size()
+		}
+
+
 		def createStructure(){
 			Arkiv ark = new Arkiv(systemID: "1", tittel: "tittel", arkivstatus: "Opprettet", opprettetdato: new Date(), opprettetav: "meg")
-      if(!ark.save()){
-        println ark.errors
-        fail "unable to save archive"
-      }
-      assertNotNull Arkiv.get(ark.id)
+			saveOrFail(ark)
+      
+			assertNotNull Arkiv.get(ark.id)
 
       Arkivdel del = new Arkivdel(systemID: "2", tittel: "tittel", arkivdelstatus: "Opprettet", dokumentmedium: "text/html", opprettetav:"deg", opprettetdato: new Date(), referanseforelder: ark )
-
-      if(!del.save()){
-        println del.errors
-        fail "unable to save archive part"
-      }
+			saveOrFail(del)
 
       ForenkletRegistrering reg = new ForenkletRegistrering(systemID: "3", opprettetdato: new Date(), opprettetav: "dill", arkivertdato: new Date(), arkivertav: "dall", referansearkivdel: del, registreringstype: "type")
-
-      if(!reg.save()){
-        println reg.errors
-        fail "unable to save reg"
-      }
+			saveOrFail(reg)
+			
 			return [ark, del, reg]
 		}
+
+
+
+
 }

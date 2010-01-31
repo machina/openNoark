@@ -4,7 +4,7 @@ import no.friark.ds.*
 class ForenkletRegistreringController {
 
 	def commonService
-    
+ 	def registreringService   
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
@@ -92,36 +92,12 @@ class ForenkletRegistreringController {
     def save = {
 				println "forenkeltregistrering.save"
 				println params
-				def df = new SimpleDateFormat("dd-MM-yyyy")
-        def forenkletRegistreringInstance = null
-				if(params.ForenkletRegistrering != null){
-					params.ForenkletRegistrering.arkivertdato = df.parse(params.ForenkletRegistrering.arkivertdato)
-					params.ForenkletRegistrering.opprettetdato = df.parse(params.ForenkletRegistrering.opprettetdato)
-					forenkletRegistreringInstance = new ForenkletRegistrering(params.ForenkletRegistrering)
-					if(params.ForenkletRegistrering.mappe_id != null){
-						forenkletRegistreringInstance.setReferanseforelderBasismappe(Basismappe.get(Long.parseLong(params.ForenkletRegistrering.mappe_id)))
-					}
-					if(params.ForenkletRegistrering.klasse_id != null){
-            forenkletRegistreringInstance.setReferanseforelderKlasse(Klasse.get(Long.parseLong(params.ForenkletRegistrering.klasse_id)))
-          }
-					if(params.ForenkletRegistrering.arkivdel_id != null){
-            forenkletRegistreringInstance.setReferansearkivdel(Arkivdel.get(Long.parseLong(params.ForenkletRegistrering.arkivdel_id)))
-          }
-					
-//					forenkletRegistreringInstance.arkivertdato = df.parse(params.ForenkletRegistrering.arkivertdato)
-	//				forenkletRegistreringInstance.opprettetdato = df.parse(params.ForenkletRegistrering.opprettetdato)
-				} else {
-					forenkletRegistreringInstance = new ForenkletRegistrering(params)
-				}
-				//forenkletRegistreringInstance.systemID = UUID.randomUUID().toString()
-				commonService.setNewSystemID forenkletRegistreringInstance
-        if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
-						println "saved"
-						println request.format
+
+				def (forenkletRegistreringInstance, error) = registreringService.registrer(params)
+        if(!error) {
             flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
 						withFormat {
 	            html {
-								println "rendering show"
 		            render(view: "show", model: [forenkletRegistreringInstance:forenkletRegistreringInstance] )
 							}
 							form {

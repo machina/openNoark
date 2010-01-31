@@ -3,7 +3,7 @@ import no.friark.ds.*
 class BasismappeController {
     
     def index = { redirect(action:list,params:params) }
-
+		def mappeService
     // the delete, save and update actions only accept POST requests
     static allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
@@ -107,11 +107,10 @@ class BasismappeController {
     }
 
     def save = {
-        def basismappeInstance = new Basismappe(params)
-				basismappeInstance.systemID = UUID.randomUUID().toString()
-				if(params.nøkkelord && params.nøkkelord instanceof String) basismappeInstance.nøkkelord = params.nøkkelord.tokenize(" ")
-
-        if(!basismappeInstance.hasErrors() && basismappeInstance.save()) {
+				println params
+				def (basismappeInstance, success) = mappeService.save(params)
+	
+        if(success) {
             flash.message = "Basismappe ${basismappeInstance.id} created"
 						withFormat {
 	            html {

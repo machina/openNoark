@@ -33,8 +33,6 @@ class KassasjonService {
 		def iDokListe(def liste, def getter){
 			def retval = []
 			getter = getter.curry(retval)
-			//println getter
-			//getter(liste[0])
 			liste.each getter
 			return retval.unique()
 		}
@@ -50,18 +48,6 @@ class KassasjonService {
 			}
 			if(results){
 				results.each{
-/*					if(it.dokumentBeskrivelse) retval << it.dokumentBeskrivelse
-
-					if(it.registrering){
-						it.registrering.each{ reg ->
-							//Dokumentlink!!
-							reg.dokumenter.each{ dokLink ->
-								if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null) retval << dokLink.dokumentbeskrivelse
-							}
-						}
-					}
-
-	*/
 					retval << dokumenterFraDokument(it)
 					retval << dokumenterFraRegistrering(it)			
 					retval << dokumenterFraMappe(it)
@@ -69,7 +55,6 @@ class KassasjonService {
 					retval << dokumenterFraKlasse(it)
 				}
 			}
-			//println retval
 			retval.flatten()
     }
 
@@ -120,7 +105,6 @@ class KassasjonService {
 			if(vedtak.arkivdel){
 				vedtak.arkivdel.each {arkivdel ->
 					arkivdel.referansemappe.each leggTilFraMappe
-					//println "arkivdel.referanseregistrering ${arkivdel.referanseregistrering}"
 					arkivdel.referanseregistrering.each leggTilFraReg
 				}
 			}
@@ -134,8 +118,6 @@ class KassasjonService {
 		}
 
 		def  leggTilFraReg = { retval, reg->
-			//println "reg ${reg}"
-			//println "retval ${retval}"
 			def leggTilFraDokLink = leggTilFraDokLink.curry(retval)
 			if(reg.bevaringOgKassasjon == null) reg.dokumenter.each leggTilFraDokLink	
 		}
@@ -160,12 +142,16 @@ class KassasjonService {
 			liste.each{
 				if(filter.isApplicable(it)){ 
 					retval << it 
-				//	println "${it} is applicable"
-				} /*else {
-					println "${it} is not applicable"
-				}*/
+				}
 			}
-			//println "returning: ${retval}"
 			return retval
 		}
+
+	def kasser(Dokumentbeskrivelse dok){
+		dok.referansedokumentObjekt.each{
+			dok.removeFromReferansedokumentObjekt(it)
+			it.delete()
+		}
+		dok.save()
+	}
 }
