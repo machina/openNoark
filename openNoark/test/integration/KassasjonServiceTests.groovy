@@ -11,7 +11,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
         super.tearDown()
     }
 
-
+	
     void testOversiktIngenKassason() {
 			def ark, del, reg = createStructure()
 			
@@ -156,7 +156,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Kasseres"]
 
       KassasjonService service = new KassasjonService()
-
+			service.archiveService = new ArchiveService()
       def list = service.oversikt(co)
       assertEquals 1, list?.size()
 			

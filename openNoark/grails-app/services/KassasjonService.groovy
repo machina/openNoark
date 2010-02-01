@@ -3,6 +3,7 @@ import no.friark.ds.*
 class KassasjonService {
 
     boolean transactional = true
+		def archiveService
 
 		def klasserIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
@@ -149,6 +150,9 @@ class KassasjonService {
 
 	def kasser(Dokumentbeskrivelse dok){
 		dok.referansedokumentObjekt.each{
+			if(dok.registreringer?.size() <= 1){
+				archiveService.delteFromArchive(it)				
+			}
 			dok.removeFromReferansedokumentObjekt(it)
 			it.delete()
 		}

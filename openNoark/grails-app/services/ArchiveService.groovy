@@ -22,6 +22,7 @@ import org.apache.lucene.index.IndexReader
 import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.index.Term;
 
 import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
 import no.machina.utils.StringInputStream
@@ -44,6 +45,21 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 		println("indexing doc: ${docId}")
 		println "data: ${data.decodeBase64()}"
 		indexFile(docId, new ByteArrayInputStream(data.decodeBase64()))
+	}
+
+	def delteFromArchive(Dokumentobjekt dokumentobjekt){
+		if(dokumentobjekt.referansedokumentfil){
+			removeFromIndex(dokumentobjekt.systemID)
+			def f = new File(dokumentobjekt.referansedokumentfil)
+			if(f.exists()) f.delete()
+		}
+	}
+
+	def removeFromIndex(docId){
+		IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
+		writer.deleteDocuments( new Term("DOC-OBJ", docId))
+		writer.flush()
+		writer.close()
 	}
 
 	def indexFile(docId, file){
@@ -99,4 +115,6 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 		}
 		return bytes
 	}
+
+	
 }
