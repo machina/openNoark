@@ -1,21 +1,21 @@
 <%! import no.friark.ds.* %>
 <html>
     <head>
-        <title>Welcome to Grails</title>
+        <title>Velkommen til friark</title>
 		<meta name="layout" content="main" />
     </head>
     <body>
-        <h1 style="margin-left:20px;">Welcome to Grails</h1>
-        <p style="margin-left:20px;width:80%">Congratulations, you have successfully started your first Grails application! At the moment
-        this is the default page, feel free to modify it to either redirect to a controller or display whatever
-        content you may choose. Below is a list of controllers that are currently deployed in this application,
-        click on each to execute its default action:</p>
-        <div class="dialog" style="margin-left:20px;width:60%;">
-            <ul>
-              <g:each var="c" in="${grailsApplication.controllerClasses}">
-                    <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-              </g:each>
-            </ul>
-        </div>
+				<div class="rightColWideTop"><h1>Velkommen til friark</h1></div>
+				<div class="rightColWideContent">
+					<h3>Det frie noark alternativet</h3>
+					<p>Nedenfor er en oversikt over alle funksjoner som p.t. tilbys av friark. Disse funksjonene skal også være tilgjengelige fra menyen på venstre side.</p>
+          <ul>
+          	<g:each var="c" in="${grailsApplication.controllerClasses}">
+            	<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
+            </g:each>
+          </ul>
+        </div><!-- End rightColWideContent -->
+				<div class="rightColWideBtm"></div>
+				<div class="rightColWideBtm"></div>
     </body>
 </html>

@@ -1,4 +1,3 @@
-<%! import no.friark.ds.* %>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -9,9 +8,13 @@
   <g:if test="${flash.message}">
     <div class="message">${flash.message}</div>
   </g:if>
+
+	<div class="rightColWideTop"><h1></h1></div>
+	<div class="rightColWideContent">
+
   <g:form action="signIn">
     <input type="hidden" name="targetUri" value="${targetUri}" />
-    <table>
+    <table class="login">
       <tbody>
         <tr>
           <td>Username:</td>
@@ -32,5 +35,8 @@
       </tbody>
     </table>
   </g:form>
+	</div>
+	</div>
+	<div class="rightColWideBtm"></div>
 </body>
 </html>

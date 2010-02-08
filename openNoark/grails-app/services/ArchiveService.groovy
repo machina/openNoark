@@ -1,4 +1,3 @@
-import org.jsecurity.crypto.hash.Sha1Hash
 import grails.converters.*
 import org.apache.tika.*
 import org.apache.tika.utils.*

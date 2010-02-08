@@ -106,38 +106,28 @@ class BevaringOgKassasjonController {
 				if( !commonService.isNull(params.dokumentBeskrivelse.id)) bevaringOgKassasjonInstance.addToDokumentBeskrivelse Dokumentbeskrivelse.get(params.dokumentBeskrivelse.id)
 				if( !commonService.isNull(params.referanseregistrering.id)) bevaringOgKassasjonInstance.addToRegistrering ForenkletRegistrering.get(params.referanseregistrering.id)
 				if( !commonService.isNull(params.arkivdel.id)) bevaringOgKassasjonInstance.addToArkivdel Arkivdel.get(params.arkivdel.id)
-				if( !commonService.isNull(params.basismappe.id)) bevaringOgKassasjonInstance.addToMappe Basismappe.get(params.basismappe.id)
+				if( !commonService.isNull(params.basismappe.id)){
+					 
+					 bevaringOgKassasjonInstance.addToMappe Basismappe.get(params.basismappe.id)
+				}
 				if( !commonService.isNull(params.klasse.id)) bevaringOgKassasjonInstance.addToKlasse Klasse.get(params.klasse.id)
-println	 "a"
 				if(!bevaringOgKassasjonInstance.hasErrors() && bevaringOgKassasjonInstance.save()) {
-						println "b"
-						println "no errors: ${bevaringOgKassasjonInstance.errors}"
             flash.message = "Endringer utført"
 						//redirect(action:referanser,id: bevaringOgKassasjonInstance.id)
 						return [bevaringOgKassasjonInstance: bevaringOgKassasjonInstance]
 				} else {
-						println "c"
 						flash.message = "En feil oppsto: ${bevaringOgKassasjonInstance.errors}"
-						println "En feil oppsto: ${bevaringOgKassasjonInstance.errors}"
-
-						//[bevaringOgKassasjonInstance: bevaringOgKassasjonInstance]
+						return [bevaringOgKassasjonInstance: bevaringOgKassasjonInstance]
 				}
-				println "g"
 			} else {
 				return [bevaringOgKassasjonInstance: bevaringOgKassasjonInstance]
 			}
 		}
 
 	def oversikt = { KassasjonCO co ->
-		//println params
-		//println "fra: ${co.fra}"
 		if(co.fra){
 			def liste = kassasjonService.oversikt(co)
-			println co.filter
-			println "prefilter: ${liste}"
 			liste = kassasjonService.filter( liste, co.filter)
-			println "postfilter: ${liste}"
-			//println "liste: ${liste}"
 			return ['liste': liste, fra: co.fra, til: co.til, vedtak: co.kassasjonsvedtak, filter: co.filter ? co.filter :"", klasser: kassasjonService.klasserIDokliste(liste), mapper: kassasjonService.mapperIDokliste(liste), arkivdeler: kassasjonService.arkivdelerIDokliste(liste)]
 		}
 	}

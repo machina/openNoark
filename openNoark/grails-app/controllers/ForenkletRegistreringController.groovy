@@ -90,7 +90,6 @@ class ForenkletRegistreringController {
     }
 
     def save = {
-				println "forenkeltregistrering.save"
 				println params
 
 				def (forenkletRegistreringInstance, error) = registreringService.registrer(params)

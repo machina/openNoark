@@ -1,5 +1,6 @@
 import no.friark.*
 import no.friark.ds.*
+import no.machina.gestalt2.SandboxingClassLoader
 class KassasjonService {
 
     boolean transactional = true
@@ -129,15 +130,22 @@ class KassasjonService {
 
 
 		def filter(liste, filter){
+			println filter
 			if(filter instanceof String) {
+				def cl = new SandboxingClassLoader(["java.lang.String": ["length"], "java.lang.Integer": [], "org.codehaus.groovy.runtime.InvokerHelper": [], "java.lang.Object": ["build"], "no.friark.FilterBuilder": [], "no.friark.Filter": [], "java.lang.Long": []])
 				FilterBuilder fb = new FilterBuilder()
 		    Binding binding = new Binding()
   		  binding.setVariable("builder", fb)
 				//TODO: this is wildly unsafe. must be
-	    	GroovyShell shell = new GroovyShell(binding); 
+	    	//GroovyShell shell = new GroovyShell(binding); 
   		  def builderString = "builder.build{\n${filter}\n}\n return builder.filter"
-		    filter = shell.evaluate(builderString);
+				Class scriptClass = cl.parseClass(new GroovyCodeSource(builderString, "restriced", "/restricted/res"));
+  	    def script = scriptClass.newInstance()
+    	  script.setBinding(binding)
+				filter = script.run()
+//		    filter = shell.evaluate(builderString);
 			}
+			println filter
 			if(filter == null) return liste
 			def retval = []
 			liste.each{
