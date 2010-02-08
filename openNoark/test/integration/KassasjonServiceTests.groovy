@@ -167,6 +167,35 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			assertEquals 0, Dokumentobjekt.list().size()
 		}
 
+		void testFilter() {
+			
+			KassasjonService service = new KassasjonService()
+
+			
+			Basismappe m1 = new Basismappe(id: 1, systemID: "1")
+			def reg1 = new ForenkletRegistrering(id:5, referanseforelderBasismappe: m1)
+			def dok1 = new Dokumentbeskrivelse(registreringer: [new Dokumentlink(referanseregistrering: reg1)])
+			assertEquals "1", dok1.registreringer.toArray()[0].referanseregistrering.referanseforelderBasismappe.systemID
+
+			Basismappe m2 = new Basismappe(id: 2, systemID: "2")
+			def reg2 = new ForenkletRegistrering(id:5, referanseforelderBasismappe: m2)
+			def dok2 = new Dokumentbeskrivelse(registreringer: [new Dokumentlink(referanseregistrering: reg2)])
+			assertEquals "2", dok2.registreringer.toArray()[0].referanseregistrering.referanseforelderBasismappe.systemID
+
+			def list = [dok1, dok2]
+
+			def retval = service.filter(list, "mappe(systemID: \"1\")")
+			
+			assertEquals 1, retval.size()
+
+			assertEquals "1", retval.get(0).registreringer.toArray()[0].referanseregistrering.referanseforelderBasismappe.systemID
+
+			retval = service.filter(list, "mappe(systemID: \"2\")")
+
+      assertEquals 1, retval.size()
+
+      assertEquals "2", retval.get(0).registreringer.toArray()[0].referanseregistrering.referanseforelderBasismappe.systemID
+		}
 
 		def createStructure(){
 			Arkiv ark = new Arkiv(systemID: "1", tittel: "tittel", arkivstatus: "Opprettet", opprettetdato: new Date(), opprettetav: "meg")

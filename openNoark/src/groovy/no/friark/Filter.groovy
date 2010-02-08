@@ -21,6 +21,7 @@ class Filter{
 		if(mappe.keySet().empty) return true
 		def mappeOk = false
     dok.registreringer.each{ dl ->
+				println "checking mappe: ${dl.referanseregistrering.referanseforelderBasismappe.id}"
 				def key = mappe.keySet().toArray()[0]
         def mappe_ = dl.referanseregistrering.referanseforelderBasismappe
         def keyval = mappe_."${key}"
