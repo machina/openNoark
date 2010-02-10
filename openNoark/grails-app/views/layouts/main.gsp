@@ -19,7 +19,7 @@
             <div class="navcontainer">
               <ul class="navlist">
                 <li class="first">
-                  <a href="/openNoark"><img style="height: 80%" src="${resource(dir:'images',file:'friark_logo.png')}"/></a>
+                  <a href="/openNoark">&nbsp;</a>
                 </li>
                 <li class="menudivide"></li>
                 <li class="menuitem">
