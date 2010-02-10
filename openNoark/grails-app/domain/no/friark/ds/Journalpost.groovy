@@ -1,9 +1,7 @@
 /**
-Metadata for journalpost¤¤¤¤¤
- ¤¤¤¤¤
-Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg.¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for journalpost
 
+Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg.
 */
 package no.friark.ds
 class Journalpost extends Basisregistrering{

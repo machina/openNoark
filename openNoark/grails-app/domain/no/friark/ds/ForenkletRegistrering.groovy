@@ -1,7 +1,5 @@
 /**
-Metadata for forenklet registrering¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for forenklet registrering
 */
 package no.friark.ds
 class ForenkletRegistrering extends Base{

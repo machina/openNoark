@@ -1,8 +1,7 @@
 /**
-Metadata for møteregistrering¤¤¤¤¤
- ¤¤¤¤¤
-Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for møteregistrering
+<br/>
+Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg.
 
 */
 package no.friark.ds

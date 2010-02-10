@@ -1,9 +1,8 @@
 /**
-Metadata for møtedeltaker¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Møtemappe¤¤¤¤¤
-Forekomst:               1-M¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for møtedeltaker
+<br/>
+Grupperes inn i:	Møtemappe
+Forekomst:		1-M
 
 */
 package no.friark.ds

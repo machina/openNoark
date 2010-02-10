@@ -1,10 +1,8 @@
 /**
-Metadata for gradering¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:       Basismappe, Forenklet registrering, Dokmentbeskrivelse.¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for gradering
+<br/>
+Grupperes inn i:	Basismappe, Forenklet registrering, Dokmentbeskrivelse.
+Forekomst:	0-1
 */
 package no.friark.ds
 class Gradering {

@@ -1,10 +1,8 @@
 /**
-Metadata for verifisering av elektronisk signatur¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Journalpost¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for verifisering av elektronisk signatur
+<br/>
+Grupperes inn i:	Journalpost<br/>
+Forekomst:		0-1
 */
 package no.friark.ds
 class VerifiseringAvElektroniskSignatur {

@@ -1,7 +1,5 @@
 /**
-Metadata for arkivdel¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for arkivdel
 */
 package no.friark.ds
 class Arkivdel extends Base{

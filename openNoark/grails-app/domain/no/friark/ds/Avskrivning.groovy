@@ -1,11 +1,9 @@
 /**
-Metadata for avskrivning¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Journalpost¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤
- ¤¤¤¤¤
-.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp.¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for avskrivning
+
+Grupperes inn i:	Journalpost
+Forekomst:		0-M
+.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp.
 
 */
 package no.friark.ds

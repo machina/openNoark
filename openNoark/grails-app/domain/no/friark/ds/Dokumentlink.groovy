@@ -1,12 +1,10 @@
 /**
-Metadata for dokumentlink¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Dokumentbeskrivelse¤¤¤¤¤
-Forekomst:               1¤¤¤¤¤
- ¤¤¤¤¤
-Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. ¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for dokumentlink
+<br/>
+Grupperes inn i:	Dokumentbeskrivelse
+Forekomst:		1
+<br/>
+Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. 
 */
 package no.friark.ds
 class Dokumentlink {

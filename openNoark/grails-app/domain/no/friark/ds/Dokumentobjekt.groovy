@@ -1,7 +1,5 @@
 /**
-Metadata for dokumentobjekt¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for dokumentobjekt
 */
 package no.friark.ds
 class Dokumentobjekt extends Base{

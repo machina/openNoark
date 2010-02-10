@@ -57,7 +57,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arkiv" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for arkiv¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for arkiv"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Arkiv"/>
@@ -160,7 +160,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arkivdel" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for arkivdel¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for arkivdel"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Arkivdel"/>
@@ -308,7 +308,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arkivskaper">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for arkivskaper¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Arkiv¤¤¤¤¤&#xA;Forekomst:               1-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for arkivskaper&#xA;&#xA;Grupperes inn i:&#x9;Arkiv&#xA;Forekomst:&#x9;&#x9;1-M&#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Arkivskaper"/>
@@ -342,7 +342,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Avlevering">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for avlevering¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for avlevering skal avleveres som en egen fil.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for avlevering&#xA;&#xA;Metadata for avlevering skal avleveres som en egen fil.&#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Avlevering"/>
@@ -407,7 +407,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Avskrivning">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for avskrivning¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Journalpost¤¤¤¤¤&#xA;Forekomst:               0-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for avskrivning&#xA;&#xA;Grupperes inn i:&#x9;Journalpost&#xA;Forekomst:&#x9;&#x9;0-M&#xA;.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp.&#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Avskrivning"/>
@@ -451,7 +451,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Basismappe" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for basismappe¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for basismappe"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Basismappe"/>
@@ -596,7 +596,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Basisregistrering" eSuperTypes="#//ForenkletRegistrering">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for basisregistrering¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for basisregistrering&#xA;&#xA;Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg."/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Basisregistrering"/>
@@ -663,7 +663,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BevaringOgKassasjon">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for bevaring og kassasjon¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤&#xA;Forekomst:               0-1¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for bevaring og kassasjon&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse&#xA;Forekomst:&#x9;&#x9;0-1&#xA;&lt;br/>&#xA;I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået."/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="BevaringOgKassasjon"/>
@@ -713,7 +713,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Brukeradministrasjon">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for brukeradministrasjon¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for brukeradministrasjon&#xA;&#xA;Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her."/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Brukeradministrasjon"/>
@@ -761,7 +761,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dokumentbeskrivelse" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for dokumentbeskrivelse¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for dokumentbeskrivelse&#xA;&#xA;En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. &#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Dokumentbeskrivelse"/>
@@ -862,7 +862,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dokumentflyt">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for dokumentflyt¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Journalpost¤¤¤¤¤&#xA;Forekomst:               0-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for dokumentflyt&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Journalpost&#xA;Forekomst:&#x9;&#x9;0-M"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Dokumentflyt"/>
@@ -912,7 +912,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dokumentlink">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for dokumentlink¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Dokumentbeskrivelse¤¤¤¤¤&#xA;Forekomst:               1¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for dokumentlink&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Dokumentbeskrivelse&#xA;Forekomst:&#x9;&#x9;1&#xA;&lt;br/>&#xA;Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. "/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Dokumentlink"/>
@@ -959,7 +959,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dokumentobjekt" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for dokumentobjekt¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for dokumentobjekt"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Dokumentobjekt"/>
@@ -1058,7 +1058,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Endringslogg">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for endringslogg¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for endringslogg skal ikke grupperes inn i en annen arkivenhet, men avleveres som en egen fil.  Endringsloggen må derfor ha referanse til hvilken arkivenhet endringen tilhører, og hvilket metadataelement som er blitt endret. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Ikke alle endringer skal avleveres. Aktuelle endringer kan  være  endring av saksstatus, journal-status, tilgangsrestriksjon, klassifikasjon (referanse til klasse), saksansvarlig, saksbehandler. Nærmere spesifikasjon av hvilke endringer som skal avleveres, vil komme i en senere versjon. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for endringslogg&#xA;&#xA;Metadata for endringslogg skal ikke grupperes inn i en annen arkivenhet, men avleveres som en egen fil.  Endringsloggen må derfor ha referanse til hvilken arkivenhet endringen tilhører, og hvilket metadataelement som er blitt endret. &#xA;&#xA;Ikke alle endringer skal avleveres. Aktuelle endringer kan  være  endring av saksstatus, journal-status, tilgangsrestriksjon, klassifikasjon (referanse til klasse), saksansvarlig, saksbehandler. Nærmere spesifikasjon av hvilke endringer som skal avleveres, vil komme i en senere versjon. "/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Endringslogg"/>
@@ -1109,7 +1109,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gradering">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for gradering¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Basismappe, Forenklet registrering, Dokmentbeskrivelse.¤¤¤¤¤&#xA;Forekomst:               0-1¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for gradering&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Basismappe, Forenklet registrering, Dokmentbeskrivelse.&#xA;Forekomst:&#x9;0-1"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Gradering"/>
@@ -1151,7 +1151,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Journalpost" eSuperTypes="#//Basisregistrering">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for journalpost¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for journalpost&#xA;&#xA;Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg."/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Journalpost"/>
@@ -1237,7 +1237,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Klasse" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for klasse¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for klasse"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Klasse"/>
@@ -1353,7 +1353,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Klassifikasjonssystem" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for klassifikasjonssystem¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for klassifikasjonssystem"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Klassifikasjonssystem"/>
@@ -1427,7 +1427,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KonverteringTilArkivformat">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for konvertering til arkivformat¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Dokumentobjekt¤¤¤¤¤&#xA;Forekomst:               0-1¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konvertering er valgfritt, og kan forekomme en gang.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for konvertering til arkivformat&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Dokumentobjekt&#xA;Forekomst:&#x9;&#x9;0-1&#xA;&lt;br/>&#xA;Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konvertering er valgfritt, og kan forekomme en gang."/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="KonverteringTilArkivformat"/>
@@ -1464,7 +1464,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Korrespondansepart">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for korrespondansepart¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Journalpost¤¤¤¤¤&#xA;Forekomst:               1-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for korrespondansepart&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Journalpost&#xA;Forekomst:&#x9;&#x9;1-M"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Korrespondansepart"/>
@@ -1529,7 +1529,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Kryssreferanse">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for kryssreferanse¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Klasse, Basismappe, Basisregistrering¤¤¤¤¤&#xA;Forekomst:               0-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Referansen kan gå fra en klasse til en annen klasse, fra en mappe til en annen mappe, fra en registrering til en annen registrering, fra en mappe til en registrering og fra en registrering til en mappe. Kryssreferansen  vil også omfatte spesialiseringer.  En kryssreferanse kan derfor gå fra en møtemappe til en saksmappe. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for kryssreferanse&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Klasse, Basismappe, Basisregistrering&#xA;Forekomst:&#x9;&#x9;0-M&#xA;&lt;br/>&#xA;Referansen kan gå fra en klasse til en annen klasse, fra en mappe til en annen mappe, fra en registrering til en annen registrering, fra en mappe til en registrering og fra en registrering til en mappe. Kryssreferansen  vil også omfatte spesialiseringer.  En kryssreferanse kan derfor gå fra en møtemappe til en saksmappe. "/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Kryssreferanse"/>
@@ -1556,7 +1556,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Merknad">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for merknad¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Basismappe, Basisregistrering, Dokumentbeskrivelse¤¤¤¤¤&#xA;Forekomst:               0-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for merknad&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Basismappe, Basisregistrering, Dokumentbeskrivelse&#xA;Forekomst:&#x9;&#x9;0-M&#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Merknad"/>
@@ -1603,7 +1603,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Møtedeltaker">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for møtedeltaker¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Møtemappe¤¤¤¤¤&#xA;Forekomst:               1-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for møtedeltaker&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Møtemappe&#xA;Forekomst:&#x9;&#x9;1-M&#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Møtedeltaker"/>
@@ -1626,7 +1626,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Møtemappe" eSuperTypes="#//Basismappe">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for møtemappe¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for møtemappe&#xA;&lt;br/>&#xA;Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg."/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Møtemappe"/>
@@ -1676,7 +1676,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Møteregistrering" eSuperTypes="#//Basisregistrering">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for møteregistrering¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for møteregistrering&#xA;&lt;br/>&#xA;Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg.&#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Møteregistrering"/>
@@ -1734,7 +1734,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Presedens">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for presedens¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Saksmappe, Journalpost¤¤¤¤¤&#xA;Forekomst:               0-M        ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for presedens&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Saksmappe, Journalpost&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-M"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Presedens"/>
@@ -1821,7 +1821,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Saksansvar">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for saksansvar¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Journalpost¤¤¤¤¤&#xA;Forekomst:               1-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Ved organinterne dokumenter som skal følges opp, er det behov for å gruppere informasjon om saksansvar fordi denne  kan forekomme flere ganger. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for saksansvar&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Journalpost&lt;br/>&#xA;Forekomst:&#x9;&#x9;1-M&#xA;&#xA;Ved organinterne dokumenter som skal følges opp, er det behov for å gruppere informasjon om saksansvar fordi denne  kan forekomme flere ganger. "/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Saksansvar"/>
@@ -1850,7 +1850,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Saksfordeling">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for saksfordeling¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Saksmappe, journalpost¤¤¤¤¤&#xA;Forekomst:               0-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for saksfordeling&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Saksmappe, journalpost&#xA;Forekomst:&#x9;&#x9;0-M"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Saksfordeling"/>
@@ -1880,7 +1880,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Saksmappe" eSuperTypes="#//Basismappe">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for saksmappe¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for saksmappe&#xA;&#xA;Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg."/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Saksmappe"/>
@@ -1947,7 +1947,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sakspart">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for sakspart¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Saksmappe¤¤¤¤¤&#xA;Forekomst:               0-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for sakspart&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Saksmappe&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-M&#xA;&#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Sakspart"/>
@@ -2018,7 +2018,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Skjerming">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for skjerming¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Forekomst:               0-1¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på journalpostnivået.¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for skjerming&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse&#xA;&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-1&#xA;&lt;br/>&#xA;I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på journalpostnivået.&#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Skjerming"/>
@@ -2068,7 +2068,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlettingAvDokumenter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for sletting av dokumenter¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Arkivdel, dokumentbeskrivelse¤¤¤¤¤&#xA;Forekomst:               0-M¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Ved sletting av tidligere versjoner (siste versjon kan ikke slettes), produksjonsformat og varianter skal metadata grupperes inn i dokumentbeskrivelse. De tilhørende dokumentobjekter skal da slettes. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Ved sletting av innholdet i en arkivdel (som ikke har bevaringsverdi), skal alle mapper og underordnede arkivenheter som tilhørere arkivdelen slettes. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for sletting av dokumenter&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Arkivdel, dokumentbeskrivelse&#xA;Forekomst:&#x9;&#x9;0-M&#xA;&#xA;Ved sletting av tidligere versjoner (siste versjon kan ikke slettes), produksjonsformat og varianter skal metadata grupperes inn i dokumentbeskrivelse. De tilhørende dokumentobjekter skal da slettes.&#xA;&#xA;Ved sletting av innholdet i en arkivdel (som ikke har bevaringsverdi), skal alle mapper og underordnede arkivenheter som tilhørere arkivdelen slettes. "/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="SlettingAvDokumenter"/>
@@ -2098,7 +2098,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UtførtKassasjon">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for utført kassasjon¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:       Dokumentbeskrivelse¤¤¤¤¤&#xA;Forekomst:               0-1¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Ved kassasjon skal dokumentobjektet slettes. ¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for utført kassasjon&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Dokumentbeskrivelse&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-1&#xA;&#xA;Ved kassasjon skal dokumentobjektet slettes. &#xA;"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="UtførtKassasjon"/>
@@ -2121,7 +2121,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VerifiseringAvElektroniskSignatur">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for verifisering av elektronisk signatur¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;Grupperes inn i:        Journalpost¤¤¤¤¤&#xA;Forekomst:               0-1¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for verifisering av elektronisk signatur&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Journalpost&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-1"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="VerifiseringAvElektroniskSignatur"/>
@@ -2166,7 +2166,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForenkletRegistrering" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for forenklet registrering¤¤¤¤¤&#xA; ¤¤¤¤¤&#xA;"/>
+      <details key="documentation" value="Metadata for forenklet registrering"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="ForenkletRegistrering"/>

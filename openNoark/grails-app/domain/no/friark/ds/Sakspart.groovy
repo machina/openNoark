@@ -1,9 +1,9 @@
 /**
-Metadata for sakspart¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Saksmappe¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for sakspart
+<br/>
+Grupperes inn i:	Saksmappe<br/>
+Forekomst:		0-M
+
 
 */
 package no.friark.ds

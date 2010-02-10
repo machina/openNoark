@@ -1,10 +1,7 @@
 /**
-Metadata for brukeradministrasjon¤¤¤¤¤
- ¤¤¤¤¤
-Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her.¤¤¤¤¤
- ¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for brukeradministrasjon
 
+Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her.
 */
 package no.friark.ds
 class Brukeradministrasjon {

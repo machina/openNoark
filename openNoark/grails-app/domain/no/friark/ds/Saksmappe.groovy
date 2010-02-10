@@ -1,9 +1,7 @@
 /**
-Metadata for saksmappe¤¤¤¤¤
- ¤¤¤¤¤
-Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg.¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for saksmappe
 
+Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg.
 */
 package no.friark.ds
 class Saksmappe extends Basismappe{

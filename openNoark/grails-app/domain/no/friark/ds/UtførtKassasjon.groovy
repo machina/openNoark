@@ -1,11 +1,10 @@
 /**
-Metadata for utført kassasjon¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:       Dokumentbeskrivelse¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤
- ¤¤¤¤¤
-Ved kassasjon skal dokumentobjektet slettes. ¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for utført kassasjon
+<br/>
+Grupperes inn i:	Dokumentbeskrivelse<br/>
+Forekomst:		0-1
+
+Ved kassasjon skal dokumentobjektet slettes. 
 
 */
 package no.friark.ds

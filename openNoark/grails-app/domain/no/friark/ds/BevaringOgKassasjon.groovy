@@ -1,13 +1,10 @@
 /**
-Metadata for bevaring og kassasjon¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:       Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse¤¤¤¤¤
-Forekomst:               0-1¤¤¤¤¤
- ¤¤¤¤¤
-I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået.¤¤¤¤¤
- ¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for bevaring og kassasjon
+<br/>
+Grupperes inn i:	Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse
+Forekomst:		0-1
+<br/>
+I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået.
 */
 package no.friark.ds
 class BevaringOgKassasjon {

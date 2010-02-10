@@ -1,7 +1,5 @@
 /**
-Metadata for klassifikasjonssystem¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for klassifikasjonssystem
 */
 package no.friark.ds
 class Klassifikasjonssystem extends Base{

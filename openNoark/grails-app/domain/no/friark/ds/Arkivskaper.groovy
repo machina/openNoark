@@ -1,9 +1,8 @@
 /**
-Metadata for arkivskaper¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Arkiv¤¤¤¤¤
-Forekomst:               1-M¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for arkivskaper
+
+Grupperes inn i:	Arkiv
+Forekomst:		1-M
 
 */
 package no.friark.ds

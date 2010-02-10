@@ -1,9 +1,7 @@
 /**
-Metadata for basisregistrering¤¤¤¤¤
- ¤¤¤¤¤
-Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg.¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for basisregistrering
 
+Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg.
 */
 package no.friark.ds
 class Basisregistrering extends ForenkletRegistrering{

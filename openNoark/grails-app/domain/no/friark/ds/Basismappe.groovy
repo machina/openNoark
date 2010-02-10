@@ -1,7 +1,5 @@
 /**
-Metadata for basismappe¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for basismappe
 */
 package no.friark.ds
 class Basismappe extends Base{

@@ -1,9 +1,7 @@
 /**
-Metadata for møtemappe¤¤¤¤¤
- ¤¤¤¤¤
-Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg.¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for møtemappe
+<br/>
+Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg.
 */
 package no.friark.ds
 class Møtemappe extends Basismappe{

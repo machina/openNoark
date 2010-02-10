@@ -1,10 +1,8 @@
 /**
-Metadata for korrespondansepart¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:       Journalpost¤¤¤¤¤
-Forekomst:               1-M¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for korrespondansepart
+<br/>
+Grupperes inn i:	Journalpost
+Forekomst:		1-M
 */
 package no.friark.ds
 class Korrespondansepart {

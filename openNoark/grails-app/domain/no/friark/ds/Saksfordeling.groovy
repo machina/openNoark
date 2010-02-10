@@ -1,10 +1,8 @@
 /**
-Metadata for saksfordeling¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Saksmappe, journalpost¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for saksfordeling
+<br/>
+Grupperes inn i:	Saksmappe, journalpost
+Forekomst:		0-M
 */
 package no.friark.ds
 class Saksfordeling {

@@ -1,10 +1,8 @@
 /**
-Metadata for dokumentflyt¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Journalpost¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for dokumentflyt
+<br/>
+Grupperes inn i:	Journalpost
+Forekomst:		0-M
 */
 package no.friark.ds
 class Dokumentflyt {

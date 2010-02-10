@@ -28,8 +28,8 @@ environments {
 			dbCreate = "update"
 			//url = "jdbc:hsqldb:file:prodDb;shutdown=true"
 			url = "jdbc:postgresql:friark_demo"
-      username = "****"
-      password = "****"
+      username = "postgres"
+      password = "postgres"
       driverClassName = "org.postgresql.Driver"
 		}
 	}

@@ -1,12 +1,10 @@
 /**
-Metadata for kryssreferanse¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:        Klasse, Basismappe, Basisregistrering¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤
- ¤¤¤¤¤
-Referansen kan gå fra en klasse til en annen klasse, fra en mappe til en annen mappe, fra en registrering til en annen registrering, fra en mappe til en registrering og fra en registrering til en mappe. Kryssreferansen  vil også omfatte spesialiseringer.  En kryssreferanse kan derfor gå fra en møtemappe til en saksmappe. ¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for kryssreferanse
+<br/>
+Grupperes inn i:	Klasse, Basismappe, Basisregistrering
+Forekomst:		0-M
+<br/>
+Referansen kan gå fra en klasse til en annen klasse, fra en mappe til en annen mappe, fra en registrering til en annen registrering, fra en mappe til en registrering og fra en registrering til en mappe. Kryssreferansen  vil også omfatte spesialiseringer.  En kryssreferanse kan derfor gå fra en møtemappe til en saksmappe. 
 */
 package no.friark.ds
 class Kryssreferanse {

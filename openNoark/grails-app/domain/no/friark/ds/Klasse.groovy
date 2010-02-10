@@ -1,7 +1,5 @@
 /**
-Metadata for klasse¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for klasse
 */
 package no.friark.ds
 class Klasse extends Base{

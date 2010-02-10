@@ -1,10 +1,8 @@
 /**
-Metadata for presedens¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:       Saksmappe, Journalpost¤¤¤¤¤
-Forekomst:               0-M        ¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for presedens
+<br/>
+Grupperes inn i:	Saksmappe, Journalpost<br/>
+Forekomst:		0-M
 */
 package no.friark.ds
 class Presedens {

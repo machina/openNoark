@@ -1,8 +1,7 @@
 /**
-Metadata for avlevering¤¤¤¤¤
- ¤¤¤¤¤
-Metadata for avlevering skal avleveres som en egen fil.¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for avlevering
+
+Metadata for avlevering skal avleveres som en egen fil.
 
 */
 package no.friark.ds

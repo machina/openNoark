@@ -1,8 +1,7 @@
 /**
-Metadata for dokumentbeskrivelse¤¤¤¤¤
- ¤¤¤¤¤
-En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. ¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for dokumentbeskrivelse
+
+En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. 
 
 */
 package no.friark.ds

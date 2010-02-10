@@ -1,7 +1,5 @@
 /**
-Metadata for arkiv¤¤¤¤¤
- ¤¤¤¤¤
-
+Metadata for arkiv
 */
 package no.friark.ds
 class Arkiv extends Base{

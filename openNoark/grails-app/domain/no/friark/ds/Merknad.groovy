@@ -1,9 +1,8 @@
 /**
-Metadata for merknad¤¤¤¤¤
- ¤¤¤¤¤
-Grupperes inn i:       Basismappe, Basisregistrering, Dokumentbeskrivelse¤¤¤¤¤
-Forekomst:               0-M¤¤¤¤¤
- ¤¤¤¤¤
+Metadata for merknad
+<br/>
+Grupperes inn i:	Basismappe, Basisregistrering, Dokumentbeskrivelse
+Forekomst:		0-M
 
 */
 package no.friark.ds
