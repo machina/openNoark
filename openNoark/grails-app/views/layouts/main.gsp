@@ -64,6 +64,9 @@
   	              <li class="leftmenuitem">
                   	<a href="/openNoark/arkivdel/index">Arkivdeler</a>
 		 							</li>
+									<li class="leftmenuitem">
+            				<a href="/openNoark/arkivskaper">Arkivskaper</a>
+									</li>
         	        <li class="leftmenuitem">
                   	<a href="/openNoark/klassifikasjonssystem/index">Klassifikasjonssystemer</a>
 									</li>

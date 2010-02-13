@@ -18,7 +18,7 @@ class Arkivskaper {
     beskrivelse(nullable: true)
     beskrivelse(unique: true)
     arkiv(nullable: true)
-    arkiv(unique: true)
+    arkiv(unique: false)
   }
   static hasMany = [arkiv:Arkiv]
   static mapping = {

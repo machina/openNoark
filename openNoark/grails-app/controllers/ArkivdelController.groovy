@@ -1,20 +1,23 @@
 import grails.converters.*
 import no.friark.ds.*
 class ArkivdelController {
-
+		def commonService
     def index = { redirect(action:list,params:params)}
 
 		def create = {
 			[arkiver: Arkiv.list()]
 		}
 
+
+		/**
+		* Lager en ny arkivdel. Denne funksjonen setter automatisk verdiene dor systemID, arkivdelstatus og opprettetav
+		*/
 		def save = {
 			def arkivdel = new Arkivdel(params)
 			arkivdel.arkivdelstatus = "Opprettet"
-			arkivdel.systemID = UUID.randomUUID().toString()
-			println params
+			commonService.setNewSystemID(arkivdel)
+			commonService.setCreated(arkivdel)
 			if(!params.referanseforelder || params.referanseforelder == "null") {
-				print "nulling"
 				arkivdel.referanseforelder = null
 			} else {
 				arkivdel.referanseforelder = Arkiv.get(params.referanseforelder)
@@ -22,8 +25,9 @@ class ArkivdelController {
 
 			if(!arkivdel.save()){
 				render(view: "create", model: [errors: arkivdel.errors])
+			} else {
+				render(view: "show", model: [arkivdel: arkivdel])
 			}
-			[arkivdel: arkivdel]
 		}
 	
 		def show = {
@@ -31,10 +35,22 @@ class ArkivdelController {
 		}
 		
 		def list = {
-			println Arkivdel.list()
+			if (!params.sort) params.sort = "tittel"
+	    if (!params.order) params.order = "asc"
+
+			def arkivdeler = Arkivdel.withCriteria {
+  	    if(params.sort == "forelder"){
+    	    referanseforelder {
+        	  order('tittel', params.order)
+      	  }
+		    } else {
+  	      order(params.sort, params.order)
+				}
+			}      
+
 			withFormat {
 	      html {
-  	      return [arkivdeler: Arkivdel.findAll()]
+  	      return [arkivdeler: arkivdeler]
         }
         xml {
     	    render Arkivdel.findAll() as XML
@@ -45,7 +61,7 @@ class ArkivdelController {
         }
      }
 
-			return [arkivdeler: Arkivdel.findAll()]
+			return [arkivdeler: arkivdeler]
 		}
 
 

@@ -26,30 +26,35 @@
               <td><label for="dokumentmedium">Dokument Medium</label></td>
               <td><g:textField id="dokumentmedium" name="dokumentmedium" value="${arkiv.dokumentmedium}"/></td>
             </tr>
-            <tr>
+            <%-- <tr>
               <td><label for="opprettetdato">Opprettet</label></td>
               <td><g:datePicker precision="day" name="opprettetdato" value="${arkiv.opprettetdato}"/></td>
-            </tr>
+            </tr> --%>
 						<tr>
+              <td><label for="arkivskaper">Arkivskaper</label></td>
+              <td><g:select name="arkivskaper" noSelection="${['':'Velg arkivskaper']}" from='${Arkivskaper.list()}' optionKey="id" optionValue="arkivskapernavn"></g:select>
+            </tr>
+
+						<%-- <tr>
               <td><label for="opprettetav">Opprettet av</label></td>
               <td><g:textField id="opprettetav" name="opprettetav" value="${arkiv.opprettetav}"/></td>
-            </tr>
+            </tr> --%>
 						<tr>
 							<td><label for="forelder">Forelder</label></td>
 							<td><g:select name="forelder" value="${arkiv.forelder}" noSelection="${['null':'Velg forelder arkiv']}" from='${Arkiv.list()}' optionKey="id" optionValue="tittel"></g:select>
 						</tr>
 						<tr>
-							<td><label for="forelder">Status</label></td>
+							<td><label for="arkivstatus">Status</label></td>
               <td><g:select name="arkivstatus" value="${arkiv.arkivstatus}" from='${["Opprettet", "Avsluttet"]}'></g:select></td>
 						</tr>
-						<tr>
-              <td><label for="forelder">Avsluttet av</label></td>
+						<%-- <tr>
+              <td><label for="avsluttetav">Avsluttet av</label></td>
               <td><g:textField id="avsluttetav" name="avsluttetav" value="${arkiv.avsluttetav}"/></td>
             </tr>
 						<tr>
-              <td><label for="forelder">Avsluttet dato</label></td>
+              <td><label for="avsluttetdato">Avsluttet dato</label></td>
               <td><fa:datePicker precision="day" default="none" name="avsluttetdato" noSelection="${['none':'Ikke valgt']}" value="${arkiv.avsluttetdato}"/></td>
-            </tr>
+            </tr> --%>
 						<tr>
               <td>&nbsp;</td>
               <td><g:submitButton name="save" value="Lagre arkiv"/></td>

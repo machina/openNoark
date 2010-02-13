@@ -8,8 +8,8 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${resource(dir:'')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Basismappe List</g:link></span>
-            <span class="menuButton"><g:link class="create" action="create">New Basismappe</g:link></span>
+            <span class="menuButton"><g:link class="list" action="list">Arkivdel Liste</g:link></span>
+            <span class="menuButton"><g:link class="create" action="create">Ny Arkivdel</g:link></span>
         </div>
         <div class="body">
             <h1>Arkivdel</h1>

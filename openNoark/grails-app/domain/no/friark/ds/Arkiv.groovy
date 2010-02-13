@@ -12,7 +12,6 @@ class Arkiv extends Base{
   Date avsluttetdato
   String avsluttetav
   Arkiv forelder
-  Arkivskaper arkivskaper
   static constraints = {
     arkivstatus(inList: ["Opprettet", "Avsluttet"])
     tittel(nullable: false)
@@ -40,11 +39,12 @@ class Arkiv extends Base{
     subArkiv(nullable: true)
     subArkiv(unique: false)
     arkivskaper(nullable: true)
-    arkivskaper(unique: true)
+    arkivskaper(unique: false)
   }
-  static hasMany = [oppbevaringssted:String, referansebarnArkivdel:Arkivdel, subArkiv:Arkiv]
+  static hasMany = [oppbevaringssted:String, referansebarnArkivdel:Arkivdel, subArkiv:Arkiv, arkivskaper:Arkivskaper]
   static mapping = {
   }
   static auditable = true
   static searchable = true
+  static belongsTo = Arkivskaper
 }

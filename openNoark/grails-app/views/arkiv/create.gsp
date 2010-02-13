@@ -26,13 +26,17 @@
               <td><label for="dokumentmedium">Dokument Medium</label></td>
               <td><g:textField id="dokumentmedium" name="dokumentmedium" value="${dokumentmedium}"/></td>
             </tr>
-            <tr>
+           <%-- <tr>
               <td><label for="opprettetdato">Opprettet</label></td>
               <td><g:datePicker precision="day" name="opprettetdato" value="${new Date()}" noSelection="['':'-Velg-']"/></td>
             </tr>
 						<tr>
               <td><label for="opprettetav">Opprettet av</label></td>
               <td><g:textField id="opprettetav" name="opprettetav" value="${opprettetav}"/></td>
+            </tr> --%>
+						<tr>
+              <td><label for="arkivskaper">Arkivskaper</label></td>
+              <td><g:select name="arkivskaper" noSelection="${['':'Velg arkivskaper']}" from='${Arkivskaper.list()}' optionKey="id" optionValue="arkivskapernavn"></g:select>
             </tr>
 						<tr>
 							<td><label for="forelder">Forelder</label></td>

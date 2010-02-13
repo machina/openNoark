@@ -26,18 +26,33 @@
               <td><label for="dokumentmedium">Dokument Medium</label></td>
               <td><g:textField id="dokumentmedium" name="dokumentmedium" value="${dokumentmedium}"/></td>
             </tr>
-            <tr>
+            <%-- <tr>
               <td><label for="opprettetdato">Opprettet</label></td>
               <td><g:datePicker name="opprettetdato" value="${new Date()}" noSelection="['':'-Velg-']"/></td>
             </tr>
-						<tr>
-              <td><label for="arkivperiodestartdato">Periode start</label></td>
-              <td><g:datePicker name="arkivperiodestartdato" value="${new Date()}" noSelection="['':'-Velg-']"/></td>
-            </tr>
-
             <tr>
               <td><label for="opprettetav">Opprettet av</label></td>
               <td><g:textField id="opprettetav" name="opprettetav" value="${opprettetav}"/></td>
+            </tr> --%>
+            <tr>
+              <td><label for="klasifikasjonystem">Klasifikasjonystem</label></td>
+              <td><g:select name="klasifikasjonystem" value="${arkivdel?.referanseklassifikasjonsSystem}" noSelection="${['null':'Velg Klasifikasjonsystem']}" from='${Klassifikasjonssystem.list()}' optionKey="id" optionValue="tittel"></g:select>
+            </tr>
+            <tr>
+              <td><label for="arkivperiodestartdato">Periode start</label></td>
+              <td><g:datePicker name="arkivperiodestartdato" value="none" noSelection="['':'-Velg-']" precision="day"/></td>
+            </tr>
+            <tr>
+              <td><label for="arkivperiodesluttdato">Periode slutt</label></td>
+              <td><g:datePicker name="arkivperiodesluttdato" value="none" noSelection="['':'-Velg-']" precision="day"/></td>
+            </tr>
+						<tr>
+              <td><label for="forelder">Forløper</label></td>
+              <td><g:select name="forelder" value="${arkivdel?.referanseforløper}" noSelection="${['null':'Velg forelder arkiv']}" from='${Arkivdel.list()}' optionKey="id" optionValue="tittel"></g:select>
+            </tr>
+            <tr>
+              <td><label for="forelder">Arvtaker</label></td>
+              <td><g:select name="forelder" value="${arkivdel?.referansearvtaker}" noSelection="${['null':'Velg forelder arkiv']}" from='${Arkivdel.list()}' optionKey="id" optionValue="tittel"></g:select>
             </tr>
 						<tr>
 							<td><label for="referanseforelder">Arkiv</label></td>

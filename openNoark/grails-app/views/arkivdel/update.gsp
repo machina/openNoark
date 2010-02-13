@@ -22,18 +22,9 @@
               <td><label for="beskrivelse">Beskrivelse</label></td>
               <td><g:textField id="beskrivelse"  name="beskrivelse" value="${arkivdel.beskrivelse}"/></td>
             </tr>
-
             <tr>
               <td><label for="dokumentmedium">Dokument Medium</label></td>
               <td><g:textField id="dokumentmedium" name="dokumentmedium" value="${arkivdel.dokumentmedium}"/></td>
-            </tr>
-            <tr>
-              <td><label for="opprettetdato">Opprettet</label></td>
-              <td><g:datePicker name="opprettetdato" value="${arkivdel.opprettetdato}" noSelection="['':'-Velg-']"/></td>
-            </tr>
-           <tr>
-              <td><label for="opprettetav">Opprettet av</label></td>
-              <td><g:textField id="opprettetav" name="opprettetav" value="${arkivdel.opprettetav}"/></td>
             </tr>
 						<tr>
               <td><label for="forelder">Forelder</label></td>
@@ -45,11 +36,11 @@
             </tr>
 						<tr>
               <td><label for="arkivperiodestartdato">Periode start</label></td>
-              <td><g:datePicker name="arkivperiodestartdato" value="${arkivdel.arkivperiodestartdato}" noSelection="['':'-Velg-']"/></td>
+              <td><g:datePicker name="arkivperiodestartdato" value="${arkivdel.arkivperiodestartdato == null? 'none' : arkivdel.arkivperiodestartdato}" noSelection="['':'-Velg-']"/></td>
             </tr>
 						<tr>
               <td><label for="arkivperiodesluttdato">Periode slutt</label></td>
-              <td><g:datePicker name="arkivperiodesluttdato" value="${arkivdel.arkivperiodesluttdato}" noSelection="['':'-Velg-']"/></td>
+              <td><g:datePicker name="arkivperiodesluttdato" value="${arkivdel.arkivperiodesluttdato == null? 'none' : arkivdel.arkivperiodesluttdato}" noSelection="['':'-Velg-']"/></td>
             </tr>
 						
 						<tr>
@@ -67,7 +58,7 @@
 <%-- 						<tr>
 							<td><label for="referanseforelder">Arkiv</label></td>
 							<td><g:select name="referanseforelder" noSelection="${[null:'Velg forelder arkiv']}" from='${Arkiv.list()}' optionKey="id" optionValue="tittel" value="${arkivdel.referanseforelder}"></g:select>
-						</tr> --%>
+						</tr>
 						<tr>
               <td><label for="avsluttetav">Avsluttet av</label></td>
               <td><g:textField id="avsluttetav" name="avsluttetav" value="${arkivdel.avsluttetav}"/></td>
@@ -75,7 +66,7 @@
             <tr>
               <td><label for="forelder">Avsluttet dato</label></td>
               <td><fa:datePicker precision="day" default="none" name="avsluttetdato" noSelection="${[':':'Ikke valgt']}" value="${arkivdel.avsluttetdato}"/></td>
-            </tr>
+            </tr> --%>
 						<tr>
               <td><label for="arkivdelstatus">Status</label></td>
 							<td><g:select name="arkivdelstatus" value="${arkivdel.arkivdelstatus}" from='${["Opprettet", "Avsluttet"]}'></g:select></td>

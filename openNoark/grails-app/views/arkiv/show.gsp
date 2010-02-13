@@ -8,8 +8,8 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${resource(dir:'')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Basismappe List</g:link></span>
-            <span class="menuButton"><g:link class="create" action="create">New Basismappe</g:link></span>
+            <span class="menuButton"><g:link class="list" action="list">Arkiv liste</g:link></span>
+            <span class="menuButton"><g:link class="create" action="create">Nytt arkiv</g:link></span>
         </div>
         <div class="body">
             <h1>Arkiv</h1>
@@ -74,7 +74,13 @@
 
 												<tr class="prop">
                             <td valign="top" class="name">Arkivskaper:</td>
-                            <td valign="top" class="value"><g:if test="${arkiv.arkivskaper}"><g:link action="show" controller="arkivskaper" id="${arkiv.arkivskaper.id}">${arkiv.arkivskaper}</g:link></g:if></td>
+                            <td valign="top" class="value"><g:if test="${arkiv.arkivskaper}">
+															<ul>
+																<g:each in="${arkiv.arkivskaper}" var="arkivskaper">
+																	<li><g:link action="show" controller="arkivskaper" id="${arkivskaper.id}">${arkivskaper.arkivskapernavn}</g:link></li>
+																</g:each>
+															</ul>
+														</g:if></td>
                         </tr>
 
 												<tr class="prop">

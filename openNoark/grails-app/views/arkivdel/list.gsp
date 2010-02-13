@@ -11,14 +11,16 @@
         </div>
 
 					<table>
-						<th>SystemId</th>
-						<th>Arkivdel tittel</th>
-						<th>Arkivdel status</th>
+						<g:sortableColumn property="systemID" title="SystemId" />
+						<g:sortableColumn property="tittel" title="Arkivdel tittel" />
+						<g:sortableColumn property="arkivdelstatus" title="Arkivdel status" />
+						<g:sortableColumn property="forelder" title="Arkivdel forelder" />
 						<g:each in="${arkivdeler}" var="arkivdel">
 							<tr>
 								<td>${arkivdel.systemID}</td>
 								<td><g:link action="update" id="${arkivdel.id}">${arkivdel.tittel}</g:link></td>
       	        <td>${arkivdel.arkivdelstatus}</td>
+								<td>${arkivdel.referanseforelder.tittel}</td>
         	    </tr>
 						</g:each>
 					</table>

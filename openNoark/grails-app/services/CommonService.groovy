@@ -1,4 +1,5 @@
 import no.friark.ds.*
+import org.apache.shiro.SecurityUtils
 
 class CommonService {
 
@@ -11,6 +12,20 @@ class CommonService {
 		boolean isNull(def obj){
 			return obj == null || obj == 'null'
 		}
+	
+		void setCreated(obj) {
+			setCreatedBy("opprettetav", obj)
+			setCreatedAt("opprettetdato", obj)
+		}
+	
+		void setCreatedBy(field, obj){
+			obj."$field" = SecurityUtils.subject.principal
+		}
+
+		void setCreatedAt(field, obj){
+      obj."$field" = new Date()
+    }
+
 
 		String getParameter(def key){
 			def param = Parameter.findByKey(key.toString())

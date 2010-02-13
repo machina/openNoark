@@ -1,23 +1,27 @@
+import org.apache.shiro.SecurityUtils
 import no.friark.ds.*
 class ArkivController {
-
+		def commonService
     def index = {redirect(action:list,params:params)}
 		
 		def create = {
 			
 		}
 
+	/**
+	*Lagrer arkiv basert på params. Feltene arkivstatus, systemtID, opprettetDato og opprettetav settet automatisk til hhv "Opprettet", en UUID, dagens dato og den inloggede brukerens brukernavn.
+	*/
 	def save = {
 			fixParent(params)
 			def arkiv = new Arkiv(params)
 			arkiv.arkivstatus = "Opprettet"
-			arkiv.systemID = UUID.randomUUID().toString()
-			stripParent(params, arkiv)	
+			commonService.setNewSystemID(arkiv)
+			commonService.setCreated(arkiv)
+			stripParent(params, arkiv)
+			if(arkiv.forelder) arkiv.forelder.addToSubArkiv(arkiv)
 			if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
-				println params
-				println arkiv.arkivstatus 
-				println arkiv.forelder
-				[arkiv: arkiv]
+				flash.message = "Arkiv opprettet"
+				render(view: "show", model: [arkiv: arkiv])
 
 			} else {
 					render(view: "create", model: [errors: arkiv.errors])
@@ -26,8 +30,19 @@ class ArkivController {
 	}
 
 	def list = {
-		println Arkiv.list()
-		[arkiver: Arkiv.list()]
+		if (!params.sort) params.sort = "tittel"
+    if (!params.order) params.order = "asc"
+		def arkiver = Arkiv.withCriteria {
+			if(params.sort == "forelderTittel"){
+				forelder {
+					order('tittel', params.order)
+				}
+			} else {
+				order(params.sort, params.order)
+			}
+			
+		}
+		[ arkiver: arkiver, arkivTotal: Arkiv.count() ]
 	}
 
 	def show = {
@@ -41,12 +56,10 @@ class ArkivController {
 				break
 			case 'POST':
 				def arkiv = Arkiv.get(params.id)
-				if(arkiv.opprettetdato != updateCommand.opprettetdato){
+				if(updateCommand.opprettetdato){
 						arkiv.errors.rejectValue "opprettetdato", "USER_ERROR",  "Kan ikke endre dato for opprettelse av arkiv."
 						return [errors: arkiv.errors, arkiv: arkiv]
 				}
-				println arkiv.avsluttetdato
-				println updateCommand.avsluttetdato
 				if(arkiv.avsluttetdato != null && updateCommand.avsluttetdato == null){
 						arkiv.errors.rejectValue "avsluttetdato", "USER_ERROR",  "Kan ikke fjerne avsluttetdato."
 						return [errors: arkiv.errors, arkiv: arkiv]
@@ -54,6 +67,10 @@ class ArkivController {
 					params.avsluttetdato = null
 				}
 				stripParent(params, arkiv)
+				if(arkiv.arkivstatus != params.arkivstatus && params.arkivstatus == "Avsluttet"){
+					params.avsluttetav = SecurityUtils.subject.principal
+					params.avsluttetdato = new Date()
+				}
 				arkiv.properties = params
 				if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
 					render(view: "show", model: [arkiv: arkiv])
