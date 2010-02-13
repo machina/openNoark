@@ -73,5 +73,5 @@ log4j = {
 		//debug  'org.codehaus.groovy.grails.plugins.searchable' //debug searchable
 }
 
-archivePath="/home/kent/tmp/opennoarkArchive"
+archivePath=System.getProperty("no.friark.archivepath", "/home/kent/tmp/opennoarkArchive")
 docIdx=false
