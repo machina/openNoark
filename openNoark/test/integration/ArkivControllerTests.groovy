@@ -36,7 +36,7 @@ class ArkivControllerTests extends ControllerUnitTestCase {
 		controller.params.id = ark.id
 		controller.request.method = "POST"
 
-    def retval = controller.update([opprettetdato: opprettetdato] as UpdateArkivCommand)
+    def retval = controller.update([] as UpdateArkivCommand)
 		println "retval.errors: ${retval.errors}"
     assertTrue (retval.errors.toString().contains( "Kan ikke fjerne avsluttetdato.") )
 		

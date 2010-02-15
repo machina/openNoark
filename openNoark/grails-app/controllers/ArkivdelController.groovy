@@ -76,6 +76,9 @@ class ArkivdelController {
 				if(updateCommand.avsluttetdato == null){
           params.avsluttetdato = null
         }
+				if(updateCommand.opprettetdato != null && updateCommand.opprettetdato == arkivdel.opprettetdato){
+					params.opprettetdato = null
+				}
 				arkivdel.properties = params
         if(!arkivdel.hasErrors() && arkivdel.validate() && arkivdel.save()){
           render(view: "show", model: [arkivdel: arkivdel])
