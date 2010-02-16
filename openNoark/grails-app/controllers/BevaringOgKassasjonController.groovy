@@ -125,12 +125,35 @@ class BevaringOgKassasjonController {
 		}
 
 	def oversikt = { KassasjonCO co ->
+		return _oversikt(co)
+	}
+
+	def kasser = { KassasjonCO co ->
+		if(request.method == "GET"){
+			co.kassasjonsvedtak = "Kasseres"
+			return _oversikt(co)
+		} else if(request.method == "POST"){
+			def kasseringsListe = []
+			params.each{key, value ->
+				if(key.startsWith("kasser_") && value == "on"){
+					kasseringsListe << Dokumentbeskrivelse.get((key - "kasser_") as Long)
+				}
+			}
+			kassasjonService.kasser kasseringsListe
+		}
+	}
+
+	def _oversikt(KassasjonCO co){
 		if(co.fra){
 			def liste = kassasjonService.oversikt(co)
 			liste = kassasjonService.filter( liste, co.filter)
 			return ['liste': liste, fra: co.fra, til: co.til, vedtak: co.kassasjonsvedtak, filter: co.filter ? co.filter :"", klasser: kassasjonService.klasserIDokliste(liste), mapper: kassasjonService.mapperIDokliste(liste), arkivdeler: kassasjonService.arkivdelerIDokliste(liste)]
 		}
+		return []
 	}
+	
+
+
 }
 
 class KassasjonCO {

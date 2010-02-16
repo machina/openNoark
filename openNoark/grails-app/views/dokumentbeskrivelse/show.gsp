@@ -100,6 +100,20 @@
                             
                         </tr>
                     
+												<tr class="prop">
+                            <td valign="top" class="name">Kassert:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:dokumentbeskrivelseInstance, field:'kassertDato')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name">Kassert av:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:dokumentbeskrivelseInstance, field:'kassertAv')}</td>
+                            
+                        </tr>
+
                         <tr class="prop">
                             <td valign="top" class="name">Referansedokument Objekt:</td>
                             

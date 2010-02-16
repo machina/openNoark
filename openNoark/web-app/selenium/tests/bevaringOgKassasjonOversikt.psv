@@ -5,12 +5,10 @@ clickAndWait|//input[@value='Sign in']|
 clickAndWait|link=Arkiv|
 clickAndWait|link=Nytt Arkiv|
 type|tittel|regarkiv_boko
-type|opprettetav|test
 clickAndWait|save|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=Ny Arkivdel|
 type|tittel|regarkivdel_boko
-type|opprettetav|test
 select|referanseforelder|label=regarkiv_boko
 clickAndWait|save|
 clickAndWait|link=Basismapper|

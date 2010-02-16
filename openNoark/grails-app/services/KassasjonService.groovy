@@ -1,6 +1,7 @@
 import no.friark.*
 import no.friark.ds.*
 import no.machina.gestalt2.SandboxingClassLoader
+import org.apache.shiro.SecurityUtils
 class KassasjonService {
 
     boolean transactional = true
@@ -71,7 +72,7 @@ class KassasjonService {
 				vedtak.registrering.each{ reg ->
   	      //Dokumentlink!!
 	        reg.dokumenter.each{ dokLink ->
-          if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null) retval << dokLink.dokumentbeskrivelse
+          if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato != null ) retval << dokLink.dokumentbeskrivelse
          }
        }
 			}
@@ -125,7 +126,7 @@ class KassasjonService {
 		}
 		
 		def leggTilFraDokLink = { retval, dokLink ->
-			if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null) retval << dokLink.dokumentbeskrivelse
+			if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato == null) retval << dokLink.dokumentbeskrivelse
 		}
 
 
@@ -156,6 +157,13 @@ class KassasjonService {
 			return retval
 		}
 
+	def kasser(List dokumenter){
+		dokumenter.each{ dok ->
+			println "kasserer dok ${dok}"
+			kasser(dok)
+		}
+	}
+
 	def kasser(Dokumentbeskrivelse dok){
 		dok.referansedokumentObjekt.each{
 			if(dok.registreringer?.size() <= 1){
@@ -164,6 +172,8 @@ class KassasjonService {
 			dok.removeFromReferansedokumentObjekt(it)
 			it.delete()
 		}
+		dok.kassertDato = new Date()
+		dok.kassertAv = SecurityUtils.subject.principal
 		dok.save()
 	}
 }

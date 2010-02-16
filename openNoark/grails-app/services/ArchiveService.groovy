@@ -55,10 +55,13 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 	}
 
 	def removeFromIndex(docId){
-		IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
-		writer.deleteDocuments( new Term("DOC-OBJ", docId))
-		writer.flush()
-		writer.close()
+		if(!servletContext.docIdx) {
+			return //liten vits i å fjerne fra ikke-eksisiterende index
+    }
+			IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
+			writer.deleteDocuments( new Term("DOC-OBJ", docId))
+			writer.flush()
+			writer.close()
 	}
 
 	def indexFile(docId, file){
