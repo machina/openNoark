@@ -2,11 +2,19 @@ import no.friark.*
 import no.friark.ds.*
 import no.machina.gestalt2.SandboxingClassLoader
 import org.apache.shiro.SecurityUtils
+
+/**
+* En Service klasse med funksjoner relatert til Bevaring og kassasjoner.
+*/
 class KassasjonService {
 
     boolean transactional = true
 		def archiveService
 
+		/**
+		* Finner klassene som er knyttet til hvert av dokumentlenkene i listen
+    * @param liste en List med dokumentlenker
+		*/
 		def klasserIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg -> 
@@ -16,6 +24,10 @@ class KassasjonService {
 			} 
 		}
 
+		/**
+    * Finner mappene som er knyttet til hvert av dokumentlenkene i listen
+    * @param liste en List med dokumentlenker
+    */
 		def mapperIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg ->
@@ -24,6 +36,10 @@ class KassasjonService {
       }
 		}
 
+		/**
+    * Finner arkivdelene som er knyttet til hvert av dokumentlenkene i listen
+    * @param liste en List med dokumentlenker
+    */
 		def arkivdelerIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg ->
@@ -33,14 +49,18 @@ class KassasjonService {
 			}
 		}
 
-		def iDokListe(def liste, def getter){
+		private def iDokListe(def liste, def getter){
 			def retval = []
 			getter = getter.curry(retval)
 			liste.each getter
 			return retval.unique()
 		}
 
-
+		/**
+    * En oversikt over bevatinger og kassasjoner.
+    * @param co Et objekt med feltene fra, til og kassasjonsvedtak.
+    * @return Drrunerer alle dokumentbeskrivelser som operasjonen i kassasjonsvedtak skal utføres på mellom datoene fra og til.
+    */
     def oversikt(def co) {
 			def retval = []
 			def c = BevaringOgKassasjon.createCriteria()
@@ -61,12 +81,12 @@ class KassasjonService {
 			retval.flatten()
     }
 
-		def dokumenterFraDokument(def vedtak){
+		private def dokumenterFraDokument(def vedtak){
 			if(vedtak.dokumentBeskrivelse) return vedtak.dokumentBeskrivelse
 			return []
 		}
 
-		def dokumenterFraRegistrering(def vedtak){
+		private def dokumenterFraRegistrering(def vedtak){
 			def retval = []
 			if(vedtak.registrering){
 				vedtak.registrering.each{ reg ->
@@ -79,7 +99,7 @@ class KassasjonService {
 			return retval
 		}
 
-		def dokumenterFraMappe(def vedtak){
+		private def dokumenterFraMappe(def vedtak){
 			def retval = []
 			def leggTilFraReg = leggTilFraReg.curry(retval)
 			if(vedtak.mappe){
@@ -90,7 +110,7 @@ class KassasjonService {
 			return retval
 		}
 
-		def dokumenterFraKlasse(def vedtak){
+		private def dokumenterFraKlasse(def vedtak){
 			def retval = []
 			def leggTilFraReg = leggTilFraReg.curry(retval)
 			if(vedtak.klasse){
@@ -101,7 +121,7 @@ class KassasjonService {
 			return retval
 		}
 
-		def dokumenterFraArkivdel(def vedtak){
+		private def dokumenterFraArkivdel(def vedtak){
 			def retval = []
 			def leggTilFraMappe = leggTilFraMappe.curry(retval)
 			def leggTilFraReg = leggTilFraReg.curry(retval)
@@ -129,7 +149,11 @@ class KassasjonService {
 			if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato == null) retval << dokLink.dokumentbeskrivelse
 		}
 
-
+    /**
+    * Filtrerer dokumentbeskrivlser.
+		* @param liste dokumentbeskrivelsebe som skal filtreres.
+    * @param filter filtreret enten som en streng eller Filter
+    */
 		def filter(liste, filter){
 			println filter
 			if(filter instanceof String) {
@@ -157,6 +181,10 @@ class KassasjonService {
 			return retval
 		}
 
+  /**
+  * Kasserer en liste dokumenter
+  * @param dokumenter En liste dokumentbeskrivelser som skal kasseres.
+  */
 	def kasser(List dokumenter){
 		dokumenter.each{ dok ->
 			println "kasserer dok ${dok}"
@@ -164,6 +192,10 @@ class KassasjonService {
 		}
 	}
 
+  /**
+  * Kasserer et dokument. Kassering betyr fjerneing av alle Dokumentobjekt og tilknyttede dokumenter.
+  * @param dok Dokumentet som skal kasseres. 
+  */
 	def kasser(Dokumentbeskrivelse dok){
 		dok.referansedokumentObjekt.each{
 			if(dok.registreringer?.size() <= 1){

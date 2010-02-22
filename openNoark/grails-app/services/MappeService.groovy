@@ -1,9 +1,17 @@
 import no.friark.ds.*
 
+/**
+* Tilbyr diverse operasjoner på mapper.
+*/
 class MappeService {
 
     boolean transactional = true
 		def commonService
+    
+    /**
+    * Lager en ny mappe med de inkommende paramerterene.
+    * @param params Et Map som inneholder metadata for Mappen.
+    */
 		def save(params) {
 				def mappe = new Basismappe(params)
 				commonService.setNewSystemID mappe
@@ -24,8 +32,8 @@ class MappeService {
 				return [mappe, false]
 		}
 		
-
-		def checkArkivdel(params, mappe){
+		
+		private def checkArkivdel(params, mappe){
 			if(mappe.referansearkivdel.periodeStatus == null  || mappe.referansearkivdel.periodeStatus == "Aktiv periode"){
 				mappe.referansearkivdel.addToReferansemappe(mappe)
 				return [true]

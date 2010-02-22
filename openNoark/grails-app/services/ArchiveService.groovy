@@ -27,25 +27,35 @@ import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
 import no.machina.utils.StringInputStream
 
 import no.friark.ds.*
+
+/**
+* Inneholder metoder for å håndtere et enkelt elektronisk arkiv. Arkivets lokasjon abgjøres av konfigurasjonsparameteren "archivePath".
+*/
 class ArchiveService implements org.springframework.context.ApplicationContextAware {
 	def grailsApplication
 	org.springframework.context.ApplicationContext applicationContext
 	def servletContext = SCH.servletContext
 	
+	/**
+	* Arkiverer en fil som filen knyttet til Dokumentobjekt objektet med id docId og indexerer den.
+	* @param docId  Id til dokumentobjektet som skal knyttes til den inkommende filen.
+  * @param file Filen som skal arkiveres, som en innkommende base64 enkodet fil.
+	*/
 	def archive(docId, file){
 		def path = "${grailsApplication.config.archivePath}/${docId}"
-		println "archiving to: ${path}"
 		new File(path).mkdir()
 		path = "${path}/data"
 		def data = file.text
 		
 		new File(path).append(data.decodeBase64())
 		
-		println("indexing doc: ${docId}")
-		println "data: ${data.decodeBase64()}"
 		indexFile(docId, new ByteArrayInputStream(data.decodeBase64()))
 	}
 
+	/**
+  * Fjerner filen forbundet med det inkommende dokumentobjektet fra arkivet.
+  * @param dokumentobjekt Objeket som er knyttet til filen som slettes-
+  */
 	def delteFromArchive(Dokumentobjekt dokumentobjekt){
 		if(dokumentobjekt.referansedokumentfil){
 			removeFromIndex(dokumentobjekt.systemID)
@@ -54,6 +64,10 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 		}
 	}
 
+  /**
+  * Fjerner dokumentet som er kyttet til den inkommede Dokumentobjekt id'en fra søkeindexen for elektroniske dokumenter.
+  * @param docId Streng som inneholder id'en til dokumentet som skal fjernes fra indexen.
+  */
 	def removeFromIndex(docId){
 		if(!servletContext.docIdx) {
 			return //liten vits i å fjerne fra ikke-eksisiterende index
@@ -64,6 +78,11 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 			writer.close()
 	}
 
+	/**
+	* Indexerer den inkommende filen.
+	* @param docId Id'en til dokumentobjektet
+  * @param file filen som indexeres.
+	*/
 	def indexFile(docId, file){
 		
 		if(!servletContext.docIdx) {
@@ -96,6 +115,10 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 	
 	}
 
+	/**
+	* Utføerer et søk i det elektroniske arkivet ved hjelp av indexen.
+  * @param searchTerms En String som inneholder søket.
+	*/
 	def searchArchive(def searchTerms){
 		IndexSearcher searcher = new IndexSearcher(servletContext.docIdx)
 		
@@ -105,10 +128,14 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 		Query query = parser.parse(searchTerms)
 
 		def hits = searcher.search(query)
-		println "num hits: ${hits.length()}"
 		return hits
 	}
 
+  /**
+  * Henter dokumentet som er knyttet til den innkommende dokumentobjekt id'en.
+  * @param docId Id'en til dokumentobjektet som er knyttet til den ønskede filen
+  * @return det ønskede dokumentet som en byte[]
+  */
 	def retrive(docId){
 		def path = "${grailsApplication.config.archivePath}/${docId}"
 		def bytes

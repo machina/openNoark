@@ -1,11 +1,19 @@
 import org.apache.commons.lang.time.FastDateFormat
 import no.friark.ds.*
 import static no.machina.utils.DateUtils.*
+
+/**
+* Operasjoner på Registreringer
+*/
 class RegistreringService {
 
     boolean transactional = true
 		def commonService
 
+		/**
+    * Lager en ny Registrering basert på de inkommende metadata.
+    * @param params En Map av metadata for registreringen.
+    */
 		def registrer(params){
         def forenkletRegistreringInstance = null
         if(params.ForenkletRegistrering != null){
