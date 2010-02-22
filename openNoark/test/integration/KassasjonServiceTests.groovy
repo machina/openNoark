@@ -162,6 +162,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			
 			assertEquals 1, Dokumentobjekt.list().size()
 			println "kasserer ${desc}"
+			org.apache.shiro.SecurityUtils.metaClass.'static'.getSubject = { return [principal : "testuser"] }
 			service.kasser(desc)
 
 			assertEquals 0, Dokumentobjekt.list().size()
