@@ -1,6 +1,10 @@
 import grails.converters.*
 import java.text.SimpleDateFormat
 import no.friark.ds.*
+
+/**
+* CRUD operasjoner på Dokumentobjekt.
+*/
 class DokumentobjektController {
  		def commonService   
     def index = { redirect(action:list,params:params) }

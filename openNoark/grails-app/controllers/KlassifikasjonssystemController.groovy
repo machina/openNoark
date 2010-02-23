@@ -1,5 +1,11 @@
 
 import no.friark.ds.*
+
+/**
+* CRUD-operasjoner for Kalssifikasjonsystem
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class KlassifikasjonssystemController {
     
     def index = { redirect(action:list,params:params) }

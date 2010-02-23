@@ -1,5 +1,9 @@
 import grails.converters.*
 import no.friark.ds.*
+
+/**
+* CRUD for Arkivdeler
+*/
 class ArkivdelController {
 		def commonService
     def index = { redirect(action:list,params:params)}

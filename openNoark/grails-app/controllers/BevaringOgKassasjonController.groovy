@@ -1,5 +1,11 @@
 
 import no.friark.ds.*
+
+/**
+* Operasjoner vedrørende bevaring og kassasjon.
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class BevaringOgKassasjonController {
     def kassasjonService
 		def commonService
@@ -124,10 +130,18 @@ class BevaringOgKassasjonController {
 			}
 		}
 
+	/**
+  * Gir en oversik over bevarig, kassasjon eller "vurderes senere" vedtak basert på parameterene Date fra, Date til, String kassasjonvedtak og String filter
+  */
 	def oversikt = { KassasjonCO co ->
 		return _oversikt(co)
 	}
 
+  /**
+  * Ved HTTP GET, gis en oversikt over kassasjonsvedtak vedtak basert på parameterene Date fra, Date til og String filter.
+  * Ved HTTP POST utføres kassasjoner på valgte dokumenter, Poster som kasseres idetifiseres med at paramentere prefixes med "kasser_" og suffixes med
+  * id'en til Dokumentbeskrivelsen som skal kasseren. Verdien på parameterene må være "on".
+  */
 	def kasser = { KassasjonCO co ->
 		if(request.method == "GET"){
 			co.kassasjonsvedtak = "Kasseres"
@@ -143,7 +157,7 @@ class BevaringOgKassasjonController {
 		}
 	}
 
-	def _oversikt(KassasjonCO co){
+	private def _oversikt(KassasjonCO co){
 		if(co.fra){
 			def liste = kassasjonService.oversikt(co)
 			liste = kassasjonService.filter( liste, co.filter)

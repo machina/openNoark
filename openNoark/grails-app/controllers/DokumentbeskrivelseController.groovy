@@ -1,5 +1,9 @@
 
 import no.friark.ds.*
+
+/**
+* CRUD opereasjoner på Dokumentbeskrivelse
+*/
 class DokumentbeskrivelseController {
  		def commonService  
     def index = { redirect(action:list,params:params) }

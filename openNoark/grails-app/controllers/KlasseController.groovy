@@ -1,5 +1,11 @@
 import grails.converters.*
 import no.friark.ds.*
+
+/**
+* CRUD-operasjoner for klasser.
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class KlasseController {
     
     def index = { redirect(action:list,params:params) }

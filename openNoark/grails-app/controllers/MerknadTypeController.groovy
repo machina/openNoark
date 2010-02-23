@@ -1,5 +1,10 @@
 
 import no.friark.ds.*
+/**
+* CRUD-operajoner for MerknadType
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class MerknadTypeController {
     
     def index = { redirect(action:list,params:params) }

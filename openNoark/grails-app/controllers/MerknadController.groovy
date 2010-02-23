@@ -1,5 +1,10 @@
 
 import no.friark.ds.*
+/**
+* CRUD-operasjoner for Merknad
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class MerknadController {
     
     def index = { redirect(action:list,params:params) }

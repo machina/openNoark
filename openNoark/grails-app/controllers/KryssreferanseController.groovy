@@ -1,5 +1,10 @@
-
 import no.friark.ds.*
+
+/**
+* CRUD-operasjoner for Kryssreferanse
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class KryssreferanseController {
     
     def index = { redirect(action:list,params:params) }

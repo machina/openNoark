@@ -4,15 +4,24 @@ import org.apache.shiro.authc.UsernamePasswordToken
 import org.apache.shiro.web.SavedRequest
 import org.apache.shiro.web.WebUtils
 
+/**
+* Denne kontrolleren er skapt av Shiro-plugin'en. Den tar seg av authentisering.
+*/
 class AuthController {
     def shiroSecurityManager
 
     def index = { redirect(action: "login", params: params) }
 
+		/**
+    * Viser login skjermen
+    */
     def login = {
         return [ username: params.username, rememberMe: (params.rememberMe != null), targetUri: params.targetUri ]
     }
 
+    /**
+    * Sjekker inkommende kredentialer og utfører inlogging.
+    */
     def signIn = {
         def authToken = new UsernamePasswordToken(params.username, params.password)
 
@@ -64,6 +73,9 @@ class AuthController {
         }
     }
 
+		/**
+    * Logger ut nåværende bruker for denne sessjonen.
+    */
     def signOut = {
         // Log the user out of the application.
         SecurityUtils.subject?.logout()
@@ -72,6 +84,9 @@ class AuthController {
         redirect(uri: "/")
     }
 
+    /**
+    * Denne blir kallt når brukeren ikke har tilgang på en ønsket resurs.
+    */
     def unauthorized = {
         render "You do not have permission to access this page."
     }

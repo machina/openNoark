@@ -2,6 +2,9 @@
 
 package no.friark.ds
 
+/**
+* CRUD opereasjoner for arkivskapere.
+*/
 class ArkivskaperController {
     
     def index = { redirect(action:list,params:params) }

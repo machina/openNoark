@@ -1,5 +1,9 @@
 import org.apache.shiro.SecurityUtils
 import no.friark.ds.*
+
+/**
+* CRUD for Arkiv
+*/
 class ArkivController {
 		def commonService
     def index = {redirect(action:list,params:params)}

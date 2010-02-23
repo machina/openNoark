@@ -1,6 +1,12 @@
 import java.text.SimpleDateFormat
 import grails.converters.*
 import no.friark.ds.*
+
+/**
+* CRUD-operasjoner for ForenkletRegistrering
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class ForenkletRegistreringController {
 
 	def commonService

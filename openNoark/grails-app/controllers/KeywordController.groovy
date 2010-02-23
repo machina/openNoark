@@ -1,4 +1,10 @@
 import no.friark.ds.*
+
+/**
+* Kontroller for å håndtere nøkkelord på vilkårlig (Base) objekter.
+*
+* @author Kent Inge F. Simonsen
+*/
 class KeywordController {
 
     def index = { }

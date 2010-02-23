@@ -1,6 +1,10 @@
 
 import no.friark.ds.*
-
+/**
+* CRUD-operasjoner for Parameter
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class ParameterController {
     
     def index = { redirect(action:list,params:params) }

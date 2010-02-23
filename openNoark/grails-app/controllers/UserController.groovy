@@ -1,13 +1,26 @@
 import org.apache.shiro.crypto.hash.Sha1Hash
 import no.friark.ds.*
+
+/**
+* Operasjoner for å håndtere brukere, roller og tilganger.
+* TODO: Roller burde hatt en egen CRUD-kontroller
+*
+* @author Kent Inge Fagerland Simonsen
+*/
 class UserController {
 
     def index = {redirect(action: 'list', params: params) }
-
+	
+		/**
+		* Lister ut alle brukere 
+		*/
 		def list = {
 			[users: ShiroUser.findAll()]
 		}
 
+		/**
+    * Lister ut alle roller
+    */
 		def roles = {
 			[roles: ShiroRole.findAll()]
 		}
