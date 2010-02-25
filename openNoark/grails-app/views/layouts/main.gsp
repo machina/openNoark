@@ -19,7 +19,7 @@
             <div class="navcontainer">
               <ul class="navlist">
                 <li class="first">
-                  <a href="/openNoark">&nbsp;</a>
+                  <a href="/friark">&nbsp;</a>
                 </li>
                 <li class="menudivide"></li>
                 <li class="menuitem">
@@ -39,7 +39,7 @@
                 </li>
                 <li class="menudivide"></li>
                 <li class="last">
-                  <a href="/openNoark/auth/signOut">Logg ut</a>
+                  <a href="/friark/auth/signOut">Logg ut</a>
                 </li>
               </ul>
             </div><!-- End navcontainer -->
@@ -53,52 +53,52 @@
               <div class="leftmenumid">
                 <ul class="leftmenuUl">
                   <li class="leftmenuitem">
- 										<a href="/openNoark/search">Søk i metadata</a>                 
+ 										<a href="/friark/search">Søk i metadata</a>                 
 									</li>
                   <li class="leftmenuitem">
-                  	<a href="/openNoark/search/docSearch">Søk i dokumenter</a>
+                  	<a href="/friark/search/docSearch">Søk i dokumenter</a>
 									</li>
   	              <li class="leftmenuitem">
-            				<a href="/openNoark/arkiv/index">Arkiv</a>
+            				<a href="/friark/arkiv/index">Arkiv</a>
 									</li>
   	              <li class="leftmenuitem">
-                  	<a href="/openNoark/arkivdel/index">Arkivdeler</a>
+                  	<a href="/friark/arkivdel/index">Arkivdeler</a>
 		 							</li>
 									<li class="leftmenuitem">
-            				<a href="/openNoark/arkivskaper">Arkivskaper</a>
+            				<a href="/friark/arkivskaper">Arkivskaper</a>
 									</li>
         	        <li class="leftmenuitem">
-                  	<a href="/openNoark/klassifikasjonssystem/index">Klassifikasjonssystemer</a>
+                  	<a href="/friark/klassifikasjonssystem/index">Klassifikasjonssystemer</a>
 									</li>
               	  <li class="leftmenuitem">
-                  	<a href="/openNoark/klasse/index">Klasser</a>
+                  	<a href="/friark/klasse/index">Klasser</a>
 									</li>
     	            <li class="leftmenuitem">
-                  	<a href="/openNoark/basismappe/index">Basismapper</a>
+                  	<a href="/friark/basismappe/index">Basismapper</a>
 									</li>
         	        <li class="leftmenuitem">
-                 		<a href="/openNoark/dokumentlink/index">Dokumentlinker</a>
+                 		<a href="/friark/dokumentlink/index">Dokumentlinker</a>
 									</li>
               	  <li class="leftmenuitem">
-                  	<a href="/openNoark/dokumentobjekt/index">Dokumentobjekter</a>
+                  	<a href="/friark/dokumentobjekt/index">Dokumentobjekter</a>
 									</li>
     	            <li class="leftmenuitem">
-                  	<a href="/openNoark/dokumentbeskrivelse/index">Dokumentbeskrivelser</a>
+                  	<a href="/friark/dokumentbeskrivelse/index">Dokumentbeskrivelser</a>
 									</li>
           	      <li class="leftmenuitem">
-                  	<a href="/openNoark/user/index">Brukeradministrasjon</a>
+                  	<a href="/friark/user/index">Brukeradministrasjon</a>
 									</li>
 	                <li class="leftmenuitem">
-                  	<a href="/openNoark/merknad/list">Merknad</a>
+                  	<a href="/friark/merknad/list">Merknad</a>
 									</li>
       	          <li class="leftmenuitem">
-                  	<a href="/openNoark/kryssreferanse/list">Kryssreferanser</a>
+                  	<a href="/friark/kryssreferanse/list">Kryssreferanser</a>
 									</li>
 	                <li class="leftmenuitem">
-                  	<a href="/openNoark/bevaringOgKassasjon">Bevaring og kassasjon</a>
+                  	<a href="/friark/bevaringOgKassasjon">Bevaring og kassasjon</a>
 									</li>
       	          <li class="leftmenuitem">
-                  	<a href="/openNoark/auditLogEvent/list">Log</a>
+                  	<a href="/friark/auditLogEvent/list">Log</a>
 									</li>
                 </ul>
 							
