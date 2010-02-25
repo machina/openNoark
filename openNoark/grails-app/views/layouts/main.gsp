@@ -74,7 +74,7 @@
                   	<a href="/openNoark/klasse/index">Klasser</a>
 									</li>
     	            <li class="leftmenuitem">
-                  	<a href="/openNoark/basismappe/index">Basismapper</a>
+                  	<a href="/openNoark/mappe/index">Mapper</a>
 									</li>
         	        <li class="leftmenuitem">
                  		<a href="/openNoark/dokumentlink/index">Dokumentlinker</a>

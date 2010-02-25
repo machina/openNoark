@@ -13,7 +13,18 @@ class MappeService {
     * @param params Et Map som inneholder metadata for Mappen.
     */
 		def save(params) {
-				def mappe = new Basismappe(params)
+				if(!getMappetyper().contains(params.mappetype)){
+					return [[errors: ["Mappetype er ikke tillatt"]], false]
+				}
+				def mappe
+				switch(params.mappetype){
+					case 'Basismappe':
+						mappe =  new Basismappe(params)
+						break
+					case 'Saksmappe':
+						mappe =  new Saksmappe(params)
+
+				}
 				commonService.setNewSystemID mappe
 
 				//def (delOk, error) = checkArkivdel params, mappe
@@ -41,4 +52,8 @@ class MappeService {
 
 			return [false, "Kan ikke lege til en mappe i et arkiv med periodestatus ${mappe.referansearkivdel.periodeStatus}"]
 		}
+
+		def getMappetyper(){
+			commonService.getParameter("tilgjengelige_mappetyper").split(",").collect{it.trim()}
+   }
 }

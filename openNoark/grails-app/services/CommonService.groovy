@@ -55,6 +55,7 @@ class CommonService {
 
 	def defaults = [
 									autorisert_ny_versjon_av_ekspedert: "false",
-									autorisert_slette_inaktive_doumenter: "false"
+									autorisert_slette_inaktive_doumenter: "false",
+									tilgjengelige_mappetyper: "Basismappe, Saksmappe"
 								 ]
 }
