@@ -35,9 +35,9 @@ class Arkiv extends Base{
     forelder(nullable: true)
     forelder(unique: false)
     referansebarnArkivdel(nullable: true)
-    referansebarnArkivdel(unique: false)
+    referansebarnArkivdel(unique: true)
     subArkiv(nullable: true)
-    subArkiv(unique: false)
+    subArkiv(unique: true)
     arkivskaper(nullable: true)
     arkivskaper(unique: false)
   }

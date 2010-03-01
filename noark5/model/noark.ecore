@@ -146,14 +146,14 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnArkivdel"
-        unique="false" upperBound="-1" eType="#//Arkivdel" containment="true" resolveProxies="false">
+        upperBound="-1" eType="#//Arkivdel" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_arkivdel"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subArkiv" unique="false"
-        upperBound="-1" eType="#//Arkiv" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subArkiv" upperBound="-1"
+        eType="#//Arkiv" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_arkiv"/>
@@ -290,16 +290,15 @@
         <details key="name" value="ReferanseklassifikasjonsSystem"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referansemappe" unique="false"
-        upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referansemappe" upperBound="-1"
+        eType="#//Basismappe" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansemappe"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referanseregistrering"
-        unique="false" upperBound="-1" eType="#//ForenkletRegistrering" containment="true"
-        resolveProxies="false">
+        upperBound="-1" eType="#//ForenkletRegistrering" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referanseregistrering"/>
@@ -572,15 +571,14 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnForenkletRegistrering"
-        unique="false" upperBound="-1" eType="#//ForenkletRegistrering" containment="true"
-        resolveProxies="false">
+        upperBound="-1" eType="#//ForenkletRegistrering" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_forenkletRegistrering"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnBasismappe"
-        unique="false" upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
+        upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_basismappe"/>
@@ -841,8 +839,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansedokumentObjekt"
-        unique="false" upperBound="-1" eType="#//Dokumentobjekt" containment="true"
-        resolveProxies="false">
+        upperBound="-1" eType="#//Dokumentobjekt" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="ReferansedokumentObjekt"/>
@@ -852,8 +849,8 @@
         eType="#//BevaringOgKassasjon"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="merknad" unique="false"
         upperBound="-1" eType="#//Merknad"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="registreringer" unique="false"
-        upperBound="-1" eType="#//Dokumentlink" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="registreringer" upperBound="-1"
+        eType="#//Dokumentlink" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="ReferansedokumentBeskrivelse"/>
@@ -1330,23 +1327,22 @@
         <details key="name" value="Referanseforelder_klasse"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnKlasse" unique="false"
-        upperBound="-1" eType="#//Klasse" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnKlasse" upperBound="-1"
+        eType="#//Klasse" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_klasse"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnBasismappe"
-        unique="false" upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
+        upperBound="-1" eType="#//Basismappe" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_basismappe"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarnForenkletRegistrering"
-        unique="false" upperBound="-1" eType="#//ForenkletRegistrering" containment="true"
-        resolveProxies="false">
+        upperBound="-1" eType="#//ForenkletRegistrering" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn_forenkletRegistrering"/>
@@ -1421,8 +1417,8 @@
         <details key="name" value="Avsluttetav"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarn" unique="false"
-        upperBound="-1" eType="#//Klasse" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referansebarn" upperBound="-1"
+        eType="#//Klasse" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="Referansebarn"/>
@@ -2247,16 +2243,15 @@
         <details key="name" value="Referansearkivdel"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dokumenter" unique="false"
-        upperBound="-1" eType="#//Dokumentlink" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dokumenter" upperBound="-1"
+        eType="#//Dokumentlink" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="ReferansedokumentBeskrivelse"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referansedokumentObjekt"
-        unique="false" upperBound="-1" eType="#//Dokumentobjekt" containment="true"
-        resolveProxies="false">
+        upperBound="-1" eType="#//Dokumentobjekt" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="ReferansedokumentObjekt"/>
