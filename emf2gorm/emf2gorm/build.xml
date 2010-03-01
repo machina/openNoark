@@ -42,6 +42,7 @@
     <path id="emf2gorm.classpath">
         <path refid="Plug-in Dependencies.libraryclasspath"/>
         <pathelement location="bin"/>
+				<fileset dir="lib" includes="*.jar"/>
         <path refid="Groovy Libraries.libraryclasspath"/>
     </path>
     <target name="init">
