@@ -36,7 +36,7 @@ class KassasjonService {
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg -> 
 					if(reg.referanseregistrering.referanseforelderKlasse) retval << reg.referanseregistrering.referanseforelderKlasse
-					if(reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse) retval << reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse
+					if(reg.referanseregistrering.referanseforelderBasismappe != null && reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse != null) retval << reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse
 				}
 			} 
 		}
@@ -61,7 +61,7 @@ class KassasjonService {
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg ->
 					if(reg.referanseregistrering.referansearkivdel) retval << reg.referanseregistrering.referansearkivdel
-					if(reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel) retval << reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel
+					if(reg.referanseregistrering.referanseforelderBasismappe != null && reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel != null) retval << reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel
 				}
 			}
 		}
@@ -109,7 +109,9 @@ class KassasjonService {
 				vedtak.registrering.each{ reg ->
   	      //Dokumentlink!!
 	        reg.dokumenter.each{ dokLink ->
-          if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato != null ) retval << dokLink.dokumentbeskrivelse
+        	  if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato == null ){
+							 retval << dokLink.dokumentbeskrivelse
+						}
          }
        }
 			}

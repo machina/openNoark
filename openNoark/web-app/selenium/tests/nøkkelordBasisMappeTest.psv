@@ -1,4 +1,4 @@
-open|/openNoark/auth/login?targetUri=%2F|
+open|/friark/auth/login?targetUri=%2F|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
@@ -7,7 +7,6 @@ clickAndWait|link=Nytt Arkiv|
 type|tittel|nøkkelord test
 type|beskrivelse|nøkkelord test
 type|dokumentmedium|nøkkelord test
-type|opprettetav|nøkkelord test
 clickAndWait|save|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=Ny Arkivdel|
@@ -16,7 +15,6 @@ type|beskrivelse|nøkkelord test
 
 type|dokumentmedium|nøkkelord test
 
-type|opprettetav|nøkkelord test
 select|referanseforelder|label=nøkkelord test
 clickAndWait|save|
 clickAndWait|link=Basismapper|
@@ -30,7 +28,6 @@ select|referansearkivdel.id|label=nøkkelord test
 type|beskrivelse|nøkkelord test
 type|dokumentmedium|nøkkelord test
 type|nøkkelord|nøkkelen nøkkelto
-type|opprettetav|nøkkelord test
 clickAndWait|//input[@value='Create']|
 verifyTextPresent|nøkkelen|
 verifyTextPresent|nøkkelto|

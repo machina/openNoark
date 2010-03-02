@@ -51,7 +51,7 @@ class MappeService {
 		
 		
 		private def checkArkivdel(params, mappe){
-			if(mappe.referansearkivdel.periodeStatus == null  || mappe.referansearkivdel.periodeStatus == "Aktiv periode"){
+			if(mappe.referansearkivdel.arkivdelstatus == "Opprettet" && (mappe.referansearkivdel.periodeStatus == null  || mappe.referansearkivdel.periodeStatus == "Aktiv periode")){
 				mappe.referansearkivdel.addToReferansemappe(mappe)
 				return [true]
 			}

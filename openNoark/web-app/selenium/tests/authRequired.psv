@@ -1,10 +1,10 @@
-open|/openNoark/auth/signOut|
-open|/openNoark/arkiv/list|
+open|/friark/auth/signOut|
+open|/friark/arkiv/list|
 verifyTitle|Login|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
 verifyTextPresent|Arkiver|
-open|/openNoark/auth/signOut|
-open|/openNoark/arkiv/list|
+open|/friark/auth/signOut|
+open|/friark/arkiv/list|
 verifyTitle|Login|

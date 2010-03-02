@@ -1,4 +1,4 @@
-open|/openNoark/auth/login|
+open|/friark/auth/login|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
@@ -7,14 +7,12 @@ clickAndWait|link=Nytt Arkiv|
 type|tittel|avs_mappe_besk
 type|beskrivelse|arkiv for dill og dall
 type|dokumentmedium|html
-type|opprettetav|meg
 clickAndWait|save|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=Ny Arkivdel|
 type|tittel|avs_mappe_besk
 type|beskrivelse|arkivdel for dill
 type|dokumentmedium|email
-type|opprettetav|meg
 select|referanseforelder|label=avs_mappe_besk
 clickAndWait|save|
 clickAndWait|link=Basismapper|
@@ -34,7 +32,7 @@ select|avsluttetdato_day|label=1
 select|avsluttetdato_month|label=January
 select|avsluttetdato_year|label=1991
 clickAndWait|_action_Update|
-open|/openNoark/forenkletRegistrering/create|
+open|/friark/forenkletRegistrering/create|
 type|registreringstype|asdasda
 type|opprettetav|dsadasd
 type|arkivertav|dsadasd

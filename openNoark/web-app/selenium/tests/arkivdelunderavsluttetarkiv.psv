@@ -1,17 +1,17 @@
-open|/openNoark/auth/login|
+open|/friark/auth/login|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
-open|/openNoark/arkiv/create|
+open|/friark/arkiv/create|
 type|tittel|Avsluttet arkiv
 clickAndWait|//input[@name='save']|
-verifyTextPresent|Nytt arkiv er opprettet|
-open|/openNoark/arkiv/list|
+verifyTextPresent|Arkiv opprettet|
+open|/friark/arkiv/list|
 clickAndWait|link=Avsluttet arkiv|
-select|//form[@id='archive']/table/tbody/tr[7]/td[2]/select|label=Avsluttet
+select|arkivstatus|label=Avsluttet
 clickAndWait|save|
 verifyTextPresent|Avsluttet|
-open|/openNoark/arkivdel/create|
+open|/friark/arkivdel/create|
 type|tittel|test akrivdel
 select|referanseforelder|label=Avsluttet arkiv
 clickAndWait|save|

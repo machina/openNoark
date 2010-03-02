@@ -23,6 +23,8 @@ import no.friark.ds.*
 */
 class ArkivdelController {
 		def commonService
+		def arkivdelService
+
     def index = { redirect(action:list,params:params)}
 
 		def create = {
@@ -43,7 +45,6 @@ class ArkivdelController {
 			} else {
 				arkivdel.referanseforelder = Arkiv.get(params.referanseforelder)
 			}
-
 			if(!arkivdel.save()){
 				render(view: "create", model: [errors: arkivdel.errors])
 			} else {
@@ -97,6 +98,8 @@ class ArkivdelController {
 				if(updateCommand.avsluttetdato == null){
           params.avsluttetdato = null
         }
+				if(updateCommand.arkivperiodestartdato == null) params.arkivperiodestartdato = null
+        if(updateCommand.arkivperiodesluttdato == null) params.arkivperiodesluttdato = null
 				if(updateCommand.opprettetdato != null && updateCommand.opprettetdato == arkivdel.opprettetdato){
 					params.opprettetdato = null
 				}
@@ -145,4 +148,6 @@ class ArkivdelController {
 class UpdateArkivdelCommand {
   Date opprettetdato
   Date avsluttetdato
+	Date arkivperiodestartdato
+	Date arkivperiodesluttdato
 }

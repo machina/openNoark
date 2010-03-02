@@ -151,7 +151,7 @@
                             </tr> 
                			       <tr>
 								            <td><label for="bevaringOgKassasjon">Kassasjonsvedtak</label></td>
-            							  <td><g:select name="bevaringOgKassasjon.id" noSelection="${[null:'Velg']}" from='${BevaringOgKassasjon.list()}' optionKey="id" value="${klasseInstance.bevaringOgKassasjon.id}"></g:select></td>
+            							  <td><g:select name="bevaringOgKassasjon.id" noSelection="${[null:'Velg']}" from='${BevaringOgKassasjon.list()}' optionKey="id" value="${klasseInstance.bevaringOgKassasjon?.id}"></g:select></td>
       							      </tr> 
                         </tbody>
                     </table>

@@ -1,8 +1,8 @@
-open|/openNoark/auth/login|
+open|/friark/auth/login|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
-open|/openNoark/user/create|
+open|/friark/user/create|
 type|username|testuser1
 type|passwd|test
 clickAndWait|save|

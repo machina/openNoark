@@ -68,7 +68,7 @@
                         </tr>
 												<tr class="prop">
                             <td valign="top" class="name">Forelder arkiv:</td>
-                            <td valign="top" class="value"><g:if test="${arkiv.forelder}"><g:link action="show" id="${arkiv.forelder.id}">${arkiv.forelder}</g:link></g:if></td>
+                            <td valign="top" class="value"><g:if test="${arkiv.forelder}"><g:link action="show" id="${arkiv.forelder.id}">${arkiv.forelder.tittel}</g:link></g:if></td>
                         </tr>
 
 
