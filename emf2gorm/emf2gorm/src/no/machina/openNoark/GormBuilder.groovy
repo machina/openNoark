@@ -3,6 +3,12 @@ package no.machina.openNoark
 import groovy.util.BuilderSupport  
 import java.io.StringWriter
 
+/**
+ * A builder for Gorm classes
+ * 
+ * @author kent
+ *
+ */
 class GormBuilder extends BuilderSupport {
 	
 	final int CLASS = 1
@@ -33,9 +39,7 @@ class GormBuilder extends BuilderSupport {
 		if(parent)  
 			parent[parent['name']] = child  
 	}
-	
-	
-	
+		
 	protected Object createNode(Object name) {  
 		createNode name, null, null  
 	}  
