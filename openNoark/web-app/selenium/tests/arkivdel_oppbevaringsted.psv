@@ -25,6 +25,7 @@ select|referanseforelder|label=dilldall
 clickAndWait|save|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=dall|
+clickAndWait|_action_Edit|
 clickAndWait|link=Håndter oppbevaringsted|
 type|sted|hei
 clickAndWait|save|
@@ -41,6 +42,7 @@ clickAndWait|link=dall|
 verifyTextPresent|hei|
 verifyTextPresent|på|
 verifyTextPresent|deg|
+clickAndWait|_action_Edit|
 clickAndWait|link=Håndter oppbevaringsted|
 clickAndWait|document.forms[1].elements[2]|
 clickAndWait|document.forms[1].elements[2]|

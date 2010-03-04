@@ -70,6 +70,10 @@ class ArkivController {
 		return [arkiv: Arkiv.get(params.id)]
 	}
 
+	def edit = {
+		render (view: "update", model: [arkiv: Arkiv.get(params.id)])
+	}
+
 	def update = { UpdateArkivCommand updateCommand ->
 		switch(request.method){
 			case 'GET':
@@ -104,7 +108,6 @@ class ArkivController {
 
 	def stripParent(params, arkiv) {
 		if(!params.forelder || params.forelder == "null") {
-        println "nulling parent"
 				params.forelder = null
         arkiv.forelder = null
       } else if(params.forelder instanceof String){

@@ -75,24 +75,7 @@
                                 </td>
                             </tr> 
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="avsluttetdato">Avsluttetdato:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:klassifikasjonssystemInstance,field:'avsluttetdato','errors')}">
-                                    <g:datePicker name="avsluttetdato" value="${klassifikasjonssystemInstance?.avsluttetdato}" precision="minute" noSelection="['':'']"></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="avsluttetav">Avsluttetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:klassifikasjonssystemInstance,field:'avsluttetav','errors')}">
-                                    <input type="text" id="avsluttetav" name="avsluttetav" value="${fieldValue(bean:klassifikasjonssystemInstance,field:'avsluttetav')}"/>
-                                </td>
-                            </tr> 
-                        
+                       
                         </tbody>
                     </table>
                 </div>

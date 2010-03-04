@@ -81,7 +81,7 @@
 
 												<tr class="prop">
                             <td valign="top" class="name">Forelder arkiv:</td>
-                            <td valign="top" class="value"><g:if test="${arkivdel.referanseforelder}"><g:link action="show" controller="arkiv" id="${arkivdel.referanseforelder.id}">${arkivdel.referanseforelder}</g:link></g:if></td>
+                            <td valign="top" class="value"><g:if test="${arkivdel.referanseforelder}"><g:link action="show" controller="arkiv" id="${arkivdel.referanseforelder.id}">${arkivdel.referanseforelder.tittel}</g:link></g:if></td>
                         </tr>
 
 												<tr class="prop">
@@ -121,7 +121,7 @@
                             <td valign="top" class="name">Mapper:</td>
                             <td valign="top" class="value"><ul>
                               <g:each in="${arkivdel.referansemappe}" var="mappe">
-                                <li><g:link controller="basismappe" action="show" id="${mappe.id}">${mappe}</g:link></li>
+                                <li><g:link controller="basismappe" action="show" id="${mappe.id}">${mappe.tittel}</g:link></li>
                               </g:each></ul>
                             </td>
                         </tr>
@@ -141,8 +141,8 @@
             </div>
             <div class="buttons">
                 <g:form>
-                    <input type="hidden" name="id" value="${arkiv?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" value="Edit" /></span>
+                    <input type="hidden" name="id" value="${arkivdel.id}" />
+                    <span class="button"><g:actionSubmit id=""${arkivdel.id}" class="edit" value="Edit" /></span>
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
                 </g:form>
 <%--								<g:form controller="merknad" action="create" method="get">

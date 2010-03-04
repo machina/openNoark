@@ -21,6 +21,7 @@ import no.friark.ds.*
 class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
   protected void setUp() {
   	super.setUp()
+		org.apache.shiro.SecurityUtils.metaClass.'static'.getSubject = { return [principal : "testuser"] }
   }
 
   protected void tearDown() {

@@ -121,14 +121,14 @@
                         <tr class="prop">
                             <td valign="top" class="name">Referanseforelder Klasse:</td>
                             
-                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${basismappeInstance?.referanseforelderKlasse?.id}">${basismappeInstance?.referanseforelderKlasse?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${basismappeInstance?.referanseforelderKlasse?.id}">${basismappeInstance?.referanseforelderKlasse?.tittel.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Referanseforelder Basismappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${basismappeInstance?.referanseforelderBasismappe?.id}">${basismappeInstance?.referanseforelderBasismappe?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${basismappeInstance?.referanseforelderBasismappe?.id}">${basismappeInstance?.referanseforelderBasismappe?.tittel.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
@@ -146,9 +146,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Referansearkivdel:</td>
+                            <td valign="top" class="name">Arkivdel:</td>
                             
-                            <td valign="top" class="value"><g:link controller="arkivdel" action="show" id="${basismappeInstance?.referansearkivdel?.id}">${basismappeInstance?.referansearkivdel?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="arkivdel" action="show" id="${basismappeInstance?.referansearkivdel?.id}">${basismappeInstance?.referansearkivdel?.tittel.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                        <tr class="prop">

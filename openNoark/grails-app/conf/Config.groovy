@@ -67,11 +67,7 @@ log4j = {
 	       'org.hibernate'
 
     warn   'org.mortbay.log'
-	
-		/*debug 'org.codehaus.groovy.grails.orm.hibernate', 
-					'org.hibernate'*/
-		//debug  'org.codehaus.groovy.grails.plugins.searchable' //debug searchable
 }
 
-archivePath=System.getProperty("no.friark.archivepath", "/home/kent/tmp/opennoarkArchive")
-docIdx=false
+
+     

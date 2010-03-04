@@ -27,6 +27,13 @@ a:link, a:visited, a:hover {
 	color: #fff;
 }
 
+.rightColWideContainer a {
+    color: #666;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
 h1 {
     color: #006dba;
     font-weight: normal;

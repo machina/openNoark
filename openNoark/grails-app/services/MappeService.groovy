@@ -32,7 +32,7 @@ class MappeService {
 		def save(params) {
 				def mappe = new Basismappe(params)
 				commonService.setNewSystemID mappe
-
+				commonService.setCreated(mappe)
 				//def (delOk, error) = checkArkivdel params, mappe
 				def (delOk, error) = checkArkivdel(params, mappe)
 				if(!delOk){

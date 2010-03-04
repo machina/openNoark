@@ -69,7 +69,7 @@ float:left;
 
 
 .navcontainer a {
-	color: #FFFFFF;
+	color: #AAAAAA;
 	text-decoration:none;
 	display:block;
 }
@@ -482,7 +482,9 @@ width:780px;
 	line-height:17px;
 }
 
-
+.rightColWideContent a, a:visited, a:link, a:hover {
+	color: #666;
+}
 
 .rightColWideBtm {
 	width:780px;

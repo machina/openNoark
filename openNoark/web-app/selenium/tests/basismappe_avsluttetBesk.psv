@@ -22,7 +22,6 @@ type|tittel|avs_mappe_besk
 type|offentligtittel|a
 type|beskrivelse|aaa
 type|dokumentmedium|a
-type|opprettetav|aa
 type|nøkkelord|aa
 select|referansearkivdel.id|label=avs_mappe_besk
 clickAndWait|//input[@value='Create']|

@@ -24,7 +24,7 @@ import no.friark.ds.*
 * @author Kent Inge Fagerland Simonsen
 */
 class KlassifikasjonssystemController {
-    
+ 		def commonService   
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
@@ -111,7 +111,8 @@ class KlassifikasjonssystemController {
 
     def save = {
         def klassifikasjonssystemInstance = new Klassifikasjonssystem(params)
-				klassifikasjonssystemInstance.systemID = UUID.randomUUID().toString()
+				commonService.setCreated(klassifikasjonssystemInstance)
+				commonService.setNewSystemID(klassifikasjonssystemInstance)
         if(!klassifikasjonssystemInstance.hasErrors() && klassifikasjonssystemInstance.save()) {
             flash.message = "Klassifikasjonssystem ${klassifikasjonssystemInstance.id} created"
             redirect(action:show,id:klassifikasjonssystemInstance.id)

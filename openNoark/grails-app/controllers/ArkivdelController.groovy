@@ -86,6 +86,9 @@ class ArkivdelController {
 			return [arkivdeler: arkivdeler]
 		}
 
+	def edit = {
+		render(view: 'update', model: [arkivdel: Arkivdel.get(params.id)])
+	}
 
 	def update = { UpdateArkivdelCommand updateCommand ->
 

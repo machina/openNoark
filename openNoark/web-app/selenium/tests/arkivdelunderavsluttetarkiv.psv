@@ -8,6 +8,7 @@ clickAndWait|//input[@name='save']|
 verifyTextPresent|Arkiv opprettet|
 open|/friark/arkiv/list|
 clickAndWait|link=Avsluttet arkiv|
+clickAndWait|_action_Edit|
 select|arkivstatus|label=Avsluttet
 clickAndWait|save|
 verifyTextPresent|Avsluttet|

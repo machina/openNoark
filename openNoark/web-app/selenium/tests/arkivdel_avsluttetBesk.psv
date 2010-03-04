@@ -26,6 +26,7 @@ clickAndWait|save|
 clickAndWait|link=Basismapper|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=dall|
+clickAndWait|_action_Edit|
 select|arkivdelstatus|label=Avsluttet
 clickAndWait|save|
 clickAndWait|link=Basismapper|

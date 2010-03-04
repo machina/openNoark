@@ -24,7 +24,7 @@ import no.friark.ds.*
 * @author Kent Inge Fagerland Simonsen
 */
 class KlasseController {
-    
+    def commonService
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
@@ -125,7 +125,9 @@ class KlasseController {
 				println params
 //				params.klasseid = null
         def klasseInstance = new Klasse(params)
-				klasseInstance.systemID = UUID.randomUUID().toString()
+				commonService.setCreated(klasseInstance)
+				commonService.setNewSystemID(klasseInstance)
+
 //				println("forelderklasse: ${klasseInstance.referanseforelderKlasse}")
 //				if(!klasseInstance.referanseforelderKlasse?.id) klasseInstance.referanseforelderKlasse = null
 //				klasseInstance = klasseInstance.merge()
