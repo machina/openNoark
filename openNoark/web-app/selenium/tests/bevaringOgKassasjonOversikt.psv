@@ -1,4 +1,4 @@
-open|/openNoark/auth/login?targetUri=%2F|
+open|/friark/auth/login?targetUri=%2F|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
@@ -17,11 +17,9 @@ type|mappetype|dilldall
 type|tittel|regmappe_boko
 type|offentligtittel|regmappe_boko
 select|referansearkivdel.id|label=regarkivdel_boko
-type|opprettetav|test
 clickAndWait|//input[@value='Create']|
 clickAndWait|create|
 type|registreringstype|dill
-type|opprettetav|dall
 select|referanseforelderBasismappe.id|label=regmappe_boko
 type|arkivertav|sfsdfsdfsdfs
 clickAndWait|//input[@value='Create']|
@@ -34,10 +32,6 @@ type|tittel|dok_boko
 type|beskrivelse|desc
 type|forfatter|me
 type|forfatter|meg
-select|opprettetdato_year|label=2009
-select|opprettetdato_day|label=1
-select|opprettetdato_month|label=February
-type|opprettetav|meg
 type|dokumentmedium|none
 type|oppbevaringssted|her
 clickAndWait|//input[@value='Create']|
@@ -47,7 +41,6 @@ type|versjonsnummer|1
 type|variantformat|1
 type|format|tekst
 type|formatdetaljer|utf-8
-type|opprettetav|meg
 select|referansedokumentBeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : 5
 type|referansedokumentfil|/etc/passwd
 clickAndWait|//input[@value='Create']|
@@ -79,7 +72,6 @@ type|dokumentstatus|2
 type|tittel|222
 type|beskrivelse|2
 type|forfatter|2
-type|opprettetav|2
 type|dokumentmedium|2223
 type|oppbevaringssted|2
 clickAndWait|//input[@value='Create']|
@@ -104,7 +96,6 @@ clickAndWait|link=Basismapper|
 clickAndWait|link=3|
 clickAndWait|create|
 type|registreringstype|3
-type|opprettetav|3
 select|referanseforelderBasismappe.id|label=regmappe_boko
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Dokumentbeskrivelser|
@@ -114,7 +105,6 @@ type|dokumentstatus|3
 type|tittel|3
 type|beskrivelse|3
 type|forfatter|3
-type|opprettetav|3
 type|dokumentmedium|3
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Dokumentlinker|

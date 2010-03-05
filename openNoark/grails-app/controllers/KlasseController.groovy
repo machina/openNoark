@@ -1,3 +1,20 @@
+/*
+    This file is part of Friark.
+
+    Friark is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Friark is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Friark.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 import grails.converters.*
 import no.friark.ds.*
 
@@ -7,7 +24,7 @@ import no.friark.ds.*
 * @author Kent Inge Fagerland Simonsen
 */
 class KlasseController {
-    
+    def commonService
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
@@ -108,7 +125,9 @@ class KlasseController {
 				println params
 //				params.klasseid = null
         def klasseInstance = new Klasse(params)
-				klasseInstance.systemID = UUID.randomUUID().toString()
+				commonService.setCreated(klasseInstance)
+				commonService.setNewSystemID(klasseInstance)
+
 //				println("forelderklasse: ${klasseInstance.referanseforelderKlasse}")
 //				if(!klasseInstance.referanseforelderKlasse?.id) klasseInstance.referanseforelderKlasse = null
 //				klasseInstance = klasseInstance.merge()

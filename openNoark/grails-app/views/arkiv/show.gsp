@@ -68,7 +68,7 @@
                         </tr>
 												<tr class="prop">
                             <td valign="top" class="name">Forelder arkiv:</td>
-                            <td valign="top" class="value"><g:if test="${arkiv.forelder}"><g:link action="show" id="${arkiv.forelder.id}">${arkiv.forelder}</g:link></g:if></td>
+                            <td valign="top" class="value"><g:if test="${arkiv.forelder}"><g:link action="show" id="${arkiv.forelder.id}">${arkiv.forelder.tittel}</g:link></g:if></td>
                         </tr>
 
 
@@ -96,7 +96,7 @@
                             <td valign="top" class="name">Arkivdeler:</td>
                             <td valign="top" class="value"><ul>
                               <g:each in="${arkiv.referansebarnArkivdel}" var="arkivdel">
-                                <li><g:link controller="arkivdel" action="show" id="${arkivdel.id}">${arkivdel}</g:link></li>
+                                <li><g:link controller="arkivdel" action="show" id="${arkivdel.id}">${arkivdel.tittel}</g:link></li>
                               </g:each></ul>
                             </td>
                         </tr>
@@ -115,9 +115,9 @@
                 </table>
             </div>
             <div class="buttons">
-                <g:form>
+                <g:form controller="arkiv">
                     <input type="hidden" name="id" value="${arkiv?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" value="Edit" /></span>
+                    <span class="button"><g:actionSubmit action="Edit" class="edit" value="Edit" /></span>
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
                 </g:form>
 <%--								<g:form controller="merknad" action="create" method="get">

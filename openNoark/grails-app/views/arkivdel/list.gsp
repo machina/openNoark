@@ -18,7 +18,7 @@
 						<g:each in="${arkivdeler}" var="arkivdel">
 							<tr>
 								<td>${arkivdel.systemID}</td>
-								<td><g:link action="update" id="${arkivdel.id}">${arkivdel.tittel}</g:link></td>
+								<td><g:link action="show" id="${arkivdel.id}">${arkivdel.tittel}</g:link></td>
       	        <td>${arkivdel.arkivdelstatus}</td>
 								<td>${arkivdel.referanseforelder.tittel}</td>
         	    </tr>

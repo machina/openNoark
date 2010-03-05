@@ -38,9 +38,9 @@ class ForenkletRegistrering extends Base{
     referansearkivdel(nullable: true)
     referansearkivdel(unique: false)
     dokumenter(nullable: true)
-    dokumenter(unique: false)
+    dokumenter(unique: true)
     referansedokumentObjekt(nullable: true)
-    referansedokumentObjekt(unique: false)
+    referansedokumentObjekt(unique: true)
     bevaringOgKassasjon(nullable: true)
     bevaringOgKassasjon(unique: false)
   }

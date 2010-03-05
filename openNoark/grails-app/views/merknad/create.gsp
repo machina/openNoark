@@ -41,7 +41,7 @@
                                     <label for="merknadsdato">Merknadsdato:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'merknadsdato','errors')}">
-                                    <g:datePicker name="merknadsdato" value="${merknadInstance?.merknadsdato}" precision="minute" ></g:datePicker>
+                                    <g:datePicker name="merknadsdato" value="${merknadInstance?.merknadsdato}" precision="day" ></g:datePicker>
                                 </td>
                             </tr> 
                         
@@ -68,7 +68,7 @@
                                     <label for="merknadstype">Baismappe:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'mappe','errors')}">
-                                    <g:select optionKey="id" optionValue="navn" from="${Basismappe.list()}" name="mappe.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.mappe?.id}" ></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" from="${Basismappe.list()}" name="mappe.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.mappe?.id}" ></g:select>
                                 </td>
                             </tr> 
 														<tr class="prop">

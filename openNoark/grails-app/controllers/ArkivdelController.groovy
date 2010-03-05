@@ -1,3 +1,20 @@
+/*
+    This file is part of Friark.
+
+    Friark is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Friark is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Friark.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 import grails.converters.*
 import no.friark.ds.*
 
@@ -6,6 +23,8 @@ import no.friark.ds.*
 */
 class ArkivdelController {
 		def commonService
+		def arkivdelService
+
     def index = { redirect(action:list,params:params)}
 
 		def create = {
@@ -26,7 +45,6 @@ class ArkivdelController {
 			} else {
 				arkivdel.referanseforelder = Arkiv.get(params.referanseforelder)
 			}
-
 			if(!arkivdel.save()){
 				render(view: "create", model: [errors: arkivdel.errors])
 			} else {
@@ -68,6 +86,9 @@ class ArkivdelController {
 			return [arkivdeler: arkivdeler]
 		}
 
+	def edit = {
+		render(view: 'update', model: [arkivdel: Arkivdel.get(params.id)])
+	}
 
 	def update = { UpdateArkivdelCommand updateCommand ->
 
@@ -80,6 +101,8 @@ class ArkivdelController {
 				if(updateCommand.avsluttetdato == null){
           params.avsluttetdato = null
         }
+				if(updateCommand.arkivperiodestartdato == null) params.arkivperiodestartdato = null
+        if(updateCommand.arkivperiodesluttdato == null) params.arkivperiodesluttdato = null
 				if(updateCommand.opprettetdato != null && updateCommand.opprettetdato == arkivdel.opprettetdato){
 					params.opprettetdato = null
 				}
@@ -128,4 +151,6 @@ class ArkivdelController {
 class UpdateArkivdelCommand {
   Date opprettetdato
   Date avsluttetdato
+	Date arkivperiodestartdato
+	Date arkivperiodesluttdato
 }

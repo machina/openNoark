@@ -117,25 +117,6 @@
                                     
                                 </td>
                             </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="opprettetdato">Opprettetdato:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'opprettetdato','errors')}">
-                                    <g:datePicker name="opprettetdato" value="${basismappeInstance?.opprettetdato}" precision="minute" ></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="opprettetav">Opprettetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'opprettetav','errors')}">
-                                    <input type="text" id="opprettetav" name="opprettetav" value="${fieldValue(bean:basismappeInstance,field:'opprettetav')}"/>
-                                </td>
-                            </tr> 
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="avsluttetdato">Avsluttetdato:</label>

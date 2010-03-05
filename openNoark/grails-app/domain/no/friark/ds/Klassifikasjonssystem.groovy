@@ -26,7 +26,7 @@ class Klassifikasjonssystem extends Base{
     avsluttetav(nullable: true)
     avsluttetav(unique: false)
     referansebarn(nullable: true)
-    referansebarn(unique: false)
+    referansebarn(unique: true)
   }
   static hasMany = [referansebarn:Klasse]
   static mapping = {

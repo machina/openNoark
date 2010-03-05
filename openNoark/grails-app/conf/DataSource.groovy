@@ -26,11 +26,7 @@ environments {
 	production {
 		dataSource {
 			dbCreate = "update"
-			//url = "jdbc:hsqldb:file:prodDb;shutdown=true"
-			url = "jdbc:postgresql:friark_demo"
-      username = "postgres"
-      password = "postgres"
-      driverClassName = "org.postgresql.Driver"
+			url = "jdbc:hsqldb:file:prodDb;shutdown=true"
 		}
 	}
 }

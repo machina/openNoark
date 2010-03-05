@@ -79,25 +79,6 @@
 																	</ul> 
                                 </td>
                             </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="opprettetdato">Opprettetdato:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'opprettetdato','errors')}">
-                                    <g:datePicker name="opprettetdato" value="${klasseInstance?.opprettetdato}" precision="minute" ></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="opprettetav">Opprettetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'opprettetav','errors')}">
-                                    <input type="text" id="opprettetav" name="opprettetav" value="${fieldValue(bean:klasseInstance,field:'opprettetav')}"/>
-                                </td>
-                            </tr> 
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="avsluttetdato">Avsluttetdato:</label>
@@ -151,7 +132,7 @@
                             </tr> 
                			       <tr>
 								            <td><label for="bevaringOgKassasjon">Kassasjonsvedtak</label></td>
-            							  <td><g:select name="bevaringOgKassasjon.id" noSelection="${[null:'Velg']}" from='${BevaringOgKassasjon.list()}' optionKey="id" value="${klasseInstance.bevaringOgKassasjon.id}"></g:select></td>
+            							  <td><g:select name="bevaringOgKassasjon.id" noSelection="${[null:'Velg']}" from='${BevaringOgKassasjon.list()}' optionKey="id" value="${klasseInstance.bevaringOgKassasjon?.id}"></g:select></td>
       							      </tr> 
                         </tbody>
                     </table>

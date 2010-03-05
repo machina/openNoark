@@ -1,4 +1,4 @@
-open|/openNoark/auth/login?targetUri=%2F|
+open|/friark/auth/login?targetUri=%2F|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
@@ -7,14 +7,12 @@ clickAndWait|link=New Klassifikasjonssystem|
 type|klassifikasjonstype|nøkkelord test
 type|tittel|nøkkelord test
 type|beskrivelse|nøkkelord test
-type|opprettetav|auto
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Klasser|
 clickAndWait|link=New Klasse|
 type|klasseid|nøkkelord test
 type|tittel|nøkkelord test
 type|beskrivelse|nøkkelord test
-type|opprettetav|nøkkelord test
 type|nøkkelord|en to
 select|referanseforelderKlassifikasjonssystem.id|label=nøkkelord test
 clickAndWait|//input[@value='Create']|

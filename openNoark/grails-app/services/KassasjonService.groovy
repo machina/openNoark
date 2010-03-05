@@ -1,3 +1,20 @@
+/*
+    This file is part of Friark.
+
+    Friark is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Friark is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Friark.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 import no.friark.*
 import no.friark.ds.*
 import no.machina.gestalt2.SandboxingClassLoader
@@ -19,7 +36,7 @@ class KassasjonService {
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg -> 
 					if(reg.referanseregistrering.referanseforelderKlasse) retval << reg.referanseregistrering.referanseforelderKlasse
-					if(reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse) retval << reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse
+					if(reg.referanseregistrering.referanseforelderBasismappe != null && reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse != null) retval << reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse
 				}
 			} 
 		}
@@ -44,7 +61,7 @@ class KassasjonService {
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg ->
 					if(reg.referanseregistrering.referansearkivdel) retval << reg.referanseregistrering.referansearkivdel
-					if(reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel) retval << reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel
+					if(reg.referanseregistrering.referanseforelderBasismappe != null && reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel != null) retval << reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel
 				}
 			}
 		}
@@ -92,7 +109,9 @@ class KassasjonService {
 				vedtak.registrering.each{ reg ->
   	      //Dokumentlink!!
 	        reg.dokumenter.each{ dokLink ->
-          if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato != null ) retval << dokLink.dokumentbeskrivelse
+        	  if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato == null ){
+							 retval << dokLink.dokumentbeskrivelse
+						}
          }
        }
 			}

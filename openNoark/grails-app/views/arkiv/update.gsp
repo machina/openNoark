@@ -4,7 +4,7 @@
 		<meta name="layout" content="main" />
     </head>
     <body>
-        <h1>Lag et nytt arkiv</h1>
+        <h1>Rediger arkiv</h1>
 				<g:if test="${errors}">
 					<ul id="error_list">
 						<g:each in="${errors}">

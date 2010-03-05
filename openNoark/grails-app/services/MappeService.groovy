@@ -1,3 +1,20 @@
+/*
+    This file is part of Friark.
+
+    Friark is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Friark is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Friark.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 import no.friark.ds.*
 
 /**
@@ -26,7 +43,7 @@ class MappeService {
 
 				}
 				commonService.setNewSystemID mappe
-
+				commonService.setCreated(mappe)
 				//def (delOk, error) = checkArkivdel params, mappe
 				def (delOk, error) = checkArkivdel(params, mappe)
 				if(!delOk){
@@ -45,7 +62,7 @@ class MappeService {
 		
 		
 		private def checkArkivdel(params, mappe){
-			if(mappe.referansearkivdel.periodeStatus == null  || mappe.referansearkivdel.periodeStatus == "Aktiv periode"){
+			if(mappe.referansearkivdel.arkivdelstatus == "Opprettet" && (mappe.referansearkivdel.periodeStatus == null  || mappe.referansearkivdel.periodeStatus == "Aktiv periode")){
 				mappe.referansearkivdel.addToReferansemappe(mappe)
 				return [true]
 			}

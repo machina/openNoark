@@ -80,25 +80,6 @@
                                     <input type="text" id="dokumentmedium" name="dokumentmedium" value="${fieldValue(bean:basismappeInstance,field:'dokumentmedium')}"/>
                                 </td>
                             </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="opprettetdato">Opprettetdato:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'opprettetdato','errors')}">
-                                    <g:datePicker name="opprettetdato" value="${basismappeInstance?.opprettetdato}" precision="minute" ></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="opprettetav">Opprettetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'opprettetav','errors')}">
-                                    <input type="text" id="opprettetav" name="opprettetav" value="${fieldValue(bean:basismappeInstance,field:'opprettetav')}"/>
-                                </td>
-                            </tr> 
-                        
  														<tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="opprettetav">Nøkkelord:</label>
@@ -113,7 +94,7 @@
                                     <label for="referanseforelderKlasse">Referanseforelder Klasse:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseforelderKlasse','errors')}">
-                                    <g:select optionKey="id" noSelection="${[null:'Velg klasse']}" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${basismappeInstance?.referanseforelderKlasse?.id}" ></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" noSelection="${[null:'Velg klasse']}" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${basismappeInstance?.referanseforelderKlasse?.id}" ></g:select>
                                 </td>
                             </tr> 
                         
@@ -122,7 +103,7 @@
                                     <label for="referanseforelderBasismappe">Referanseforelder Basismappe:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseforelderBasismappe','errors')}">
-                                    <g:select optionKey="id" noSelection="${[null:'Velg foreldermappe']}" from="${Basismappe.list()}" name="referanseforelderBasismappe.id" value="${basismappeInstance?.referanseforelderBasismappe?.id}" ></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" noSelection="${[null:'Velg foreldermappe']}" from="${Basismappe.list()}" name="referanseforelderBasismappe.id" value="${basismappeInstance?.referanseforelderBasismappe?.id}" ></g:select>
                                 </td>
                             </tr> 
                         
