@@ -112,13 +112,19 @@ class BevaringOgKassasjonController {
 
     def save = {
         def bevaringOgKassasjonInstance = new BevaringOgKassasjon(params)
-        if(!bevaringOgKassasjonInstance.hasErrors() && bevaringOgKassasjonInstance.save()) {
-            flash.message = "BevaringOgKassasjon ${bevaringOgKassasjonInstance.id} created"
-            redirect(action:show,id:bevaringOgKassasjonInstance.id)
-        }
-        else {
+				if(bevaringOgKassasjonInstance.mappe != null && bevaringOgKassasjonInstance.mappe.presedens != null && bevaringOgKassasjonInstance.kassasjonsvedtak == "Kasseres"){
+					flash.message = "Kan ikke kassere en presedenssak"
+					render(view:'create',model:[bevaringOgKassasjonInstance:bevaringOgKassasjonInstance])
+				} else {
+	        if(!bevaringOgKassasjonInstance.hasErrors() && bevaringOgKassasjonInstance.save()) {
+  	          flash.message = "BevaringOgKassasjon ${bevaringOgKassasjonInstance.id} created"
+    	        redirect(action:show,id:bevaringOgKassasjonInstance.id)
+      	  }
+        	else {
+						println bevaringOgKassasjonInstance.errors
             render(view:'create',model:[bevaringOgKassasjonInstance:bevaringOgKassasjonInstance])
-        }
+        	}
+				}
     }
 
 

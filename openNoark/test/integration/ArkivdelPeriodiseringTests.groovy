@@ -36,9 +36,10 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		println "ark: ${ark}, del ${del}, reg: ${reg}"
 		def mappeService = new MappeService()
 		mappeService.commonService = new CommonService()
-		def params = [ mappeid: "2010/00001", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+		def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
 
 		def (mappe, success) = mappeService.save(params)
+		println mappe.errors
 		assertTrue "save failed", success
 		assertEquals 1, Basismappe.list().size()
 
@@ -57,7 +58,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		saveOrFail del
 		def mappeService = new MappeService()
 		mappeService.commonService = new CommonService()
-		def params = [ mappeid: "2010/00001", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+		def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
 
 		def (mappe, success) = mappeService.save(params)
 		assertFalse "save succeeded", success
@@ -73,7 +74,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		def (ark, del, reg) = createStructure()
 		def mappeService = new MappeService()
 		mappeService.commonService = new CommonService()
-    def params = [ mappeid: "2010/00001", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+    def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
 
     def (mappe, success) = mappeService.save(params)
 		
@@ -113,7 +114,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
     saveOrFail del
     def mappeService = new MappeService()
     mappeService.commonService = new CommonService()
-    def params = [ mappeid: "2010/00001", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+    def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
 
     def (mappe, success) = mappeService.save(params)
     assertFalse "save succeeded", success
@@ -130,7 +131,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
 		def mappeService = new MappeService()
     mappeService.commonService = new CommonService()
-    def params = [ mappeid: "2010/00001", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+    def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
 
     mappeService.save(params)
 
