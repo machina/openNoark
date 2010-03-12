@@ -204,10 +204,10 @@ class KassasjonService {
   * Kasserer en liste dokumenter
   * @param dokumenter En liste dokumentbeskrivelser som skal kasseres.
   */
-	def kasser(List dokumenter){
+	def kasser(List dokumenter, slettTilMappe = false){
 		dokumenter.each{ dok ->
 			println "kasserer dok ${dok}"
-			kasser(dok)
+			kasser(dok, slettTilMappe)
 		}
 	}
 
@@ -215,16 +215,52 @@ class KassasjonService {
   * Kasserer et dokument. Kassering betyr fjerneing av alle Dokumentobjekt og tilknyttede dokumenter.
   * @param dok Dokumentet som skal kasseres. 
   */
-	def kasser(Dokumentbeskrivelse dok){
+	def kasser(Dokumentbeskrivelse dok, slettTilMappe = false){
+		if (!SecurityUtils.subject.isPermitted("kassasjon:kassere:${dok.id}")) {
+			throw new Exception("Kassering ikke tillatt for bruker.")
+		}	
 		dok.referansedokumentObjekt.each{
 			if(dok.registreringer?.size() <= 1){
 				archiveService.delteFromArchive(it)				
 			}
 			dok.removeFromReferansedokumentObjekt(it)
-			it.delete()
+			it.referansedokumentBeskrivelse = null
+			it.delete(flush:true)
 		}
+
 		dok.kassertDato = new Date()
 		dok.kassertAv = SecurityUtils.subject.principal
 		dok.save()
+		println "slettTilmappe: ${slettTilMappe}"
+		if(slettTilMappe){
+			println "sletttilmappe!"
+			dok.registreringer.each{ dl ->
+				println "DL"
+dok.removeFromRegistreringer(dl)
+				dl.delete()
+
+				def reg = dl.referanseregistrering
+				if(reg.referanseforelderBasismappe) {
+					reg.referanseforelderBasismappe.removeFromReferansebarnBasismappe(reg)
+					reg.referanseforelderBasismappe.save()
+				}
+				reg.delete()
+
+							}
+			if(dok.bevaringOgKassasjon){
+				println "fiksing bev"
+				def bev = dok.bevaringOgKassasjon
+			  bev.removeFromDokumentBeskrivelse(dok)
+				dok.bevaringOgKassasjon = null
+				//bev.save()
+			}
+			println dok.registreringer
+			println dok.referansedokumentObjekt
+			println dok.merknad
+			dok.referansedokumentObjekt = null
+			dok.delete()
+		} else {
+			dok.save()
+		}
 	}
 }

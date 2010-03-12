@@ -74,7 +74,10 @@
                   	<a href="/friark/klasse/index">Klasser</a>
 									</li>
     	            <li class="leftmenuitem">
-                  	<a href="/openNoark/mappe/index">Mapper</a>
+                  	<a href="/friark/mappe/index">Mapper</a>
+									</li>
+    	            <li class="leftmenuitem">
+                  	<a href="/friark/skjerming/index">Skjerming</a>
 									</li>
         	        <li class="leftmenuitem">
                  		<a href="/friark/dokumentlink/index">Dokumentlinker</a>

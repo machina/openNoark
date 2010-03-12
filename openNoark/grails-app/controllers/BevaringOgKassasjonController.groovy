@@ -176,7 +176,7 @@ class BevaringOgKassasjonController {
 					kasseringsListe << Dokumentbeskrivelse.get((key - "kasser_") as Long)
 				}
 			}
-			kassasjonService.kasser kasseringsListe
+			kassasjonService.kasser kasseringsListe, params.slett_til_mappe == "on" ? true : false
 		}
 	}
 

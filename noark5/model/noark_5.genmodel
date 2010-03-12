@@ -234,6 +234,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referansebarnBasismappe"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referansebarnForenkletRegistrering"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/bevaringOgKassasjon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/skjerming"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Klassifikasjonssystem">
       <genAnnotations source="http://opennoark.machina.no">

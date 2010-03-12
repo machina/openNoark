@@ -14,6 +14,27 @@ class BootStrap {
 						fail "unable to save: ${obj.errors}"
 					}		
 				}
+				grails.test.GrailsUnitTestCase.metaClass.loginTestUser = { isPermitted = {true}->
+					def testRole = new ShiroRole(name: "test")
+			    testRole.addToPermissions("user")
+			    if(!testRole.save()){
+			      println testRole.errors
+			    }
+			    def testUser = new ShiroUser(username: "testuser ", passwordHash: new Sha1Hash("testpassword").toHex()).save()
+			    testUser.addToRoles(ShiroRole.findByName("administrator"))
+			    testUser.save()
+			    if(!testUser.save()){
+      			println testUser.errors
+			    }
+					def subject = [ getPrincipal: { "testuser" },
+                isAuthenticated: { true },
+								isPermitted: isPermitted
+              ] as org.apache.shiro.subject.Subject
+					org.apache.shiro.util.ThreadContext.put( org.apache.shiro.util.ThreadContext.SECURITY_MANAGER_KEY, [getSubject:{subject}] as org.apache.shiro.mgt.SecurityManager )
+		    	def authToken = new org.apache.shiro.authc.UsernamePasswordToken("testuser", "testpassword")
+					//org.apache.shiro.SecurityUtils.subject.login(authToken)
+				}
+				
 			}
 /*			InputStream.metaClass.eachBytes = {Integer buffSize, Closure closure ->
 																					byte[] buffer = new byte[buffSize]

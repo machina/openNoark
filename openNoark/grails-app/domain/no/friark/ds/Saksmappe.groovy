@@ -29,7 +29,7 @@ class Saksmappe extends Basismappe{
     utlånttil(nullable: true)
     utlånttil(unique: false)
     referansesekundærKlassifikasjon(nullable: true)
-    referansesekundærKlassifikasjon(unique: false)
+    referansesekundærKlassifikasjon(unique: true)
     presedens(nullable: true)
     presedens(unique: false)
   }

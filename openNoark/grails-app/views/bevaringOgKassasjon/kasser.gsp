@@ -114,7 +114,7 @@
                     </g:each>
                     </tbody>
       	          </table>
-									<g:submitButton name="kasser_valgte" value="Kasser valgte dokumenter"/>
+									<g:submitButton name="kasser_valgte" value="Kasser valgte dokumenter"/>  <g:checkBox name="slett_til_mappe" value="${false}"/> Slett opptil mappe
 								</g:form>
             </div>
 

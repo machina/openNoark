@@ -1,0 +1,83 @@
+open|/friark/auth/login?targetUri=%2F|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|
+clickAndWait|link=Arkiv|
+clickAndWait|link=Nytt Arkiv|
+type|tittel|regarkiv_boko_ad
+clickAndWait|save|
+clickAndWait|link=Arkivdeler|
+clickAndWait|link=Ny Arkivdel|
+type|tittel|regarkivdel_boko_ad
+select|referanseforelder|label=regarkiv_boko_ad
+clickAndWait|save|
+open|/friark/forenkletRegistrering/create|
+type|registreringstype|ad
+type|arkivertav|ad
+select|referansearkivdel.id|label=regarkivdel_boko_ad
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Dokumentbeskrivelser|
+clickAndWait|link=New Dokumentbeskrivelse|
+type|dokumenttype|ad
+type|dokumentstatus|ad
+type|tittel|ad
+type|beskrivelse|ad
+type|forfatter|ad
+type|dokumentmedium|ad
+type|oppbevaringssted|ad
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Dokumentlinker|
+clickAndWait|link=New Dokumentlink|
+select|referanseregistrering.id|label=no.friark.ds.ForenkletRegistrering : 3
+type|tilknyttetregistreringSom|ad
+type|dokumentnummer|ad
+type|tilknyttetav|ad
+select|dokumentbeskrivelse.id|label=no.friark.ds.Dokumentbeskrivelse : 4
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Klassifikasjonssystemer|
+clickAndWait|link=New Klassifikasjonssystem|
+type|klassifikasjonstype|bk_kl
+type|tittel|bk_kl
+type|beskrivelse|bk_kl
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Klasser|
+clickAndWait|link=New Klasse|
+type|tittel|bk_kl
+type|beskrivelse|bk_kl
+type|nøkkelord|bk_kl
+select|referanseforelderKlassifikasjonssystem.id|label=bk_kl
+clickAndWait|//input[@value='Create']|
+open|/friark/forenkletRegistrering/list|
+clickAndWait|link=3|
+clickAndWait|_action_Edit|
+clickAndWait|_action_Update|
+clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=New BevaringOgKassasjon|
+select|kassasjonsvedtak|label=Kasseres
+type|bevaringstid|3
+type|kassasjonshjemmel|dfs
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=BevaringOgKassasjon List|
+clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=1|
+clickAndWait|link=Referanser|
+select|klasse.id|label=Klasse :
+clickAndWait|//input[@value='Legg til']|
+clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=Brukeradministrasjon|
+clickAndWait|link=Roller|
+clickAndWait|link=administrator|
+type|//input[@id='perm' and @name='perm' and @value='']|kassasjon:*:*
+clickAndWait|add_perm|
+clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=Utfør kasseringer|
+select|til_year|label=2026
+clickAndWait|søk|
+click|kasser_4|
+click|slett_til_mappe|
+clickAndWait|kasser_valgte|
+select|til_year|label=2026
+clickAndWait|søk|
+verifyTextNotPresent|Treff|
+clickAndWait|link=Dokumentbeskrivelser|
+verifyElementNotPresent|//table/tbody/tr[1]|
