@@ -62,9 +62,15 @@ class BootStrap {
 			// Administrator user and role. 
 				def adminRole = new ShiroRole(name: "administrator") 
 				adminRole.addToPermissions("user")
+				adminRole.addToPermissions("klasser")
+
 				if(!adminRole.save()){
 					println adminRole.errors
 				}
+				adminRole.addToPermissions("klasser")
+				if(!adminRole.save()){
+          println adminRole.errors
+        }
 				def adminUser = new ShiroUser(username: "admin", passwordHash: new Sha1Hash("admin").toHex()).save()
 				adminUser.addToRoles(ShiroRole.findByName("administrator"))
 				adminUser.save()

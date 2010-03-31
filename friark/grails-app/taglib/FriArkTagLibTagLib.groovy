@@ -61,8 +61,8 @@ class FriArkTagLibTagLib {
             c = value
         }
         else if (value != null) {
-            c = new GregorianCalendar();
-            c.setTime(value)
+            /*c = new GregorianCalendar();
+            c.setTime(value)*/
         }
         if (c != null) {
             day = c.get(GregorianCalendar.DAY_OF_MONTH)

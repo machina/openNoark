@@ -17,7 +17,7 @@
 
 import grails.converters.*
 import no.friark.ds.*
-
+import org.apache.shiro.SecurityUtils
 /**
 * CRUD-operasjoner for klasser.
 *
@@ -25,6 +25,7 @@ import no.friark.ds.*
 */
 class KlasseController {
     def commonService
+		def klasseService
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
@@ -89,19 +90,10 @@ class KlasseController {
 
     def update = {
         def klasseInstance = Klasse.get( params.id )
+				boolean success = false
         if(klasseInstance) {
-            if(params.version) {
-                def version = params.version.toLong()
-                if(klasseInstance.version > version) {
-                    
-                    klasseInstance.errors.rejectValue("version", "klasse.optimistic.locking.failure", "Another user has updated this Klasse while you were editing.")
-                    render(view:'edit',model:[klasseInstance:klasseInstance])
-                    return
-                }
-            }
-						println "params.bevaringOgKassasjon ${params.bevaringOgKassasjon}"
-            klasseInstance.properties = params
-            if(!klasseInstance.hasErrors() && klasseInstance.save()) {
+						(klasseInstance, success) = klasseService.update(klasseInstance, params)
+            if(success) {
                 flash.message = "Klasse ${params.id} updated"
                 redirect(action:show,id:klasseInstance.id)
             }
@@ -122,21 +114,8 @@ class KlasseController {
     }
 
     def save = {
-				println params
-//				params.klasseid = null
-        def klasseInstance = new Klasse(params)
-				commonService.setCreated(klasseInstance)
-				commonService.setNewSystemID(klasseInstance)
-
-//				println("forelderklasse: ${klasseInstance.referanseforelderKlasse}")
-//				if(!klasseInstance.referanseforelderKlasse?.id) klasseInstance.referanseforelderKlasse = null
-//				klasseInstance = klasseInstance.merge()
-				if(params.nøkkelord && params.nøkkelord instanceof String) klasseInstance.nøkkelord = params.nøkkelord.tokenize(" ")
-        if(!klasseInstance.hasErrors() && klasseInstance.save()) {
-						println("klasser: ${Klasse.list()}")
-						println "${klasseInstance}"
-	//					klasseInstance.save()
-						println("klasser: ${Klasse.list()}")
+				def (klasseInstance, success) = klasseService.save(params)
+				if(success) {
             flash.message = "Klasse ${klasseInstance.id} created"
             redirect(action:show,id:klasseInstance.id)
         }

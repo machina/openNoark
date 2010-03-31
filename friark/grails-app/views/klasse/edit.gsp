@@ -84,16 +84,7 @@
                                     <label for="avsluttetdato">Avsluttetdato:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'avsluttetdato','errors')}">
-                                    <g:datePicker name="avsluttetdato" value="${klasseInstance?.avsluttetdato}" precision="minute" noSelection="['':'']"></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="avsluttetav">Avsluttetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:klasseInstance,field:'avsluttetav','errors')}">
-                                    <input type="text" id="avsluttetav" name="avsluttetav" value="${fieldValue(bean:klasseInstance,field:'avsluttetav')}"/>
+                                    <fa:datePicker name="avsluttetdato" value="${klasseInstance.avsluttetdato}" precision="day" noSelection="['':'']"></fa:datePicker>
                                 </td>
                             </tr> 
                         

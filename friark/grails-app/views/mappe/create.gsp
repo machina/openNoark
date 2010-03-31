@@ -9,10 +9,10 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${resource(dir:'')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Basismappe List</g:link></span>
+            <span class="menuButton"><g:link class="list" action="list">Mappeliste</g:link></span>
         </div>
         <div class="body">
-            <h1>Create Basismappe</h1>
+            <h1>Ny mappe</h1>
             <g:if test="${flash.message}">
 	            <div class="message">${flash.message}</div>
             </g:if>
@@ -28,7 +28,9 @@
 			                    <g:render template="basisCreateFields" model="[basismappeInstance: basismappeInstance, typer: typer]" />
 													<g:render template="sakCreateFields" model="[mappeInstance: basismappeInstance, typer: typer]" />
 													<script>
-														$('.saksmappeParam').hide();
+														if($('#mappetype').val() != 'Saksmappe'){
+															$('.saksmappeParam').hide();
+														}
 														$('#mappetype').change(function() {
 															if($(this).val() === 'Saksmappe'){
 																$('.saksmappeParam').show();

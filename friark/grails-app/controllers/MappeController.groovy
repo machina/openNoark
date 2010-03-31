@@ -112,7 +112,7 @@ class MappeController {
     def save = {
 				def (mappeInstance, success) = mappeService.save(params)
         if(success) {
-            flash.message = "Basismappe ${mappeInstance.id} created"
+            flash.message = "Mappe ${mappeInstance.id} created"
 						withFormat {
 	            html {
 		            render(view:"show",[ basismappeInstance : mappeInstance ])

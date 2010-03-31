@@ -24,7 +24,7 @@ class MappeService {
 
     boolean transactional = true
 		def commonService
-    
+    def mappeIdGeneratorService
     /**
     * Lager en ny mappe med de inkommende paramerterene.
     * @param params Et Map som inneholder metadata for Mappen.
@@ -42,9 +42,10 @@ class MappeService {
 						mappe =  new Saksmappe(params)
 
 				}
+				mappe.mappeid = mappeIdGeneratorService.generatorForMappe(mappe).call()
 				commonService.setNewSystemID mappe
 				commonService.setCreated(mappe)
-				//def (delOk, error) = checkArkivdel params, mappe
+				
 				def (delOk, error) = checkArkivdel(params, mappe)
 				if(!delOk){
 					println error
