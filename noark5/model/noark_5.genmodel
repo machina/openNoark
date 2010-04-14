@@ -342,6 +342,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksmappe/utlånttil"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Saksmappe/referansesekundærKlassifikasjon"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Saksmappe/presedens"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Saksmappe/sekundærklasseringer"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Sakspart">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/sakspartid"/>

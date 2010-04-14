@@ -1,0 +1,4 @@
+open|/friark/auth/login|
+type|username|admin
+type|password|admin
+clickAndWait|//input[@value='Sign in']|

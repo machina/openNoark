@@ -130,4 +130,8 @@ class MappeController {
             render(view:'create',model:[basismappeInstance:mappeInstance, typer: mappeService.mappetyper])
         }
     }
+
+		def sekundærKlasse = {
+			return [mappe: Basismappe.get(params.id)]
+		}
 }

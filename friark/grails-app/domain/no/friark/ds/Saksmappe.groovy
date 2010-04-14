@@ -32,8 +32,10 @@ class Saksmappe extends Basismappe{
     referansesekundærKlassifikasjon(unique: true)
     presedens(nullable: true)
     presedens(unique: false)
+    sekundærklasseringer(nullable: true)
+    sekundærklasseringer(unique: false)
   }
-  static hasMany = [referansesekundærKlassifikasjon:Klasse]
+  static hasMany = [referansesekundærKlassifikasjon:Klasse, sekundærklasseringer:Klasse]
   static mapping = {
   }
   static belongsTo = Klasse

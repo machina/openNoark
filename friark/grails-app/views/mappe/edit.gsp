@@ -14,7 +14,7 @@
             <span class="menuButton"><g:link class="create" action="create">New Basismappe</g:link></span>
         </div>
         <div class="body">
-            <h1>Edit Basismappe</h1>
+            <h1>Edit mappe</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -35,16 +35,7 @@
                                     <label for="systemID">SystemID:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'systemID','errors')}">
-                                    <input type="text" id="systemID" name="systemID" value="${fieldValue(bean:basismappeInstance,field:'systemID')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="mappeid">Mappeid:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'mappeid','errors')}">
-                                    <input type="text" id="mappeid" name="mappeid" value="${fieldValue(bean:basismappeInstance,field:'mappeid')}"/>
+                                    ${fieldValue(bean:basismappeInstance,field:'systemID')}
                                 </td>
                             </tr> 
                         
@@ -53,7 +44,7 @@
                                     <label for="mappetype">Mappetype:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'mappetype','errors')}">
-                                    <input type="text" id="mappetype" name="mappetype" value="${fieldValue(bean:basismappeInstance,field:'mappetype')}"/>
+                                    ${fieldValue(bean:basismappeInstance,field:'mappetype')}
                                 </td>
                             </tr> 
                         
@@ -98,7 +89,7 @@
 																	</ul> 
                                 </td>
                             </tr> 
-                        
+                        		
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -196,7 +187,21 @@
                                     <g:select optionKey="id" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}" optionvalue="tittel" ></g:select>
                                 </td>
                             </tr> 
-                        
+                        		<g:if test="${basismappeInstance.mappetype == 'Saksmappe'}">
+															<tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nøkkelord">Sekundærklasser:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'sekundærklasseringer','errors')}">
+                                  <ul>
+                                    <g:each in="${basismappeInstance.sekundærklasseringer}" var="klasse">
+                                      <li>${klasse.tittel}</li>
+                                    </g:each>
+                                      <li><g:link controller="mappe" action="sekundærKlasse" id="${basismappeInstance.id}">Rediger sekundærklasser</g:link>
+                                  </ul>
+                                </td>
+															</tr>
+														</g:if>
                         </tbody>
                     </table>
                 </div>
