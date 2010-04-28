@@ -2,6 +2,23 @@
 <?eclipse version="3.4"?>
 <plugin>
 
+   
+
+<extension point="org.eclipse.ui.propertyPages">
+	<page 
+		id="org.friark.emf2gorm.poject_properties" 
+		name="Emf2Gorm properties" 
+		class="emf2gorm.Emf2GormPropertiesPage"
+		>
+ 		<enabledWhen>
+ 			<adapt type="org.eclipse.core.resources.IProject">
+ 			</adapt>
+ 		</enabledWhen>
+ 	</page>
+ </extension>
+ 
+
+
    <extension
          point="org.eclipse.ui.commands">
       <category
