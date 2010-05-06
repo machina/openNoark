@@ -12,7 +12,9 @@ class BootStrap {
 					if(!obj.save()){
 						println obj.errors
 						fail "unable to save: ${obj.errors}"
-					}		
+					}
+				
+
 				}
 				grails.test.GrailsUnitTestCase.metaClass.loginTestUser = { isPermitted = {true}->
 					def testRole = new ShiroRole(name: "test")
@@ -36,6 +38,15 @@ class BootStrap {
 				}
 				
 			}
+
+			SeleniumHelper.metaClass.acceptFile = { File file ->
+						return !file.isHidden() && file.isFile()
+					}
+
+					SeleniumHelper.metaClass.acceptDirectory = {File file ->
+						return (file.isDirectory() && !(file.isHidden() || file.name.startsWith('.') || file.name == 'inc' ))
+					}
+
 /*			InputStream.metaClass.eachBytes = {Integer buffSize, Closure closure ->
 																					byte[] buffer = new byte[buffSize]
 																					byte[] tmp = null

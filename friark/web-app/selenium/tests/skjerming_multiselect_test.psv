@@ -1,3 +1,4 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
 open|/friark/auth/login?targetUri=%2Fskjerming%2Fcreate|
 type|username|admin
 type|password|admin

@@ -1,7 +1,4 @@
-open|/friark/auth/login?targetUri=%2F|
-type|username|admin
-type|password|admin
-clickAndWait|//input[@value='Sign in']|
+include|/friark/selenium/tests/inc/clear_and_login.html
 clickAndWait|link=Arkiv|
 clickAndWait|link=Nytt Arkiv|
 type|tittel|regarkiv_boko
@@ -11,15 +8,14 @@ clickAndWait|link=Ny Arkivdel|
 type|tittel|regarkivdel_boko
 select|referanseforelder|label=regarkiv_boko
 clickAndWait|save|
-clickAndWait|link=Basismapper|
-clickAndWait|link=New Basismappe|
+clickAndWait|link=Mapper|
+clickAndWait|link=Ny Mappe|
 type|mappetype|dilldall
 type|tittel|regmappe_boko
 type|offentligtittel|regmappe_boko
 select|referansearkivdel.id|label=regarkivdel_boko
 clickAndWait|//input[@value='Create']|
 clickAndWait|create|
-type|registreringstype|dill
 select|referanseforelderBasismappe.id|label=regmappe_boko
 type|arkivertav|sfsdfsdfsdfs
 clickAndWait|//input[@value='Create']|
@@ -35,13 +31,14 @@ type|forfatter|meg
 type|dokumentmedium|none
 type|oppbevaringssted|her
 clickAndWait|//input[@value='Create']|
+storeText|//td[2]|dok_id_1
 clickAndWait|link=Dokumentobjekter|
 clickAndWait|link=New Dokumentobjekt|
 type|versjonsnummer|1
 type|variantformat|1
 type|format|tekst
 type|formatdetaljer|utf-8
-select|referansedokumentBeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : 5
+select|referansedokumentBeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : ${dok_id_1}
 type|referansedokumentfil|/etc/passwd
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Bevaring og kassasjon|
@@ -50,7 +47,7 @@ select|kassasjonsvedtak|label=Bevares
 type|kassasjonshjemmel|fdsfsd
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Referanser|
-select|dokumentBeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : 5
+select|dokumentBeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : ${dok_id_1}
 clickAndWait|//input[@value='Legg til']|
 clickAndWait|link=Bevaring og kassasjon|
 clickAndWait|link=Oversikt|
@@ -61,9 +58,10 @@ verifyTextPresent|Treff|
 verifyElementPresent|//table/tbody/tr[1]|
 verifyElementNotPresent|//table/tbody/tr[2]|
 clickAndWait|link=Bevaring og kassasjon|
-clickAndWait|link=1|
+storeText|//td[1]|bevid
+clickAndWait|link=${bevid}|
 clickAndWait|link=Referanser|
-select|referanseregistrering.id|label=regexp:.*ForenkletRegistrering : 4
+select|referanseregistrering.id|index=1
 clickAndWait|//input[@value='Legg til']|
 clickAndWait|link=Dokumentbeskrivelser|
 clickAndWait|link=New Dokumentbeskrivelse|
@@ -75,10 +73,11 @@ type|forfatter|2
 type|dokumentmedium|2223
 type|oppbevaringssted|2
 clickAndWait|//input[@value='Create']|
+storeText|//td[2]|dok_id_2
 clickAndWait|link=Dokumentlinker|
 clickAndWait|link=New Dokumentlink|
-select|referanseregistrering.id|label=regexp:.*ForenkletRegistrering : 4
-select|dokumentbeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : 7
+select|referanseregistrering.id|index=1
+select|dokumentbeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : ${dok_id_2}
 type|tilknyttetregistreringSom|2
 type|dokumentnummer|2
 type|tilknyttetav|2
@@ -92,10 +91,10 @@ verifyTextPresent|Treff|
 verifyElementPresent|//table/tbody/tr[1]|
 verifyElementPresent|//table/tbody/tr[2]|
 verifyElementNotPresent|//table/tbody/tr[3]|
-clickAndWait|link=Basismapper|
-clickAndWait|link=3|
+clickAndWait|link=Mapper|
+storeText|//td[1]|mappeid
+clickAndWait|link=${mappeid}|
 clickAndWait|create|
-type|registreringstype|3
 select|referanseforelderBasismappe.id|label=regmappe_boko
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Dokumentbeskrivelser|
@@ -107,10 +106,11 @@ type|beskrivelse|3
 type|forfatter|3
 type|dokumentmedium|3
 clickAndWait|//input[@value='Create']|
+storeText|//td[2]|dok_id_3
 clickAndWait|link=Dokumentlinker|
 clickAndWait|link=New Dokumentlink|
-select|referanseregistrering.id|label=regexp:.*ForenkletRegistrering : 8
-select|dokumentbeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : 9
+select|referanseregistrering.id|index=2
+select|dokumentbeskrivelse.id|label=regexp:.*Dokumentbeskrivelse : ${dok_id_3}
 type|tilknyttetregistreringSom|3
 type|dokumentnummer|3
 type|tilknyttetav|3
@@ -122,9 +122,10 @@ select|til_year|label=2025
 clickAndWait|søk|
 verifyElementNotPresent|//table/tbody/tr[3]|
 clickAndWait|link=Bevaring og kassasjon|
-clickAndWait|link=1|
+storeText|//td[1]|bevid
+clickAndWait|link=${bevid}|
 clickAndWait|link=Referanser|
-select|basismappe.id|label=regexp:.*Basismappe : 3
+select|basismappe.id|label=regexp:.*Basismappe : ${mappeid}
 clickAndWait|//input[@value='Legg til']|
 clickAndWait|link=Bevaring og kassasjon|
 clickAndWait|link=Oversikt|

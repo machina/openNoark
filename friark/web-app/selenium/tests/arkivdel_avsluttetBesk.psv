@@ -1,7 +1,4 @@
-open|/friark/auth/login|
-type|username|admin
-type|password|admin
-clickAndWait|//input[@value='Sign in']|
+include|/friark/selenium/tests/inc/clear_and_login.html
 clickAndWait|link=Arkiv|
 clickAndWait|link=Nytt Arkiv|
 type|tittel|dilldall
@@ -23,14 +20,14 @@ type|dokumentmedium|epos
 type|dokumentmedium|epost
 select|referanseforelder|label=dilldall
 clickAndWait|save|
-clickAndWait|link=Basismapper|
+clickAndWait|link=Mapper|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=dall|
 clickAndWait|_action_Edit|
 select|arkivdelstatus|label=Avsluttet
 clickAndWait|save|
-clickAndWait|link=Basismapper|
-clickAndWait|link=New Basismappe|
+clickAndWait|link=Mapper|
+clickAndWait|link=Ny Mappe|
 type|mappetype|aaa
 type|tittel|aaaaaaaaaaaaaa
 type|offentligtittel|a
@@ -40,9 +37,8 @@ type|nøkkelord|aa
 select|referansearkivdel.id|label=dall
 clickAndWait|//input[@value='Create']|
 verifyTextNotPresent|created|
-verifyTextPresent|Create Basismappe|
-open|/friark/forenkletRegistrering/create|
-type|registreringstype|asdasda
+verifyTextPresent|Kan ikke lege til en mappe i et arkiv med periodestatus Aktiv periode|
+open|/friark/registrering/create|
 type|arkivertav|dsadasd
 select|referansearkivdel.id|label=dall
-verifyTextPresent|Create ForenkletRegistrering|
+verifyTextPresent|Ny registrering|

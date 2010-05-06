@@ -1,7 +1,4 @@
-open|/friark/auth/login?targetUri=%2F|
-type|username|admin
-type|password|admin
-clickAndWait|//input[@value='Sign in']|
+include|/friark/selenium/tests/inc/clear_and_login.html
 clickAndWait|link=Klassifikasjonssystemer|
 clickAndWait|link=New Klassifikasjonssystem|
 type|klassifikasjonstype|nøkkelord test

@@ -1,7 +1,4 @@
-open|/friark/auth/login?targetUri=%2F|
-type|username|admin
-type|password|admin
-clickAndWait|//input[@value='Sign in']|
+include|/friark/selenium/tests/inc/clear_and_login.html
 clickAndWait|link=Arkiv|
 clickAndWait|link=Nytt Arkiv|
 type|tittel|nøkkelord test
@@ -17,9 +14,8 @@ type|dokumentmedium|nøkkelord test
 
 select|referanseforelder|label=nøkkelord test
 clickAndWait|save|
-clickAndWait|link=Basismapper|
-clickAndWait|link=New Basismappe|
-type|mappeid|1
+clickAndWait|link=Mapper|
+clickAndWait|link=Ny Mappe|
 type|mappetype|nøkkelord test
 type|tittel|nøkkelord test
 type|offentligtittel|nøkkelord test
@@ -36,7 +32,7 @@ clickAndWait|link=Rediger nøkkelord|
 type|new|nøkkeltre
 clickAndWait|_action_Update|
 verifyTextPresent|nøkkeltre|
-clickAndWait|link=Basismapper|
+clickAndWait|link=Mapper|
 clickAndWait|//td[1]/a|
 verifyTextPresent|nøkkelen|
 verifyTextPresent|nøkkelto|
@@ -45,7 +41,7 @@ clickAndWait|_action_Edit|
 clickAndWait|link=Rediger nøkkelord|
 clickAndWait|//a[contains(@href, 'ord=n%C3%B8kkelto')]|
 clickAndWait|//a[contains(@href, 'ord=n%C3%B8kkeltre')]|
-clickAndWait|link=Basismapper|
+clickAndWait|link=Mapper|
 clickAndWait|//td[1]/a|
 verifyTextPresent|nøkkelen|
 verifyTextNotPresent|nøkkelto|

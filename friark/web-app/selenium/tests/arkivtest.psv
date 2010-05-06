@@ -1,7 +1,4 @@
-open|/friark/auth/login|
-type|username|admin
-type|password|admin
-clickAndWait|//input[@value='Sign in']|
+include|/friark/selenium/tests/inc/clear_and_login.html
 open|/friark/arkiv/create|
 type|tittel|Test Arkiv
 clickAndWait|//input[@name='save']|

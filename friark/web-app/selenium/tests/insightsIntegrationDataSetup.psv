@@ -1,7 +1,4 @@
-open|/friark/auth/login|
-type|username|admin
-type|password|admin
-clickAndWait|//input[@value='Sign in']|
+include|/friark/selenium/tests/inc/clear_and_login.html
 clickAndWait|link=Arkiv|
 clickAndWait|link=Nytt Arkiv|
 type|beskrivelse|Arkiv for insights integrasjon
@@ -15,27 +12,24 @@ type|beskrivelse|Arkivdel for insights integrasjon
 type|dokumentmedium|no.machina.gestalt2.ds.Any
 select|referanseforelder|label=Insights Arkiv
 clickAndWait|save|
-clickAndWait|link=Basismapper|
-clickAndWait|link=New Basismappe|
+clickAndWait|link=Mapper|
+clickAndWait|link=Ny Mappe|
 type|tittel|mappe1
 type|offentligtittel|mappe1
 select|referansearkivdel.id|label=Insights arkivdel
 clickAndWait|//input[@value='Create']|
-clickAndWait|link=New Basismappe|
-type|mappeid|21
+clickAndWait|link=Ny Mappe|
 select|referansearkivdel.id|label=Insights arkivdel
 type|beskrivelse|mappe
 type|dokumentmedium|mappe
 clickAndWait|//input[@value='Create']|
-clickAndWait|link=New Basismappe|
+clickAndWait|link=Ny Mappe|
 type|tittel|mappe2
 type|offentligtittel|mappe2
 select|referansearkivdel.id|label=Insights arkivdel
-type|mappeid|2
 type|beskrivelse|mappe nr 2
 clickAndWait|//input[@value='Create']|
 clickAndWait|create|
-type|registreringstype|reg 1
 type|arkivertav|reg 1
 select|referanseforelderBasismappe.id|label=mappe1
 click|//input[@value='Create']|

@@ -1,7 +1,4 @@
-open|/friark/auth/login|
-type|username|admin
-type|password|admin
-clickAndWait|//input[@value='Sign in']|
+include|/friark/selenium/tests/inc/clear_and_login.html
 clickAndWait|link=Arkiv|
 clickAndWait|link=Nytt Arkiv|
 type|tittel|avs_mappe_besk
@@ -15,8 +12,8 @@ type|beskrivelse|arkivdel for dill
 type|dokumentmedium|email
 select|referanseforelder|label=avs_mappe_besk
 clickAndWait|save|
-clickAndWait|link=Basismapper|
-clickAndWait|link=New Basismappe|
+clickAndWait|link=Mapper|
+clickAndWait|link=Ny Mappe|
 type|mappetype|aaa
 type|tittel|avs_mappe_besk
 type|offentligtittel|a
@@ -31,10 +28,9 @@ select|avsluttetdato_day|label=1
 select|avsluttetdato_month|label=January
 select|avsluttetdato_year|label=1991
 clickAndWait|_action_Update|
-open|/friark/forenkletRegistrering/create|
-type|registreringstype|asdasda
+open|/friark/registrering/create|
 type|opprettetav|dsadasd
 type|arkivertav|dsadasd
 select|referanseforelderBasismappe.id|label=avs_mappe_besk
 clickAndWait|//input[@value='Create']|
-verifyTextPresent|Create ForenkletRegistrering|
+verifyTextPresent|Ny registrering|
