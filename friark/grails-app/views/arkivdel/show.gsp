@@ -130,7 +130,7 @@
                             <td valign="top" class="name">Registreringer:</td>
                             <td valign="top" class="value"><ul>
                               <g:each in="${arkivdel.referanseregistrering}" var="reg">
-                                <li><g:link action="show" controller="forenkletRegistrering" id="${reg.id}">${reg}</g:link></li>
+                                <li><g:link action="show" controller="registrering" id="${reg.id}">${reg}</g:link></li>
                               </g:each></ul>
                             </td>
                         </tr>

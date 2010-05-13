@@ -15,6 +15,7 @@ class Korrespondansepart {
   String epostadresse
   String telefonnummer
   String kontaktperson
+  Journalpost journalpost
   static constraints = {
     korrespondanseparttype(nullable: false)
     korrespondanseparttype(unique: true)
@@ -34,6 +35,8 @@ class Korrespondansepart {
     telefonnummer(unique: true)
     kontaktperson(nullable: true)
     kontaktperson(unique: true)
+    journalpost(nullable: false)
+    journalpost(unique: true)
   }
   static hasMany = [:]
   static mapping = {

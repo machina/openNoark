@@ -132,9 +132,12 @@ class KassasjonService {
 		private def dokumenterFraKlasse(def vedtak){
 			def retval = []
 			def leggTilFraReg = leggTilFraReg.curry(retval)
+			def leggTilFraMappe = leggTilFraMappe.curry(retval)
 			if(vedtak.klasse){
 				vedtak.klasse.each{ klasse ->
 					klasse.referansebarnForenkletRegistrering.each leggTilFraReg
+					println "klasse.referansebarnBasismappe ${klasse.referansebarnBasismappe}"
+					klasse.referansebarnBasismappe.each leggTilFraMappe
 				}
 			}
 			return retval
@@ -154,8 +157,10 @@ class KassasjonService {
 		}
 
 		def leggTilFraMappe = {retval, mappe ->
-			def leggTilFraReg = leggTilFraMappe.curry(retval)
-			if(mappe.bevaringOgKassasjon == null) mappe.referansebarnForenkletRegistrering.each leggTilFraReg
+			def leggTilFraReg = leggTilFraReg.curry(retval)
+			println "mappe ${mappe}"
+			//printn "mappe.referansebarnForenkletRegistrering ${mappe.referansebarnForenkletRegistrering}"
+			if(mappe.bevaringOgKassasjon == null) ForenkletRegistrering.findAllByreferanseforelderBasismappe(mappe).each leggTilFraReg
 
 		}
 

@@ -8,8 +8,8 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${resource(dir:'')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Basismappe List</g:link></span>
-            <span class="menuButton"><g:link class="create" action="create">New Basismappe</g:link></span>
+            <span class="menuButton"><g:link class="list" action="list">Liste</g:link></span>
+            <span class="menuButton"><g:link class="create" action="create">Ny Mappe</g:link></span>
         </div>
         <div class="body">
             <h1>Show Basismappe</h1>
@@ -157,7 +157,7 @@
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
                                 <g:each var="r" in="${basismappeInstance.referansebarnForenkletRegistrering}">
-                                    <li><g:link controller="forenkletRegistrering" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="registrering" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
@@ -184,7 +184,7 @@
                     <span class="button"><g:actionSubmit class="edit" value="Edit" /></span>
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
                 </g:form>
-								<g:form controller="forenkletRegistrering" action="create" method="get">
+								<g:form controller="registrering" action="create" method="get">
 										<input type="hidden" name="mappe_id" value="${basismappeInstance?.id}" />
 										<span class="button"><g:submitButton class="create" name="create" value="Legg til registrering" /></span>
 								</g:form>

@@ -49,6 +49,7 @@ class MappeService {
 				def (delOk, error) = checkArkivdel(params, mappe)
 				if(!delOk){
 					println error
+					mappe.errors.reject 'org.friark.noexistingKey', error
 					return [mappe, false]
 				}
 				if(params.nøkkelord && params.nøkkelord instanceof String) mappe.nøkkelord = params.nøkkelord.tokenize(" ")

@@ -1235,6 +1235,10 @@
         <details key="name" value="Utlånttil"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="korespondansepart" lowerBound="1"
+        upperBound="-1" eType="#//Korrespondansepart"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="saksansvar" unique="false"
+        lowerBound="1" eType="#//Saksansvar"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Klasse" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1527,6 +1531,8 @@
         <details key="name" value="Kontaktperson"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journalpost" lowerBound="1"
+        eType="#//Journalpost"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Kryssreferanse">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1848,6 +1854,8 @@
         <details key="name" value="Journalenhet"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journalpost" upperBound="-1"
+        eType="#//Journalpost"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Saksfordeling">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

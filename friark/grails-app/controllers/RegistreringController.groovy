@@ -75,7 +75,7 @@ class RegistreringController {
             redirect(action:list)
         }
         else {
-            return [ forenkletRegistreringInstance : forenkletRegistreringInstance ]
+            return [ forenkletRegistreringInstance : forenkletRegistreringInstance, typer: registreringService.registreringTyper ]
         }
     }
 
@@ -109,7 +109,7 @@ class RegistreringController {
     def create = {
         def forenkletRegistreringInstance = new ForenkletRegistrering()
         forenkletRegistreringInstance.properties = params
-        return ['forenkletRegistreringInstance':forenkletRegistreringInstance]
+        return ['forenkletRegistreringInstance':forenkletRegistreringInstance, typer: registreringService.registreringTyper]
     }
 
     def save = {
@@ -134,7 +134,7 @@ class RegistreringController {
 						}
         }
         else {
-            render(view:'create',model:[forenkletRegistreringInstance:forenkletRegistreringInstance])
+            render(view:'create',model:[forenkletRegistreringInstance:forenkletRegistreringInstance, typer: registreringService.registreringTyper])
         }
     }
 }

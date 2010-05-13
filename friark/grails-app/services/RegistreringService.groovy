@@ -26,13 +26,16 @@ class RegistreringService {
 
     boolean transactional = true
 		def commonService
-
 		/**
     * Lager en ny Registrering basert på de inkommende metadata.
     * @param params En Map av metadata for registreringen.
     */
 		def registrer(params){
         def registrering = null
+				println "regtype: ${params.registreringstype}"
+				def korrespondansepart = null
+				def saksansvar
+				//for webservices
         if(params.registrering != null){
           params.registrering.arkivertdato = parse(params.ForenkletRegistrering.arkivertdato)
           params.registrering.opprettetdato = parse(params.ForenkletRegistrering.opprettetdato)
@@ -55,14 +58,18 @@ class RegistreringService {
           if(params.registrering.arkivdel_id != null){
             registrering.setReferansearkivdel(Arkivdel.get(Long.parseLong(params.ForenkletRegistrering.arkivdel_id)))
           }
+					
 
-        } else {
+        } else { //for web interface
+					
 					switch(params.registreringstype){
             case 'Forenkletregistrering':
               registrering = new ForenkletRegistrering(params)
               break
             case 'Journalpost':
               registrering = new Journalpost(params)
+							korrespondansepart = new Korrespondansepart(params)
+							saksansvar = new Saksansvar(params)
               break
           }
 					
@@ -77,11 +84,27 @@ class RegistreringService {
 					del.referansearvtaker.addToReferansemappe mappe
 					del.referansearvtaker.save()
 				}
-
+				
+				if(saksansvar != null){
+						saksansvar.addToJournalpost(registrering)
+						registrering.saksansvar = saksansvar
+						if(!saksansvar.save()) println saksansvar.errors
+				}
 				if(!registrering.hasErrors() && registrering.save()){
+					if(korrespondansepart != null){
+						korrespondansepart.journalpost = registrering
+						registrering.addToKorespondansepart(korrespondansepart)
+						korrespondansepart.save()
+					}
+						
 					return [registrering, false]
 				} else {
+					println registrering.errors
 					return [registrering, true]
 				}
 		}
+
+	def getRegistreringTyper(){
+      commonService.getParameter("tilgjengelige_registreringstyper").split(",").collect{it.trim()}
+  }
 }

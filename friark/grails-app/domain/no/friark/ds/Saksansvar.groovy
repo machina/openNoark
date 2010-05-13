@@ -18,8 +18,10 @@ class Saksansvar {
     saksbehandler(unique: true)
     journalenhet(nullable: true)
     journalenhet(unique: true)
+    journalpost(nullable: true)
+    journalpost(unique: true)
   }
-  static hasMany = [:]
+  static hasMany = [journalpost:Journalpost]
   static mapping = {
   }
 }

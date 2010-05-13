@@ -25,7 +25,7 @@ class MappeIdGeneratorService {
 	}
 
 	def seqGenerator = {
-		def maxMappe = Saksmappe.executeQuery("select s.mappeid from Saksmappe s WHERE s.mappeid not like '${new Date().format('yy')}/%' ORDER BY length(s.mappeid) desc, s.mappeid desc")
+		def maxMappe = Basismappe.executeQuery("select s.mappeid from Basismappe s WHERE s.mappeid not like '${new Date().format('yy')}/%' ORDER BY length(s.mappeid) desc, s.mappeid desc")
 		if( maxMappe[0] == null) return "1"
     def i = maxMappe[0].toLong()
     i++

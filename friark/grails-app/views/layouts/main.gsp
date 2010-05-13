@@ -76,6 +76,12 @@
     	            <li class="leftmenuitem">
                   	<a href="/friark/mappe/index">Mapper</a>
 									</li>
+									<li class="leftmenuitem">
+                    <a href="/friark/korrespondansepart/index">Korrespondansepart</a>
+                  </li>
+									<li class="leftmenuitem">
+                    <a href="/friark/saksansvar/index">Saksansvar</a>
+                  </li>
     	            <li class="leftmenuitem">
                   	<a href="/friark/skjerming/index">Skjerming</a>
 									</li>

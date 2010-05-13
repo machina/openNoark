@@ -41,7 +41,7 @@ public class Emf2GormPropertiesPage extends PropertyPage {
 
 	public String getGenerateToDir(){
 		try {
-			String dir = ((IProjectNature) getElement()).getProject().getPersistentProperty(
+			String dir = getProject().getPersistentProperty(
 					new QualifiedName(Platform.getBundle("emf2gorm").getSymbolicName(), "generateToDir")
 					);
 			return dir == null ? "" : dir;
@@ -54,13 +54,24 @@ public class Emf2GormPropertiesPage extends PropertyPage {
 
 	public void setGenerateToDir(String dir){
 		try {
-			((IProjectNature) getElement()).getProject().setPersistentProperty(
+			getProject().setPersistentProperty(
 					new QualifiedName(Platform.getBundle("emf2gorm").getSymbolicName(), "generateToDir"),
 					dir	);
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
+	}
+	
+	private IProject getProject() {
+		Object element = getElement();
+		if(element instanceof IProjectNature){
+			return ((IProjectNature) element).getProject();
+		}
+		else if(element instanceof IProject){
+			return (IProject) element;
+		}
+		throw new RuntimeException("Unknown type for getElement(): "+element.getClass().toString());
 	}
 	
 	@Override

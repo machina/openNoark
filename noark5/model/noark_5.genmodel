@@ -215,6 +215,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/antallvedlegg"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/utlåntdato"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/utlånttil"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Journalpost/korespondansepart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Journalpost/saksansvar"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Klasse">
       <genAnnotations source="http://opennoark.machina.no">
@@ -265,6 +267,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/epostadresse"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/telefonnummer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/kontaktperson"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Korrespondansepart/journalpost"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Kryssreferanse">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/tilKlasse"/>
@@ -326,6 +329,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksansvar/administrativenhet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksansvar/saksbehandler"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksansvar/journalenhet"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Saksansvar/journalpost"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Saksfordeling">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksfordeling/fordelttil"/>

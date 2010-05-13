@@ -17,6 +17,7 @@ class Journalpost extends Basisregistrering{
   String antallvedlegg
   Date utlåntdato
   String utlånttil
+  Saksansvar saksansvar
   static constraints = {
     løpenummer(nullable: false)
     løpenummer(unique: true)
@@ -42,8 +43,12 @@ class Journalpost extends Basisregistrering{
     utlåntdato(unique: true)
     utlånttil(nullable: true)
     utlånttil(unique: true)
+    korespondansepart(minSize: 1)
+    korespondansepart(unique: true)
+    saksansvar(nullable: false)
+    saksansvar(unique: false)
   }
-  static hasMany = [:]
+  static hasMany = [korespondansepart:Korrespondansepart]
   static mapping = {
   }
 }

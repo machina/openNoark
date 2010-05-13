@@ -1,0 +1,21 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=jpTest
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=jpTest
+include|/friark/selenium/tests/inc/create_mappe.html|name=jpTest,klasse_idx=0,arkivdel_idx=1
+clickAndWait|create|
+select|registreringstype|label=Journalpost
+select|referanseforelderBasismappe.id|index=1
+type|opprettetav|dfdsfsd
+type|tittel|fdsfsdf
+type|korrespondanseparttype|fdsfd
+type|korrespondansepartnavn|sfdsfs
+type|postadresse|dfsdfsdf
+type|postnummer|sfsdfsd
+type|poststed|fdsfs
+type|utenlandsadresse|fdsfdsfsd
+type|kontaktperson|fdsfds sdfdsfs
+type|administrativenhet|admin enhet
+type|saksbehandler|lvl 5 casehealer
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Saksansvar|
+verifyElementPresent|//table/tbody/tr[1]|

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_2Up_0WJEEd6YJPFVa0RGJQ" type="Ecore" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_2Up_0WJEEd6YJPFVa0RGJQ" type="Ecore" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_JmihIadaEd62Y8lmI6-RQg" type="2001">
     <children xmi:type="notation:Node" xmi:id="_JmpO0KdaEd62Y8lmI6-RQg" type="5001"/>
     <children xmi:type="notation:Node" xmi:id="_JmsSIKdaEd62Y8lmI6-RQg" type="7001">
@@ -1090,18 +1090,6 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_lEkjkqw8Ed6SCbnJw8rgQA" fontName="Sans"/>
     <element xmi:type="ecore:EReference" href="noark.ecore#//ForenkletRegistrering/referansearkivdel"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lEkjk6w8Ed6SCbnJw8rgQA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_lEm_0Kw8Ed6SCbnJw8rgQA" type="4003" source="_JnotUKdaEd62Y8lmI6-RQg" target="_JnXAhKdaEd62Y8lmI6-RQg">
-    <children xmi:type="notation:Node" xmi:id="_lEnm4Kw8Ed6SCbnJw8rgQA" type="6002">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_lEnm4aw8Ed6SCbnJw8rgQA" y="40"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_lEnm4qw8Ed6SCbnJw8rgQA" type="6004">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_lEnm46w8Ed6SCbnJw8rgQA" y="60"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_lEm_0aw8Ed6SCbnJw8rgQA"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_lEm_0qw8Ed6SCbnJw8rgQA" fontName="Sans"/>
-    <element xmi:type="ecore:EReference" href="noark.ecore#//ForenkletRegistrering/referansedokumentBeskrivelse"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lEm_06w8Ed6SCbnJw8rgQA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_lEvisKw8Ed6SCbnJw8rgQA" type="4003" source="_JnotUKdaEd62Y8lmI6-RQg" target="_JnimsKdaEd62Y8lmI6-RQg">
     <children xmi:type="notation:Node" xmi:id="_lEvitKw8Ed6SCbnJw8rgQA" type="6002">

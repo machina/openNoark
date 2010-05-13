@@ -92,12 +92,25 @@ class Ecore2Gorm {
 				def pkg = src
 				if(!pkg.exists()) pkg.create false, false, null
 				packageName.tokenize('.').each{
-					pkg = pkg.getFolder(it)
+					if(pkg instanceof File){
+						pkg = new File(pkg.getAbsolutePath() + File.separator + it)
+					} else {
+						pkg = pkg.getFolder(it)
+					}
 					if(!pkg.exists()) pkg.create false, false, null
 				}
 								
-				def f = pkg.getFile("${klass.name}.groovy")//new File("src/${packageName.split('.').join('/')}")
-				if(f.exists()) f.delete true, null
+				def f
+				if( pkg instanceof File){
+					f = new File( pkg.getAbsolutePath() + File.separator +  "${klass.name}.groovy")
+					if(f.exists()) f.delete()
+				} else {
+					f = pkg.getFile("${klass.name}.groovy")
+					if(f.exists()) f.delete true, null
+				}
+				
+				
+				//if(f.exists()) f.delete true, null
 				ByteArrayInputStream is = new ByteArrayInputStream(writer.toString().getBytes());
 				if(f instanceof File){
 					f.append is
