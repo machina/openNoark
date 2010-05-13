@@ -3,7 +3,7 @@
                                     <label for="referansearkivdel">Referansearkivdel:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referansearkivdel','errors')}">
-                                    <g:select optionKey="id" from="${no.friark.ds.Arkivdel.list()}" name="referansearkivdel.id" value="${forenkletRegistreringInstance?.referansearkivdel?.id}" noSelection="['null':'']"></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" from="${no.friark.ds.Arkivdel.list()}" name="referansearkivdel.id" value="${forenkletRegistreringInstance?.referansearkivdel?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
@@ -12,7 +12,7 @@
                                     <label for="referanseforelderBasismappe">Referanseforelder Basismappe:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referanseforelderBasismappe','errors')}">
-                                    <g:select optionKey="id" from="${no.friark.ds.Basismappe.list()}" name="referanseforelderBasismappe.id" value="${forenkletRegistreringInstance?.referanseforelderBasismappe?.id}" noSelection="['null':'']"></g:select>
+                                    <g:select optionKey="id" optionValue="tittel" from="${no.friark.ds.Basismappe.list()}" name="referanseforelderBasismappe.id" value="${forenkletRegistreringInstance?.referanseforelderBasismappe?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         

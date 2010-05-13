@@ -5,6 +5,8 @@ class TestController {
 
 		def clearAll = {
 			def delete = { it.delete() }
+			Saksansvar.list().collect delete
+			Korrespondansepart.list().collect delete
 			BevaringOgKassasjon.list().collect delete
 			Dokumentlink.list().collect delete
 			Dokumentobjekt.list().collect delete
