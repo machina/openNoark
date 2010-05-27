@@ -7,381 +7,359 @@
   <foreignModel>noark.ecore</foreignModel>
   <genPackages prefix="Noark" basePackage="no.friark" resource="XML" disposableProviderFactory="true"
       ecorePackage="noark.ecore#/">
-    <genClasses ecoreClass="noark.ecore#//Administrasjonsstruktur">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Administrasjonsstruktur/administrativenhetnavn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Administrasjonsstruktur/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Administrasjonsstruktur/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Administrasjonsstruktur/avsluttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Administrasjonsstruktur/administrativenhetsstatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Administrasjonsstruktur/referanseoverordnetEnhet"/>
+    <genClasses ecoreClass="noark.ecore#//AdministrativeUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//AdministrativeUnit/administrativeUnitName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//AdministrativeUnit/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//AdministrativeUnit/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//AdministrativeUnit/finalisedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//AdministrativeUnit/administrativeUnitStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//AdministrativeUnit/generalUnit"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Arkiv">
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="attribute" value="static searchable = true"/>
-      </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/tittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/beskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/arkivstatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/dokumentmedium"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/oppbevaringssted"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/avsluttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkiv/avsluttetav"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkiv/forelder"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkiv/referansebarnArkivdel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkiv/subArkiv"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Arkiv/arkivskaper"/>
+    <genClasses ecoreClass="noark.ecore#//Fonds">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/fondsStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/documentMedium"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/storageLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/finalisedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Fonds/finalisedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Fonds/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Fonds/referenceChildSeries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Fonds/subFonds"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Fonds/fondsCreator"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Arkivdel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/tittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/beskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/arkivdelstatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/dokumentmedium"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/oppbevaringssted"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/avsluttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/avsluttetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/arkivperiodestartdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/arkivperiodesluttdato"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referanseforelder"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referanseforløper"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referansearvtaker"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referanseklassifikasjonsSystem"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referansemappe"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/referanseregistrering"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivdel/bevaringOgKassasjon"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivdel/periodeStatus"/>
+    <genClasses ecoreClass="noark.ecore#//Series">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/recordSectionStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/documentMedium"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/storageLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/finalisedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/finalisedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/recordsPeriodStartDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/recordsPeriodEndDate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/precursor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/successor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/classificationSystem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/file"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/record"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Series/bevaringOgKassasjon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/periodStatus"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Arkivskaper">
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="attribute" value="static searchable = true"/>
-      </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivskaper/arkivskaperid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivskaper/arkivskapernavn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Arkivskaper/beskrivelse"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Arkivskaper/arkiv"/>
+    <genClasses ecoreClass="noark.ecore#//FondsCreator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//FondsCreator/fondsCreatorID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//FondsCreator/fondsCreatorName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//FondsCreator/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//FondsCreator/fonds"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Avlevering">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/ansvarligeksport"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/eksportertdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/antallmappereksportert"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/antallregistreringerEksportert"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/antalldokumenterEksportert"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/sjekksummetadata"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/sjekksumavlevering"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avlevering/sjekksumalgoritme"/>
+    <genClasses ecoreClass="noark.ecore#//Transfer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Transfer/responsibleExport"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Transfer/exportedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Transfer/numberOfFilesExported"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Transfer/numberOfRecordsExported"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Transfer/numberOfDocumentsExported"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Transfer/checksumMetadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Transfer/checksumTransfer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Transfer/checksumAlgorithm"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Avskrivning">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avskrivning/avskrivningsdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avskrivning/avskrevetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Avskrivning/avskrivningsmåte"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Avskrivning/referanseavskriverJournalpost"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Avskrivning/referanseavskrivesavJournalpost"/>
+    <genClasses ecoreClass="noark.ecore#//SignOff">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SignOff/signOffDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SignOff/signedOffBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SignOff/signOffMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//SignOff/signOffsRegistryEntry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//SignOff/signOffedByRegistryEntry"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Basismappe">
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="attribute" value="static searchable = true"/>
-      </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/mappeid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/mappetype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/tittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/offentligtittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/beskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/nøkkelord"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/dokumentmedium"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/oppbevaringssted"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/avsluttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basismappe/avsluttetav"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/referanseforelderKlasse"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/referanseforelderBasismappe"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/referansebarnForenkletRegistrering"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/referansebarnBasismappe"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/referansearkivdel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/bevaringOgKassasjon"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Basismappe/merknad"/>
+    <genClasses ecoreClass="noark.ecore#//BasicFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/fileID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/fileType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/officialTitle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/keyword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/documentMedium"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/storageLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/finalisedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicFile/finalisedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//BasicFile/parentClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//BasicFile/parentFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//BasicFile/childRecord"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//BasicFile/childFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//BasicFile/recordSection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BasicFile/bevaringOgKassasjon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BasicFile/merknad"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Basisregistrering">
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="mapping" value="tablePerHierarchy false"/>
-      </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/registreringsid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/tittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/offentligtittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/beskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/nøkkelord"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/forfatter"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/dokumentmedium"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Basisregistrering/oppbevaringssted"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Basisregistrering/merknad"/>
+    <genClasses ecoreClass="noark.ecore#//BasicRecord">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicRecord/recordID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicRecord/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicRecord/officialTitle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicRecord/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicRecord/keyword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicRecord/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicRecord/documentMedium"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BasicRecord/storageLocation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BasicRecord/merknad"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//BevaringOgKassasjon">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BevaringOgKassasjon/kassasjonsvedtak"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BevaringOgKassasjon/kassasjonshjemmel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BevaringOgKassasjon/bevaringstid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//BevaringOgKassasjon/kassasjonsdato"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/registrering"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/arkivdel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/mappe"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/klasse"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//BevaringOgKassasjon/dokumentBeskrivelse"/>
+    <genClasses ecoreClass="noark.ecore#//PreservationAndDisposal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//PreservationAndDisposal/disposalDecision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//PreservationAndDisposal/disposalAuthority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//PreservationAndDisposal/preservationTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//PreservationAndDisposal/disposalDate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//PreservationAndDisposal/record"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//PreservationAndDisposal/series"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//PreservationAndDisposal/file"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//PreservationAndDisposal/klass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//PreservationAndDisposal/documentDescription"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Brukeradministrasjon">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Brukeradministrasjon/brukernavn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Brukeradministrasjon/brukerrolle"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Brukeradministrasjon/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Brukeradministrasjon/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Brukeradministrasjon/avsluttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Brukeradministrasjon/brukerstatus"/>
+    <genClasses ecoreClass="noark.ecore#//UserAdministration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//UserAdministration/userName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//UserAdministration/userRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//UserAdministration/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//UserAdministration/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//UserAdministration/finalisedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//UserAdministration/userStatus"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Dokumentbeskrivelse">
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="attribute" value="static searchable = true"/>
-      </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/dokumenttype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/dokumentstatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/tittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/beskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/forfatter"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/dokumentmedium"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/oppbevaringssted"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/referansedokumentObjekt"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/bevaringOgKassasjon"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/merknad"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentbeskrivelse/registreringer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/kassertDato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentbeskrivelse/kassertAv"/>
+    <genClasses ecoreClass="noark.ecore#//DocumentDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/documentType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/documentStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/documentMedium"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/storageLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//DocumentDescription/documentObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//DocumentDescription/preservationAndDisposal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//DocumentDescription/remark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//DocumentDescription/records"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/disposalDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentDescription/disposedBy"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Dokumentflyt">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentflyt/flyttil"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentflyt/flytfra"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentflyt/flytmottattdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentflyt/flytsendtdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentflyt/flytstatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentflyt/flytmerknad"/>
+    <genClasses ecoreClass="noark.ecore#//DocumentFlow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentFlow/flowTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentFlow/flowFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentFlow/flowRecivedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentFlow/flowSentDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentFlow/flowStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentFlow/flowRemark"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Dokumentlink">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentlink/referanseregistrering"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentlink/tilknyttetregistreringSom"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentlink/dokumentnummer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentlink/tilknyttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentlink/tilknyttetav"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentlink/dokumentbeskrivelse"/>
+    <genClasses ecoreClass="noark.ecore#//DocumentLink">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//DocumentLink/referenceRecord"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentLink/linkedRecordAs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentLink/documentNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentLink/linkedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentLink/linkedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//DocumentLink/documentDescription"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Dokumentobjekt">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/versjonsnummer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/variantformat"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/format"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/formatdetaljer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/opprettetav"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentobjekt/referansedokumentBeskrivelse"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Dokumentobjekt/referanseregistrering"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/referansedokumentfil"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/sjekksumdokument"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/sjekksumalgoritme"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Dokumentobjekt/filstørrelse"/>
+    <genClasses ecoreClass="noark.ecore#//DocumentObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/versionNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/variantFormat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/formatDetails"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/createdBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//DocumentObject/documentDescription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//DocumentObject/record"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/documentFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/checksum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/checksumAlgorithm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DocumentObject/fileSize"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Endringslogg">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Endringslogg/referansearkivenhet"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Endringslogg/referansemetadata"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Endringslogg/endretdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Endringslogg/endretav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Endringslogg/tidligereverdi"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Endringslogg/nyverdi"/>
+    <genClasses ecoreClass="noark.ecore#//ChangeLog">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ChangeLog/recordUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ChangeLog/metadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ChangeLog/changedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ChangeLog/changedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ChangeLog/previousValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ChangeLog/newValue"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Gradering">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Gradering/gradering"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Gradering/graderingsdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Gradering/gradertav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Gradering/nedgraderingsdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Gradering/nedgradertav"/>
+    <genClasses ecoreClass="noark.ecore#//Grading">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Grading/grading"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Grading/gradingDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Grading/gradingBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Grading/downGradingDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Grading/downGradedBy"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Journalpost">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/løpenummer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/journalposttype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/journalstatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/journaldato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/dokumentetsdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/mottattdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/sendtdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/forfallsdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/offentlighetsvurdertdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/antallvedlegg"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/utlåntdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Journalpost/utlånttil"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Journalpost/korespondansepart"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Journalpost/saksansvar"/>
+    <genClasses ecoreClass="noark.ecore#//RegistryEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/serialNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/registryEntryType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/recordStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/registryDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/documentDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/recivedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/sentDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/dueDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/confidentialityAssessedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/numberOfAppendicies"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/loanedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RegistryEntry/loanedTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//RegistryEntry/clients"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//RegistryEntry/caseResponsibility"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Klasse">
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="transient" value="String fullId"/>
-      </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klasse/klasseid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klasse/tittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klasse/beskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klasse/nøkkelord"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klasse/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klasse/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klasse/avsluttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klasse/avsluttetav"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referanseforelderKlassifikasjonssystem"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referanseforelderKlasse"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referansebarnKlasse"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referansebarnBasismappe"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/referansebarnForenkletRegistrering"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/bevaringOgKassasjon"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Klasse/skjerming"/>
+    <genClasses ecoreClass="noark.ecore#//Klass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klass/classID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klass/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klass/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klass/keyword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klass/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klass/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klass/finalisedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klass/finalisedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klass/parentClassificationSystem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klass/parentClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klass/childClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klass/childFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klass/childRecord"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Klass/preservationAndDisposal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Klass/screening"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Klassifikasjonssystem">
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="attribute" value="static searchable = true"/>
-      </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klassifikasjonssystem/klassifikasjonstype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klassifikasjonssystem/tittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klassifikasjonssystem/beskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klassifikasjonssystem/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klassifikasjonssystem/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klassifikasjonssystem/avsluttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Klassifikasjonssystem/avsluttetav"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Klassifikasjonssystem/referansebarn"/>
+    <genClasses ecoreClass="noark.ecore#//ClassificationSystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ClassificationSystem/classificationType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ClassificationSystem/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ClassificationSystem/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ClassificationSystem/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ClassificationSystem/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ClassificationSystem/finalisedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ClassificationSystem/finalisedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ClassificationSystem/child"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//KonverteringTilArkivformat">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//KonverteringTilArkivformat/konvertertdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//KonverteringTilArkivformat/konvertertav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//KonverteringTilArkivformat/tidligereformat"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//KonverteringTilArkivformat/tidligereformatdetaljer"/>
+    <genClasses ecoreClass="noark.ecore#//ConversionToArchivalFormat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ConversionToArchivalFormat/convertedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ConversionToArchivalFormat/convertedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ConversionToArchivalFormat/previousFormat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ConversionToArchivalFormat/previousFormatDetails"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Korrespondansepart">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/korrespondanseparttype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/korrespondansepartnavn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/postadresse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/postnummer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/poststed"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/utenlandsadresse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/epostadresse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/telefonnummer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Korrespondansepart/kontaktperson"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Korrespondansepart/journalpost"/>
+    <genClasses ecoreClass="noark.ecore#//Client">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/clientType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/clientName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/postalAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/postCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/postalTown"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/foreignAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/emailAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/telephoneNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Client/contactPerson"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Client/registryEntry"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Kryssreferanse">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/tilKlasse"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/fraKlasse"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/fraMappe"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/tilMappe"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/fraRegistrering"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Kryssreferanse/tilRegistrering"/>
+    <genClasses ecoreClass="noark.ecore#//CrossReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CrossReference/toClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CrossReference/fromClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CrossReference/fromFile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CrossReference/toFile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CrossReference/toRecord"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CrossReference/fromRecord"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Merknad">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadstekst"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadsdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Merknad/merknadregistrertav"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/mappe"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/basisRegistrering"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Merknad/dokumentBeskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference noark.ecore#//Merknad/merknadstype"/>
+    <genClasses ecoreClass="noark.ecore#//Remark">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Remark/remarkText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Remark/remarkDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Remark/remarkRegisteredBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Remark/basicFile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Remark/basicRecord"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Remark/documentDescription"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Remark/remarkType"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//MerknadType">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//MerknadType/navn"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//MerknadType/merknad"/>
+    <genClasses ecoreClass="noark.ecore#//RemarkType">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//RemarkType/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//RemarkType/remark"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Møtedeltaker">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møtedeltaker/møtedeltakernavn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møtedeltaker/møtedeltakerfunksjon"/>
+    <genClasses ecoreClass="noark.ecore#//MeetingParticipant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//MeetingParticipant/meetingParticipantName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//MeetingParticipant/meetingParticipantFunction"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Møtemappe">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møtemappe/møtenummer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møtemappe/utvalg"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møtemappe/møtedato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møtemappe/møtested"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Møtemappe/referanseforrigemøte"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Møtemappe/referansenestemøte"/>
+    <genClasses ecoreClass="noark.ecore#//MeetingFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//MeetingFile/meetingNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//MeetingFile/board"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//MeetingFile/meetingDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//MeetingFile/meetingPlace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//MeetingFile/previousMeeting"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//MeetingFile/nextMeeting"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Møteregistrering">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møteregistrering/møteregistreringstype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møteregistrering/møtesakstype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møteregistrering/møteregistreringsstatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møteregistrering/administrativenhet"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Møteregistrering/saksbehandler"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Møteregistrering/referansetilMøteregistrering"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Møteregistrering/referanseframøteregistrering"/>
+    <genClasses ecoreClass="noark.ecore#//meetingRecord">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//meetingRecord/moeteregistreringstype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//meetingRecord/moetesakstype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//meetingRecord/moeteregistreringsstatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//meetingRecord/administrativenhet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//meetingRecord/saksbehandler"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//meetingRecord/toMeetingRecord"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//meetingRecord/fromMeetingRecord"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Presedens">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/presedensdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/tittel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/beskrivelse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/presedenshjemmel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/rettskildefaktor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/presedensgodkjentdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/presedensgodkjentav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/avsluttetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/avsluttetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Presedens/presedensstatus"/>
+    <genClasses ecoreClass="noark.ecore#//Precedent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/precedentDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/precedentAuthority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/leagalSourceFactor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/precedentApprovedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/precedentApprovedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/finalisedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/finalisedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Precedent/precedentStatus"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Saksansvar">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksansvar/administrativenhet"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksansvar/saksbehandler"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksansvar/journalenhet"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Saksansvar/journalpost"/>
+    <genClasses ecoreClass="noark.ecore#//CaseResponsibility">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseResponsibility/administrativeUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseResponsibility/executiveOfficer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseResponsibility/registryManagementUnit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CaseResponsibility/registryEntry"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Saksfordeling">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksfordeling/fordelttil"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksfordeling/fordeltav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksfordeling/fordeltdato"/>
+    <genClasses ecoreClass="noark.ecore#//CaseDistribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseDistribution/distributedTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseDistribution/distributedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseDistribution/distributedDate"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Saksmappe">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksmappe/saksdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksmappe/administrativenhet"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksmappe/saksansvarlig"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksmappe/journalenhet"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksmappe/saksstatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksmappe/utlåntdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Saksmappe/utlånttil"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Saksmappe/referansesekundærKlassifikasjon"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Saksmappe/presedens"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Saksmappe/sekundærklasseringer"/>
+    <genClasses ecoreClass="noark.ecore#//CaseFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/caseDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/administrativeUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/caseResponsible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/registryManagementUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/caseStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/loanedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/loanedTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//CaseFile/secondaryClassification"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CaseFile/presedent"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Sakspart">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/sakspartid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/sakspartnavn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/sakspartrolle"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/postadresse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/postnummer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/poststed"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/utenlandsadresse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/epostadresse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/telefonnummer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Sakspart/kontaktperson"/>
+    <genClasses ecoreClass="noark.ecore#//CaseParty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/casePartyID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/casePartyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/casePartyRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/postalAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/postCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/postalTown"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/foreignAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/emailAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/telephoneNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/contactPerson"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//Skjerming">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Skjerming/tilgangsrestriksjon"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Skjerming/skjermingshjemmel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Skjerming/skjermingmetadata"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Skjerming/skjermingdokument"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Skjerming/skjermingsvarighet"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Skjerming/skjermingopphørerdato"/>
+    <genClasses ecoreClass="noark.ecore#//Screening">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Screening/accessRestriction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Screening/screeningAuthority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Screening/screeningMetadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Screening/screeningDocument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Screening/screeningDuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Screening/screeningCeasesDate"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//SlettingAvDokumenter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SlettingAvDokumenter/slettingstype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SlettingAvDokumenter/slettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SlettingAvDokumenter/slettetav"/>
+    <genClasses ecoreClass="noark.ecore#//DeletionOfDocuments">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DeletionOfDocuments/deletionType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DeletionOfDocuments/deletedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//DeletionOfDocuments/deletedBy"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//UtførtKassasjon">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//UtførtKassasjon/kassertdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//UtførtKassasjon/kassertav"/>
+    <genClasses ecoreClass="noark.ecore#//CompletedDisposal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CompletedDisposal/disposedOfDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CompletedDisposal/disposedOfBy"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//VerifiseringAvElektroniskSignatur">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//VerifiseringAvElektroniskSignatur/elektronisksignaturSikkerhetsnivå"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//VerifiseringAvElektroniskSignatur/elektronisksignaturVerfisert"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//VerifiseringAvElektroniskSignatur/verifisertdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//VerifiseringAvElektroniskSignatur/verfisertav"/>
+    <genClasses ecoreClass="noark.ecore#//VerificationOfElectronicSignature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//VerificationOfElectronicSignature/electronicSignatureSecurityLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//VerificationOfElectronicSignature/electronicSignatureVerified"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//VerificationOfElectronicSignature/verifiedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//VerificationOfElectronicSignature/verifiedBy"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Base">
       <genAnnotations source="http://opennoark.machina.no">
@@ -389,24 +367,18 @@
       </genAnnotations>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Base/systemID"/>
     </genClasses>
-    <genClasses ecoreClass="noark.ecore#//ForenkletRegistrering">
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="attribute" value="static searchable = true"/>
-      </genAnnotations>
-      <genAnnotations source="http://opennoark.machina.no">
-        <details key="mapping" value="tablePerHierarchy false"/>
-      </genAnnotations>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ForenkletRegistrering/registreringstype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ForenkletRegistrering/opprettetdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ForenkletRegistrering/opprettetav"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ForenkletRegistrering/arkivertdato"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//ForenkletRegistrering/arkivertav"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referanseforelderBasismappe"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referanseforelderKlasse"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referansearkivdel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/dokumenter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/referansedokumentObjekt"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//ForenkletRegistrering/bevaringOgKassasjon"/>
+    <genClasses ecoreClass="noark.ecore#//SimplifiedRecord">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SimplifiedRecord/recordType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SimplifiedRecord/createdDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SimplifiedRecord/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SimplifiedRecord/archivedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//SimplifiedRecord/archivedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//SimplifiedRecord/parentFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//SimplifiedRecord/parentClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//SimplifiedRecord/recordSection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//SimplifiedRecord/document"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//SimplifiedRecord/documentObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//SimplifiedRecord/preservationAndDisposal"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Parameter/key"/>
