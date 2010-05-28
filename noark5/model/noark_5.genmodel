@@ -324,7 +324,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/loanedDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseFile/loanedTo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//CaseFile/secondaryClassification"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CaseFile/presedent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//CaseFile/precedent"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//CaseParty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//CaseParty/casePartyID"/>
