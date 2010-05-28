@@ -11,7 +11,7 @@ class MappeIdGeneratorServiceTests extends GrailsUnitTestCase {
 
     void testgeneratorForService() {
 			def service = new MappeIdGeneratorService();
-			assertEquals service.mappeIdGenerator, service.generatorForMappe(new Saksmappe())
-			assertEquals service.seqGenerator, service.generatorForMappe(new Basismappe())
+			assertEquals service.mappeIdGenerator, service.generatorForMappe(new CaseFile())
+			assertEquals service.seqGenerator, service.generatorForMappe(new BasicFile())
     }
 }

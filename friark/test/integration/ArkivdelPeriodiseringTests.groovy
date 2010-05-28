@@ -31,38 +31,41 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 	/*
 	*	Det skal være mulig å knytte nyopprettede mapper til en arkivdel som inneholder en aktiv arkivperiode.
 	*/
-	void testaddMappeTilNyArkivdel(){
+	void testaddMappeTilNySeries(){
 		def (ark, del, reg) = createStructure()
 		println "ark: ${ark}, del ${del}, reg: ${reg}"
 		def mappeService = new MappeService()
 		mappeService.commonService = new CommonService()
-		def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
+		def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
 		def (mappe, success) = mappeService.save(params)
 		println mappe.errors
 		assertTrue "save failed", success
-		assertEquals 1, Basismappe.list().size()
+		assertEquals 1, BasicFile.list().size()
 
-		del = Arkivdel.get(del.id)
+		del = Series.get(del.id)
 
-		assertEquals(1, del.referansemappe.size())
+		assertEquals(1, del.file.size())
 	}	
 
 	/**
 	*En arkivdel som inneholder en overlappingsperiode, skal være sperret for tilføyelse av nyopprettede mapper. Men eksisterende mapper i en overlappingsperiode skal være åpne for nye registreringer.
 	*/
-	void testaddMappeTilArkivelOverlapp(){
+	void testaddMappeTilFondselOverlapp(){
 		def (ark, del, reg) = createStructure()
 		println "ark: ${ark}, del ${del}, reg: ${reg}"
-		del.periodeStatus = "Overlappingsperiode"
+		del.periodStatus = "Overlappingsperiode"
 		saveOrFail del
 		def mappeService = new MappeService()
 		mappeService.commonService = new CommonService()
-		def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
+
+		def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
 		def (mappe, success) = mappeService.save(params)
 		assertFalse "save succeeded", success
-		assertEquals 0, Basismappe.list().size()
+		assertEquals 0, BasicFile.list().size()
 
 
 	}
@@ -74,51 +77,55 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		def (ark, del, reg) = createStructure()
 		def mappeService = new MappeService()
 		mappeService.commonService = new CommonService()
-    def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
+
+    def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
     def (mappe, success) = mappeService.save(params)
 		
-		def del2  = new Arkivdel(systemID: "5", tittel: "tittel", arkivdelstatus: "Opprettet", dokumentmedium: "text/html", opprettetav:"deg", opprettetdato: new Date(), referanseforelder: ark, referanseforløper: del)
+		def del2  = new Series(systemID: "5", title: "title", recordSectionStatus: "Opprettet", documentMedium: "text/html", createdBy:"deg", createdDate: new Date(), parent: ark, precursor: del)
 
 		saveOrFail del2
 
-		del.referansearvtaker = del2
+		del.successor = del2
 		del.save()
 
-		params = [registreringstype: "reg", opprettetdato: new Date(), opprettetav: "dill", arkivertdato: new Date(), arkivertav: "dall", referanseforelderBasismappe: mappe]
+		params = [recordType: "Forenkletregistrering", createdDate: new Date(), createdBy: "dill", archivedDate: new Date(), archivedBy: "dall", parentFile: mappe]
 
 		def registreringService = new RegistreringService()
 		registreringService.commonService = new CommonService()
 		registreringService.registrer(params)
 
-		del = Arkivdel.get(del.id)
-    assertEquals(1, del.referansemappe.size())
+		del = Series.get(del.id)
+    assertEquals(1, del.file.size())
 
-		del.periodeStatus = "Overlappingsperiode"
+		del.periodStatus = "Overlappingsperiode"
 		saveOrFail del
 		
 		registreringService.registrer(params)
 		
-		del = Arkivdel.get(del.id)
-    assertEquals(0, del.referansemappe.size())
+		del = Series.get(del.id)
+    assertEquals(0, del.file.size())
 	}
 
 
 	/**
 	*	En arkivdel som inneholder en avsluttet arkivperiode, skal være sperret for tilføyelse av nye mapper. Alle mapper skal være lukket, slik at heller ingen registreringer og dokumenter kan føyes til.
 	*/
-	void testmapperIAvsluttetArkivperiode(){
+	void testmapperIAvsluttetFondsperiode(){
 		def (ark, del, reg) = createStructure()
     println "ark: ${ark}, del ${del}, reg: ${reg}"
-    del.periodeStatus = "Avsluttet periode"
+    del.periodStatus = "Avsluttet periode"
     saveOrFail del
     def mappeService = new MappeService()
     mappeService.commonService = new CommonService()
-    def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
+
+    def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
     def (mappe, success) = mappeService.save(params)
     assertFalse "save succeeded", success
-    assertEquals 0, Basismappe.list().size()
+    assertEquals 0, BasicFile.list().size()
 
 	}
 
@@ -131,11 +138,13 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
 		def mappeService = new MappeService()
     mappeService.commonService = new CommonService()
-    def params = [ mappeid: "2010/00001", mappetype: "Basismappe", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id]
+		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
+
+    def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
     mappeService.save(params)
 
-		params.mappeid = "2010/00002"
+		params.fileID = "2010/00002"
 		def (mappe)= mappeService.save(params)
 	
 		def arkivdelService = new ArkivdelService()
@@ -144,10 +153,10 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		
 		assertEquals 2, res.size() 
 
-		mappe.avsluttetdato = new Date()
+		mappe.finalisedDate = new Date()
 		saveOrFail mappe
 		
-		//del = Arkivdel.get(del.id)	
+		//del = Series.get(del.id)	
 		res = arkivdelService.findOpenMappe(del)
 		assertEquals 1, res.size()
 	}
@@ -161,7 +170,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 	}*/
 
 	/**
-	*Dersom dokumentene i en arkivdel er ikke-elektroniske (fysiske), skal det også være mulig å registrere oppbevaringssted.
+	*Dersom dokumentene i en arkivdel er ikke-elektroniske (fysiske), skal det også være mulig å registrere storageLocation.
 	*/
 /*	void testrefOppbevaringsted(){
 		//skal testes i funksjonstester	
@@ -169,14 +178,14 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
 
 	def createStructure(){
-  	Arkiv ark = new Arkiv(systemID: "1", tittel: "tittel", arkivstatus: "Opprettet", opprettetdato: new Date(), opprettetav: "meg")
+  	Fonds ark = new Fonds(systemID: "1", title: "title", fondsStatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
 		saveOrFail(ark)		
-    assertNotNull Arkiv.get(ark.id)
+    assertNotNull Fonds.get(ark.id)
 
-    Arkivdel del = new Arkivdel(systemID: "2", tittel: "tittel", arkivdelstatus: "Opprettet", dokumentmedium: "text/html", opprettetav:"deg", opprettetdato: new Date(), referanseforelder: ark )
+    Series del = new Series(systemID: "2", title: "title", recordSectionStatus: "Opprettet", documentMedium: "text/html", createdBy:"deg", createdDate: new Date(), parent: ark )
 		saveOrFail(del)
 
-    ForenkletRegistrering reg = new ForenkletRegistrering(systemID: "3", opprettetdato: new Date(), opprettetav: "dill", arkivertdato: new Date(), arkivertav: "dall", referansearkivdel: del, registreringstype: "type")
+    SimplifiedRecord reg = new SimplifiedRecord(systemID: "3", createdDate: new Date(), createdBy: "dill", archivedDate: new Date(), archivedBy: "dall", recordSection: del, recordType: "type")
 		saveOrFail(reg)
 
     return [ark, del, reg]

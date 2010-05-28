@@ -17,7 +17,7 @@
 
 import grails.test.*
 import no.friark.ds.*
-import no.friark.ds.Arkiv
+import no.friark.ds.Fonds
 
 class KassasjonServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
@@ -34,13 +34,13 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			def ark, del, reg = createStructure()
 			
 			KassasjonService service = new KassasjonService()
-			def list = service.oversikt([fra: new Date(), til: new Date(), kassasjonsvedtak: "Bevares"])
+			def list = service.oversikt([fra: new Date(), til: new Date(), disposalDecision: "Bevares"])
 			assertEquals 0, list?.size()
     }
 
 		void testOversikt(){
 			def ark, del, reg = createStructure()
-			Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+			DocumentDescription desc = new DocumentDescription(systemID: "2141", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
 
 			if(!desc.save()){
         println desc.errors
@@ -48,16 +48,16 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
       }
 
 			
-			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Bevares", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc])
+			PreservationAndDisposal bev = new PreservationAndDisposal(disposalDecision: "Bevares", preservationTime: 1, disposalDate: new Date(), documentDescription: [desc])
 			if(!bev.save()){
         println bev.errors
         fail "unable to save bev"
       }
 
-			desc.bevaringOgKassasjon = bev
+			desc.preservationAndDisposal = bev
 			desc.save()
 			
-			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Bevares"]
+			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Bevares"]
 
 			KassasjonService service = new KassasjonService()
 
@@ -65,19 +65,19 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			assertEquals 1, list?.size()
 
 			def dok = list[0]
-			assertTrue dok instanceof Dokumentbeskrivelse
+			assertTrue dok instanceof DocumentDescription
 		}
 
 		void testOversikt2i1(){
 			def ark, del, reg = createStructure()
-			Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+			DocumentDescription desc = new DocumentDescription(systemID: "2141", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
 
 			if(!desc.save()){
         println desc.errors
         fail "unable to save desc"
       }
 
-			Dokumentbeskrivelse desc2 = new Dokumentbeskrivelse(systemID: "21412", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+			DocumentDescription desc2 = new DocumentDescription(systemID: "21412", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
       
       if(!desc2.save()){
         println desc2.errors
@@ -85,16 +85,16 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
       }
 
 			
-			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Bevares", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc, desc2])
+			PreservationAndDisposal bev = new PreservationAndDisposal(disposalDecision: "Bevares", preservationTime: 1, disposalDate: new Date(), documentDescription: [desc, desc2])
 			if(!bev.save()){
         println bev.errors
         fail "unable to save bev"
       }
 
-			desc.bevaringOgKassasjon = bev
+			desc.preservationAndDisposal = bev
 			desc.save()
 			
-			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Bevares"]
+			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Bevares"]
 
 			KassasjonService service = new KassasjonService()
 
@@ -102,19 +102,19 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			assertEquals 2, list?.size()
 
 			def dok = list[0]
-			assertTrue dok instanceof Dokumentbeskrivelse
+			assertTrue dok instanceof DocumentDescription
 		}
 
 		void testOversikt2i2(){
 			def ark, del, reg = createStructure()
-			Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+			DocumentDescription desc = new DocumentDescription(systemID: "2141", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
 
 			if(!desc.save()){
         println desc.errors
         fail "unable to save desc"
       }
 
-			Dokumentbeskrivelse desc2 = new Dokumentbeskrivelse(systemID: "21412", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+			DocumentDescription desc2 = new DocumentDescription(systemID: "21412", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
       
       if(!desc2.save()){
         println desc2.errors
@@ -122,20 +122,20 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
       }
 
 			
-			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Bevares", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc])
+			PreservationAndDisposal bev = new PreservationAndDisposal(disposalDecision: "Bevares", preservationTime: 1, disposalDate: new Date(), documentDescription: [desc])
 			if(!bev.save()){
         println bev.errors
         fail "unable to save bev"
       }
 
-			BevaringOgKassasjon bev2 = new BevaringOgKassasjon(kassasjonsvedtak: "Bevares", bevaringstid: 3, kassasjonsdato: new Date() + 2, dokumentBeskrivelse: [desc])
+			PreservationAndDisposal bev2 = new PreservationAndDisposal(disposalDecision: "Bevares", preservationTime: 3, disposalDate: new Date() + 2, documentDescription: [desc])
       if(!bev.save()){
         println bev.errors
         fail "unable to save bev"
       }		
 
 	
-			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Bevares"]
+			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Bevares"]
 
 			KassasjonService service = new KassasjonService()
 
@@ -143,7 +143,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			assertEquals 1, list?.size()
 
 			def dok = list[0]
-			assertTrue dok instanceof Dokumentbeskrivelse
+			assertTrue dok instanceof DocumentDescription
 		}
 
 
@@ -151,100 +151,100 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			//subject.metaClass.'isPermitted' = {true}
 			def (ark, del, reg) = createStructure()
 			
-      Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+      DocumentDescription desc = new DocumentDescription(systemID: "2141", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
 			saveOrFail desc
 			
-			Dokumentobjekt obj = new Dokumentobjekt(systemID: "AASA", versjonsnummer:"1", variantformat:"1", format:"1", formatdetaljer:"2", opprettetdato: new Date(), opprettetav:"dall", referansedokumentBeskrivelse:desc )
+			DocumentObject obj = new DocumentObject(systemID: "AASA", versionNumber:"1", variantFormat:"1", format:"1", formatDetails:"2", createdDate: new Date(), createdBy:"dall", documentDescription:desc )
 			saveOrFail(obj)
 			
-			desc.addToReferansedokumentObjekt(obj)
+			desc.addToDocumentObject(obj)
 
-			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Kasseres", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc])
+			PreservationAndDisposal bev = new PreservationAndDisposal(disposalDecision: "Kasseres", preservationTime: 1, disposalDate: new Date(), documentDescription: [desc])
       if(!bev.save()){
         println bev.errors
         fail "unable to save bev"
       }
 
-			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Kasseres"]
+			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Kasseres"]
 
       KassasjonService service = new KassasjonService()
 			service.archiveService = new ArchiveService()
       def list = service.oversikt(co)
       assertEquals 1, list?.size()
 			
-			assertEquals 1, Dokumentobjekt.list().size()
+			assertEquals 1, DocumentObject.list().size()
 			println "kasserer ${desc}"
 			//org.apache.shiro.SecurityUtils.metaClass.'static'.getSubject = { return [principal : "testuser"] }
 			service.kasser(desc)
 
-			assertEquals 0, Dokumentobjekt.list().size()
+			assertEquals 0, DocumentObject.list().size()
 		}
 
 		/**
 		*5.10.35 
-		* For hvert dokument som blir kassert, skal det på dokumentbeskrivelsesnivå logges dato for kassasjon og hvem som utførte kassasjonen.
+		* For hvert dokument som blir kassert, skal det på documentDescriptionsnivå logges dato for kassasjon og hvem som utførte kassasjonen.
 		*/
 		void testKasserLogging() {
 			//subject.metaClass.'isPermitted' = {true}
 			def (ark, del, reg) = createStructure()
 			
-      Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+      DocumentDescription desc = new DocumentDescription(systemID: "2141", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
 			saveOrFail desc
 			
-			Dokumentobjekt obj = new Dokumentobjekt(systemID: "AASA", versjonsnummer:"1", variantformat:"1", format:"1", formatdetaljer:"2", opprettetdato: new Date(), opprettetav:"dall", referansedokumentBeskrivelse:desc )
+			DocumentObject obj = new DocumentObject(systemID: "AASA", versionNumber:"1", variantFormat:"1", format:"1", formatDetails:"2", createdDate: new Date(), createdBy:"dall", documentDescription:desc )
 			saveOrFail(obj)
 			
-			desc.addToReferansedokumentObjekt(obj)
+			desc.addToDocumentObject(obj)
 
-			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Kasseres", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc])
+			PreservationAndDisposal bev = new PreservationAndDisposal(disposalDecision: "Kasseres", preservationTime: 1, disposalDate: new Date(), documentDescription: [desc])
       if(!bev.save()){
         println bev.errors
         fail "unable to save bev"
       }
 
-			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Kasseres"]
+			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Kasseres"]
 
       KassasjonService service = new KassasjonService()
 			service.archiveService = new ArchiveService()
       def list = service.oversikt(co)
       assertEquals 1, list?.size()
 			
-			assertEquals 1, Dokumentobjekt.list().size()
+			assertEquals 1, DocumentObject.list().size()
 			service.kasser(desc)
-			assertEquals 0, Dokumentobjekt.list().size()
+			assertEquals 0, DocumentObject.list().size()
 
 			//reload for good messure
-			desc = Dokumentbeskrivelse.get(desc.id)
-			assertNotNull desc.kassertDato
-			assertEquals "testuser", desc.kassertAv
+			desc = DocumentDescription.get(desc.id)
+			assertNotNull desc.disposalDate
+			assertEquals "testuser", desc.disposedBy
 		}
 
 		void testKasserTilMappe() {
 			//subject.metaClass.'isPermitted' = {true}
 			def (ark, del, reg) = createStructure()
 			
-      Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+      DocumentDescription desc = new DocumentDescription(systemID: "2141", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
 			saveOrFail desc
 			
-			Dokumentobjekt obj = new Dokumentobjekt(systemID: "AASA", versjonsnummer:"1", variantformat:"1", format:"1", formatdetaljer:"2", opprettetdato: new Date(), opprettetav:"dall", referansedokumentBeskrivelse:desc )
+			DocumentObject obj = new DocumentObject(systemID: "AASA", versionNumber:"1", variantFormat:"1", format:"1", formatDetails:"2", createdDate: new Date(), createdBy:"dall", documentDescription:desc )
 			saveOrFail(obj)
 			
-			Dokumentlink dl = new Dokumentlink(dokumentnummer:"2",tilknyttetav:"3", tilknyttetdato: new Date(), tilknyttetregistreringSom: "dsfs", referanseregistrering: reg, dokumentbeskrivelse: desc)
+			DocumentLink dl = new DocumentLink(documentNumber:"2", linkedBy:"3", linkedDate: new Date(), linkedRecordAs: "dsfs", referenceRecord: reg, documentDescription: desc)
 			saveOrFail(dl)
-			desc.addToRegistreringer(dl)
-			desc.addToReferansedokumentObjekt(obj)
+			desc.addToRecords(dl)
+			desc.addToDocumentObject(obj)
 			desc.save()
 
-			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Kasseres", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc])
+			PreservationAndDisposal bev = new PreservationAndDisposal(disposalDecision: "Kasseres", preservationTime: 1, disposalDate: new Date(), documentDescription: [desc])
       if(!bev.save()){
         println bev.errors
         fail "unable to save bev"
       }
 
-			desc.bevaringOgKassasjon = bev
+			desc.preservationAndDisposal = bev
 			desc.save()
 	
-			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Kasseres"]
+			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Kasseres"]
 
       KassasjonService service = new KassasjonService()
 			service.archiveService = new ArchiveService()
@@ -253,63 +253,63 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 
 			
 		
-			assertEquals 1, ForenkletRegistrering.list().size()
-			assertEquals 1, Dokumentbeskrivelse.list().size()
-			assertEquals 1, Dokumentobjekt.list().size()
+			assertEquals 1, SimplifiedRecord.list().size()
+			assertEquals 1, DocumentDescription.list().size()
+			assertEquals 1, DocumentObject.list().size()
 			
 			service.kasser(desc, true)
 			
-			assertEquals 0, Dokumentobjekt.list().size()
-			assertEquals 0, Dokumentbeskrivelse.list().size()
-			assertEquals 0, ForenkletRegistrering.list().size()
+			assertEquals 0, DocumentObject.list().size()
+			assertEquals 0, DocumentDescription.list().size()
+			assertEquals 0, SimplifiedRecord.list().size()
 		}
 
 		void testdill() {
-			Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+			DocumentDescription desc = new DocumentDescription(systemID: "2141", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
       saveOrFail desc
 
-      Dokumentobjekt obj = new Dokumentobjekt(systemID: "AASA", versjonsnummer:"1", variantformat:"1", format:"1", formatdetaljer:"2", opprettetdato: new Date(), opprettetav:"dall", referansedokumentBeskrivelse:desc )
+      DocumentObject obj = new DocumentObject(systemID: "AASA", versionNumber:"1", variantFormat:"1", format:"1", formatDetails:"2", createdDate: new Date(), createdBy:"dall", documentDescription:desc )
       saveOrFail(obj)
 
-      desc.addToReferansedokumentObjekt(obj)
+      desc.addToDocumentObject(obj)
 			desc.save()			
 
-			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Kasseres", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc])
+			PreservationAndDisposal bev = new PreservationAndDisposal(disposalDecision: "Kasseres", preservationTime: 1, disposalDate: new Date(), documentDescription: [desc])
 			saveOrFail(bev)
-			bev.removeFromDokumentBeskrivelse(desc)
+			bev.removeFromDocumentDescription(desc)
 			obj.delete()
 			desc.delete()
 
 
-			Dokumentobjekt.list()
+			DocumentObject.list()
 		}
 
 		void testKasserUnauthorized() {
 			loginTestUser({false})
 			def (ark, del, reg) = createStructure()
-      Dokumentbeskrivelse desc = new Dokumentbeskrivelse(systemID: "2141", dokumenttype: "type", dokumentstatus: "status", tittel: "tittel", beskrivelse:"desc", forfatter: "forfatter", opprettetdato: new Date(), opprettetav: "dill", dokumentmedium: "pysical/papyrus", oppbevaringssted: "her og der")
+      DocumentDescription desc = new DocumentDescription(systemID: "2141", documentType: "type", documentStatus: "status", title: "title", description:"desc", author: "author", createdDate: new Date(), createdBy: "dill", documentMedium: "pysical/papyrus", storageLocation: "her og der")
 
       if(!desc.save()){
         println desc.errors
         fail "unable to save desc"
       }
 			
-			Dokumentobjekt obj = new Dokumentobjekt(systemID: "AASA", versjonsnummer:"1", variantformat:"1", format:"1", formatdetaljer:"2", opprettetdato: new Date(), opprettetav:"dall", referansedokumentBeskrivelse:desc )
+			DocumentObject obj = new DocumentObject(systemID: "AASA", versionNumber:"1", variantFormat:"1", format:"1", formatDetails:"2", createdDate: new Date(), createdBy:"dall", documentDescription:desc )
 			saveOrFail(obj)
 			
-			desc.addToReferansedokumentObjekt(obj)
+			desc.addToDocumentObject(obj)
 
-			BevaringOgKassasjon bev = new BevaringOgKassasjon(kassasjonsvedtak: "Kasseres", bevaringstid: 1, kassasjonsdato: new Date(), dokumentBeskrivelse: [desc])
+			PreservationAndDisposal bev = new PreservationAndDisposal(disposalDecision: "Kasseres", preservationTime: 1, disposalDate: new Date(), documentDescription: [desc])
 			saveOrFail(bev)
 
-			def co = [fra: new Date() - 2, til: new Date() + 2, kassasjonsvedtak: "Kasseres"]
+			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Kasseres"]
 			
       KassasjonService service = new KassasjonService()
 			service.archiveService = new ArchiveService()
       def list = service.oversikt(co)
       assertEquals 1, list?.size()
 			
-			assertEquals 1, Dokumentobjekt.list().size()
+			assertEquals 1, DocumentObject.list().size()
 			println "kasserer ${desc}"
 			//org.apache.shiro.SecurityUtils.metaClass.'static'.getSubject = { return [principal : "testuser"] }
 			try{
@@ -319,7 +319,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 				//all is well
 			}
 
-			assertEquals 1, Dokumentobjekt.list().size()
+			assertEquals 1, DocumentObject.list().size()
 		}
 
 
@@ -330,15 +330,15 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			KassasjonService service = new KassasjonService()
 
 			
-			Basismappe m1 = new Basismappe(id: 1, systemID: "1")
-			def reg1 = new ForenkletRegistrering(id:5, referanseforelderBasismappe: m1)
-			def dok1 = new Dokumentbeskrivelse(registreringer: [new Dokumentlink(referanseregistrering: reg1)])
-			assertEquals "1", dok1.registreringer.toArray()[0].referanseregistrering.referanseforelderBasismappe.systemID
+			BasicFile m1 = new BasicFile(id: 1, systemID: "1")
+			def reg1 = new SimplifiedRecord(id:5, parentFile: m1)
+			def dok1 = new DocumentDescription(records: [new DocumentLink(referenceRecord: reg1)])
+			assertEquals "1", dok1.records.toArray()[0].referenceRecord.parentFile.systemID
 
-			Basismappe m2 = new Basismappe(id: 2, systemID: "2")
-			def reg2 = new ForenkletRegistrering(id:5, referanseforelderBasismappe: m2)
-			def dok2 = new Dokumentbeskrivelse(registreringer: [new Dokumentlink(referanseregistrering: reg2)])
-			assertEquals "2", dok2.registreringer.toArray()[0].referanseregistrering.referanseforelderBasismappe.systemID
+			BasicFile m2 = new BasicFile(id: 2, systemID: "2")
+			def reg2 = new SimplifiedRecord(id:5, parentFile: m2)
+			def dok2 = new DocumentDescription(records: [new DocumentLink(referenceRecord: reg2)])
+			assertEquals "2", dok2.records.toArray()[0].referenceRecord.parentFile.systemID
 
 			def list = [dok1, dok2]
 
@@ -346,25 +346,25 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			
 			assertEquals 1, retval.size()
 
-			assertEquals "1", retval.get(0).registreringer.toArray()[0].referanseregistrering.referanseforelderBasismappe.systemID
+			assertEquals "1", retval.get(0).records.toArray()[0].referenceRecord.parentFile.systemID
 
 			retval = service.filter(list, "mappe(systemID: \"2\")")
 
       assertEquals 1, retval.size()
 
-      assertEquals "2", retval.get(0).registreringer.toArray()[0].referanseregistrering.referanseforelderBasismappe.systemID
+      assertEquals "2", retval.get(0).records.toArray()[0].referenceRecord.parentFile.systemID
 		}
 
 		def createStructure(){
-			Arkiv ark = new Arkiv(systemID: "1", tittel: "tittel", arkivstatus: "Opprettet", opprettetdato: new Date(), opprettetav: "meg")
+			Fonds ark = new Fonds(systemID: "1", title: "title", fondsStatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
 			saveOrFail(ark)
       
-			assertNotNull Arkiv.get(ark.id)
+			assertNotNull Fonds.get(ark.id)
 
-      Arkivdel del = new Arkivdel(systemID: "2", tittel: "tittel", arkivdelstatus: "Opprettet", dokumentmedium: "text/html", opprettetav:"deg", opprettetdato: new Date(), referanseforelder: ark )
+      Series del = new Series(systemID: "2", title: "title", recordSectionStatus: "Opprettet", documentMedium: "text/html", createdBy:"deg", createdDate: new Date(), parent: ark )
 			saveOrFail(del)
 
-      ForenkletRegistrering reg = new ForenkletRegistrering(systemID: "3", opprettetdato: new Date(), opprettetav: "dill", arkivertdato: new Date(), arkivertav: "dall", referansearkivdel: del, registreringstype: "type")
+      SimplifiedRecord reg = new SimplifiedRecord(systemID: "3", createdDate: new Date(), createdBy: "dill", archivedDate: new Date(), archivedBy: "dall", recordSection: del, recordType: "type")
 			saveOrFail(reg)
 			
 			return [ark, del, reg]

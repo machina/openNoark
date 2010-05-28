@@ -28,34 +28,34 @@ class ArkivControllerTests extends ControllerUnitTestCase {
 
 	
 	void testupdateOppretterdato() {
-		Arkiv ark = new Arkiv(systemID: "1", tittel: "tittel", arkivstatus: "Opprettet", opprettetdato: new Date(), opprettetav: "meg")
+		Fonds ark = new Fonds(systemID: "1", title: "title", arkivstatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
 		if(!ark.save()){
 			println ark.errors
 			fail "unable to save archive"
 		}
-		assertNotNull Arkiv.get(ark.id)
+		assertNotNull Fonds.get(ark.id)
 		println "ark.id: ${ark.id}"
-		controller.request.params = [id: ark.id, tittel:  "tittel", arkivstatus: "Opprettet",opprettetav: "meg", opprettetdato_day: 1, opprettetdato_month: 12, opprettetdato: "struct", opprettetdato_year: 2009]
+		controller.request.params = [id: ark.id, title:  "title", arkivstatus: "Opprettet",createdBy: "meg", createdDate_day: 1, createdDate_month: 12, createdDate: "struct", createdDate_year: 2009]
 			controller.params.id = ark.id
 		 controller.request.method = "POST"
-		def retval = controller.update([opprettetdato: Date.parse("yyyy-MM-dd", "2009-12-1")] as UpdateArkivCommand)
+		def retval = controller.update([createdDate: Date.parse("yyyy-MM-dd", "2009-12-1")] as UpdateFondsCommand)
 		println "retval.errors: ${retval.errors}"
 		assertTrue( retval.errors.toString().contains("Kan ikke endre dato for opprettelse av arkiv.") )
 	}
 
 
-	void testupdateavsluttetdato() {
-		def opprettetdato = new Date()
-    Arkiv ark = new Arkiv(systemID: "21", tittel: "tittel", arkivstatus: "Opprettet", opprettetdato: opprettetdato, opprettetav: "meg", avsluttetdato: new Date())
+	void testupdatefinalisedDate() {
+		def createdDate = new Date()
+    Fonds ark = new Fonds(systemID: "21", title: "title", arkivstatus: "Opprettet", createdDate: createdDate, createdBy: "meg", finalisedDate: new Date())
     ark.save()
 
-    controller.request.params = [tittel: "tittel", arkivstatus: "Opprettet", opprettetav: "meg", avsluttetdato: null ]
+    controller.request.params = [title: "title", arkivstatus: "Opprettet", createdBy: "meg", finalisedDate: null ]
 		controller.params.id = ark.id
 		controller.request.method = "POST"
 
-    def retval = controller.update([] as UpdateArkivCommand)
+    def retval = controller.update([] as UpdateFondsCommand)
 		println "retval.errors: ${retval.errors}"
-    assertTrue (retval.errors.toString().contains( "Kan ikke fjerne avsluttetdato.") )
+    assertTrue (retval.errors.toString().contains( "Kan ikke fjerne finalisedDate.") )
 		
   }
 }

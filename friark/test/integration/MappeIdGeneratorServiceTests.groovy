@@ -22,7 +22,7 @@ class MappeIdGeneratorServiceTests extends GrailsUnitTestCase {
 		void testMappeIdGenerator2() {
 			def (ark,del) = createStructure()
 			
-			Saksmappe m = new Saksmappe(mappeid: "10/00001", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id, administrativenhet: "a", saksdato: new Date(), saksstatus: "2", systemID: "13", saksansvarlig: "somebody else")
+			CaseFile m = new CaseFile(fileID: "10/00001", fileType: "dill", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id, administrativeUnit: "a", caseDate: new Date(), caseStatus: "2", systemID: "13", caseResponsible: "somebody else")
 
 			saveOrFail(m)
 			def service = new MappeIdGeneratorService();
@@ -40,7 +40,7 @@ class MappeIdGeneratorServiceTests extends GrailsUnitTestCase {
 		void testSeqGenerator2() {
       def (ark,del) = createStructure()
 
-      Saksmappe m = new Saksmappe(mappeid: "1", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id, administrativenhet: "a", saksdato: new Date(), saksstatus: "2", systemID: "13", saksansvarlig: "somebody else")
+      CaseFile m = new CaseFile(fileID: "1", fileType: "dill", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id, administrativeUnit: "a", caseDate: new Date(), caseStatus: "2", systemID: "13", caseResponsible: "somebody else")
 
       saveOrFail(m)
       def service = new MappeIdGeneratorService();
@@ -53,13 +53,13 @@ class MappeIdGeneratorServiceTests extends GrailsUnitTestCase {
 	void testSeqGenerator3() {
       def (ark,del) = createStructure()
 
-      Saksmappe m = new Saksmappe(mappeid: "5", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id, administrativenhet: "a", saksdato: new Date(), saksstatus: "2", systemID: "13", saksansvarlig: "somebody else")
+      CaseFile m = new CaseFile(fileID: "5", fileType: "dill", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id, administrativeUnit: "a", caseDate: new Date(), caseStatus: "2", systemID: "13", caseResponsible: "somebody else")
 
       saveOrFail(m)
-			m = new Saksmappe(mappeid: "11", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id, administrativenhet: "a", saksdato: new Date(), saksstatus: "2", systemID: "14", saksansvarlig: "somebody else")
+			m = new CaseFile(fileID: "11", fileType: "dill", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id, administrativeUnit: "a", caseDate: new Date(), caseStatus: "2", systemID: "14", caseResponsible: "somebody else")
 
       saveOrFail(m)
-			m = new Saksmappe(mappeid: "10", mappetype: "dill", tittel:"mappe", offentligtittel: "mappe", beskrivelse:"mappe", dokumentmedium:"papyrus", opprettetdato: new Date(), opprettetav: "meg", referansearkivdel: del, "referansearkivdel.id": del.id, administrativenhet: "a", saksdato: new Date(), saksstatus: "2", systemID: "15", saksansvarlig: "somebody else")
+			m = new CaseFile(fileID: "10", fileType: "dill", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id, administrativeUnit: "a", caseDate: new Date(), caseStatus: "2", systemID: "15", caseResponsible: "somebody else")
 			saveOrFail(m)
       def service = new MappeIdGeneratorService();
       def gen = service.seqGenerator
@@ -69,11 +69,11 @@ class MappeIdGeneratorServiceTests extends GrailsUnitTestCase {
 
 
 	def createStructure(){
-    Arkiv ark = new Arkiv(systemID: "1", tittel: "tittel", arkivstatus: "Opprettet", opprettetdato: new Date(), opprettetav: "meg")
+    Fonds ark = new Fonds(systemID: "1", title: "title", fondsStatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
     saveOrFail(ark)
-    assertNotNull Arkiv.get(ark.id)
+    assertNotNull Fonds.get(ark.id)
 
-    Arkivdel del = new Arkivdel(systemID: "2", tittel: "tittel", arkivdelstatus: "Opprettet", dokumentmedium: "text/html", opprettetav:"deg", opprettetdato: new Date(), referanseforelder: ark )
+    Series del = new Series(systemID: "2", title: "title", recordSectionStatus: "Opprettet", documentMedium: "text/html", createdBy:"deg", createdDate: new Date(), parent: ark )
     saveOrFail(del)
 		return [ark,del]
 	}

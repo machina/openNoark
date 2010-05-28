@@ -29,7 +29,7 @@ class ArchiveFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		get("/arkiv/create")
 		assertStatus 200
 		assertNotNull page.forms['archive']
-		assertNotNull  page.forms['archive'].getInputsByName("tittel")
-		assertEquals 1,  page.forms['archive'].getInputsByName("tittel").size()
+		assertNotNull  page.forms['archive'].getInputsByName("title")
+		assertEquals 1,  page.forms['archive'].getInputsByName("title").size()
 	}
 }

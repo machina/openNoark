@@ -24,12 +24,12 @@ class FilterTests extends GroovyTestCase {
 
 	void testFilter() {
 		Filter f = new Filter()
-		Basismappe m = new Basismappe(id: 1)
-		ForenkletRegistrering fr = new ForenkletRegistrering(referanseforelderBasismappe: m)
-		Dokumentbeskrivelse o = new Dokumentbeskrivelse()
-		Dokumentlink dl = new Dokumentlink(referanseregistrering: fr, dokumentbeskrivelse: o)
-		o.registreringer = []
-		o.registreringer.add(dl)
+		BasicFile m = new BasicFile(id: 1)
+		SimplifiedRecord fr = new SimplifiedRecord(parentFile: m)
+		DocumentDescription o = new DocumentDescription()
+		DocumentLink dl = new DocumentLink(referenceRecord: fr, documentDescription: o)
+		o.records = []
+		o.records.add(dl)
 
 		f.mappe.id = "1"
 
@@ -39,14 +39,14 @@ class FilterTests extends GroovyTestCase {
 		assertFalse f.isApplicable(o)
 	}
 
-	void testKlasseFilter() {
+	void testKlassFilter() {
 		Filter f = new Filter()
-		Klasse k = new Klasse(id: 1)
-		Dokumentbeskrivelse o = new Dokumentbeskrivelse()
-	  ForenkletRegistrering fr = new ForenkletRegistrering(referanseforelderKlasse: k)
-		Dokumentlink dl = new Dokumentlink(referanseregistrering: fr, dokumentbeskrivelse: o)
-    o.registreringer = []
-    o.registreringer.add(dl)
+		Klass k = new Klass(id: 1)
+		DocumentDescription o = new DocumentDescription()
+	  SimplifiedRecord fr = new SimplifiedRecord(parentClass: k)
+		DocumentLink dl = new DocumentLink(referenceRecord: fr, documentDescription: o)
+    o.records = []
+    o.records.add(dl)
 		
 		f.klasse.id = 1
 
@@ -56,10 +56,10 @@ class FilterTests extends GroovyTestCase {
 		assertFalse f.isApplicable(o)
 
 
-		fr.referanseforelderKlasse = null
+		fr.parentClass = null
 
-		Basismappe m = new Basismappe(id: 3, referanseforelderKlasse: k)
-		fr.referanseforelderBasismappe = m
+		BasicFile m = new BasicFile(id: 3, parentClass: k)
+		fr.parentFile = m
 
 		k.id = 1
 		assertTrue f.isApplicable(o)
@@ -68,29 +68,24 @@ class FilterTests extends GroovyTestCase {
     assertFalse f.isApplicable(o)
 	}
 
-	void testArkivdelFilter() {
+	void testSeriesFilter() {
 		Filter f = new Filter()
-		Arkivdel a = new Arkivdel(id:1)
+		Series a = new Series(id:1)
+		DocumentDescription o = new DocumentDescription()
+    SimplifiedRecord fr = new SimplifiedRecord(recordSection: a)    
+    DocumentLink dl = new DocumentLink(referenceRecord: fr, documentDescription: o)
+    o.records = []
+    o.records.add(dl)
 		
-		Dokumentbeskrivelse o = new Dokumentbeskrivelse()
-    ForenkletRegistrering fr = new ForenkletRegistrering(referansearkivdel: a)    
-    Dokumentlink dl = new Dokumentlink(referanseregistrering: fr, dokumentbeskrivelse: o)
-    o.registreringer = []
-    o.registreringer.add(dl)
-		
-
 		f.arkivdel.id = 1
 
 		assertTrue f.isApplicable(o)
 
     a.id = 2
     assertFalse f.isApplicable(o)
-		
-		fr.referansearkivdel = null
-
-    Basismappe m = new Basismappe(id: 3, referansearkivdel: a)
-    fr.referanseforelderBasismappe = m
-		
+		fr.recordSection = null
+    BasicFile m = new BasicFile(id: 3, recordSection: a)
+    fr.parentFile = m
 		a.id = 1
 		assertTrue f.isApplicable(o)
 
