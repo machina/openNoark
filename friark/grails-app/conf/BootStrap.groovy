@@ -21,13 +21,13 @@ class BootStrap {
 			    testRole.addToPermissions("user")
 			    if(!testRole.save()){
 			      println testRole.errors
-			    }
+			   }
 			    def testUser = new ShiroUser(username: "testuser ", passwordHash: new Sha1Hash("testpassword").toHex()).save()
 			    testUser.addToRoles(ShiroRole.findByName("administrator"))
 			    testUser.save()
 			    if(!testUser.save()){
       			println testUser.errors
-			    }
+			   }
 					def subject = [ getPrincipal: { "testuser" },
                 isAuthenticated: { true },
 								isPermitted: isPermitted
@@ -60,7 +60,7 @@ class BootStrap {
 																					}
 																				}*/
 
-			JSON.registerObjectMarshaller(Klasse){	klasse, json ->
+			JSON.registerObjectMarshaller(Klass){	klasse, json ->
 			json.build{
 				"class(klasse)"
 				id(klasse.id)
@@ -81,14 +81,14 @@ class BootStrap {
 				adminRole.addToPermissions("klasser")
 				if(!adminRole.save()){
           println adminRole.errors
-        }
+       }
 				def adminUser = new ShiroUser(username: "admin", passwordHash: new Sha1Hash("admin").toHex()).save()
 				adminUser.addToRoles(ShiroRole.findByName("administrator"))
 				adminUser.save()
 				if(!adminUser.save()){
 					println adminUser.errors
 				}
-     }
+    }
      def destroy = {
-     }
+    }
 } 

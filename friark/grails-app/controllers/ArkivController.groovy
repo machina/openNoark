@@ -30,11 +30,11 @@ class ArkivController {
 		}
 
 	/**
-	*Lagrer arkiv basert på params. Feltene arkivstatus, systemtID, opprettetDato og opprettetav settet automatisk til hhv "Opprettet", en UUID, dagens dato og den inloggede brukerens brukernavn.
+	*Lagrer arkiv basert på params. Feltene arkivstatus, systemtID, opprettetDato og createdBy settet automatisk til hhv "Opprettet", en UUID, dagens dato og den inloggede brukerens brukernavn.
 	*/
 	def save = {
 			fixParent(params)
-			def arkiv = new Arkiv(params)
+			def arkiv = new Fonds(params)
 			arkiv.arkivstatus = "Opprettet"
 			commonService.setNewSystemID(arkiv)
 			commonService.setCreated(arkiv)
@@ -51,50 +51,50 @@ class ArkivController {
 	}
 
 	def list = {
-		if (!params.sort) params.sort = "tittel"
+		if (!params.sort) params.sort = "title"
     if (!params.order) params.order = "asc"
-		def arkiver = Arkiv.withCriteria {
+		def arkiver = Fonds.withCriteria {
 			if(params.sort == "forelderTittel"){
 				forelder {
-					order('tittel', params.order)
+					order('title', params.order)
 				}
 			} else {
 				order(params.sort, params.order)
 			}
 			
 		}
-		[ arkiver: arkiver, arkivTotal: Arkiv.count() ]
+		[ arkiver: arkiver, arkivTotal: Fonds.count() ]
 	}
 
 	def show = {
-		return [arkiv: Arkiv.get(params.id)]
+		return [arkiv: Fonds.get(params.id)]
 	}
 
 	def edit = {
-		render (view: "update", model: [arkiv: Arkiv.get(params.id)])
+		render (view: "update", model: [arkiv: Fonds.get(params.id)])
 	}
 
-	def update = { UpdateArkivCommand updateCommand ->
+	def update = { UpdateFondsCommand updateCommand ->
 		switch(request.method){
 			case 'GET':
-				return [arkiv: Arkiv.get(params.id)]	
+				return [arkiv: Fonds.get(params.id)]	
 				break
 			case 'POST':
-				def arkiv = Arkiv.get(params.id)
-				if(updateCommand.opprettetdato){
-						arkiv.errors.rejectValue "opprettetdato", "USER_ERROR",  "Kan ikke endre dato for opprettelse av arkiv."
+				def arkiv = Fonds.get(params.id)
+				if(updateCommand.createdDate){
+						arkiv.errors.rejectValue "createdDate", "USER_ERROR",  "Kan ikke endre dato for opprettelse av arkiv."
 						return [errors: arkiv.errors, arkiv: arkiv]
 				}
-				if(arkiv.avsluttetdato != null && updateCommand.avsluttetdato == null){
-						arkiv.errors.rejectValue "avsluttetdato", "USER_ERROR",  "Kan ikke fjerne avsluttetdato."
+				if(arkiv.finalisedDate != null && updateCommand.finalisedDate == null){
+						arkiv.errors.rejectValue "finalisedDate", "USER_ERROR",  "Kan ikke fjerne finalisedDate."
 						return [errors: arkiv.errors, arkiv: arkiv]
-				} else if(updateCommand.avsluttetdato == null){
-					params.avsluttetdato = null
+				} else if(updateCommand.finalisedDate == null){
+					params.finalisedDate = null
 				}
 				stripParent(params, arkiv)
 				if(arkiv.arkivstatus != params.arkivstatus && params.arkivstatus == "Avsluttet"){
 					params.avsluttetav = SecurityUtils.subject.principal
-					params.avsluttetdato = new Date()
+					params.finalisedDate = new Date()
 				}
 				arkiv.properties = params
 				if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
@@ -111,7 +111,7 @@ class ArkivController {
 				params.forelder = null
         arkiv.forelder = null
       } else if(params.forelder instanceof String){
-        arkiv.forelder = Arkiv.get(Integer.parseInt(params.forelder))
+        arkiv.forelder = Fonds.get(Integer.parseInt(params.forelder))
       }
 	}
 	def fixParent(params){
@@ -119,14 +119,14 @@ class ArkivController {
 			params.forelder = null
 		} else if(params.forelder instanceof String){
 			println params.forelder
-			params.forelder = Arkiv.get(Integer.parseInt(params.forelder))
+			params.forelder = Fonds.get(Integer.parseInt(params.forelder))
 		} else {
 			params.forelder.merge()
 		}
 	}
 }
 
-class UpdateArkivCommand {
-	Date opprettetdato
-	Date avsluttetdato
+class UpdateFondsCommand {
+	Date createdDate
+	Date finalisedDate
 }

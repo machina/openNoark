@@ -32,7 +32,7 @@ class MerknadTypeController {
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
         [ merknadTypeInstanceList: MerknadType.list( params ), merknadTypeInstanceTotal: MerknadType.count() ]
-    }
+   }
 
     def show = {
         def merknadTypeInstance = MerknadType.get( params.id )
@@ -40,9 +40,9 @@ class MerknadTypeController {
         if(!merknadTypeInstance) {
             flash.message = "MerknadType not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else { return [ merknadTypeInstance : merknadTypeInstance ] }
-    }
+   }
 
     def delete = {
         def merknadTypeInstance = MerknadType.get( params.id )
@@ -51,17 +51,17 @@ class MerknadTypeController {
                 merknadTypeInstance.delete(flush:true)
                 flash.message = "MerknadType ${params.id} deleted"
                 redirect(action:list)
-            }
+           }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "MerknadType ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
-            }
-        }
+           }
+       }
         else {
             flash.message = "MerknadType not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def edit = {
         def merknadTypeInstance = MerknadType.get( params.id )
@@ -69,11 +69,11 @@ class MerknadTypeController {
         if(!merknadTypeInstance) {
             flash.message = "MerknadType not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else {
             return [ merknadTypeInstance : merknadTypeInstance ]
-        }
-    }
+       }
+   }
 
     def update = {
         def merknadTypeInstance = MerknadType.get( params.id )
@@ -85,37 +85,37 @@ class MerknadTypeController {
                     merknadTypeInstance.errors.rejectValue("version", "merknadType.optimistic.locking.failure", "Another user has updated this MerknadType while you were editing.")
                     render(view:'edit',model:[merknadTypeInstance:merknadTypeInstance])
                     return
-                }
-            }
+               }
+           }
             merknadTypeInstance.properties = params
             if(!merknadTypeInstance.hasErrors() && merknadTypeInstance.save()) {
                 flash.message = "MerknadType ${params.id} updated"
                 redirect(action:show,id:merknadTypeInstance.id)
-            }
+           }
             else {
                 render(view:'edit',model:[merknadTypeInstance:merknadTypeInstance])
-            }
-        }
+           }
+       }
         else {
             flash.message = "MerknadType not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def create = {
-        def merknadTypeInstance = new MerknadType()
+        def merknadTypeInstance = new RemarkType()
         merknadTypeInstance.properties = params
         return ['merknadTypeInstance':merknadTypeInstance]
-    }
+   }
 
     def save = {
-        def merknadTypeInstance = new MerknadType(params)
+        def merknadTypeInstance = new RemarkType(params)
         if(!merknadTypeInstance.hasErrors() && merknadTypeInstance.save()) {
             flash.message = "MerknadType ${merknadTypeInstance.id} created"
             redirect(action:show,id:merknadTypeInstance.id)
-        }
+       }
         else {
             render(view:'create',model:[merknadTypeInstance:merknadTypeInstance])
-        }
-    }
+       }
+   }
 }

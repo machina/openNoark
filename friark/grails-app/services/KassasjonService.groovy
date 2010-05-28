@@ -35,8 +35,8 @@ class KassasjonService {
 		def klasserIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg -> 
-					if(reg.referanseregistrering.referanseforelderKlasse) retval << reg.referanseregistrering.referanseforelderKlasse
-					if(reg.referanseregistrering.referanseforelderBasismappe != null && reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse != null) retval << reg.referanseregistrering.referanseforelderBasismappe.referanseforelderKlasse
+					if(reg.referanseregistrering.parentClass) retval << reg.referanseregistrering.parentClass
+					if(reg.referanseregistrering.parentFile != null && reg.referanseregistrering.parentFile.parentClass != null) retval << reg.referanseregistrering.parentFile.parentClass
 				}
 			} 
 		}
@@ -48,9 +48,9 @@ class KassasjonService {
 		def mapperIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg ->
-					if(reg.referanseregistrering.referanseforelderBasismappe) retval << reg.referanseregistrering.referanseforelderBasismappe
+					if(reg.referanseregistrering.parentFile) retval << reg.referanseregistrering.parentFile
 				}
-      }
+     }
 		}
 
 		/**
@@ -61,7 +61,7 @@ class KassasjonService {
 			return iDokListe(liste) { retval, dok ->
 				dok.registreringer.each { reg ->
 					if(reg.referanseregistrering.referansearkivdel) retval << reg.referanseregistrering.referansearkivdel
-					if(reg.referanseregistrering.referanseforelderBasismappe != null && reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel != null) retval << reg.referanseregistrering.referanseforelderBasismappe.referansearkivdel
+					if(reg.referanseregistrering.parentFile != null && reg.referanseregistrering.parentFile.referansearkivdel != null) retval << reg.referanseregistrering.parentFile.referansearkivdel
 				}
 			}
 		}
@@ -75,45 +75,45 @@ class KassasjonService {
 
 		/**
     * En oversikt over bevatinger og kassasjoner.
-    * @param co Et objekt med feltene fra, til og kassasjonsvedtak.
-    * @return Drrunerer alle dokumentbeskrivelser som operasjonen i kassasjonsvedtak skal utføres på mellom datoene fra og til.
+    * @param co Et objekt med feltene fra, til og disposalDecision.
+    * @return Drrunerer alle documentDescriptionr som operasjonen i disposalDecision skal utføres på mellom datoene fra og til.
     */
     def oversikt(def co) {
 			def retval = []
-			def c = BevaringOgKassasjon.createCriteria()
+			def c = PreservationAndDisposal.createCriteria()
 
 			def results = c {
-				like("kassasjonsvedtak", co.kassasjonsvedtak)
-				between("kassasjonsdato", co.fra, co.til)
+				like("disposalDecision", co.disposalDecision)
+				between("disposalDate", co.fra, co.til)
 			}
 			if(results){
 				results.each{
 					retval << dokumenterFraDokument(it)
 					retval << dokumenterFraRegistrering(it)			
 					retval << dokumenterFraMappe(it)
-					retval << dokumenterFraArkivdel(it)
-					retval << dokumenterFraKlasse(it)
+					retval << dokumenterFraSeries(it)
+					retval << dokumenterFraKlass(it)
 				}
 			}
 			retval.flatten()
-    }
+   }
 
 		private def dokumenterFraDokument(def vedtak){
-			if(vedtak.dokumentBeskrivelse) return vedtak.dokumentBeskrivelse
+			if(vedtak.documentDescription) return vedtak.documentDescription
 			return []
 		}
 
 		private def dokumenterFraRegistrering(def vedtak){
 			def retval = []
-			if(vedtak.registrering){
-				vedtak.registrering.each{ reg ->
-  	      //Dokumentlink!!
+			if(vedtak.record){
+				vedtak.record.each{ reg ->
+  	      //DocumentLink!!
 	        reg.dokumenter.each{ dokLink ->
-        	  if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato == null ){
-							 retval << dokLink.dokumentbeskrivelse
+        	  if(dokLink.documentDescription.preservationAndDisposal == null && dokLink.documentDescription.disposalDate == null ){
+							 retval << dokLink.documentDescription
 						}
-         }
-       }
+        }
+      }
 			}
 			return retval
 		}
@@ -121,34 +121,34 @@ class KassasjonService {
 		private def dokumenterFraMappe(def vedtak){
 			def retval = []
 			def leggTilFraReg = leggTilFraReg.curry(retval)
-			if(vedtak.mappe){
-				vedtak.mappe.each { mappe ->
-					mappe.referansebarnForenkletRegistrering.each leggTilFraReg
+			if(vedtak.file){
+				vedtak.file.each { mappe ->
+					mappe.referansebarnSimplifiedRecord.each leggTilFraReg
 				}
 			}
 			return retval
 		}
 
-		private def dokumenterFraKlasse(def vedtak){
+		private def dokumenterFraKlass(def vedtak){
 			def retval = []
 			def leggTilFraReg = leggTilFraReg.curry(retval)
 			def leggTilFraMappe = leggTilFraMappe.curry(retval)
-			if(vedtak.klasse){
-				vedtak.klasse.each{ klasse ->
-					klasse.referansebarnForenkletRegistrering.each leggTilFraReg
-					println "klasse.referansebarnBasismappe ${klasse.referansebarnBasismappe}"
-					klasse.referansebarnBasismappe.each leggTilFraMappe
+			if(vedtak.klass){
+				vedtak.klass.each{ klasse ->
+					klasse.referansebarnSimplifiedRecord.each leggTilFraReg
+					println "klasse.referansebarnBasicFile ${klasse.referansebarnBasicFile}"
+					klasse.referansebarnBasicFile.each leggTilFraMappe
 				}
 			}
 			return retval
 		}
 
-		private def dokumenterFraArkivdel(def vedtak){
+		private def dokumenterFraSeries(def vedtak){
 			def retval = []
 			def leggTilFraMappe = leggTilFraMappe.curry(retval)
 			def leggTilFraReg = leggTilFraReg.curry(retval)
-			if(vedtak.arkivdel){
-				vedtak.arkivdel.each {arkivdel ->
+			if(vedtak.series){
+				vedtak.series.each {arkivdel ->
 					arkivdel.referansemappe.each leggTilFraMappe
 					arkivdel.referanseregistrering.each leggTilFraReg
 				}
@@ -159,23 +159,23 @@ class KassasjonService {
 		def leggTilFraMappe = {retval, mappe ->
 			def leggTilFraReg = leggTilFraReg.curry(retval)
 			println "mappe ${mappe}"
-			//printn "mappe.referansebarnForenkletRegistrering ${mappe.referansebarnForenkletRegistrering}"
-			if(mappe.bevaringOgKassasjon == null) ForenkletRegistrering.findAllByreferanseforelderBasismappe(mappe).each leggTilFraReg
+			//printn "mappe.referansebarnSimplifiedRecord ${mappe.referansebarnSimplifiedRecord}"
+			if(mappe.preservationAndDisposal == null) SimplifiedRecord.findAllByparentFile(mappe).each leggTilFraReg
 
 		}
 
 		def  leggTilFraReg = { retval, reg->
 			def leggTilFraDokLink = leggTilFraDokLink.curry(retval)
-			if(reg.bevaringOgKassasjon == null) reg.dokumenter.each leggTilFraDokLink	
+			if(reg.preservationAndDisposal == null) reg.dokumenter.each leggTilFraDokLink	
 		}
 		
 		def leggTilFraDokLink = { retval, dokLink ->
-			if(dokLink.dokumentbeskrivelse.bevaringOgKassasjon == null && dokLink.dokumentbeskrivelse.kassertDato == null) retval << dokLink.dokumentbeskrivelse
+			if(dokLink.documentDescription.preservationAndDisposal == null && dokLink.documentDescription.disposalDate == null) retval << dokLink.documentDescription
 		}
 
     /**
     * Filtrerer dokumentbeskrivlser.
-		* @param liste dokumentbeskrivelsebe som skal filtreres.
+		* @param liste documentDescriptionbe som skal filtreres.
     * @param filter filtreret enten som en streng eller Filter
     */
 		def filter(liste, filter){
@@ -207,7 +207,7 @@ class KassasjonService {
 
   /**
   * Kasserer en liste dokumenter
-  * @param dokumenter En liste dokumentbeskrivelser som skal kasseres.
+  * @param dokumenter En liste documentDescriptionr som skal kasseres.
   */
 	def kasser(List dokumenter, slettTilMappe = false){
 		dokumenter.each{ dok ->
@@ -217,52 +217,52 @@ class KassasjonService {
 	}
 
   /**
-  * Kasserer et dokument. Kassering betyr fjerneing av alle Dokumentobjekt og tilknyttede dokumenter.
+  * Kasserer et dokument. Kassering betyr fjerneing av alle DocumentObject og tilknyttede dokumenter.
   * @param dok Dokumentet som skal kasseres. 
   */
-	def kasser(Dokumentbeskrivelse dok, slettTilMappe = false){
+	def kasser(DocumentDescription dok, slettTilMappe = false){
 		if (!SecurityUtils.subject.isPermitted("kassasjon:kassere:${dok.id}")) {
 			throw new Exception("Kassering ikke tillatt for bruker.")
 		}	
-		dok.referansedokumentObjekt.each{
-			if(dok.registreringer?.size() <= 1){
+		dok.documentObject.each{
+			if(dok.records?.size() <= 1){
 				archiveService.delteFromArchive(it)				
 			}
-			dok.removeFromReferansedokumentObjekt(it)
-			it.referansedokumentBeskrivelse = null
+			dok.removeFromDocumentObject(it)
+			it.documentDescription = null
 			it.delete(flush:true)
 		}
 
-		dok.kassertDato = new Date()
-		dok.kassertAv = SecurityUtils.subject.principal
+		dok.disposalDate = new Date()
+		dok.disposedBy = SecurityUtils.subject.principal
 		dok.save()
 		println "slettTilmappe: ${slettTilMappe}"
 		if(slettTilMappe){
 			println "sletttilmappe!"
-			dok.registreringer.each{ dl ->
+			dok.records.each{ dl ->
 				println "DL"
-dok.removeFromRegistreringer(dl)
+				dok.removeFromRecords(dl)
 				dl.delete()
 
-				def reg = dl.referanseregistrering
-				if(reg.referanseforelderBasismappe) {
-					reg.referanseforelderBasismappe.removeFromReferansebarnBasismappe(reg)
-					reg.referanseforelderBasismappe.save()
+				def reg = dl.referenceRecord
+				if(reg.parentFile) {
+					reg.parentFile.removeFromChildRecord(reg)
+					reg.parentFile.save()
 				}
 				reg.delete()
 
 							}
-			if(dok.bevaringOgKassasjon){
+			if(dok.preservationAndDisposal){
 				println "fiksing bev"
-				def bev = dok.bevaringOgKassasjon
-			  bev.removeFromDokumentBeskrivelse(dok)
-				dok.bevaringOgKassasjon = null
+				def bev = dok.preservationAndDisposal
+			  bev.removeFromDocumentDescription(dok)
+				dok.preservationAndDisposal = null
 				//bev.save()
 			}
-			println dok.registreringer
-			println dok.referansedokumentObjekt
-			println dok.merknad
-			dok.referansedokumentObjekt = null
+			println dok.records
+			println dok.documentObject
+			println dok.remark
+			dok.documentObject = null
 			dok.delete()
 		} else {
 			dok.save()

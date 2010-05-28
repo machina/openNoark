@@ -19,31 +19,31 @@ import grails.converters.*
 import no.friark.ds.*
 
 /**
-* CRUD for Arkivdeler
+* CRUD for Serieser
 */
-class ArkivdelController {
+class SeriesController {
 		def commonService
 		def arkivdelService
 
     def index = { redirect(action:list,params:params)}
 
 		def create = {
-			[arkiver: Arkiv.list()]
+			[arkiver: Fonds.list()]
 		}
 
 
 		/**
-		* Lager en ny arkivdel. Denne funksjonen setter automatisk verdiene dor systemID, arkivdelstatus og opprettetav
+		* Lager en ny arkivdel. Denne funksjonen setter automatisk verdiene dor systemID, recordSectionStatus og createdBy
 		*/
 		def save = {
-			def arkivdel = new Arkivdel(params)
-			arkivdel.arkivdelstatus = "Opprettet"
+			def arkivdel = new Series(params)
+			arkivdel.recordSectionStatus = "Opprettet"
 			commonService.setNewSystemID(arkivdel)
 			commonService.setCreated(arkivdel)
 			if(!params.referanseforelder || params.referanseforelder == "null") {
 				arkivdel.referanseforelder = null
 			} else {
-				arkivdel.referanseforelder = Arkiv.get(params.referanseforelder)
+				arkivdel.referanseforelder = Fonds.get(params.referanseforelder)
 			}
 			if(!arkivdel.save()){
 				render(view: "create", model: [errors: arkivdel.errors])
@@ -53,17 +53,17 @@ class ArkivdelController {
 		}
 	
 		def show = {
-			return [arkivdel: Arkivdel.get(params.id)]
+			return [arkivdel: Series.get(params.id)]
 		}
 		
 		def list = {
-			if (!params.sort) params.sort = "tittel"
+			if (!params.sort) params.sort = "title"
 	    if (!params.order) params.order = "asc"
 
-			def arkivdeler = Arkivdel.withCriteria {
+			def arkivdeler = Series.withCriteria {
   	    if(params.sort == "forelder"){
     	    referanseforelder {
-        	  order('tittel', params.order)
+        	  order('title', params.order)
       	  }
 		    } else {
   	      order(params.sort, params.order)
@@ -75,11 +75,11 @@ class ArkivdelController {
   	      return [arkivdeler: arkivdeler]
         }
         xml {
-    	    render Arkivdel.findAll() as XML
+    	    render Series.findAll() as XML
         }
         json {
-       		 println Arkivdel.findAll() as JSON
-           render Arkivdel.findAll() as JSON
+       		 println Series.findAll() as JSON
+           render Series.findAll() as JSON
         }
      }
 
@@ -87,24 +87,24 @@ class ArkivdelController {
 		}
 
 	def edit = {
-		render(view: 'update', model: [arkivdel: Arkivdel.get(params.id)])
+		render(view: 'update', model: [arkivdel: Series.get(params.id)])
 	}
 
-	def update = { UpdateArkivdelCommand updateCommand ->
+	def update = { UpdateSeriesCommand updateCommand ->
 
 		switch(request.method){
       case 'GET':
-        return [arkivdel: Arkivdel.get(params.id)]
+        return [arkivdel: Series.get(params.id)]
         break
       case 'POST':
-				def arkivdel = Arkivdel.get(params.id)
-				if(updateCommand.avsluttetdato == null){
-          params.avsluttetdato = null
+				def arkivdel = Series.get(params.id)
+				if(updateCommand.finalisedDate == null){
+          params.finalisedDate = null
         }
 				if(updateCommand.arkivperiodestartdato == null) params.arkivperiodestartdato = null
         if(updateCommand.arkivperiodesluttdato == null) params.arkivperiodesluttdato = null
-				if(updateCommand.opprettetdato != null && updateCommand.opprettetdato == arkivdel.opprettetdato){
-					params.opprettetdato = null
+				if(updateCommand.createdDate != null && updateCommand.createdDate == arkivdel.createdDate){
+					params.createdDate = null
 				}
 				arkivdel.properties = params
         if(!arkivdel.hasErrors() && arkivdel.validate() && arkivdel.save()){
@@ -118,12 +118,12 @@ class ArkivdelController {
 	}
 	
 	def håndterOppbevaringsted = {
-		return [arkivdel: Arkivdel.get(params.id)]
+		return [arkivdel: Series.get(params.id)]
 	}
 
 	def fjernOppbevaringsted = {
-		def arkivdel = Arkivdel.get(params.arkivdelid)
-		arkivdel.oppbevaringssted.remove  params.sted
+		def arkivdel = Series.get(params.arkivdelid)
+		arkivdel.storageLocation.remove  params.sted
 		if(arkivdel.save()){
 			println arkivdel.errors
 			render view: 'håndterOppbevaringsted', model: [arkivdel: arkivdel]
@@ -134,8 +134,8 @@ class ArkivdelController {
 	}
 
 	def leggTilOppbevaringsted = {
-		def arkivdel = Arkivdel.get(params.arkivdelid)
-    arkivdel.oppbevaringssted.add params.sted
+		def arkivdel = Series.get(params.arkivdelid)
+    arkivdel.storageLocation.add params.sted
 		if(arkivdel.save()){
       println arkivdel.errors
       render view: 'håndterOppbevaringsted', model: [arkivdel: arkivdel]
@@ -148,9 +148,9 @@ class ArkivdelController {
   }
 
 }
-class UpdateArkivdelCommand {
-  Date opprettetdato
-  Date avsluttetdato
+class UpdateSeriesCommand {
+  Date createdDate
+  Date finalisedDate
 	Date arkivperiodestartdato
 	Date arkivperiodesluttdato
 }

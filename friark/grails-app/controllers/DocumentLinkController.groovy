@@ -17,7 +17,7 @@
 
 
 import no.friark.ds.*
-class DokumentlinkController {
+class DocumentLinkController {
     
     def index = { redirect(action:list,params:params) }
 
@@ -26,43 +26,43 @@ class DokumentlinkController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ dokumentlinkInstanceList: Dokumentlink.list( params ), dokumentlinkInstanceTotal: Dokumentlink.count() ]
+        [ dokumentlinkInstanceList: DocumentLink.list( params ), dokumentlinkInstanceTotal: DocumentLink.count() ]
     }
 
     def show = {
-        def dokumentlinkInstance = Dokumentlink.get( params.id )
+        def dokumentlinkInstance = DocumentLink.get( params.id )
 
         if(!dokumentlinkInstance) {
-            flash.message = "Dokumentlink not found with id ${params.id}"
+            flash.message = "DocumentLink not found with id ${params.id}"
             redirect(action:list)
         }
         else { return [ dokumentlinkInstance : dokumentlinkInstance ] }
     }
 
     def delete = {
-        def dokumentlinkInstance = Dokumentlink.get( params.id )
+        def dokumentlinkInstance = DocumentLink.get( params.id )
         if(dokumentlinkInstance) {
             try {
                 dokumentlinkInstance.delete(flush:true)
-                flash.message = "Dokumentlink ${params.id} deleted"
+                flash.message = "DocumentLink ${params.id} deleted"
                 redirect(action:list)
             }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "Dokumentlink ${params.id} could not be deleted"
+                flash.message = "DocumentLink ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
             }
         }
         else {
-            flash.message = "Dokumentlink not found with id ${params.id}"
+            flash.message = "DocumentLink not found with id ${params.id}"
             redirect(action:list)
         }
     }
 
     def edit = {
-        def dokumentlinkInstance = Dokumentlink.get( params.id )
+        def dokumentlinkInstance = DocumentLink.get( params.id )
 
         if(!dokumentlinkInstance) {
-            flash.message = "Dokumentlink not found with id ${params.id}"
+            flash.message = "DocumentLink not found with id ${params.id}"
             redirect(action:list)
         }
         else {
@@ -71,20 +71,20 @@ class DokumentlinkController {
     }
 
     def update = {
-        def dokumentlinkInstance = Dokumentlink.get( params.id )
+        def dokumentlinkInstance = DocumentLink.get( params.id )
         if(dokumentlinkInstance) {
             if(params.version) {
                 def version = params.version.toLong()
                 if(dokumentlinkInstance.version > version) {
                     
-                    dokumentlinkInstance.errors.rejectValue("version", "dokumentlink.optimistic.locking.failure", "Another user has updated this Dokumentlink while you were editing.")
+                    dokumentlinkInstance.errors.rejectValue("version", "dokumentlink.optimistic.locking.failure", "Another user has updated this DocumentLink while you were editing.")
                     render(view:'edit',model:[dokumentlinkInstance:dokumentlinkInstance])
                     return
                 }
             }
             dokumentlinkInstance.properties = params
             if(!dokumentlinkInstance.hasErrors() && dokumentlinkInstance.save()) {
-                flash.message = "Dokumentlink ${params.id} updated"
+                flash.message = "DocumentLink ${params.id} updated"
                 redirect(action:show,id:dokumentlinkInstance.id)
             }
             else {
@@ -92,21 +92,21 @@ class DokumentlinkController {
             }
         }
         else {
-            flash.message = "Dokumentlink not found with id ${params.id}"
+            flash.message = "DocumentLink not found with id ${params.id}"
             redirect(action:list)
         }
     }
 
     def create = {
-        def dokumentlinkInstance = new Dokumentlink()
+        def dokumentlinkInstance = new DocumentLink()
         dokumentlinkInstance.properties = params
         return ['dokumentlinkInstance':dokumentlinkInstance]
     }
 
     def save = {
-        def dokumentlinkInstance = new Dokumentlink(params)
+        def dokumentlinkInstance = new DocumentLink(params)
         if(!dokumentlinkInstance.hasErrors() && dokumentlinkInstance.save()) {
-            flash.message = "Dokumentlink ${dokumentlinkInstance.id} created"
+            flash.message = "DocumentLink ${dokumentlinkInstance.id} created"
             redirect(action:show,id:dokumentlinkInstance.id)
         }
         else {

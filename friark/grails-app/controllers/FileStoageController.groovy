@@ -24,7 +24,7 @@ class FileStoageController {
 	def archiveService
 
 	/**
-  * Arkiverer den inkommende strømmen og knytter den til Dokumentobjektet med den innkommende id.
+  * Arkiverer den inkommende strømmen og knytter den til DocumentObjectet med den innkommende id.
   */
 	def save = {
 		println(params)

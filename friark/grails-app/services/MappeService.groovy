@@ -25,28 +25,29 @@ class MappeService {
     boolean transactional = true
 		def commonService
     def mappeIdGeneratorService
+
     /**
     * Lager en ny mappe med de inkommende paramerterene.
     * @param params Et Map som inneholder metadata for Mappen.
     */
 		def save(params) {
-				if(!getMappetyper().contains(params.mappetype)){
+				if(!getMappetyper().contains(params.fileType)){
 					return [[errors: ["Mappetype er ikke tillatt"]], false]
 				}
 				def mappe
-				switch(params.mappetype){
-					case 'Basismappe':
-						mappe =  new Basismappe(params)
+				switch(params.fileType){
+					case 'BasicFile':
+						mappe =  new BasicFile(params)
 						break
-					case 'Saksmappe':
-						mappe =  new Saksmappe(params)
+					case 'CaseFile':
+						mappe =  new CaseFile(params)
 
 				}
-				mappe.mappeid = mappeIdGeneratorService.generatorForMappe(mappe).call()
+				mappe.fileID = mappeIdGeneratorService.generatorForMappe(mappe).call()
 				commonService.setNewSystemID mappe
 				commonService.setCreated(mappe)
 				
-				def (delOk, error) = checkArkivdel(params, mappe)
+				def (delOk, error) = checkSeries(params, mappe)
 				if(!delOk){
 					println error
 					mappe.errors.reject 'org.friark.noexistingKey', error
@@ -63,16 +64,16 @@ class MappeService {
 		}
 		
 		
-		private def checkArkivdel(params, mappe){
-			if(mappe.referansearkivdel.arkivdelstatus == "Opprettet" && (mappe.referansearkivdel.periodeStatus == null  || mappe.referansearkivdel.periodeStatus == "Aktiv periode")){
-				mappe.referansearkivdel.addToReferansemappe(mappe)
+		private def checkSeries(params, mappe){
+			if(mappe.recordSection.recordSectionStatus == "Opprettet" && (mappe.recordSection.periodStatus == null  || mappe.recordSection.periodStatus == "Aktiv periode")){
+				mappe.recordSection.addToFile(mappe)
 				return [true]
 			}
 
-			return [false, "Kan ikke lege til en mappe i et arkiv med periodestatus ${mappe.referansearkivdel.periodeStatus}"]
+			return [false, "Kan ikke lege til en mappe i et arkiv med periodestatus ${mappe.recordSection.periodStatus}"]
 		}
 
 		def getMappetyper(){
-			commonService.getParameter("tilgjengelige_mappetyper").split(",").collect{it.trim()}
-   }
+			commonService.getParameter("tilgjengelige_fileTyper").split(",").collect{it.trim()}
+  }
 }

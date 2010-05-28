@@ -58,6 +58,6 @@ class HiddenDatePickerTagLib {
 	private mselect_radio = { ftl, attrs ->
 		ftl.radio(attrs)
     out << ftl.out.toString()
-  }
+ }
 
 }

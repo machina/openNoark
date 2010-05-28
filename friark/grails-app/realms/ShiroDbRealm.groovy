@@ -17,7 +17,7 @@ class ShiroDbRealm {
         // Null username is invalid
         if (username == null) {
             throw new AccountException("Null usernames are not allowed by this realm.")
-        }
+       }
 
         // Get the user with the given username. If the user is not
         // found, then they don't have an account and we throw an
@@ -25,7 +25,7 @@ class ShiroDbRealm {
         def user = ShiroUser.findByUsername(username)
         if (!user) {
             throw new UnknownAccountException("No account found for user [${username}]")
-        }
+       }
 
         log.info "Found user '${user.username}' in DB"
 
@@ -35,32 +35,32 @@ class ShiroDbRealm {
         if (!credentialMatcher.doCredentialsMatch(authToken, account)) {
             log.info "Invalid password (DB realm)"
             throw new IncorrectCredentialsException("Invalid password for user '${username}'")
-        }
+       }
 
         return account
-    }
+   }
 
     def hasRole(principal, roleName) {
         def roles = ShiroUser.withCriteria {
             roles {
                 eq("name", roleName)
-            }
+           }
             eq("username", principal)
-        }
+       }
 
         return roles.size() > 0
-    }
+   }
 
     def hasAllRoles(principal, roles) {
         def r = ShiroUser.withCriteria {
             roles {
                 'in'("name", roles)
-            }
+           }
             eq("username", principal)
-        }
+       }
 
         return r.size() == roles.size()
-    }
+   }
 
     def isPermitted(principal, requiredPermission) {
         // Does the user have the given permission directly associated
@@ -83,16 +83,16 @@ class ShiroDbRealm {
             if (perm.implies(requiredPermission)) {
                 // User has the permission!
                 return true
-            }
+           }
             else {
                 return false
-            }
-        }
+           }
+       }
 
         if (retval != null) {
             // Found a matching permission!
             return true
-        }
+       }
 
         // If not, does he gain it through a role?
         //
@@ -114,18 +114,18 @@ class ShiroDbRealm {
             if (perm.implies(requiredPermission)) {
                 // User has the permission!
                 return true
-            }
+           }
             else {
                 return false
-            }
-        }
+           }
+       }
 
         if (retval != null) {
             // Found a matching permission!
             return true
-        }
+       }
         else {
             return false
-        }
-    }
+       }
+   }
 }

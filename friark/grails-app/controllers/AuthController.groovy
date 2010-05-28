@@ -34,7 +34,7 @@ class AuthController {
     */
     def login = {
         return [ username: params.username, rememberMe: (params.rememberMe != null), targetUri: params.targetUri ]
-    }
+   }
 
     /**
     * Sjekker inkommende kredentialer og utfører inlogging.
@@ -45,7 +45,7 @@ class AuthController {
         // Support for "remember me"
         if (params.rememberMe) {
             authToken.rememberMe = true
-        }
+       }
         
         // If a controller redirected to this page, redirect back
         // to it. Otherwise redirect to the root URI.
@@ -56,7 +56,7 @@ class AuthController {
         if (savedRequest) {
             targetUri = savedRequest.requestURI - request.contextPath
             if (savedRequest.queryString) targetUri = targetUri + '?' + savedRequest.queryString
-        }
+       }
         
         try{
             // Perform the actual login. An AuthenticationException
@@ -66,7 +66,7 @@ class AuthController {
 
             log.info "Redirecting to '${targetUri}'."
             redirect(uri: targetUri)
-        }
+       }
         catch (AuthenticationException ex){
             // Authentication failed, so display the appropriate message
             // on the login page.
@@ -78,17 +78,17 @@ class AuthController {
             def m = [ username: params.username ]
             if (params.rememberMe) {
                 m["rememberMe"] = true
-            }
+           }
 
             // Remember the target URI too.
             if (params.targetUri) {
                 m["targetUri"] = params.targetUri
-            }
+           }
 
             // Now redirect back to the login page.
             redirect(action: "login", params: m)
-        }
-    }
+       }
+   }
 
 		/**
     * Logger ut nåværende bruker for denne sessjonen.
@@ -99,12 +99,12 @@ class AuthController {
 
         // For now, redirect back to the home page.
         redirect(uri: "/")
-    }
+   }
 
     /**
     * Denne blir kallt når brukeren ikke har tilgang på en ønsket resurs.
     */
     def unauthorized = {
         render "You do not have permission to access this page."
-    }
+   }
 }

@@ -20,7 +20,7 @@ import grails.converters.*
 import no.friark.ds.*
 
 /**
-* CRUD-operasjoner for ForenkletRegistrering
+* CRUD-operasjoner for SimplifiedRecord
 *
 * @author Kent Inge Fagerland Simonsen
 */
@@ -35,89 +35,89 @@ class RegistreringController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ forenkletRegistreringInstanceList: ForenkletRegistrering.list( params ), forenkletRegistreringInstanceTotal: ForenkletRegistrering.count() ]
-    }
+        [ forenkletRegistreringInstanceList: SimplifiedRecord.list( params ), forenkletRegistreringInstanceTotal: SimplifiedRecord.count() ]
+   }
 
     def show = {
-        def forenkletRegistreringInstance = ForenkletRegistrering.get( params.id )
+        def forenkletRegistreringInstance = SimplifiedRecord.get( params.id )
 
         if(!forenkletRegistreringInstance) {
-            flash.message = "ForenkletRegistrering not found with id ${params.id}"
+            flash.message = "SimplifiedRecord not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else { return [ forenkletRegistreringInstance : forenkletRegistreringInstance ] }
-    }
+   }
 
     def delete = {
-        def forenkletRegistreringInstance = ForenkletRegistrering.get( params.id )
+        def forenkletRegistreringInstance = SimplifiedRecord.get( params.id )
         if(forenkletRegistreringInstance) {
             try {
                 forenkletRegistreringInstance.delete(flush:true)
-                flash.message = "ForenkletRegistrering ${params.id} deleted"
+                flash.message = "SimplifiedRecord ${params.id} deleted"
                 redirect(action:list)
-            }
+           }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "ForenkletRegistrering ${params.id} could not be deleted"
+                flash.message = "SimplifiedRecord ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
-            }
-        }
+           }
+       }
         else {
-            flash.message = "ForenkletRegistrering not found with id ${params.id}"
+            flash.message = "SimplifiedRecord not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def edit = {
-        def forenkletRegistreringInstance = ForenkletRegistrering.get( params.id )
+        def forenkletRegistreringInstance = SimplifiedRecord.get( params.id )
 
         if(!forenkletRegistreringInstance) {
-            flash.message = "ForenkletRegistrering not found with id ${params.id}"
+            flash.message = "SimplifiedRecord not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else {
             return [ forenkletRegistreringInstance : forenkletRegistreringInstance, typer: registreringService.registreringTyper ]
-        }
-    }
+       }
+   }
 
     def update = {
-        def forenkletRegistreringInstance = ForenkletRegistrering.get( params.id )
+        def forenkletRegistreringInstance = SimplifiedRecord.get( params.id )
         if(forenkletRegistreringInstance) {
             if(params.version) {
                 def version = params.version.toLong()
                 if(forenkletRegistreringInstance.version > version) {
                     
-                    forenkletRegistreringInstance.errors.rejectValue("version", "forenkletRegistrering.optimistic.locking.failure", "Another user has updated this ForenkletRegistrering while you were editing.")
+                    forenkletRegistreringInstance.errors.rejectValue("version", "forenkletRegistrering.optimistic.locking.failure", "Another user has updated this SimplifiedRecord while you were editing.")
                     render(view:'edit',model:[forenkletRegistreringInstance:forenkletRegistreringInstance])
                     return
-                }
-            }
+               }
+           }
             forenkletRegistreringInstance.properties = params
             if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
-                flash.message = "ForenkletRegistrering ${params.id} updated"
+                flash.message = "SimplifiedRecord ${params.id} updated"
                 redirect(action:show,id:forenkletRegistreringInstance.id)
-            }
+           }
             else {
                 render(view:'edit',model:[forenkletRegistreringInstance:forenkletRegistreringInstance])
-            }
-        }
+           }
+       }
         else {
-            flash.message = "ForenkletRegistrering not found with id ${params.id}"
+            flash.message = "SimplifiedRecord not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def create = {
-        def forenkletRegistreringInstance = new ForenkletRegistrering()
+        def forenkletRegistreringInstance = new SimplifiedRecord()
         forenkletRegistreringInstance.properties = params
         return ['forenkletRegistreringInstance':forenkletRegistreringInstance, typer: registreringService.registreringTyper]
-    }
+   }
 
     def save = {
 				println params
 
 				def (forenkletRegistreringInstance, error) = registreringService.registrer(params)
         if(!error) {
-            flash.message = "ForenkletRegistrering ${forenkletRegistreringInstance.id} created"
+            flash.message = "SimplifiedRecord ${forenkletRegistreringInstance.id} created"
 						withFormat {
 	            html {
 		            render(view: "show", model: [forenkletRegistreringInstance:forenkletRegistreringInstance] )
@@ -132,9 +132,9 @@ class RegistreringController {
 								render forenkletRegistreringInstance as JSON
 							}
 						}
-        }
+       }
         else {
             render(view:'create',model:[forenkletRegistreringInstance:forenkletRegistreringInstance, typer: registreringService.registreringTyper])
-        }
-    }
+       }
+   }
 }

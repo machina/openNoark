@@ -18,7 +18,7 @@
 import no.friark.ds.*
 
 /**
-* Metoder for å gjøre operasjoner på Arkivdel objekter.
+* Metoder for å gjøre operasjoner på Series objekter.
 */
 class ArkivdelService {
 
@@ -27,13 +27,13 @@ class ArkivdelService {
 
 		/**
 		* Finner alle Mapper under den inkommende arkivdelen som ikke er avsluttet.
-    * @param del Arkivdelen som inneholder mapppene
-    * @return en Liste av alle mappene under del som har avsluttetdato lik null
+    * @param del Seriesen som inneholder mapppene
+    * @return en Liste av alle mappene under del som har finalisedDate lik null
 		*/
-		def findOpenMappe(Arkivdel del){
+		def findOpenMappe(Series del){
 			def retval = []
-			del.referansemappe.each{
-				if(it.avsluttetdato == null) retval << it
+			del.file.each{
+				if(it.finalisedDate == null) retval << it
 			}
 			return retval
 		}

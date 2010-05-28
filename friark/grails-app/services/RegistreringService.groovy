@@ -32,68 +32,68 @@ class RegistreringService {
     */
 		def registrer(params){
         def registrering = null
-				println "regtype: ${params.registreringstype}"
+				println "regtype: ${params.recordType}"
 				def korrespondansepart = null
 				def saksansvar
 				//for webservices
         if(params.registrering != null){
-          params.registrering.arkivertdato = parse(params.ForenkletRegistrering.arkivertdato)
-          params.registrering.opprettetdato = parse(params.ForenkletRegistrering.opprettetdato)
+          params.registrering.archivedDate = parse(params.SimplifiedRecord.archivedDate)
+          params.registrering.createdDate = parse(params.SimplifiedRecord.createdDate)
 
-          switch(params.registreringstype){
+          switch(params.recordType){
 						case 'Forenkletregistrering':
-							registrering = new ForenkletRegistrering(params.registrering)
+							registrering = new SimplifiedRecord(params.registrering)
 							break
-						case 'Journalpost':
-							registrering = new Journalpost(params.registrering)
+						case 'RegistryEntry':
+							registrering = new RegistryEntry(params.registrering)
 							break
 					}
 
 					if(params.registrering.mappe_id != null){
-            registrering.setReferanseforelderBasismappe(Basismappe.get(Long.parseLong(params.ForenkletRegistrering.mappe_id)))
-          }
+            registrering.setReferanseforelderBasicFile(BasicFile.get(Long.parseLong(params.SimplifiedRecord.mappe_id)))
+         }
           if(params.registrering.klasse_id != null){
-            registrering.setReferanseforelderKlasse(Klasse.get(Long.parseLong(params.ForenkletRegistrering.klasse_id)))
-          }
+            registrering.setReferanseforelderKlass(Klass.get(Long.parseLong(params.SimplifiedRecord.klasse_id)))
+         }
           if(params.registrering.arkivdel_id != null){
-            registrering.setReferansearkivdel(Arkivdel.get(Long.parseLong(params.ForenkletRegistrering.arkivdel_id)))
-          }
+            registrering.setReferansearkivdel(Series.get(Long.parseLong(params.SimplifiedRecord.arkivdel_id)))
+         }
 					
 
-        } else { //for web interface
+       } else { //for web interface
 					
-					switch(params.registreringstype){
+					switch(params.recordType){
             case 'Forenkletregistrering':
-              registrering = new ForenkletRegistrering(params)
+              registrering = new SimplifiedRecord(params)
               break
-            case 'Journalpost':
-              registrering = new Journalpost(params)
-							korrespondansepart = new Korrespondansepart(params)
-							saksansvar = new Saksansvar(params)
+            case 'RegistryEntry':
+              registrering = new RegistryEntry(params)
+							korrespondansepart = new Client(params)
+							saksansvar = new CaseResponsibility(params)
               break
-          }
+         }
 					
-        }
+       }
         commonService.setNewSystemID registrering
 				
-				if(registrering.referanseforelderBasismappe && registrering.referanseforelderBasismappe.referansearkivdel.periodeStatus == "Overlappingsperiode"){
-					def mappe = registreringInstance.referanseforelderBasismappe
-					def del = mappe.referansearkivdel
-					del.removeFromReferansemappe mappe
+				if(registrering.parentFile && registrering.parentFile.recordSection.periodStatus == "Overlappingsperiode"){
+					def mappe = registrering.parentFile
+					def del = mappe.recordSection
+					del.removeFromFile mappe
 					del.save()
-					del.referansearvtaker.addToReferansemappe mappe
-					del.referansearvtaker.save()
+					del.successor.addToFile mappe
+					del.successor.save()
 				}
 				
 				if(saksansvar != null){
-						saksansvar.addToJournalpost(registrering)
-						registrering.saksansvar = saksansvar
+						saksansvar.addToRegistryEntry(registrering)
+						registrering.caseResponsibility = saksansvar
 						if(!saksansvar.save()) println saksansvar.errors
 				}
 				if(!registrering.hasErrors() && registrering.save()){
 					if(korrespondansepart != null){
-						korrespondansepart.journalpost = registrering
-						registrering.addToKorespondansepart(korrespondansepart)
+						korrespondansepart.registryEntry = registrering
+						registrering.addToClient(korrespondansepart)
 						korrespondansepart.save()
 					}
 						
@@ -105,6 +105,6 @@ class RegistreringService {
 		}
 
 	def getRegistreringTyper(){
-      commonService.getParameter("tilgjengelige_registreringstyper").split(",").collect{it.trim()}
-  }
+      commonService.getParameter("tilgjengelige_recordTyper").split(",").collect{it.trim()}
+	}
 }

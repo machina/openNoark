@@ -6,18 +6,18 @@ class TestController {
 		def clearAll = {
 			def delete = { it.delete() }
 			Saksansvar.list().collect delete
-			Korrespondansepart.list().collect delete
-			BevaringOgKassasjon.list().collect delete
-			Dokumentlink.list().collect delete
-			Dokumentobjekt.list().collect delete
-			Dokumentbeskrivelse.list().collect delete
-			ForenkletRegistrering.list().collect delete
-			Basismappe.list().collect delete
-			Arkivdel.list().collect delete
-			Arkiv.list().collect delete
-			Klasse.list().collect delete
+			Client.list().collect delete
+			PreservationAndDisposal.list().collect delete
+			DocumentLink.list().collect delete
+			DocumentObject.list().collect delete
+			DocumentDescription.list().collect delete
+			SimplifiedRecord.list().collect delete
+			BasicFile.list().collect delete
+			Series.list().collect delete
+			Fonds.list().collect delete
+			Klass.list().collect delete
 
-      Klassifikasjonssystem.list().collect delete
+      ClassificationSystem.list().collect delete
 			render "<html><body>done</body></html>"
 		}
 }

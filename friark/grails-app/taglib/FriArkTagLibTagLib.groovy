@@ -8,30 +8,30 @@ class FriArkTagLibTagLib {
         out << '<option value="' << (noSelectionKey == null ? "" : noSelectionKey) << '"'
         if (noSelectionKey.equals(value)) {
             out << ' selected="selected" '
-        }
+       }
         out << '>' << noSelectionValue.encodeAsHTML() << '</option>'
-    }
+   }
 
   def datePicker = {attrs ->
         def xdefault = attrs['default']
         if (xdefault == null) {
             xdefault = new Date()
-        } else if (xdefault.toString() != 'none') {
+       } else if (xdefault.toString() != 'none') {
             if (xdefault instanceof String) {
                 xdefault = DateFormat.getInstance().parse(xdefault)
-            }else if(!(xdefault instanceof Date)){
+           }else if(!(xdefault instanceof Date)){
                 throwTagError("Tag [datePicker] requires the default date to be a parseable String or a Date")
-            }
-        } else {
+           }
+       } else {
             xdefault = null
-        }
+       }
 
         def value = attrs['value']
         if (value.toString() == 'none') {
             value = null
-        } else if (!value) {
+       } else if (!value) {
             value = xdefault
-        }
+       }
         def name = attrs['name']
         def id = attrs['id'] ? attrs['id'] : name
 
@@ -39,7 +39,7 @@ class FriArkTagLibTagLib {
         if (noSelection != null)
         {
             noSelection = noSelection.entrySet().iterator().next()
-        }
+       }
 
         def years = attrs['years']
 
@@ -59,18 +59,18 @@ class FriArkTagLibTagLib {
         def c = null
         if (value instanceof Calendar) {
             c = value
-        }
+       }
         else if (value != null) {
             /*c = new GregorianCalendar();
             c.setTime(value)*/
-        }
+       }
         if (c != null) {
             day = c.get(GregorianCalendar.DAY_OF_MONTH)
             month = c.get(GregorianCalendar.MONTH)
             year = c.get(GregorianCalendar.YEAR)
             hour = c.get(GregorianCalendar.HOUR_OF_DAY)
             minute = c.get(GregorianCalendar.MINUTE)
-        }
+       }
 
         if (years == null) {
             def tempyear
@@ -79,11 +79,11 @@ class FriArkTagLibTagLib {
                 def tempc = new GregorianCalendar()
                 tempc.setTime(new Date())
                 tempyear = tempc.get(GregorianCalendar.YEAR)
-            } else {
+           } else {
                 tempyear = year
-            }
+           }
             years = (tempyear - 100)..(tempyear + 100)
-        }
+       }
 
         out << "<input type=\"hidden\" name=\"${name}\" value=\"struct\" />"
 
@@ -94,17 +94,17 @@ class FriArkTagLibTagLib {
             if (noSelection) {
                 renderNoSelectionOption(noSelection.key, noSelection.value, '')
                 out.println()
-            }
+           }
 
             for (i in 1..31) {
                 out.println "<option value=\"${i}\""
                 if (i == day) {
                     out.println " selected=\"selected\""
-                }
+               }
                 out.println ">${i}</option>"
-            }
+           }
             out.println '</select>'
-        }
+       }
 
         // create month select
         if (precision >= PRECISION_RANKINGS["month"]) {
@@ -113,7 +113,7 @@ class FriArkTagLibTagLib {
             if (noSelection) {
                 renderNoSelectionOption(noSelection.key, noSelection.value, '')
                 out.println()
-            }
+           }
 
             dfs.months.eachWithIndex {m, i ->
                 if (m) {
@@ -123,8 +123,8 @@ class FriArkTagLibTagLib {
                     out << '>'
                     out << m
                     out.println '</option>'
-                }
-            }
+               }
+           }
             out.println '</select>'
         // create year select
         if (precision >= PRECISION_RANKINGS["year"]) {
@@ -133,17 +133,17 @@ class FriArkTagLibTagLib {
             if (noSelection) {
                 renderNoSelectionOption(noSelection.key, noSelection.value, '')
                 out.println()
-            }
+           }
 
             for (i in years) {
                 out.println "<option value=\"${i}\""
                 if (i == year) {
                     out.println " selected=\"selected\""
-                }
+               }
                 out.println ">${i}</option>"
-            }
+           }
             out.println '</select>'
-        }
+       }
 
         // do hour select
         if (precision >= PRECISION_RANKINGS["hour"]) {
@@ -152,7 +152,7 @@ class FriArkTagLibTagLib {
             if (noSelection) {
                 renderNoSelectionOption(noSelection.key, noSelection.value, '')
                 out.println()
-            }
+           }
 
             for (i in 0..23) {
                 def h = '' + i
@@ -161,14 +161,14 @@ class FriArkTagLibTagLib {
                 if (hour == h.toInteger()) out << "selected=\"selected\""
                 out << '>' << h << '</option>'
                 out.println()
-            }
+           }
             out.println '</select> :'
 
             // If we're rendering the hour, but not the minutes, then display the minutes as 00 in read-only format
             if (precision < PRECISION_RANKINGS["minute"]) {
                 out.println '00'
-            }
-        }
+           }
+       }
 
         // do minute select
         if (precision >= PRECISION_RANKINGS["minute"]) {
@@ -177,7 +177,7 @@ class FriArkTagLibTagLib {
             if (noSelection) {
                 renderNoSelectionOption(noSelection.key, noSelection.value, '')
                 out.println()
-            }
+           }
 
             for (i in 0..59) {
                 def m = '' + i
@@ -186,10 +186,10 @@ class FriArkTagLibTagLib {
                 if (minute == m.toInteger()) out << "selected=\"selected\""
                 out << '>' << m << '</option>'
                 out.println()
-            }
+           }
             out.println '</select>'
-        }
-    }
+       }
+   }
 
 }
 }

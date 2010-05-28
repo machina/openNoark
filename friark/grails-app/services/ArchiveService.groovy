@@ -54,7 +54,7 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 	def servletContext = SCH.servletContext
 	
 	/**
-	* Arkiverer en fil som filen knyttet til Dokumentobjekt objektet med id docId og indexerer den.
+	* Arkiverer en fil som filen knyttet til DocumentObject objektet med id docId og indexerer den.
 	* @param docId  Id til dokumentobjektet som skal knyttes til den inkommende filen.
   * @param file Filen som skal arkiveres, som en innkommende base64 enkodet fil.
 	*/
@@ -73,22 +73,22 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
   * Fjerner filen forbundet med det inkommende dokumentobjektet fra arkivet.
   * @param dokumentobjekt Objeket som er knyttet til filen som slettes-
   */
-	def delteFromArchive(Dokumentobjekt dokumentobjekt){
-		if(dokumentobjekt.referansedokumentfil){
+	def delteFromArchive(DocumentObject dokumentobjekt){
+		if(dokumentobjekt.documentFile){
 			removeFromIndex(dokumentobjekt.systemID)
-			def f = new File(dokumentobjekt.referansedokumentfil)
+			def f = new File(dokumentobjekt.documentFile)
 			if(f.exists()) f.delete()
 		}
 	}
 
   /**
-  * Fjerner dokumentet som er kyttet til den inkommede Dokumentobjekt id'en fra søkeindexen for elektroniske dokumenter.
+  * Fjerner dokumentet som er kyttet til den inkommede DocumentObject id'en fra søkeindexen for elektroniske dokumenter.
   * @param docId Streng som inneholder id'en til dokumentet som skal fjernes fra indexen.
   */
 	def removeFromIndex(docId){
 		if(!servletContext.docIdx) {
 			return //liten vits i å fjerne fra ikke-eksisiterende index
-    }
+   }
 			IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
 			writer.deleteDocuments( new Term("DOC-OBJ", docId))
 			writer.flush()
@@ -109,7 +109,7 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 		} else {
 			println("docIdx: ${servletContext.docIdx}")
 		}
-		def doc = Dokumentobjekt.findBySystemID(docId)
+		def doc = DocumentObject.findBySystemID(docId)
 		
 		Metadata metadata = new Metadata();
 		metadata.set(Metadata.CONTENT_TYPE, doc.format);

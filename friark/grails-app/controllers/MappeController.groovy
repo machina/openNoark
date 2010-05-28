@@ -16,23 +16,23 @@ class MappeController {
 
 				withFormat {
 						html {
-			 	      return [ basismappeInstanceList: Basismappe.list( params ), basismappeInstanceTotal: Basismappe.count() ]
+			 	      return [ basismappeInstanceList: BasicFile.list( params ), basismappeInstanceTotal: BasicFile.count() ]
 						}
 						xml {
-							render (text: Basismappe.list() as XML, encoding: "UTF-8")
+							render (text: BasicFile.list() as XML, encoding: "UTF-8")
 						}
 						json {
-							render Basismappe.list() as JSON
+							render BasicFile.list() as JSON
 						}
 				}
-    }
+   }
 
     def show = {
-        def basismappeInstance = Basismappe.get( params.id )
+        def basismappeInstance = BasicFile.get( params.id )
         if(!basismappeInstance) {
-            flash.message = "Basismappe not found with id ${params.id}"
+            flash.message = "BasicFile not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else { 
 					withFormat {
             html {
@@ -43,71 +43,71 @@ class MappeController {
 						}
 					}
 				}
-    }
+   }
 
     def delete = {
-        def basismappeInstance = Basismappe.get( params.id )
+        def basismappeInstance = BasicFile.get( params.id )
         if(basismappeInstance) {
             try {
                 basismappeInstance.delete(flush:true)
-                flash.message = "Basismappe ${params.id} deleted"
+                flash.message = "BasicFile ${params.id} deleted"
                 redirect(action:list)
-            }
+           }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "Basismappe ${params.id} could not be deleted"
+                flash.message = "BasicFile ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
-            }
-        }
+           }
+       }
         else {
-            flash.message = "Basismappe not found with id ${params.id}"
+            flash.message = "BasicFile not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def edit = {
-        def basismappeInstance = Basismappe.get( params.id )
+        def basismappeInstance = BasicFile.get( params.id )
 
         if(!basismappeInstance) {
-            flash.message = "Basismappe not found with id ${params.id}"
+            flash.message = "BasicFile not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else {
             return [ basismappeInstance : basismappeInstance ]
-        }
-    }
+       }
+   }
 
     def update = {
-        def basismappeInstance = Basismappe.get( params.id )
+        def basismappeInstance = BasicFile.get( params.id )
         if(basismappeInstance) {
             if(params.version) {
                 def version = params.version.toLong()
                 if(basismappeInstance.version > version) {
                     
-                    basismappeInstance.errors.rejectValue("version", "basismappe.optimistic.locking.failure", "Another user has updated this Basismappe while you were editing.")
+                    basismappeInstance.errors.rejectValue("version", "basismappe.optimistic.locking.failure", "Another user has updated this BasicFile while you were editing.")
                     render(view:'edit',model:[basismappeInstance:basismappeInstance])
                     return
-                }
-            }
+               }
+           }
             basismappeInstance.properties = params
             if(!basismappeInstance.hasErrors() && basismappeInstance.save()) {
-                flash.message = "Basismappe ${params.id} updated"
+                flash.message = "BasicFile ${params.id} updated"
                 redirect(action:show,id:basismappeInstance.id)
-            }
+           }
             else {
                 render(view:'edit',model:[basismappeInstance:basismappeInstance])
-            }
-        }
+           }
+       }
         else {
-            flash.message = "Basismappe not found with id ${params.id}"
+            flash.message = "BasicFile not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def create = {
-        def basismappeInstance = new Basismappe()
+        def basismappeInstance = new BasicFile()
         basismappeInstance.properties = params
-        return ['basismappeInstance':basismappeInstance, typer: mappeService.mappetyper]
-    }
+        return ['basismappeInstance':basismappeInstance, typer: mappeService.fileTyper]
+   }
 
     def save = {
 				def (mappeInstance, success) = mappeService.save(params)
@@ -124,14 +124,14 @@ class MappeController {
 					 if(!response.isCommitted()){ //content negotioation failed, default to html
 						render(view:"show", model: [ basismappeInstance : mappeInstance ])
 					 }
-        }
+       }
         else {
 						println mappeInstance.errors
-            render(view:'create',model:[basismappeInstance:mappeInstance, typer: mappeService.mappetyper])
-        }
-    }
+            render(view:'create',model:[basismappeInstance:mappeInstance, typer: mappeService.fileTyper])
+       }
+   }
 
-		def sekundærKlasse = {
-			return [mappe: Basismappe.get(params.id)]
+		def sekundærKlass = {
+			return [mappe: BasicFile.get(params.id)]
 		}
 }

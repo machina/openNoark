@@ -23,7 +23,7 @@ import org.apache.shiro.SecurityUtils
 *
 * @author Kent Inge Fagerland Simonsen
 */
-class KlasseController {
+class KlassController {
     def commonService
 		def klasseService
     def index = { redirect(action:list,params:params) }
@@ -35,52 +35,52 @@ class KlasseController {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
 				withFormat {
             html {
-              return [ klasseInstanceList: Klasse.list( params ), klasseInstanceTotal: Klasse.count() ]
+              return [ klasseInstanceList: Klass.list( params ), klasseInstanceTotal: Klass.count() ]
             }
             xml {
-              render Klasse.list() as XML
+              render Klass.list() as XML
             }
             json {
-							println Klasse.list() as JSON
-              render Klasse.list() as JSON
+							println Klass.list() as JSON
+              render Klass.list() as JSON
             }
         }
     }
 
     def show = {
-        def klasseInstance = Klasse.get( params.id )
+        def klasseInstance = Klass.get( params.id )
 
         if(!klasseInstance) {
-            flash.message = "Klasse not found with id ${params.id}"
+            flash.message = "Klass not found with id ${params.id}"
             redirect(action:list)
         }
         else { return [ klasseInstance : klasseInstance ] }
     }
 
     def delete = {
-        def klasseInstance = Klasse.get( params.id )
+        def klasseInstance = Klass.get( params.id )
         if(klasseInstance) {
             try {
                 klasseInstance.delete(flush:true)
-                flash.message = "Klasse ${params.id} deleted"
+                flash.message = "Klass ${params.id} deleted"
                 redirect(action:list)
             }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "Klasse ${params.id} could not be deleted"
+                flash.message = "Klass ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
             }
         }
         else {
-            flash.message = "Klasse not found with id ${params.id}"
+            flash.message = "Klass not found with id ${params.id}"
             redirect(action:list)
         }
     }
 
     def edit = {
-        def klasseInstance = Klasse.get( params.id )
+        def klasseInstance = Klass.get( params.id )
 
         if(!klasseInstance) {
-            flash.message = "Klasse not found with id ${params.id}"
+            flash.message = "Klass not found with id ${params.id}"
             redirect(action:list)
         }
         else {
@@ -89,12 +89,12 @@ class KlasseController {
     }
 
     def update = {
-        def klasseInstance = Klasse.get( params.id )
+        def klasseInstance = Klass.get( params.id )
 				boolean success = false
         if(klasseInstance) {
 						(klasseInstance, success) = klasseService.update(klasseInstance, params)
             if(success) {
-                flash.message = "Klasse ${params.id} updated"
+                flash.message = "Klass ${params.id} updated"
                 redirect(action:show,id:klasseInstance.id)
             }
             else {
@@ -102,13 +102,13 @@ class KlasseController {
             }
         }
         else {
-            flash.message = "Klasse not found with id ${params.id}"
+            flash.message = "Klass not found with id ${params.id}"
             redirect(action:list)
         }
     }
 
     def create = {
-        def klasseInstance = new Klasse()
+        def klasseInstance = new Klass()
         klasseInstance.properties = params
         return ['klasseInstance':klasseInstance]
     }
@@ -116,7 +116,7 @@ class KlasseController {
     def save = {
 				def (klasseInstance, success) = klasseService.save(params)
 				if(success) {
-            flash.message = "Klasse ${klasseInstance.id} created"
+            flash.message = "Klass ${klasseInstance.id} created"
             redirect(action:show,id:klasseInstance.id)
         }
         else {

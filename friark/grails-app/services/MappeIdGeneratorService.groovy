@@ -5,8 +5,8 @@ class MappeIdGeneratorService {
   boolean transactional = true
 
 	def generatorForMappe(mappe){
-		if(mappe instanceof Saksmappe) return mappeIdGenerator
-		if(mappe instanceof Basismappe) return seqGenerator
+		if(mappe instanceof CaseFile) return mappeIdGenerator
+		if(mappe instanceof BasicFile) return seqGenerator
 
 		return null
 	}
@@ -14,8 +14,8 @@ class MappeIdGeneratorService {
 
 	def mappeIdGenerator = {
 		def now = new Date()
-		//def maxMappe = Saksmappe.find("from Saksmappe s WHERE s.mappeid = max(s.mappeid) AND s.mappeid like '${now.format('yy')}/%'")
-		def maxMappe = Saksmappe.executeQuery("select max(s.mappeid) from Saksmappe s WHERE s.mappeid like '${now.format('yy')}/%' ")
+		//def maxMappe = CaseFile.find("from CaseFile s WHERE s.fileID = max(s.fileID) AND s.fileID like '${now.format('yy')}/%'")
+		def maxMappe = CaseFile.executeQuery("select max(s.fileID) from CaseFile s WHERE s.fileID like '${now.format('yy')}/%' ")
 		if( maxMappe[0] == null) return "${now.format('yy')}/00001"
 		def i = maxMappe[0].substring(3, maxMappe[0].length()).toLong()
 		i++
@@ -25,7 +25,7 @@ class MappeIdGeneratorService {
 	}
 
 	def seqGenerator = {
-		def maxMappe = Basismappe.executeQuery("select s.mappeid from Basismappe s WHERE s.mappeid not like '${new Date().format('yy')}/%' ORDER BY length(s.mappeid) desc, s.mappeid desc")
+		def maxMappe = BasicFile.executeQuery("select s.fileID from BasicFile s WHERE s.fileID not like '${new Date().format('yy')}/%' ORDER BY length(s.fileID) desc, s.fileID desc")
 		if( maxMappe[0] == null) return "1"
     def i = maxMappe[0].toLong()
     i++

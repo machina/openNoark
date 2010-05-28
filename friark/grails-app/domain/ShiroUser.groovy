@@ -6,5 +6,5 @@ class ShiroUser {
 
     static constraints = {
         username(nullable: false, blank: false)
-    }
+   }
 }

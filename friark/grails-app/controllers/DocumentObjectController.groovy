@@ -20,9 +20,9 @@ import java.text.SimpleDateFormat
 import no.friark.ds.*
 
 /**
-* CRUD operasjoner på Dokumentobjekt.
+* CRUD operasjoner på DocumentObject.
 */
-class DokumentobjektController {
+class DocumentObjectController {
  		def commonService   
     def index = { redirect(action:list,params:params) }
 
@@ -31,98 +31,98 @@ class DokumentobjektController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ dokumentobjektInstanceList: Dokumentobjekt.list( params ), dokumentobjektInstanceTotal: Dokumentobjekt.count() ]
-    }
+        [ dokumentobjektInstanceList: DocumentObject.list( params ), dokumentobjektInstanceTotal: DocumentObject.count() ]
+   }
 
     def show = {
-        def dokumentobjektInstance = Dokumentobjekt.get( params.id )
+        def dokumentobjektInstance = DocumentObject.get( params.id )
 
         if(!dokumentobjektInstance) {
-            flash.message = "Dokumentobjekt not found with id ${params.id}"
+            flash.message = "DocumentObject not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else { return [ dokumentobjektInstance : dokumentobjektInstance ] }
-    }
+   }
 
     def delete = {
-        def dokumentobjektInstance = Dokumentobjekt.get( params.id )
+        def dokumentobjektInstance = DocumentObject.get( params.id )
         if(dokumentobjektInstance) {
             try {
                 dokumentobjektInstance.delete(flush:true)
-                flash.message = "Dokumentobjekt ${params.id} deleted"
+                flash.message = "DocumentObject ${params.id} deleted"
                 redirect(action:list)
-            }
+           }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "Dokumentobjekt ${params.id} could not be deleted"
+                flash.message = "DocumentObject ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
-            }
-        }
+           }
+       }
         else {
-            flash.message = "Dokumentobjekt not found with id ${params.id}"
+            flash.message = "DocumentObject not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def edit = {
-        def dokumentobjektInstance = Dokumentobjekt.get( params.id )
+        def dokumentobjektInstance = DocumentObject.get( params.id )
 
         if(!dokumentobjektInstance) {
-            flash.message = "Dokumentobjekt not found with id ${params.id}"
+            flash.message = "DocumentObject not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else {
             return [ dokumentobjektInstance : dokumentobjektInstance ]
-        }
-    }
+       }
+   }
 
     def update = {
-        def dokumentobjektInstance = Dokumentobjekt.get( params.id )
+        def dokumentobjektInstance = DocumentObject.get( params.id )
         if(dokumentobjektInstance) {
             if(params.version) {
                 def version = params.version.toLong()
                 if(dokumentobjektInstance.version > version) {
                     
-                    dokumentobjektInstance.errors.rejectValue("version", "dokumentobjekt.optimistic.locking.failure", "Another user has updated this Dokumentobjekt while you were editing.")
+                    dokumentobjektInstance.errors.rejectValue("version", "dokumentobjekt.optimistic.locking.failure", "Another user has updated this DocumentObject while you were editing.")
                     render(view:'edit',model:[dokumentobjektInstance:dokumentobjektInstance])
                     return
-                }
-            }
+               }
+           }
             dokumentobjektInstance.properties = params
             if(!dokumentobjektInstance.hasErrors() && dokumentobjektInstance.save()) {
-                flash.message = "Dokumentobjekt ${params.id} updated"
+                flash.message = "DocumentObject ${params.id} updated"
                 redirect(action:show,id:dokumentobjektInstance.id)
-            }
+           }
             else {
                 render(view:'edit',model:[dokumentobjektInstance:dokumentobjektInstance])
-            }
-        }
+           }
+       }
         else {
-            flash.message = "Dokumentobjekt not found with id ${params.id}"
+            flash.message = "DocumentObject not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def create = {
-        def dokumentobjektInstance = new Dokumentobjekt()
+        def dokumentobjektInstance = new DocumentObject()
         dokumentobjektInstance.properties = params
         return ['dokumentobjektInstance':dokumentobjektInstance]
-    }
+   }
 
     def save = {
 				println params
 				def df = new SimpleDateFormat("dd-MM-yyyy")
 				def dokumentobjektInstance = null
 				if(params.dokumentobjekt != null){
-					params.dokumentobjekt.opprettetdato = df.parse(params.dokumentobjekt.opprettetdato)
-					params.dokumentobjekt.referanseregistrering = ForenkletRegistrering.findBySystemID(params.dokumentobjekt.referanseregistrering)
-					dokumentobjektInstance = new Dokumentobjekt(params.dokumentobjekt)
+					params.dokumentobjekt.createdDate = df.parse(params.dokumentobjekt.createdDate)
+					params.dokumentobjekt.referanseregistrering = SimplifiedRecord.findBySystemID(params.dokumentobjekt.referanseregistrering)
+					dokumentobjektInstance = new DocumentObject(params.dokumentobjekt)
 				} else {
-	        dokumentobjektInstance = new Dokumentobjekt(params)
+	        dokumentobjektInstance = new DocumentObject(params)
 				}
 				commonService.setNewSystemID dokumentobjektInstance
 				if(params.dokumentobjekt) dokumentobjektInstance.referanseregistrering = params.dokumentobjekt.referanseregistrering
         if(!dokumentobjektInstance.hasErrors() && dokumentobjektInstance.save()) {
-					flash.message = "Dokumentobjekt ${dokumentobjektInstance.id} created"
+					flash.message = "DocumentObject ${dokumentobjektInstance.id} created"
 					withFormat {
   	        html {
            	 redirect(action:show,id:dokumentobjektInstance.id)
@@ -131,10 +131,10 @@ class DokumentobjektController {
 						xml { render dokumentobjektInstance as XML }
 						json { render dokumentobjektInstance as JSON}
 					}
-        }
+       }
         else {
 						println dokumentobjektInstance.errors
             render(view:'create',model:[dokumentobjektInstance:dokumentobjektInstance])
-        }
-    }
+       }
+   }
 }

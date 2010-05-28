@@ -6,5 +6,5 @@ class ShiroRole {
 
     static constraints = {
         name(nullable: false, blank: false, unique: true)
-    }
+   }
 }

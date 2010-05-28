@@ -30,7 +30,7 @@ class CommonService {
 		*/
     def setNewSystemID(def obj) {
 			obj.systemID = UUID.randomUUID().toString()
-    }
+   }
 
 		/**
 		* Avgjør om det inkommende objektet er null eller strengen "null"
@@ -42,12 +42,12 @@ class CommonService {
 		}
 	
     /**
-		* Setter fletene opprettetav og opprettetdata på det innkommende objektet til hhv den innloggede brukerens brukernavn og dagens dato.
-		* @param obj, et objekt med feltene opprettetav og opprettetdato
+		* Setter fletene createdBy og opprettetdata på det innkommende objektet til hhv den innloggede brukerens brukernavn og dagens dato.
+		* @param obj, et objekt med feltene createdBy og createdDate
 		*/
 		void setCreated(obj) {
-			setCreatedBy("opprettetav", obj)
-			setCreatedAt("opprettetdato", obj)
+			setCreatedBy("createdBy", obj)
+			setCreatedAt("createdDate", obj)
 		}
 	
 		private void setCreatedBy(field, obj){
@@ -56,7 +56,7 @@ class CommonService {
 
 		private void setCreatedAt(field, obj){
       obj."$field" = new Date()
-    }
+   }
 
 		/**
 		* Henter frem en konfigurasjonsparameter gitt ved en nøkkel.
@@ -73,7 +73,7 @@ class CommonService {
 	def defaults = [
 									autorisert_ny_versjon_av_ekspedert: "false",
 									autorisert_slette_inaktive_doumenter: "false",
-									tilgjengelige_mappetyper: "Basismappe, Saksmappe",
-									tilgjengelige_registreringstyper: "Forenkletregistrering, Journalpost"
+									tilgjengelige_fileTyper: "BasicFile, CaseFile",
+									tilgjengelige_recordTyper: "Forenkletregistrering, RegistryEntry"
 								 ]
 }

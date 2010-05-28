@@ -49,7 +49,7 @@ searchable {
      *    class Book {
      *        static searchable = { content analyzer: 'german' }
      *        String content
-     *    }
+     *   }
      *
      *    Book.search("unter", analyzer: 'german')
      *
@@ -147,8 +147,8 @@ environments {
     development {
         searchable {
             // development is default; inherits from above
-        }
-    }
+       }
+   }
 
     test {
         searchable {
@@ -157,12 +157,12 @@ environments {
 
             // use faster in-memory index
             compassConnection = "ram://test-index"
-        }
-    }
+       }
+   }
 
     production {
         searchable {
             // add your production settings here
-        }
-    }
+       }
+   }
 }

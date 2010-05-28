@@ -26,21 +26,21 @@ class Filter{
 	def arkivdel = [:]
 
 
-	boolean isApplicable(Dokumentbeskrivelse dok){
+	boolean isApplicable(DocumentDescription dok){
 		if(!isApplicableMappe(dok)) return false
-		if(!isApplicableKlasse(dok)) return false	
-		if(!isApplicableArkivdel(dok)) return false
+		if(!isApplicableKlass(dok)) return false	
+		if(!isApplicableSeries(dok)) return false
 		println "returning true"
 		return true
 	}
 
-	boolean isApplicableMappe(Dokumentbeskrivelse dok){
+	boolean isApplicableMappe(DocumentDescription dok){
 		if(mappe.keySet().empty) return true
 		def mappeOk = false
-    dok.registreringer.each{ dl ->
-				println "checking mappe: ${dl.referanseregistrering.referanseforelderBasismappe.id}"
+    dok.records.each{ dl ->
+				println "checking mappe: ${dl.referenceRecord.parentFile.id}"
 				def key = mappe.keySet().toArray()[0]
-        def mappe_ = dl.referanseregistrering.referanseforelderBasismappe
+        def mappe_ = dl.referenceRecord.parentFile
         def keyval = mappe_."${key}"
         //println "mappe_.${key}: ${keyval}  type: ${keyval.class}"
         //println "mappe[${key}]: ${mappe[key]}    type: ${mappe[key].class}"
@@ -52,16 +52,16 @@ class Filter{
 		return mappeOk
 	}
 
-	boolean isApplicableKlasse(Dokumentbeskrivelse dok){
+	boolean isApplicableKlass(DocumentDescription dok){
   	if(klasse.keySet().empty) return true
 		def klasseOk = false
-		dok.registreringer.each{ dl ->
+		dok.records.each{ dl ->
 			def key = klasse.keySet().toArray()[0]
-			def klasse_ = dl.referanseregistrering.referanseforelderKlasse
+			def klasse_ = dl.referenceRecord.parentClass
 			if(klasse_ == null) {
-				def mappe_ = dl.referanseregistrering.referanseforelderBasismappe
+				def mappe_ = dl.referenceRecord.parentFile
 	      if(mappe_){
-					klasse_ = mappe_.referanseforelderKlasse
+					klasse_ = mappe_.parentClass
   	    }
 			}
 			if(klasse_){
@@ -76,18 +76,18 @@ class Filter{
 	}
 
 
-	boolean isApplicableArkivdel(Dokumentbeskrivelse dok){
+	boolean isApplicableSeries(DocumentDescription dok){
 		if(arkivdel.keySet().empty) return true
 		def arkivdelOk = false
 		
-		dok.registreringer.each{ dl ->
+		dok.records.each{ dl ->
 			def key = arkivdel.keySet().toArray()[0]
 			
-			def arkivdel_ = dl.referanseregistrering.referansearkivdel
+			def arkivdel_ = dl.referenceRecord.recordSection
 			if(arkivdel_ == null){
-				def mappe_ = dl.referanseregistrering.referanseforelderBasismappe
+				def mappe_ = dl.referenceRecord.parentFile
         if(mappe_){
-          arkivdel_ = mappe_.referansearkivdel
+          arkivdel_ = mappe_.recordSection
         }
 			}
 			if(arkivdel_){

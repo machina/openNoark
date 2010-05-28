@@ -23,7 +23,7 @@ import no.friark.ds.*
 *
 * @author Kent Inge Fagerland Simonsen
 */
-class KlassifikasjonssystemController {
+class ClassificationSystemController {
  		def commonService   
     def index = { redirect(action:list,params:params) }
 
@@ -32,93 +32,93 @@ class KlassifikasjonssystemController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ klassifikasjonssystemInstanceList: Klassifikasjonssystem.list( params ), klassifikasjonssystemInstanceTotal: Klassifikasjonssystem.count() ]
-    }
+        [ klassifikasjonssystemInstanceList: ClassificationSystem.list( params ), klassifikasjonssystemInstanceTotal: ClassificationSystem.count() ]
+   }
 
     def show = {
-        def klassifikasjonssystemInstance = Klassifikasjonssystem.get( params.id )
+        def klassifikasjonssystemInstance = ClassificationSystem.get( params.id )
 
         if(!klassifikasjonssystemInstance) {
-            flash.message = "Klassifikasjonssystem not found with id ${params.id}"
+            flash.message = "ClassificationSystem not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else { return [ klassifikasjonssystemInstance : klassifikasjonssystemInstance ] }
-    }
+   }
 
     def delete = {
-        def klassifikasjonssystemInstance = Klassifikasjonssystem.get( params.id )
+        def klassifikasjonssystemInstance = ClassificationSystem.get( params.id )
         if(klassifikasjonssystemInstance) {
             try {
                 klassifikasjonssystemInstance.delete(flush:true)
-                flash.message = "Klassifikasjonssystem ${params.id} deleted"
+                flash.message = "ClassificationSystem ${params.id} deleted"
                 redirect(action:list)
-            }
+           }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "Klassifikasjonssystem ${params.id} could not be deleted"
+                flash.message = "ClassificationSystem ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
-            }
-        }
+           }
+       }
         else {
-            flash.message = "Klassifikasjonssystem not found with id ${params.id}"
+            flash.message = "ClassificationSystem not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def edit = {
-        def klassifikasjonssystemInstance = Klassifikasjonssystem.get( params.id )
+        def klassifikasjonssystemInstance = ClassificationSystem.get( params.id )
 
         if(!klassifikasjonssystemInstance) {
-            flash.message = "Klassifikasjonssystem not found with id ${params.id}"
+            flash.message = "ClassificationSystem not found with id ${params.id}"
             redirect(action:list)
-        }
+       }
         else {
             return [ klassifikasjonssystemInstance : klassifikasjonssystemInstance ]
-        }
-    }
+       }
+   }
 
     def update = {
-        def klassifikasjonssystemInstance = Klassifikasjonssystem.get( params.id )
+        def klassifikasjonssystemInstance = ClassificationSystem.get( params.id )
         if(klassifikasjonssystemInstance) {
             if(params.version) {
                 def version = params.version.toLong()
                 if(klassifikasjonssystemInstance.version > version) {
                     
-                    klassifikasjonssystemInstance.errors.rejectValue("version", "klassifikasjonssystem.optimistic.locking.failure", "Another user has updated this Klassifikasjonssystem while you were editing.")
+                    klassifikasjonssystemInstance.errors.rejectValue("version", "klassifikasjonssystem.optimistic.locking.failure", "Another user has updated this ClassificationSystem while you were editing.")
                     render(view:'edit',model:[klassifikasjonssystemInstance:klassifikasjonssystemInstance])
                     return
-                }
-            }
+               }
+           }
             klassifikasjonssystemInstance.properties = params
             if(!klassifikasjonssystemInstance.hasErrors() && klassifikasjonssystemInstance.save()) {
-                flash.message = "Klassifikasjonssystem ${params.id} updated"
+                flash.message = "ClassificationSystem ${params.id} updated"
                 redirect(action:show,id:klassifikasjonssystemInstance.id)
-            }
+           }
             else {
                 render(view:'edit',model:[klassifikasjonssystemInstance:klassifikasjonssystemInstance])
-            }
-        }
+           }
+       }
         else {
-            flash.message = "Klassifikasjonssystem not found with id ${params.id}"
+            flash.message = "ClassificationSystem not found with id ${params.id}"
             redirect(action:list)
-        }
-    }
+       }
+   }
 
     def create = {
-        def klassifikasjonssystemInstance = new Klassifikasjonssystem()
+        def klassifikasjonssystemInstance = new ClassificationSystem()
         klassifikasjonssystemInstance.properties = params
         return ['klassifikasjonssystemInstance':klassifikasjonssystemInstance]
-    }
+   }
 
     def save = {
-        def klassifikasjonssystemInstance = new Klassifikasjonssystem(params)
+        def klassifikasjonssystemInstance = new ClassificationSystem(params)
 				commonService.setCreated(klassifikasjonssystemInstance)
 				commonService.setNewSystemID(klassifikasjonssystemInstance)
         if(!klassifikasjonssystemInstance.hasErrors() && klassifikasjonssystemInstance.save()) {
-            flash.message = "Klassifikasjonssystem ${klassifikasjonssystemInstance.id} created"
+            flash.message = "ClassificationSystem ${klassifikasjonssystemInstance.id} created"
             redirect(action:show,id:klassifikasjonssystemInstance.id)
-        }
+       }
         else {
             render(view:'create',model:[klassifikasjonssystemInstance:klassifikasjonssystemInstance])
-        }
-    }
+       }
+   }
 }
