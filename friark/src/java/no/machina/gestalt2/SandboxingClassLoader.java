@@ -231,7 +231,7 @@ public class SandboxingClassLoader extends GroovyClassLoader {
     }
 
     private void checkNamedArgumentListExpression(NamedArgumentListExpression expression) {
-        for (org.codehaus.groovy.ast.expr.Expression subExpr : (List<org.codehaus.groovy.ast.expr.Expression>) expression.getMapEntryExpressions()) {
+        for (org.codehaus.groovy.ast.expr.MapEntryExpression subExpr : (List<org.codehaus.groovy.ast.expr.MapEntryExpression>) expression.getMapEntryExpressions()) {
             checkExpression(subExpr);
         }
     }

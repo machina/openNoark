@@ -105,6 +105,7 @@ class AuthController {
     * Denne blir kallt når brukeren ikke har tilgang på en ønsket resurs.
     */
     def unauthorized = {
-        render "You do not have permission to access this page."
+        //render "You do not have permission to access this page."
+        render message(code: "auth.unauthorised")
    }
 }
