@@ -28,7 +28,7 @@
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><g:submitButton name="save" value="Lagre endringer"/></td>
+        <td><g:submitButton name="save" value="${message(code: 'user.update')}"/></td>
       </tr>
     </table>
   </g:form>
@@ -39,15 +39,15 @@
       <tr>
         <td>${role.name}</td>
       <g:form id='${user.id}' action="edit">
-        <g:hiddenField value="${role.id}" name="roleId"/>
-        <td><g:submitButton name="del_role" value="Fjern" /></td>
+        <g:hiddenField value="${role.id}" name="roleId"/>        
+        <td><g:submitButton name="del_role" value="${message(code: 'action.delete')}" default="Delete"/></td>
       </g:form>
       </tr>
     </g:each>
   </table>
   <g:form id='${user.id}' action="edit">
     <g:select name="roleId" noSelection="${['null':'Select One...']}" from="${ShiroRole.findAll()}" optionKey="id" optionValue="name"/>
-    <g:submitButton name="add_role" value="Legg til" />
+    <g:submitButton name="add_role" value="${message(code: 'action.add')}" default="Add role" />
   </g:form>
 </body>
 </html>
