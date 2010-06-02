@@ -3,16 +3,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="layout" content="main" />
-        <title>Arkiv</title>
+        <title>Fonds</title>
     </head>
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${resource(dir:'')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Arkiv liste</g:link></span>
+            <span class="menuButton"><g:link class="list" action="list">Fonds liste</g:link></span>
             <span class="menuButton"><g:link class="create" action="create">Nytt arkiv</g:link></span>
         </div>
         <div class="body">
-            <h1>Arkiv</h1>
+            <h1>Fonds</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -27,57 +27,57 @@
 											
 												<tr class="prop">
                             <td valign="top" class="name">Tittle:</td>
-                            <td valign="top" class="value">${arkiv.tittel}</td>
+                            <td valign="top" class="value">${arkiv.title}</td>
                         </tr>
  
 												<tr class="prop">
                             <td valign="top" class="name">Beskrivelse:</td>
-                            <td valign="top" class="value">${arkiv.beskrivelse}</td>
+                            <td valign="top" class="value">${arkiv.description}</td>
                         </tr>
 
 												<tr class="prop">
-                            <td valign="top" class="name">Arkivstatus:</td>
-                            <td valign="top" class="value">${arkiv.arkivstatus}</td>
+                            <td valign="top" class="name">Fondsstatus:</td>
+                            <td valign="top" class="value">${arkiv.fondsStatus}</td>
                         </tr>
 
 												<tr class="prop">
                             <td valign="top" class="name">Dokument medium:</td>
-                            <td valign="top" class="value">${arkiv.dokumentmedium}</td>
+                            <td valign="top" class="value">${arkiv.documentMedium}</td>
                         </tr>
 
 
 												<tr class="prop">
                             <td valign="top" class="name">Opprettet dato:</td>
-                            <td valign="top" class="value">${arkiv.opprettetdato}</td>
+                            <td valign="top" class="value">${arkiv.createdDate}</td>
                         </tr>
 
 												<tr class="prop">
                             <td valign="top" class="name">Opprettet av:</td>
-                            <td valign="top" class="value">${arkiv.opprettetav}</td>
+                            <td valign="top" class="value">${arkiv.createdBy}</td>
                         </tr>
 
 
 												<tr class="prop">
                             <td valign="top" class="name">Avsluttet dato::</td>
-                            <td valign="top" class="value">${arkiv.avsluttetdato}</td>
+                            <td valign="top" class="value">${arkiv.finalisedDate}</td>
                         </tr>
 
 												<tr class="prop">
                             <td valign="top" class="name">Avsluttet av:</td>
-                            <td valign="top" class="value">${arkiv.avsluttetav}</td>
+                            <td valign="top" class="value">${arkiv.finalisedBy}</td>
                         </tr>
 												<tr class="prop">
                             <td valign="top" class="name">Forelder arkiv:</td>
-                            <td valign="top" class="value"><g:if test="${arkiv.forelder}"><g:link action="show" id="${arkiv.forelder.id}">${arkiv.forelder.tittel}</g:link></g:if></td>
+                            <td valign="top" class="value"><g:if test="${arkiv.parent}"><g:link action="show" id="${arkiv.parent.id}">${arkiv.parent.title}</g:link></g:if></td>
                         </tr>
 
 
 												<tr class="prop">
-                            <td valign="top" class="name">Arkivskaper:</td>
-                            <td valign="top" class="value"><g:if test="${arkiv.arkivskaper}">
+                            <td valign="top" class="name">FondsCreator:</td>
+                            <td valign="top" class="value"><g:if test="${arkiv.fondsCreator}">
 															<ul>
-																<g:each in="${arkiv.arkivskaper}" var="arkivskaper">
-																	<li><g:link action="show" controller="arkivskaper" id="${arkivskaper.id}">${arkivskaper.arkivskapernavn}</g:link></li>
+																<g:each in="${arkiv.fondsCreator}" var="fondsCreator">
+																	<li><g:link action="show" controller="fondsCreator" id="${fondsCreator.id}">${fondsCreator.fondsCreatornavn}</g:link></li>
 																</g:each>
 															</ul>
 														</g:if></td>
@@ -86,7 +86,7 @@
 												<tr class="prop">
                             <td valign="top" class="name">Oppbevaringssted:</td>
                             <td valign="top" class="value"><ul>
-															<g:each in="${arkiv.oppbevaringssted}" var="sted">
+															<g:each in="${arkiv.storageLocation}" var="sted">
 																<li>${sted}</li>
 															</g:each></ul>
 														</td>
@@ -95,8 +95,8 @@
 												<tr class="prop">
                             <td valign="top" class="name">Arkivdeler:</td>
                             <td valign="top" class="value"><ul>
-                              <g:each in="${arkiv.referansebarnArkivdel}" var="arkivdel">
-                                <li><g:link controller="arkivdel" action="show" id="${arkivdel.id}">${arkivdel.tittel}</g:link></li>
+                              <g:each in="${arkiv.referenceChildSeries}" var="arkivdel">
+                                <li><g:link controller="arkivdel" action="show" id="${arkivdel.id}">${arkivdel.title}</g:link></li>
                               </g:each></ul>
                             </td>
                         </tr>
@@ -104,7 +104,7 @@
 											<tr class="prop">
                             <td valign="top" class="name">Underarkiv:</td>
                             <td valign="top" class="value"><ul>
-                              <g:each in="${arkiv.subArkiv}" var="sub">
+                              <g:each in="${arkiv.subFonds}" var="sub">
                                 <li><g:link action="show" id="${arkiv.sub.id}">${sub}</g:link></li>
                               </g:each></ul>
                             </td>

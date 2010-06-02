@@ -15,32 +15,32 @@
 				<g:form name='archive' action="save">
 					<table>
 						<tr>
-							<td><label for="tittel">Tittel</label></td>
-							<td><g:textField id="tittel" name="tittel" value="${tittel}"/></td>
+							<td><label for="title">Tittel</label></td>
+							<td><g:textField id="title" name="title" value="${title}"/></td>
 						</tr>
 						<tr>
-							<td><label for="beskrivelse">Beskrivelse</label></td>
-							<td><g:textField id="beskrivelse"  name="beskrivelse" value="${beskrivelse}"/></td>
+							<td><label for="description">Beskrivelse</label></td>
+							<td><g:textField id="description"  name="description" value="${description}"/></td>
 						</tr>
 						<tr>
-              <td><label for="dokumentmedium">Dokument Medium</label></td>
-              <td><g:textField id="dokumentmedium" name="dokumentmedium" value="${dokumentmedium}"/></td>
+              <td><label for="documentMedium">Dokument Medium</label></td>
+              <td><g:textField id="documentMedium" name="documentMedium" value="${documentMedium}"/></td>
             </tr>
            <%-- <tr>
-              <td><label for="opprettetdato">Opprettet</label></td>
-              <td><g:datePicker precision="day" name="opprettetdato" value="${new Date()}" noSelection="['':'-Velg-']"/></td>
+              <td><label for="createdDate">Opprettet</label></td>
+              <td><g:datePicker precision="day" name="createdDate" value="${new Date()}" noSelection="['':'-Velg-']"/></td>
             </tr>
 						<tr>
-              <td><label for="opprettetav">Opprettet av</label></td>
-              <td><g:textField id="opprettetav" name="opprettetav" value="${opprettetav}"/></td>
+              <td><label for="createdBy">Opprettet av</label></td>
+              <td><g:textField id="createdBy" name="createdBy" value="${createdBy}"/></td>
             </tr> --%>
 						<tr>
-              <td><label for="arkivskaper">Arkivskaper</label></td>
-              <td><g:select name="arkivskaper" noSelection="${['':'Velg arkivskaper']}" from='${Arkivskaper.list()}' optionKey="id" optionValue="arkivskapernavn"></g:select>
+              <td><label for="fondsCreator">FondsCreator</label></td>
+              <td><g:select name="fondsCreator" noSelection="${['':'Velg fondsCreator']}" from='${FondsCreator.list()}' optionKey="id" optionValue="fondsCreatornavn"></g:select>
             </tr>
 						<tr>
-							<td><label for="forelder">Forelder</label></td>
-							<td><g:select name="forelder" noSelection="${[null:'Velg forelder arkiv']}" from='${Arkiv.list()}' optionKey="id" optionValue="tittel"></g:select>
+							<td><label for="parent">Forelder</label></td>
+							<td><g:select name="parent" noSelection="${[null:'Velg parent arkiv']}" from='${Fonds.list()}' optionKey="id" optionValue="title"></g:select>
 						<tr>
               <td>&nbsp;</td>
               <td><g:submitButton name="save" value="Opprett arkiv"/></td>

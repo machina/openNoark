@@ -1,25 +1,8 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-clickAndWait|link=Arkiv|
-clickAndWait|link=Nytt Arkiv|
-type|tittel|dilldall
-type|beskrivelse|arkiv for dill og dall
-type|dokumentmedium|html
-clickAndWait|save|
-clickAndWait|link=Arkivdeler|
-clickAndWait|link=Ny Arkivdel|
-type|tittel|dill
-type|beskrivelse|arkivdel for dill
-type|dokumentmedium|email
-select|referanseforelder|label=dilldall
-clickAndWait|save|
-clickAndWait|link=Arkivdeler|
-clickAndWait|link=Ny Arkivdel|
-type|tittel|dall
-type|beskrivelse|arkivdel for dall
-type|dokumentmedium|epos
-type|dokumentmedium|epost
-select|referanseforelder|label=dilldall
-clickAndWait|save|
+clickAndWait|link=Fonds|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=dilldall
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=dill,desc=arkivdel for dill,medium=email
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=dall,desc=arkivdel for dall,medium=email
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=dall|
 clickAndWait|_action_Edit|
@@ -33,7 +16,6 @@ verifyTextPresent|på|
 type|//input[@id='sted' and @name='sted' and @value='']|deg
 clickAndWait|save|
 verifyTextPresent|deg|
-clickAndWait|link=Arkiv|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=dall|
 verifyTextPresent|hei|

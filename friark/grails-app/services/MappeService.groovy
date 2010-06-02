@@ -31,7 +31,7 @@ class MappeService {
     * @param params Et Map som inneholder metadata for Mappen.
     */
 		def save(params) {
-				if(!getMappetyper().contains(params.fileType)){
+				if(!getFileTypes().contains(params.fileType)){
 					return [[errors: ["Mappetype er ikke tillatt"]], false]
 				}
 				def mappe
@@ -53,7 +53,7 @@ class MappeService {
 					mappe.errors.reject 'org.friark.noexistingKey', error
 					return [mappe, false]
 				}
-				if(params.nøkkelord && params.nøkkelord instanceof String) mappe.nøkkelord = params.nøkkelord.tokenize(" ")
+				if(params.keyword && params.keyword instanceof String) mappe.keyword = params.keyword.tokenize(" ")
 				
 				if(!mappe.hasErrors() && mappe.save()) {
 					return [mappe, true]
@@ -73,7 +73,7 @@ class MappeService {
 			return [false, "Kan ikke lege til en mappe i et arkiv med periodestatus ${mappe.recordSection.periodStatus}"]
 		}
 
-		def getMappetyper(){
-			commonService.getParameter("tilgjengelige_fileTyper").split(",").collect{it.trim()}
+		def getFileTypes(){
+			commonService.getParameter("tilgjengelige_fileTypes").split(",").collect{it.trim()}
   }
 }

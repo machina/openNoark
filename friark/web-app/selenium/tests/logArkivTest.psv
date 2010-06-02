@@ -1,7 +1,4 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-clickAndWait|link=Arkiv|
-clickAndWait|link=Nytt Arkiv|
-type|tittel|LoggArkiv
-clickAndWait|save|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=LoggArkiv
 clickAndWait|link=Log|
 verifyTextPresent|Arkiv|

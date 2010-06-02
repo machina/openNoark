@@ -1,5 +1,4 @@
-
-<%@ page import="no.friark.ds.Skjerming" %>
+<%@ page import="no.friark.ds.*" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -41,15 +40,15 @@
                         
                             <td><g:link action="show" id="${skjermingInstance.id}">${fieldValue(bean:skjermingInstance, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:skjermingInstance, field:'tilgangsrestriksjon')}</td>
+                            <td>${fieldValue(bean:skjermingInstance, field:'accessRestriction')}</td>
                         
-                            <td>${fieldValue(bean:skjermingInstance, field:'skjermingshjemmel')}</td>
+                            <td>${fieldValue(bean:skjermingInstance, field:'screeningAuthority')}</td>
                         
-                            <td>${fieldValue(bean:skjermingInstance, field:'skjermingdokument')}</td>
+                            <td>${fieldValue(bean:skjermingInstance, field:'screeningDocument')}</td>
                         
-                            <td>${fieldValue(bean:skjermingInstance, field:'skjermingsvarighet')}</td>
+                            <td>${fieldValue(bean:skjermingInstance, field:'screeningDuration')}</td>
                         
-                            <td>${fieldValue(bean:skjermingInstance, field:'skjermingopphørerdato')}</td>
+                            <td>${fieldValue(bean:skjermingInstance, field:'screeningCeasesDate')}</td>
                         
                         </tr>
                     </g:each>

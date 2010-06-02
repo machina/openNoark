@@ -1,5 +1,4 @@
-
-<%@ page import="no.friark.ds.Saksansvar" %>
+<%@ page import="no.friark.ds.*" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -37,11 +36,11 @@
                         
                             <td><g:link action="show" id="${saksansvarInstance.id}">${fieldValue(bean:saksansvarInstance, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:saksansvarInstance, field:'administrativenhet')}</td>
+                            <td>${fieldValue(bean:saksansvarInstance, field:'administrativeUnit')}</td>
                         
-                            <td>${fieldValue(bean:saksansvarInstance, field:'saksbehandler')}</td>
+                            <td>${fieldValue(bean:saksansvarInstance, field:'executiveOfficer')}</td>
                         
-                            <td>${fieldValue(bean:saksansvarInstance, field:'journalenhet')}</td>
+                            <td>${fieldValue(bean:saksansvarInstance, field:'registryManagementUnit')}</td>
                         
                         </tr>
                     </g:each>

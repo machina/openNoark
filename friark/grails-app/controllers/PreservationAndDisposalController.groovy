@@ -132,14 +132,13 @@ class PreservationAndDisposalController {
 			def preservationAndDisposalInstance = PreservationAndDisposal.get(params.id)
 			if(request.method == 'POST'){
 				println params
-				if( !commonService.isNull(params.documentDescription.id)) preservationAndDisposalInstance.addToDokumentBeskrivelse DocumentDescription.get(params.documentDescription.id)
-				if( !commonService.isNull(params.referanseregistrering.id)) preservationAndDisposalInstance.addToRegistrering SimplifiedRecord.get(params.referanseregistrering.id)
-				if( !commonService.isNull(params.arkivdel.id)) preservationAndDisposalInstance.addToSeries Series.get(params.arkivdel.id)
-				if( !commonService.isNull(params.basismappe.id)){
-					 
-					 preservationAndDisposalInstance.addToMappe BasicFile.get(params.basismappe.id)
+				if( !commonService.isNull(params.documentDescription.id)) preservationAndDisposalInstance.addToDocumentDescription DocumentDescription.get(params.documentDescription.id)
+				if( !commonService.isNull(params.record.id)) preservationAndDisposalInstance.addToRecord SimplifiedRecord.get(params.record.id)
+				if( !commonService.isNull(params.series.id)) preservationAndDisposalInstance.addToSeries Series.get(params.series.id)
+				if( !commonService.isNull(params.file.id)){
+					 preservationAndDisposalInstance.addToFile BasicFile.get(params.file.id)
 				}
-				if( !commonService.isNull(params.klasse.id)) preservationAndDisposalInstance.addToKlass Klass.get(params.klasse.id)
+				if( !commonService.isNull(params.klass.id)) preservationAndDisposalInstance.addToKlass Klass.get(params.klass.id)
 				if(!preservationAndDisposalInstance.hasErrors() && preservationAndDisposalInstance.save()) {
             flash.message = "Endringer utført"
 						//redirect(action:referanser,id: preservationAndDisposalInstance.id)
@@ -176,7 +175,7 @@ class PreservationAndDisposalController {
 					kasseringsListe << DocumentDescription.get((key - "kasser_") as Long)
 				}
 			}
-			kassasjonService.kasser kasseringsListe, params.slett_til_mappe == "on" ? true : false
+			kassasjonService.kasser kasseringsListe, params.slett_til_file == "on" ? true : false
 		}
 	}
 

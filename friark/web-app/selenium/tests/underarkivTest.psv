@@ -1,6 +1,6 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
 open|/friark/arkiv/create|
-type|tittel|Test Arkivforelder
+type|title|Test Arkivforelder
 clickAndWait|//input[@name='save']|
 verifyTextPresent|Arkiv opprettet|
 verifyTextPresent||Test Arkivforelder|
@@ -8,8 +8,8 @@ verifyTextPresent|Opprettet|
 open|/friark/arkiv/list|
 verifyTextPresent|Test Arkivforelder|
 open|/friark/arkiv/create|
-type|tittel|Test underArkiv
-select|forelder|label=Test Arkivforelder
+type|title|Test underArkiv
+select|parent|label=Test Arkivforelder
 clickAndWait|//input[@name='save']|
 verifyTextPresent|Test Arkivforelder|
 open|/friark/arkiv/list|

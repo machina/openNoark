@@ -32,14 +32,14 @@ class KeywordController {
 
 		def update = {
 			def base = Base.findBySystemID(params.systemID)
-			base.nøkkelord << params.new
+			base.keyword << params.new
 			base.save()
 			render(view: "edit", model: [base: base])
 		}
 
 		def delete = {
 			def base = Base.findBySystemID(params.systemID)
-			base.nøkkelord -= params.ord
+			base.keyword -= params.ord
 			base.save()
 			render(view: "edit", model: [base: base])
 		}

@@ -28,54 +28,54 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="tilgangsrestriksjon">Tilgangsrestriksjon:</label>
+                                    <label for="accessRestriction">Tilgangsrestriksjon:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'tilgangsrestriksjon','errors')}">
-                                    <input type="text" id="tilgangsrestriksjon" name="tilgangsrestriksjon" value="${fieldValue(bean:skjermingInstance,field:'tilgangsrestriksjon')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="skjermingshjemmel">Skjermingshjemmel:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'skjermingshjemmel','errors')}">
-                                    <input type="text" id="skjermingshjemmel" name="skjermingshjemmel" value="${fieldValue(bean:skjermingInstance,field:'skjermingshjemmel')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'accessRestriction','errors')}">
+                                    <input type="text" id="accessRestriction" name="accessRestriction" value="${fieldValue(bean:skjermingInstance,field:'accessRestriction')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="skjermingdokument">Skjermingdokument:</label>
+                                    <label for="screeningAuthority">Skjermingshjemmel:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'skjermingdokument','errors')}">
-                                    <input type="text" id="skjermingdokument" name="skjermingdokument" value="${fieldValue(bean:skjermingInstance,field:'skjermingdokument')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="skjermingsvarighet">Skjermingsvarighet:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'skjermingsvarighet','errors')}">
-                                    <input type="text" id="skjermingsvarighet" name="skjermingsvarighet" value="${fieldValue(bean:skjermingInstance,field:'skjermingsvarighet')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'screeningAuthority','errors')}">
+                                    <input type="text" id="screeningAuthority" name="screeningAuthority" value="${fieldValue(bean:skjermingInstance,field:'screeningAuthority')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="skjermingopphørerdato">Skjermingopphørerdato:</label>
+                                    <label for="screeningDocument">Skjermingdokument:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'skjermingopphørerdato','errors')}">
-                                    <g:datePicker name="skjermingopphørerdato" value="${skjermingInstance?.skjermingopphørerdato}" precision="minute" ></g:datePicker>
+                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'screeningDocument','errors')}">
+                                    <input type="text" id="screeningDocument" name="screeningDocument" value="${fieldValue(bean:skjermingInstance,field:'screeningDocument')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="screeningDuration">Skjermingsvarighet:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'screeningDuration','errors')}">
+                                    <input type="text" id="screeningDuration" name="screeningDuration" value="${fieldValue(bean:skjermingInstance,field:'screeningDuration')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="screeningCeasesDate">Skjermingopphørerdato:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:skjermingInstance,field:'screeningCeasesDate','errors')}">
+                                    <g:datePicker name="screeningCeasesDate" value="${skjermingInstance?.screeningCeasesDate}" precision="minute" ></g:datePicker>
                                 </td>
                             </tr>
 														<tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="skjermingopphørerdato">Klasser:</label>
+                                    <label for="screeningCeasesDate">Klasser:</label>
                                 </td>
                                 <td valign="top" class="value">
-																		<friark:mselect id="klasser" name="klasser" type="select" from="${Klasse.list()}"/> 
+																		<friark:mselect id="klasser" name="klasser" type="select" from="${Klass.list()}"/> 
                                 </td>
                             </tr> 
  

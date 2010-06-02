@@ -49,5 +49,5 @@ class SimplifiedRecord extends Base{
     tablePerHierarchy false
   }
   static auditable = true
-  static searchable = [except: ['parentSection','parentFile']]
+  static searchable = [except: ['recordSection','parentFile']]
 }

@@ -59,28 +59,28 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="tittel">Tittel:</label>
+                                    <label for="title">Tittel:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'tittel','errors')}">
-                                    <input type="text" id="tittel" name="tittel" value="${fieldValue(bean:basismappeInstance,field:'tittel')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="offentligtittel">Offentligtittel:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'offentligtittel','errors')}">
-                                    <input type="text" id="offentligtittel" name="offentligtittel" value="${fieldValue(bean:basismappeInstance,field:'offentligtittel')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'title','errors')}">
+                                    <input type="text" id="title" name="title" value="${fieldValue(bean:basismappeInstance,field:'title')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="beskrivelse">Beskrivelse:</label>
+                                    <label for="offentligtitle">Offentligtitle:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'beskrivelse','errors')}">
-                                    <input type="text" id="beskrivelse" name="beskrivelse" value="${fieldValue(bean:basismappeInstance,field:'beskrivelse')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'offentligtitle','errors')}">
+                                    <input type="text" id="offentligtitle" name="offentligtitle" value="${fieldValue(bean:basismappeInstance,field:'offentligtitle')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="description">Beskrivelse:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'description','errors')}">
+                                    <input type="text" id="description" name="description" value="${fieldValue(bean:basismappeInstance,field:'description')}"/>
                                 </td>
                             </tr> 
                         
@@ -102,54 +102,54 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="dokumentmedium">Dokumentmedium:</label>
+                                    <label for="documentMedium">Dokumentmedium:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'dokumentmedium','errors')}">
-                                    <input type="text" id="dokumentmedium" name="dokumentmedium" value="${fieldValue(bean:basismappeInstance,field:'dokumentmedium')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'documentMedium','errors')}">
+                                    <input type="text" id="documentMedium" name="documentMedium" value="${fieldValue(bean:basismappeInstance,field:'documentMedium')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="oppbevaringssted">Oppbevaringssted:</label>
+                                    <label for="storageLocation">Oppbevaringssted:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'oppbevaringssted','errors')}">
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'storageLocation','errors')}">
                                     
                                 </td>
                             </tr> 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="avsluttetdato">Avsluttetdato:</label>
+                                    <label for="finalisedDate">Avsluttetdato:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'avsluttetdato','errors')}">
-                                    <g:datePicker name="avsluttetdato" value="${basismappeInstance?.avsluttetdato}" precision="minute" ></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="avsluttetav">Avsluttetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'avsluttetav','errors')}">
-                                    <input type="text" id="avsluttetav" name="avsluttetav" value="${fieldValue(bean:basismappeInstance,field:'avsluttetav')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'finalisedDate','errors')}">
+                                    <g:datePicker name="finalisedDate" value="${basismappeInstance?.finalisedDate}" precision="minute" ></g:datePicker>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referanseforelderKlasse">Referanseforelder Klasse:</label>
+                                    <label for="finalisedBy">Avsluttetav:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseforelderKlasse','errors')}">
-                                    <g:select optionKey="id" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${basismappeInstance?.referanseforelderKlasse?.id}" ></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'finalisedBy','errors')}">
+                                    <input type="text" id="finalisedBy" name="finalisedBy" value="${fieldValue(bean:basismappeInstance,field:'finalisedBy')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referanseforelderBasismappe">Referanseforelder Basismappe:</label>
+                                    <label for="referanseparentKlasse">Referanseparent Klasse:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseforelderBasismappe','errors')}">
-                                    <g:select optionKey="id" from="${Basismappe.list()}" name="referanseforelderBasismappe.id" value="${basismappeInstance?.referanseforelderBasismappe?.id}" ></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseparentKlasse','errors')}">
+                                    <g:select optionKey="id" from="${Klasse.list()}" name="referanseparentKlasse.id" value="${basismappeInstance?.referanseparentKlasse?.id}" ></g:select>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="referanseparentBasismappe">Referanseparent Basismappe:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseparentBasismappe','errors')}">
+                                    <g:select optionKey="id" from="${Basismappe.list()}" name="referanseparentBasismappe.id" value="${basismappeInstance?.referanseparentBasismappe?.id}" ></g:select>
                                 </td>
                             </tr> 
                         
@@ -174,7 +174,7 @@
                                     <label for="referansearkivdel">Referansearkivdel:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referansearkivdel','errors')}">
-                                    <g:select optionKey="id" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}" optionvalue="tittel" ></g:select>
+                                    <g:select optionKey="id" from="${Series.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}" optionvalue="title" ></g:select>
                                 </td>
                             </tr> 
                         

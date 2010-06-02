@@ -12,6 +12,16 @@
 <tr><td rowspan="1" colspan="3">create_mappe</td></tr>
 </thead><tbody>
 <tr>
+	<td>store</td>
+	<td>0</td>
+	<td>klasse_idx</td>
+</tr>
+<tr>
+  <td>store</td>
+  <td>BasicFile</td>
+  <td>file_type</td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Mapper</td>
 	<td></td>
@@ -22,28 +32,45 @@
 	<td></td>
 </tr>
 <tr>
+  <td>select</td>
+  <td>fileType</td>
+  <td>label=${file_type}</td>
+</tr>
+
+<tr>
 	<td>type</td>
-	<td>tittel</td>
+	<td>title</td>
 	<td>${name}</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>offentligtittel</td>
+	<td>officialTitle</td>
 	<td>${name}</td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>offentligtittel</td>
-	<td>${name}</td>
+  <td>type</td>
+  <td>description</td>
+  <td>${desc}</td>
 </tr>
+<tr>
+  <td>type</td>
+  <td>documentMedium</td>
+  <td>${medium}</td>
+</tr>
+<tr>
+  <td>type</td>
+  <td>keyword</td>
+  <td>${keyword}</td>
+</tr>
+
 <tr>
 	<td>select</td>
-	<td>referanseforelderKlasse.id</td>
+	<td>parentClass.id</td>
 	<td>index=${klasse_idx}</td>
 </tr>
 <tr>
 	<td>select</td>
-	<td>referansearkivdel.id</td>
+	<td>recordSection.id</td>
 	<td>index=${arkivdel_idx}</td>
 </tr>
 <tr>

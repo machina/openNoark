@@ -1,5 +1,5 @@
 /**
-Metadata for arkiv
+Metadata for arkiv (Fonds)
 */
 package no.friark.ds
 class Fonds extends Base{

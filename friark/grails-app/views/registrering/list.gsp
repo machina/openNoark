@@ -1,5 +1,4 @@
-
-<%@ page import="no.friark.ds.Journalpost" %>
+<%@ page import="no.friark.ds.*" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -27,11 +26,11 @@
                         
                    	        <th>Referansearkivdel</th>
                    	    
-                   	        <th>Referanseforelder Basismappe</th>
+                   	        <th>Referanseparent Basismappe</th>
                    	    
                    	        <g:sortableColumn property="registreringstype" title="Registreringstype" />
                         
-                   	        <g:sortableColumn property="opprettetdato" title="Opprettetdato" />
+                   	        <g:sortableColumn property="createdDate" title="Opprettetdato" />
                         
                         </tr>
                     </thead>
@@ -43,13 +42,13 @@
                         
                             <td>${fieldValue(bean:journalpostInstance, field:'systemID')}</td>
                         
-                            <td>${fieldValue(bean:journalpostInstance, field:'referansearkivdel')}</td>
+                            <td>${fieldValue(bean:journalpostInstance, field:'recordSection')}</td>
                         
-                            <td>${fieldValue(bean:journalpostInstance, field:'referanseforelderBasismappe')}</td>
+                            <td>${fieldValue(bean:journalpostInstance, field:'parentFile')}</td>
                         
-                            <td>${fieldValue(bean:journalpostInstance, field:'registreringstype')}</td>
+                            <td>${fieldValue(bean:journalpostInstance, field:'recordType')}</td>
                         
-                            <td>${fieldValue(bean:journalpostInstance, field:'opprettetdato')}</td>
+                            <td>${fieldValue(bean:journalpostInstance, field:'createdDate')}</td>
                         
                         </tr>
                     </g:each>

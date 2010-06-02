@@ -48,7 +48,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/classificationSystem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/file"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference noark.ecore#//Series/record"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Series/bevaringOgKassasjon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference noark.ecore#//Series/preservationAndDisposal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute noark.ecore#//Series/periodStatus"/>
     </genClasses>
     <genClasses ecoreClass="noark.ecore#//FondsCreator">

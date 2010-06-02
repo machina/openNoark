@@ -59,25 +59,25 @@
                   	<a href="/friark/search/docSearch">Søk i dokumenter</a>
 									</li>
   	              <li class="leftmenuitem">
-            				<a href="/friark/arkiv/index">Arkiv</a>
+            				<a href="/friark/arkiv/index">Fonds</a>
 									</li>
   	              <li class="leftmenuitem">
-                  	<a href="/friark/arkivdel/index">Arkivdeler</a>
+                  	<a href="/friark/series/index">Arkivdeler</a>
 		 							</li>
 									<li class="leftmenuitem">
-            				<a href="/friark/arkivskaper">Arkivskaper</a>
+            				<a href="/friark/fondsCreator">FondsCreator</a>
 									</li>
         	        <li class="leftmenuitem">
-                  	<a href="/friark/klassifikasjonssystem/index">Klassifikasjonssystemer</a>
+                  	<a href="/friark/classificationSystem/index">ClassificationSystemer</a>
 									</li>
               	  <li class="leftmenuitem">
-                  	<a href="/friark/klasse/index">Klasser</a>
+                  	<a href="/friark/klass/index">Klasser</a>
 									</li>
     	            <li class="leftmenuitem">
                   	<a href="/friark/mappe/index">Mapper</a>
 									</li>
 									<li class="leftmenuitem">
-                    <a href="/friark/korrespondansepart/index">Korrespondansepart</a>
+                    <a href="/friark/client/index">Korrespondansepart</a>
                   </li>
 									<li class="leftmenuitem">
                     <a href="/friark/saksansvar/index">Saksansvar</a>
@@ -86,13 +86,13 @@
                   	<a href="/friark/skjerming/index">Skjerming</a>
 									</li>
         	        <li class="leftmenuitem">
-                 		<a href="/friark/dokumentlink/index">Dokumentlinker</a>
+                 		<a href="/friark/documentLink/index">Dokumentlinker</a>
 									</li>
               	  <li class="leftmenuitem">
-                  	<a href="/friark/dokumentobjekt/index">Dokumentobjekter</a>
+                  	<a href="/friark/documentObject/index">Dokumentobjekter</a>
 									</li>
     	            <li class="leftmenuitem">
-                  	<a href="/friark/dokumentbeskrivelse/index">Dokumentbeskrivelser</a>
+                  	<a href="/friark/documentDescription/index">Dokumentbeskrivelser</a>
 									</li>
           	      <li class="leftmenuitem">
                   	<a href="/friark/user/index">Brukeradministrasjon</a>
@@ -104,7 +104,7 @@
                   	<a href="/friark/kryssreferanse/list">Kryssreferanser</a>
 									</li>
 	                <li class="leftmenuitem">
-                  	<a href="/friark/bevaringOgKassasjon">Bevaring og kassasjon</a>
+                  	<a href="/friark/preservationAndDisposal">Bevaring og kassasjon</a>
 									</li>
       	          <li class="leftmenuitem">
                   	<a href="/friark/auditLogEvent/list">Log</a>

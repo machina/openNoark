@@ -53,11 +53,10 @@ class Klass extends Base{
   static auditable = true
   static transients = ["fullId"]
   def afterLoad = {
-    println "klasseid: ${owner.klasseid}"
-    if(referanseforelderKlasse){
-    	fullId = "${referanseforelderKlasse.klasseid}.${klasseid}"
+    if(parentClass){
+    	fullId = "${parentClass.classID}.${classID}"
     }else{
-    	fullId = "${klasseid}"
+    	fullId = "${classID}"
     }
     println "fullId: ${fullId}"
   }

@@ -24,7 +24,7 @@
                 <div class="dialog">
                 <ul>
                 <g:each in="${mappe.sekundærklasseringer}">
-                  <li>${it.tittel} <g:link action="delete" params="[id mappe.id, klasse: it, action:delete]">Delete</g:link></li>
+                  <li>${it.title} <g:link action="delete" params="[id mappe.id, klasse: it, action:delete]">Delete</g:link></li>
                 </g:each>
                 </ul>
                 <label for="new">Ny sekundærklasse</label><input type="text" id="new" name="new"/>

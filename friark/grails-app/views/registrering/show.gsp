@@ -39,56 +39,56 @@
                         <tr class="prop">
                             <td valign="top" class="name">Referansearkivdel:</td>
                             
-                            <td valign="top" class="value"><g:link controller="arkivdel" action="show" id="${forenkletRegistreringInstance?.referansearkivdel?.id}">${forenkletRegistreringInstance?.referansearkivdel?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="arkivdel" action="show" id="${forenkletRegistreringInstance?.recordSection?.id}">${forenkletRegistreringInstance?.recordSection?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Referanseforelder Basismappe:</td>
+                            <td valign="top" class="name">Referanseparent Basismappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${forenkletRegistreringInstance?.referanseforelderBasismappe?.id}">${forenkletRegistreringInstance?.referanseforelderBasismappe?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${forenkletRegistreringInstance?.parentFile?.id}">${forenkletRegistreringInstance?.parentFile?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Registreringstype:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'registreringstype')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'recordType')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Opprettetdato:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'opprettetdato')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'createdDate')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Opprettetav:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'opprettetav')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'createdBy')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Arkivertdato:</td>
+                            <td valign="top" class="name">Fondsertdato:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'arkivertdato')}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name">Arkivertav:</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'arkivertav')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'archivedDate')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Referanseforelder Klasse:</td>
+                            <td valign="top" class="name">Fondsertav:</td>
                             
-                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${forenkletRegistreringInstance?.referanseforelderKlasse?.id}">${forenkletRegistreringInstance?.referanseforelderKlasse?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value">${fieldValue(bean:forenkletRegistreringInstance, field:'archivedBy')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name">Referanseparent Klasse:</td>
+                            
+                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${forenkletRegistreringInstance?.parentClass?.id}">${forenkletRegistreringInstance?.parentClass?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
@@ -97,7 +97,7 @@
                             
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
-                                <g:each var="d" in="${forenkletRegistreringInstance.dokumenter}">
+                                <g:each var="d" in="${forenkletRegistreringInstance.document}">
                                     <li><g:link controller="dokumentlink" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
@@ -110,7 +110,7 @@
                             
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
-                                <g:each var="r" in="${forenkletRegistreringInstance.referansedokumentObjekt}">
+                                <g:each var="r" in="${forenkletRegistreringInstance.documentObject}">
                                     <li><g:link controller="dokumentobjekt" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
@@ -121,15 +121,15 @@
                         <tr class="prop">
                             <td valign="top" class="name">Bevaring Og Kassasjon:</td>
                             
-                            <td valign="top" class="value"><g:link controller="bevaringOgKassasjon" action="show" id="${forenkletRegistreringInstance?.bevaringOgKassasjon?.id}">${forenkletRegistreringInstance?.bevaringOgKassasjon?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="preservationAndDisposal" action="show" id="${forenkletRegistreringInstance?.preservationAndDisposal?.id}">${forenkletRegistreringInstance?.preservationAndDisposal?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                     
-                    		<g:if test="${forenkletRegistreringInstance instanceof Basisregistrering}">
+                    		<g:if test="${forenkletRegistreringInstance instanceof BasicRecord}">
 													<g:render template="basisreg_show"/>
 												</g:if>
-												<g:if test="${forenkletRegistreringInstance instanceof Journalpost}">
+												<g:if test="${forenkletRegistreringInstance instanceof RegistryEntry}">
                           <g:render template="journalpost_show"/>
                         </g:if>
                     </tbody>

@@ -28,10 +28,10 @@
 			                    <g:render template="basisCreateFields" model="[basismappeInstance: basismappeInstance, typer: typer]" />
 													<g:render template="sakCreateFields" model="[mappeInstance: basismappeInstance, typer: typer]" />
 													<script>
-														if($('#mappetype').val() != 'Saksmappe'){
+														if($('#fileType').val() != 'Saksmappe'){
 															$('.saksmappeParam').hide();
 														}
-														$('#mappetype').change(function() {
+														$('#fileType').change(function() {
 															if($(this).val() === 'Saksmappe'){
 																$('.saksmappeParam').show();
 															} else {

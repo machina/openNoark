@@ -17,7 +17,7 @@ class Series extends Base{
   Series precursor
   Series successor
   ClassificationSystem classificationSystem
-  PreservationAndDisposal bevaringOgKassasjon
+  PreservationAndDisposal preservationAndDisposal
   String periodStatus
   static constraints = {
     parent( validator: {
@@ -60,8 +60,8 @@ class Series extends Base{
     file(unique: true)
     record(nullable: true)
     record(unique: true)
-    bevaringOgKassasjon(nullable: true)
-    bevaringOgKassasjon(unique: false)
+    preservationAndDisposal(nullable: true)
+    preservationAndDisposal(unique: false)
     periodStatus(nullable: true)
     periodStatus(unique: false)
   }
@@ -69,5 +69,5 @@ class Series extends Base{
   static mapping = {
   }
   static auditable = true
-  static searchable = [except: ['referanseforelder']]
+  static searchable = [except: ['parent','classificationSystem']]
 }

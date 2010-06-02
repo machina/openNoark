@@ -30,10 +30,10 @@
                         <tbody>
                         
 												 <g:render template="forenkletReg_form"/>
-												 <g:if test="${forenkletRegistreringInstance instanceof Basisregistrering}">
+												 <g:if test="${forenkletRegistreringInstance instanceof BasicRecord}">
 														 <g:render template="basisReg_form"/>
 													</g:if>
-													<g:if test="${forenkletRegistreringInstance instanceof Journalpost}">
+													<g:if test="${forenkletRegistreringInstance instanceof RegistryEntry}">
                              <g:render template="journalpost_form"/>
                           </g:if>
                         
