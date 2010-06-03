@@ -56,7 +56,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Fonds" eSuperTypes="#//Base">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Metadata for arkiv (Fonds) "/>
+      <details key="documentation" value="Metadata for arkiv (Fonds)"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Arkiv"/>
@@ -179,7 +179,7 @@
       <details key="constraint" value="recordSectionStatus(inList: [&quot;Opprettet&quot;, &quot;Avsluttet&quot;])"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no/searchable">
-      <details key="except" value="referanseforelder"/>
+      <details key="except" value="parent,classificationSystem"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="constraint" value="periodStatus(inList: [&quot;Aktiv periode&quot;, &quot;Overlappingsperiode&quot;,&quot;Avsluttet periode&quot;])"/>
@@ -303,8 +303,8 @@
         <details key="name" value="Referanseregistrering"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false"
-        eType="#//PreservationAndDisposal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preservationAndDisposal"
+        unique="false" eType="#//PreservationAndDisposal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodStatus" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
@@ -1252,7 +1252,7 @@
       <details key="attribute" value="static auditable = true"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
-      <details key="afterLoad" value="println &quot;klasseid: ${owner.klasseid}&quot;&#xA;if(referanseforelderKlasse){&#xA;&#x9;fullId = &quot;${referanseforelderKlasse.klasseid}.${klasseid}&quot;&#xA;}else{&#xA;&#x9;fullId = &quot;${klasseid}&quot;&#xA;}&#xA;println &quot;fullId: ${fullId}&quot;"/>
+      <details key="afterLoad" value="if(parentClass){&#xA;&#x9;fullId = &quot;${parentClass.classID}.${classID}&quot;&#xA;}else{&#xA;&#x9;fullId = &quot;${classID}&quot;&#xA;}&#xA;println &quot;fullId: ${fullId}&quot;"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="toString" value="&quot;Klasse : ${fullId}&quot;"/>
@@ -1368,7 +1368,7 @@
       <details key="attribute" value="static auditable = true"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
-      <details key="toString" value="&quot;${tittel}&quot;"/>
+      <details key="toString" value="&quot;${title}&quot;"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classificationType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
@@ -2188,7 +2188,7 @@
       <details key="mapping" value="tablePerHierarchy false"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no/searchable">
-      <details key="except" value="parentSection,parentFile"/>
+      <details key="except" value="recordSection,parentFile"/>
     </eAnnotations>
     <eAnnotations source="http://opennoark.machina.no">
       <details key="constraint" value="recordSection( validator: {&#xA;  if(it == null || it.finalisedDate == null) return true&#xA;  return &quot;Kan ikke legge en registrering under en avsluttet arkivdel.&quot;&#xA;})"/>

@@ -1,5 +1,5 @@
 
-<%@ page import="no.friark.ds.Arkivskaper" %>
+<%@ page import="no.friark.ds.FondsCreator" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -17,42 +17,42 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <g:hasErrors bean="${arkivskaperInstance}">
+            <g:hasErrors bean="${fondsCreatorInstance}">
             <div class="errors">
-                <g:renderErrors bean="${arkivskaperInstance}" as="list" />
+                <g:renderErrors bean="${fondsCreatorInstance}" as="list" />
             </div>
             </g:hasErrors>
             <g:form method="post" >
-                <input type="hidden" name="id" value="${arkivskaperInstance?.id}" />
-                <input type="hidden" name="version" value="${arkivskaperInstance?.version}" />
+                <input type="hidden" name="id" value="${fondsCreatorInstance?.id}" />
+                <input type="hidden" name="version" value="${fondsCreatorInstance?.version}" />
                 <div class="dialog">
                     <table>
                         <tbody>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="arkivskaperid"><g:message code="id" default="ID"/>:</label>
+                                    <label for="fondsCreatorid"><g:message code="id" default="ID"/>:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:arkivskaperInstance,field:'arkivskaperid','errors')}">
-                                    <input type="text" id="arkivskaperid" name="arkivskaperid" value="${fieldValue(bean:arkivskaperInstance,field:'arkivskaperid')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="arkivskapernavn"><g:message code="name" default="Name"/>:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:arkivskaperInstance,field:'arkivskapernavn','errors')}">
-                                    <input type="text" id="arkivskapernavn" name="arkivskapernavn" value="${fieldValue(bean:arkivskaperInstance,field:'arkivskapernavn')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'fondsCreatorid','errors')}">
+                                    <input type="text" id="fondsCreatorid" name="fondsCreatorid" value="${fieldValue(bean:fondsCreatorInstance,field:'fondsCreatorid')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="beskrivelse"><g:message code="description" default="Description"/>:</label>
+                                    <label for="fondsCreatornavn"><g:message code="name" default="Name"/>:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:arkivskaperInstance,field:'beskrivelse','errors')}">
-                                    <input type="text" id="beskrivelse" name="beskrivelse" value="${fieldValue(bean:arkivskaperInstance,field:'beskrivelse')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'fondsCreatornavn','errors')}">
+                                    <input type="text" id="fondsCreatornavn" name="fondsCreatornavn" value="${fieldValue(bean:fondsCreatorInstance,field:'fondsCreatornavn')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="description"><g:message code="description" default="Description"/>:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'description','errors')}">
+                                    <input type="text" id="description" name="description" value="${fieldValue(bean:fondsCreatorInstance,field:'description')}"/>
                                 </td>
                             </tr> 
                         
@@ -60,11 +60,11 @@
                                 <td valign="top" class="name">
                                     <label for="arkiv"><g:message code="fonds" default="Fonds"/>:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:arkivskaperInstance,field:'arkiv','errors')}">
+                                <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'arkiv','errors')}">
                                     <g:select name="arkiv"
-from="${no.friark.ds.Arkiv.list()}"
+from="${no.friark.ds.Fonds.list()}"
 size="5" multiple="yes" optionKey="id"
-value="${arkivskaperInstance?.arkiv}" />
+value="${fondsCreatorInstance?.arkiv}" />
 
                                 </td>
                             </tr> 

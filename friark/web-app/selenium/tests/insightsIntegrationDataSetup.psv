@@ -1,35 +1,10 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-clickAndWait|link=Arkiv|
-clickAndWait|link=Nytt Arkiv|
-type|beskrivelse|Arkiv for insights integrasjon
-type|dokumentmedium|AnyHolder
-type|tittel|Insights Arkiv
-clickAndWait|save|
-clickAndWait|link=Arkivdeler|
-clickAndWait|link=Ny Arkivdel|
-type|tittel|Insights arkivdel
-type|beskrivelse|Arkivdel for insights integrasjon
-type|dokumentmedium|no.machina.gestalt2.ds.Any
-select|referanseforelder|label=Insights Arkiv
-clickAndWait|save|
-clickAndWait|link=Mapper|
-clickAndWait|link=Ny Mappe|
-type|tittel|mappe1
-type|offentligtittel|mappe1
-select|referansearkivdel.id|label=Insights arkivdel
-clickAndWait|//input[@value='Create']|
-clickAndWait|link=Ny Mappe|
-select|referansearkivdel.id|label=Insights arkivdel
-type|beskrivelse|mappe
-type|dokumentmedium|mappe
-clickAndWait|//input[@value='Create']|
-clickAndWait|link=Ny Mappe|
-type|tittel|mappe2
-type|offentligtittel|mappe2
-select|referansearkivdel.id|label=Insights arkivdel
-type|beskrivelse|mappe nr 2
-clickAndWait|//input[@value='Create']|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=Insights Arkiv,desc=Arkiv for insights integrasjon,medium=AnyHolder
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=Insights arkivdel,desc=Insights Arkiv,medium=no.machina.gestalt2.ds.Any
+include|/friark/selenium/tests/inc/create_mappe.html|name=mappe1,arkivdel_idx=1
+include|/friark/selenium/tests/inc/create_mappe.html|name=mappe,arkivdel_idx=1
+include|/friark/selenium/tests/inc/create_mappe.html|name=mappe2,desc=mappe nr 2,arkivdel_idx=1
 clickAndWait|create|
-type|arkivertav|reg 1
-select|referanseforelderBasismappe.id|label=mappe1
+type|archivedBy|reg 1
+select|parentFile.id|label=mappe1
 click|//input[@value='Create']|

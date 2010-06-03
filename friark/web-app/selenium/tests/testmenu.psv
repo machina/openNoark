@@ -1,10 +1,10 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-clickAndWait|link=Arkiv|
-verifyTextPresent|Arkiv|
+clickAndWait|link=Fonds|
+verifyTextPresent|Fonds|
 clickAndWait|link=Arkivdeler|
 verifyTextPresent|Arkivdeler|
-clickAndWait|link=Klassifikasjonssystemer|
-verifyTextPresent|Klassifikasjonssystem|
+clickAndWait|link=ClassificationSystemer|
+verifyTextPresent|ClassificationSystemer|
 clickAndWait|link=Klasser|
 verifyTextPresent|Klasse|
 clickAndWait|link=Mapper|

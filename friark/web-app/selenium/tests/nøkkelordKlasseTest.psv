@@ -1,23 +1,11 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-clickAndWait|link=Klassifikasjonssystemer|
-clickAndWait|link=New Klassifikasjonssystem|
-type|klassifikasjonstype|nøkkelord test
-type|tittel|nøkkelord test
-type|beskrivelse|nøkkelord test
-clickAndWait|//input[@value='Create']|
-clickAndWait|link=Klasser|
-clickAndWait|link=New Klasse|
-type|klasseid|nøkkelord test
-type|tittel|nøkkelord test
-type|beskrivelse|nøkkelord test
-type|nøkkelord|en to
-select|referanseforelderKlassifikasjonssystem.id|label=nøkkelord test
-clickAndWait|//input[@value='Create']|
+include|/friark/selenium/tests/inc/create_classificationSystem.html|type=bk_kl,title=nøkkelord test,desc=nøkkelord test
+include|/friark/selenium/tests/inc/create_klass.html|title=nøkkelord test,desc=nøkkelord test,key=en to,sys=label=nøkkelord test
 storeText|//td[2]|klasseid
 verifyTextPresent|to|
 verifyTextPresent|en|
 clickAndWait|_action_Edit|
-clickAndWait|link=Rediger nøkkelord|
+clickAndWait|link=Rediger keyword|
 type|//input[@id='new']|tre
 clickAndWait|_action_Update|
 verifyTextPresent|tre|
@@ -27,7 +15,7 @@ verifyTextPresent|to|
 verifyTextPresent|tre|
 verifyTextPresent|en|
 clickAndWait|_action_Edit|
-clickAndWait|link=Rediger nøkkelord|
+clickAndWait|link=Rediger keyword|
 clickAndWait|//a[contains(@href, 'ord=to')]|
 verifyTextNotPresent|to Delete|
 clickAndWait|//a[contains(@href, 'ord=tre')]|

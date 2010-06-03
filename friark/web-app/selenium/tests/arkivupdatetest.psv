@@ -1,7 +1,5 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-open|/friark/arkiv/create|
-type|tittel|Test Arkiv oppdat
-clickAndWait|//input[@name='save']|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=Test Arkiv oppdat
 verifyTextPresent|Arkiv opprettet|
 verifyTextPresent|Test Arkiv oppdat|
 verifyTextPresent||Opprettet|
@@ -9,7 +7,7 @@ open|/friark/arkiv/list|
 verifyTextPresent|Test Arkiv oppdat|
 clickAndWait|link=Test Arkiv oppdat|
 clickAndWait|_action_Edit|
-type|tittel|Test Arkiv oppdatert
+type|title|Test Arkiv oppdatert
 clickAndWait|//input[@name='save']|
 assertTextNotPresent|Error 500|
 assertTextNotPresent|errors|
@@ -18,12 +16,12 @@ open|/friark/arkiv/list|
 verifyTextPresent|Test Arkiv oppdatert|
 clickAndWait|link=Test Arkiv oppdatert|
 clickAndWait|_action_Edit|
-select|arkivstatus|label=Avsluttet
+select|fondsStatus|label=Avsluttet
 clickAndWait|save|
 verifyTextPresent|Avsluttet|
 open|/friark/arkiv/list|
 clickAndWait|link=Test Arkiv oppdatert|
 clickAndWait|_action_Edit|
-select|arkivstatus|label=Opprettet
+select|fondsStatus|label=Opprettet
 clickAndWait|save|
 verifyTextPresent|error|

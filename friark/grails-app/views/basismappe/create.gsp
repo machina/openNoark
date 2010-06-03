@@ -47,42 +47,42 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="tittel">Tittel:</label>
+                                    <label for="title">Tittel:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'tittel','errors')}">
-                                    <input type="text" id="tittel" name="tittel" value="${fieldValue(bean:basismappeInstance,field:'tittel')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="offentligtittel">Offentligtittel:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'offentligtittel','errors')}">
-                                    <input type="text" id="offentligtittel" name="offentligtittel" value="${fieldValue(bean:basismappeInstance,field:'offentligtittel')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'title','errors')}">
+                                    <input type="text" id="title" name="title" value="${fieldValue(bean:basismappeInstance,field:'title')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="beskrivelse">Beskrivelse:</label>
+                                    <label for="offentligtitle">Offentligtitle:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'beskrivelse','errors')}">
-                                    <input type="text" id="beskrivelse" name="beskrivelse" value="${fieldValue(bean:basismappeInstance,field:'beskrivelse')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'offentligtitle','errors')}">
+                                    <input type="text" id="offentligtitle" name="offentligtitle" value="${fieldValue(bean:basismappeInstance,field:'offentligtitle')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="dokumentmedium">Dokumentmedium:</label>
+                                    <label for="description">Beskrivelse:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'dokumentmedium','errors')}">
-                                    <input type="text" id="dokumentmedium" name="dokumentmedium" value="${fieldValue(bean:basismappeInstance,field:'dokumentmedium')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'description','errors')}">
+                                    <input type="text" id="description" name="description" value="${fieldValue(bean:basismappeInstance,field:'description')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="documentMedium">Dokumentmedium:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'documentMedium','errors')}">
+                                    <input type="text" id="documentMedium" name="documentMedium" value="${fieldValue(bean:basismappeInstance,field:'documentMedium')}"/>
                                 </td>
                             </tr> 
  														<tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="opprettetav">Nøkkelord:</label>
+                                    <label for="createdBy">Nøkkelord:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:ibasismappeInstance,field:'nøkkelord','errors')}">
                                     <input type="text" id="nøkkelord" name="nøkkelord"/>
@@ -91,19 +91,19 @@
                       
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referanseforelderKlasse">Referanseforelder Klasse:</label>
+                                    <label for="referanseparentKlasse">Referanseparent Klasse:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseforelderKlasse','errors')}">
-                                    <g:select optionKey="id" optionValue="tittel" noSelection="${[null:'Velg klasse']}" from="${Klasse.list()}" name="referanseforelderKlasse.id" value="${basismappeInstance?.referanseforelderKlasse?.id}" ></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseparentKlasse','errors')}">
+                                    <g:select optionKey="id" optionValue="title" noSelection="${[null:'Velg klasse']}" from="${Klasse.list()}" name="referanseparentKlasse.id" value="${basismappeInstance?.referanseparentKlasse?.id}" ></g:select>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referanseforelderBasismappe">Referanseforelder Basismappe:</label>
+                                    <label for="referanseparentBasismappe">Referanseparent Basismappe:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseforelderBasismappe','errors')}">
-                                    <g:select optionKey="id" optionValue="tittel" noSelection="${[null:'Velg foreldermappe']}" from="${Basismappe.list()}" name="referanseforelderBasismappe.id" value="${basismappeInstance?.referanseforelderBasismappe?.id}" ></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referanseparentBasismappe','errors')}">
+                                    <g:select optionKey="id" optionValue="title" noSelection="${[null:'Velg parentmappe']}" from="${Basismappe.list()}" name="referanseparentBasismappe.id" value="${basismappeInstance?.referanseparentBasismappe?.id}" ></g:select>
                                 </td>
                             </tr> 
                         
@@ -112,7 +112,7 @@
                                     <label for="referansearkivdel">Referansearkivdel:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:basismappeInstance,field:'referansearkivdel','errors')}">
-                                    <g:select optionKey="id" optionValue="tittel" noSelection="${[null:'Velg forelder arkivdel']}" from="${Arkivdel.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}"></g:select>
+                                    <g:select optionKey="id" optionValue="title" noSelection="${[null:'Velg parent arkivdel']}" from="${Series.list()}" name="referansearkivdel.id" value="${basismappeInstance?.referansearkivdel?.id}"></g:select>
                                 </td>
                             </tr> 
                         

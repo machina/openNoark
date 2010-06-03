@@ -33,5 +33,5 @@ class ClassificationSystem extends Base{
   }
   static searchable = true
   static auditable = true
-  String toString(){"${tittel}"}
+  String toString(){"${title}"}
 }

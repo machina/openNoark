@@ -1,57 +1,57 @@
 <%! import no.friark.ds.* %>
 														<tr class="saksmappeParam">
                                 <td valign="top" class="name">
-                                    <label for="saksdato">Saksdato:</label>
+                                    <label for="caseDate">Saksdato:</label>
                                 </td>
-																<td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'saksdato','errors')}">
-																	<g:datePicker name="saksdato" value="${mappeInstance instanceof Saksmappe ? mappeInstance?.saksdato : new Date()}" precision="day" ></g:datePicker>
+																<td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'caseDate','errors')}">
+																	<g:datePicker name="caseDate" value="${mappeInstance instanceof CaseFile ? mappeInstance?.caseDate : new Date()}" precision="day" ></g:datePicker>
                                 </td>
 														</tr>
 														<tr class="prop saksmappeParam">
                                 <td valign="top" class="name">
                                     <label for="administrativEnhet">Administrativ enhet:</label>
                                 </td>
-												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'administrativenhet','errors')}">
-                                    <input type="text" id="administrativenhet" name="administrativenhet" value="${mappeInstance instanceof Saksmappe ? mappeInstance.administrativenhet:''}"/>
+												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'administrativeUnit','errors')}">
+                                    <input type="text" id="administrativeUnit" name="administrativeUnit" value="${mappeInstance instanceof CaseFile ? mappeInstance.administrativeUnit:''}"/>
                                 </td>
 														</tr>
 														<tr class="prop saksmappeParam">
                                 <td valign="top" class="name">
-                                    <label for="saksansvarlig">Saksansvarlig:</label>
+                                    <label for="caseResponsible">Saksansvarlig:</label>
                                 </td>
-												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'saksansvarlig','errors')}">
-                                    <input type="text" id="saksansvarlig" name="saksansvarlig" value="${mappeInstance instanceof Saksmappe ? mappeInstance.saksansvarlig:''}"/>
-                                </td>
-														</tr>
-														<tr class="prop saksmappeParam">
-                                <td valign="top" class="name">
-                                    <label for="journalenhet">Journalenhet:</label>
-                                </td>
-												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'journalenhet','errors')}">
-                                    <input type="text" id="journalenhet" name="journalenhet" value="${mappeInstance instanceof Saksmappe ? mappeInstance.journalenhet:''}"/>
+												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'caseResponsible','errors')}">
+                                    <input type="text" id="caseResponsible" name="caseResponsible" value="${mappeInstance instanceof CaseFile ? mappeInstance.caseResponsible:''}"/>
                                 </td>
 														</tr>
 														<tr class="prop saksmappeParam">
                                 <td valign="top" class="name">
-                                    <label for="saksstatus">Saksstatus:</label>
+                                    <label for="registryManagementUnit">Journalenhet:</label>
                                 </td>
-												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'saksstatus','errors')}">
-                                    <input type="text" id="saksstatus" name="saksstatus" value="${mappeInstance instanceof Saksmappe ? mappeInstance.saksstatus:''}"/>
+												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'registryManagementUnit','errors')}">
+                                    <input type="text" id="registryManagementUnit" name="registryManagementUnit" value="${mappeInstance instanceof CaseFile ? mappeInstance.registryManagementUnit:''}"/>
+                                </td>
+														</tr>
+														<tr class="prop saksmappeParam">
+                                <td valign="top" class="name">
+                                    <label for="caseStatus">Saksstatus:</label>
+                                </td>
+												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'caseStatus','errors')}">
+                                    <input type="text" id="caseStatus" name="caseStatus" value="${mappeInstance instanceof CaseFile ? mappeInstance.caseStatus:''}"/>
                                 </td>
 														</tr>
 <%--												<tr class="prop saksmappeParam">
                                 <td valign="top" class="name">
-                                    <label for="utlåntdato">Utlånt:</label>
+                                    <label for="loanedDate">Utlånt:</label>
                                 </td>
-												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'utlåntdato','errors')}">
-																	<g:datePicker name="utlåntdato" value="${mappeInstance instanceof Saksmappe ? mappeInstance?.utlåntdato : new Date()}" precision="day" ></g:datePicker>
+												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'loanedDate','errors')}">
+																	<g:datePicker name="loanedDate" value="${mappeInstance instanceof CaseFile ? mappeInstance?.loanedDate : new Date()}" precision="day" ></g:datePicker>
                                 </td>
 														</tr>
 														<tr class="prop saksmappeParam">
                                 <td valign="top" class="name">
-                                    <label for="utlånttil">Utånt tilSaksstatus:</label>
+                                    <label for="loanedTo">Utånt tilSaksstatus:</label>
                                 </td>
-												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'utlånttil','errors')}">
-                                    <input type="text" id="utlånttil" name="utlånttil" value="${mappeInstance instanceof Saksmappe ? mappeInstance.utlånttil:''}"/>
+												        <td valign="top" class="value ${hasErrors(bean:mappeInstance,field:'loanedTo','errors')}">
+                                    <input type="text" id="loanedTo" name="loanedTo" value="${mappeInstance instanceof CaseFile ? mappeInstance.loanedTo:''}"/>
                                 </td> 
 														</tr> --%>

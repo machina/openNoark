@@ -11,43 +11,43 @@ class SaksansvarController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ saksansvarInstanceList: Saksansvar.list( params ), saksansvarInstanceTotal: Saksansvar.count() ]
+        [ saksansvarInstanceList: CaseResponsibility.list( params ), saksansvarInstanceTotal: CaseResponsibility.count() ]
    }
 
     def show = {
-        def saksansvarInstance = Saksansvar.get( params.id )
+        def saksansvarInstance = CaseResponsibility.get( params.id )
 
         if(!saksansvarInstance) {
-            flash.message = "Saksansvar not found with id ${params.id}"
+            flash.message = "CaseResponsibility not found with id ${params.id}"
             redirect(action:list)
        }
         else { return [ saksansvarInstance : saksansvarInstance ] }
    }
 
     def delete = {
-        def saksansvarInstance = Saksansvar.get( params.id )
+        def saksansvarInstance = CaseResponsibility.get( params.id )
         if(saksansvarInstance) {
             try {
                 saksansvarInstance.delete(flush:true)
-                flash.message = "Saksansvar ${params.id} deleted"
+                flash.message = "CaseResponsibility ${params.id} deleted"
                 redirect(action:list)
            }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "Saksansvar ${params.id} could not be deleted"
+                flash.message = "CaseResponsibility ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
            }
        }
         else {
-            flash.message = "Saksansvar not found with id ${params.id}"
+            flash.message = "CaseResponsibility not found with id ${params.id}"
             redirect(action:list)
        }
    }
 
     def edit = {
-        def saksansvarInstance = Saksansvar.get( params.id )
+        def saksansvarInstance = CaseResponsibility.get( params.id )
 
         if(!saksansvarInstance) {
-            flash.message = "Saksansvar not found with id ${params.id}"
+            flash.message = "CaseResponsibility not found with id ${params.id}"
             redirect(action:list)
        }
         else {
@@ -56,20 +56,20 @@ class SaksansvarController {
    }
 
     def update = {
-        def saksansvarInstance = Saksansvar.get( params.id )
+        def saksansvarInstance = CaseResponsibility.get( params.id )
         if(saksansvarInstance) {
             if(params.version) {
                 def version = params.version.toLong()
                 if(saksansvarInstance.version > version) {
                     
-                    saksansvarInstance.errors.rejectValue("version", "saksansvar.optimistic.locking.failure", "Another user has updated this Saksansvar while you were editing.")
+                    saksansvarInstance.errors.rejectValue("version", "saksansvar.optimistic.locking.failure", "Another user has updated this CaseResponsibility while you were editing.")
                     render(view:'edit',model:[saksansvarInstance:saksansvarInstance])
                     return
                }
            }
             saksansvarInstance.properties = params
             if(!saksansvarInstance.hasErrors() && saksansvarInstance.save()) {
-                flash.message = "Saksansvar ${params.id} updated"
+                flash.message = "CaseResponsibility ${params.id} updated"
                 redirect(action:show,id:saksansvarInstance.id)
            }
             else {
@@ -77,7 +77,7 @@ class SaksansvarController {
            }
        }
         else {
-            flash.message = "Saksansvar not found with id ${params.id}"
+            flash.message = "CaseResponsibility not found with id ${params.id}"
             redirect(action:list)
        }
    }
@@ -91,7 +91,7 @@ class SaksansvarController {
     def save = {
         def saksansvarInstance = new CaseResponsibility(params)
         if(!saksansvarInstance.hasErrors() && saksansvarInstance.save()) {
-            flash.message = "Saksansvar ${saksansvarInstance.id} created"
+            flash.message = "CaseResponsibility ${saksansvarInstance.id} created"
             redirect(action:show,id:saksansvarInstance.id)
        }
         else {

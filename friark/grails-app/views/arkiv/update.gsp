@@ -15,45 +15,45 @@
 				<g:form name='archive' id='${arkiv.id}' action="update">
 					<table>
 						<tr>
-							<td><label for="tittel"><g:messageTittel code="title" default="Title"/></label></td>
-							<td><g:textField id="tittel" name="tittel" value="${arkiv.tittel}"/></td>
+							<td><label for="title"><g:messageTittel code="title" default="Title"/></label></td>
+							<td><g:textField id="title" name="title" value="${arkiv.title}"/></td>
 						</tr>
 						<tr>
-							<td><label for="beskrivelse"><g:message code="description" default="Description"/></label></td>
-							<td><g:textField id="beskrivelse"  name="beskrivelse" value="${arkiv.beskrivelse}"/></td>
+							<td><label for="description"><g:message code="description" default="Description"/></label></td>
+							<td><g:textField id="description"  name="description" value="${arkiv.description}"/></td>
 						</tr>
 						<tr>
-              <td><label for="dokumentmedium"><g:message code="fonds.document.medium" default="Document Medium"</label></td>
-              <td><g:textField id="dokumentmedium" name="dokumentmedium" value="${arkiv.dokumentmedium}"/></td>
+              <td><label for="documentMedium"><g:message code="fonds.document.medium" default="Document Medium"/></label></td>
+              <td><g:textField id="documentMedium" name="documentMedium" value="${arkiv.documentMedium}"/></td>
             </tr>
             <%-- <tr>
-              <td><label for="opprettetdato"><g:message code="created" default="Created"/></label></td>
-              <td><g:datePicker precision="day" name="opprettetdato" value="${arkiv.opprettetdato}"/></td>
+              <td><label for="createdDate"><g:message code="created" default="Created"/></label></td>
+              <td><g:datePicker precision="day" name="createdDate" value="${arkiv.createdDate}"/></td>
             </tr> --%>
 						<tr>
-              <td><label for="arkivskaper"><g:message code="fonds.creator" default="Fonds creator"</label></td>
-              <td><g:select name="arkivskaper" noSelection="${['':'Velg arkivskaper']}" from='${Arkivskaper.list()}' optionKey="id" optionValue="arkivskapernavn"></g:select>
+              <td><label for="fondsCreator"><g:message code="fonds.creator" default="Fonds creator"/></label></td>
+              <td><g:select name="fondsCreator" noSelection="${['':'Velg fondsCreator']}" from='${FondsCreator.list()}' optionKey="id" optionValue="fondsCreatornavn"></g:select>
             </tr>
 
 						<%-- <tr>
-              <td><label for="opprettetav"><g:message code="fonds.created.by" default="Created by"/></label></td>
-              <td><g:textField id="opprettetav" name="opprettetav" value="${arkiv.opprettetav}"/></td>
+              <td><label for="createdBy"><g:message code="fonds.created.by" default="Created by"/></label></td>
+              <td><g:textField id="createdBy" name="createdBy" value="${arkiv.createdBy}"/></td>
             </tr> --%>
 						<tr>
-							<td><label for="forelder"><g:message code="parent" default="Parent"/></label></td>
-							<td><g:select name="forelder" value="${arkiv.forelder}" noSelection="${['null':'Velg forelder arkiv']}" from='${Arkiv.list()}' optionKey="id" optionValue="tittel"></g:select>
+							<td><label for="parent"><g:message code="parent" default="Parent"/></label></td>
+							<td><g:select name="parent" value="${arkiv.parent}" noSelection="${['null':'Velg parent arkiv']}" from='${Fonds.list()}' optionKey="id" optionValue="title"></g:select>
 						</tr>
 						<tr>
-							<td><label for="arkivstatus"><g:message code="status" default="Status"/></label></td>
-              <td><g:select name="arkivstatus" value="${arkiv.arkivstatus}" from='${["Opprettet", "Avsluttet"]}'></g:select></td>
+							<td><label for="fondsStatus"><g:message code="status" default="Status"/></label></td>
+              <td><g:select name="fondsStatus" value="${arkiv.fondsStatus}" from='${["Opprettet", "Avsluttet"]}'></g:select></td>
 						</tr>
 						<%-- <tr>
-              <td><label for="avsluttetav"><g:message code="fonds.finalised.by" default="Finalised by"/></label></td>
-              <td><g:textField id="avsluttetav" name="avsluttetav" value="${arkiv.avsluttetav}"/></td>
+              <td><label for="finalisedBy"><g:message code="fonds.finalised.by" default="Finalised by"/></label></td>
+              <td><g:textField id="finalisedBy" name="finalisedBy" value="${arkiv.finalisedBy}"/></td>
             </tr>
 						<tr>
-              <td><label for="avsluttetdato"><g:message code="fonds.finalised.date" default="Finalised date"/></label></td>
-              <td><fa:datePicker precision="day" default="none" name="avsluttetdato" noSelection="${['none':'Ikke valgt']}" value="${arkiv.avsluttetdato}"/></td>
+              <td><label for="finalisedDate"><g:message code="fonds.finalised.date" default="Finalised date"/></label></td>
+              <td><fa:datePicker precision="day" default="none" name="finalisedDate" noSelection="${['none':'Ikke valgt']}" value="${arkiv.finalisedDate}"/></td>
             </tr> --%>
 						<tr>
               <td>&nbsp;</td>

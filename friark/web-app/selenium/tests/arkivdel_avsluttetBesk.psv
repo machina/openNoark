@@ -1,44 +1,17 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-clickAndWait|link=Arkiv|
-clickAndWait|link=Nytt Arkiv|
-type|tittel|dilldall
-type|beskrivelse|arkiv for dill og dall
-type|dokumentmedium|html
-clickAndWait|save|
-clickAndWait|link=Arkivdeler|
-clickAndWait|link=Ny Arkivdel|
-type|tittel|dill
-type|beskrivelse|arkivdel for dill
-type|dokumentmedium|email
-select|referanseforelder|label=dilldall
-clickAndWait|save|
-clickAndWait|link=Arkivdeler|
-clickAndWait|link=Ny Arkivdel|
-type|tittel|dall
-type|beskrivelse|arkivdel for dall
-type|dokumentmedium|epos
-type|dokumentmedium|epost
-select|referanseforelder|label=dilldall
-clickAndWait|save|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=arkiv
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=dill,desc=arkivdel for dill,medium=email
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=dall,desc=arkivdel for dall,medium=email
 clickAndWait|link=Mapper|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=dall|
 clickAndWait|_action_Edit|
-select|arkivdelstatus|label=Avsluttet
+select|recordSectionStatus|label=Avsluttet
 clickAndWait|save|
-clickAndWait|link=Mapper|
-clickAndWait|link=Ny Mappe|
-type|mappetype|aaa
-type|tittel|aaaaaaaaaaaaaa
-type|offentligtittel|a
-type|beskrivelse|aaa
-type|dokumentmedium|a
-type|nøkkelord|aa
-select|referansearkivdel.id|label=dall
-clickAndWait|//input[@value='Create']|
+include|/friark/selenium/tests/inc/create_mappe.html|name=aaaaa,desc=aaa,medium=a,keyword=key,arkivdel_idx=2
 verifyTextNotPresent|created|
-verifyTextPresent|Kan ikke lege til en mappe i et arkiv med periodestatus Aktiv periode|
+verifyTextPresent|Kan ikke lege til en mappe i et arkiv med|
 open|/friark/registrering/create|
-type|arkivertav|dsadasd
-select|referansearkivdel.id|label=dall
+type|archivedBy|dsadasd
+select|recordSection.id|label=dall
 verifyTextPresent|Ny registrering|

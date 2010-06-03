@@ -1,16 +1,12 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
 open|/friark/arkiv/create|
-type|tittel|Avsluttet arkiv
-clickAndWait|//input[@name='save']|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=Avsluttet arkiv
 verifyTextPresent|Arkiv opprettet|
 open|/friark/arkiv/list|
 clickAndWait|link=Avsluttet arkiv|
 clickAndWait|_action_Edit|
-select|arkivstatus|label=Avsluttet
+select|fondsStatus|label=Avsluttet
 clickAndWait|save|
 verifyTextPresent|Avsluttet|
-open|/friark/arkivdel/create|
-type|tittel|test akrivdel
-select|referanseforelder|label=Avsluttet arkiv
-clickAndWait|save|
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=test akrivdel
 verifyTextPresent|Kan ikke legge inn arkivdeler under et avsluttet arkiv.|

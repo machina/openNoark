@@ -3,31 +3,9 @@ open|/friark/auth/login?targetUri=%2Fskjerming%2Fcreate|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
-clickAndWait|link=Klassifikasjonssystemer|
-clickAndWait|link=New Klassifikasjonssystem|
-type|klassifikasjonstype|asda
-type|klassifikasjonstype|test
-type|tittel|test
-type|beskrivelse|test
-clickAndWait|//input[@value='Create']|
-clickAndWait|link=Klasser|
-clickAndWait|link=New Klasse|
-type|klasseid|test
-type|tittel|test
-type|beskrivelse|test
-type|nøkkelord|test
-select|referanseforelderKlassifikasjonssystem.id|label=test
-clickAndWait|//input[@value='Create']|
-clickAndWait|link=Klasser|
-clickAndWait|link=New Klasse|
-type|klasseid|test
-type|klasseid|test2
-type|tittel|test
-type|tittel|test2
-type|beskrivelse|test2
-type|nøkkelord|test2
-select|referanseforelderKlassifikasjonssystem.id|label=test
-clickAndWait|//input[@value='Create']|
+include|/friark/selenium/tests/inc/create_classificationSystem.html|type=bk_kl,title=test,desc=bk_kl
+include|/friark/selenium/tests/inc/create_klass.html|id=test,title=test,desc=bk_kl,key=bk_kl,sys=label=test
+include|/friark/selenium/tests/inc/create_klass.html|id=test2,title=test2,desc=bk_kl,key=bk_kl,sys=label=test
 clickAndWait|link=Skjerming|
 clickAndWait|link=New Skjerming|
 verifyTextPresent|test|

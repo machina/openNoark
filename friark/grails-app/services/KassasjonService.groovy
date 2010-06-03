@@ -34,9 +34,9 @@ class KassasjonService {
 		*/
 		def klasserIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
-				dok.registreringer.each { reg -> 
-					if(reg.referanseregistrering.parentClass) retval << reg.referanseregistrering.parentClass
-					if(reg.referanseregistrering.parentFile != null && reg.referanseregistrering.parentFile.parentClass != null) retval << reg.referanseregistrering.parentFile.parentClass
+				dok.records.each { reg -> 
+					if(reg.referenceRecord.parentClass) retval << reg.referenceRecord.parentClass
+					if(reg.referenceRecord.parentFile != null && reg.referenceRecord.parentFile.parentClass != null) retval << reg.referenceRecord.parentFile.parentClass
 				}
 			} 
 		}
@@ -47,8 +47,8 @@ class KassasjonService {
     */
 		def mapperIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
-				dok.registreringer.each { reg ->
-					if(reg.referanseregistrering.parentFile) retval << reg.referanseregistrering.parentFile
+				dok.records.each { reg ->
+					if(reg.referenceRecord.parentFile) retval << reg.referenceRecord.parentFile
 				}
      }
 		}
@@ -59,9 +59,9 @@ class KassasjonService {
     */
 		def arkivdelerIDokliste(def liste){
 			return iDokListe(liste) { retval, dok ->
-				dok.registreringer.each { reg ->
-					if(reg.referanseregistrering.referansearkivdel) retval << reg.referanseregistrering.referansearkivdel
-					if(reg.referanseregistrering.parentFile != null && reg.referanseregistrering.parentFile.referansearkivdel != null) retval << reg.referanseregistrering.parentFile.referansearkivdel
+				dok.records.each { reg ->
+					if(reg.referenceRecord.recordSection) retval << reg.referenceRecord.recordSection
+					if(reg.referenceRecord.parentFile != null && reg.referenceRecord.parentFile.recordSection != null) retval << reg.referenceRecord.parentFile.recordSection
 				}
 			}
 		}
@@ -108,7 +108,7 @@ class KassasjonService {
 			if(vedtak.record){
 				vedtak.record.each{ reg ->
   	      //DocumentLink!!
-	        reg.dokumenter.each{ dokLink ->
+	        reg.document.each{ dokLink ->
         	  if(dokLink.documentDescription.preservationAndDisposal == null && dokLink.documentDescription.disposalDate == null ){
 							 retval << dokLink.documentDescription
 						}
@@ -123,7 +123,7 @@ class KassasjonService {
 			def leggTilFraReg = leggTilFraReg.curry(retval)
 			if(vedtak.file){
 				vedtak.file.each { mappe ->
-					mappe.referansebarnSimplifiedRecord.each leggTilFraReg
+					mappe.childRecord.each leggTilFraReg
 				}
 			}
 			return retval
@@ -135,9 +135,9 @@ class KassasjonService {
 			def leggTilFraMappe = leggTilFraMappe.curry(retval)
 			if(vedtak.klass){
 				vedtak.klass.each{ klasse ->
-					klasse.referansebarnSimplifiedRecord.each leggTilFraReg
-					println "klasse.referansebarnBasicFile ${klasse.referansebarnBasicFile}"
-					klasse.referansebarnBasicFile.each leggTilFraMappe
+					klasse.childRecord.each leggTilFraReg
+					println "klasse.referansebarnBasicFile ${klasse.childFile}"
+					klasse.childFile.each leggTilFraMappe
 				}
 			}
 			return retval
@@ -149,8 +149,8 @@ class KassasjonService {
 			def leggTilFraReg = leggTilFraReg.curry(retval)
 			if(vedtak.series){
 				vedtak.series.each {arkivdel ->
-					arkivdel.referansemappe.each leggTilFraMappe
-					arkivdel.referanseregistrering.each leggTilFraReg
+					arkivdel.file.each leggTilFraMappe
+					arkivdel.record.each leggTilFraReg
 				}
 			}
 			return retval
@@ -160,13 +160,13 @@ class KassasjonService {
 			def leggTilFraReg = leggTilFraReg.curry(retval)
 			println "mappe ${mappe}"
 			//printn "mappe.referansebarnSimplifiedRecord ${mappe.referansebarnSimplifiedRecord}"
-			if(mappe.preservationAndDisposal == null) SimplifiedRecord.findAllByparentFile(mappe).each leggTilFraReg
+			if(mappe.bevaringOgKassasjon == null) SimplifiedRecord.findAllByparentFile(mappe).each leggTilFraReg
 
 		}
 
 		def  leggTilFraReg = { retval, reg->
 			def leggTilFraDokLink = leggTilFraDokLink.curry(retval)
-			if(reg.preservationAndDisposal == null) reg.dokumenter.each leggTilFraDokLink	
+			if(reg.preservationAndDisposal == null) reg.document.each leggTilFraDokLink	
 		}
 		
 		def leggTilFraDokLink = { retval, dokLink ->

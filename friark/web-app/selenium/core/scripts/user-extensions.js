@@ -423,3 +423,11 @@ Selenium.prototype.doSleep = function(locator, paramString) {
 	var start = new Date().getTime();
   while (new Date().getTime() < start + parseInt(locator));
 };
+
+/**
+* default, adds an action name default that checks if a value is set, and if it is not, sets it to the given value.
+*/
+Selenium.prototype.doDefault = function(locator, paramString) {
+	if(storedVars[locator] == null) storedVars[locator] = paramString;
+};
+

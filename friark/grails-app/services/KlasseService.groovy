@@ -15,7 +15,7 @@ class KlasseService {
       commonService.setCreated(klasseInstance)
       commonService.setNewSystemID(klasseInstance)
 
-      if(params.nøkkelord && params.nøkkelord instanceof String) klasseInstance.nøkkelord = params.nøkkelord.tokenize(" ")
+      if(params.keyword && params.keyword instanceof String) klasseInstance.keyword = params.keyword.tokenize(" ")
 			
 		  if(!klasseInstance.hasErrors() && klasseInstance.save()) {
       	return [klasseInstance, true]

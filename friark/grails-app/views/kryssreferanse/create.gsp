@@ -68,7 +68,7 @@
                                     <label for="fraRegistrering">Fra Registrering:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'fraRegistrering','errors')}">
-                                    <g:select optionKey="id" from="${ForenkletRegistrering.list()}" name="fraRegistrering.id" value="${kryssreferanseInstance?.fraRegistrering?.id}" noSelection="['null':'']"></g:select>
+                                    <g:select optionKey="id" from="${SimplifiedRecord.list()}" name="fraRegistrering.id" value="${kryssreferanseInstance?.fraRegistrering?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
@@ -77,7 +77,7 @@
                                     <label for="tilRegistrering">Til Registrering:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'tilRegistrering','errors')}">
-                                    <g:select optionKey="id" from="${ForenkletRegistrering.list()}" name="tilRegistrering.id" value="${kryssreferanseInstance?.tilRegistrering?.id}" noSelection="['null':'']"></g:select>
+                                    <g:select optionKey="id" from="${SimplifiedRecord.list()}" name="tilRegistrering.id" value="${kryssreferanseInstance?.tilRegistrering?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         

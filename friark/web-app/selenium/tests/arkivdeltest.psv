@@ -1,17 +1,12 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-open|/friark/arkiv/create|
-type|tittel|Test Arkiv for arkivdel
-clickAndWait|//input[@name='save']|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=Test Arkiv for arkivdel
 verifyTextPresent|Arkiv opprettet|
 verifyTextPresent|Test Arkiv for arkivdel|
 verifyTextPresent|Opprettet|
 open|/friark/arkiv/list|
 verifyTextPresent|Test Arkiv for arkivdel|
-open|/friark/arkivdel/create|
-type|tittel|Test Arkivdel
-select|referanseforelder|label=Test Arkiv for arkivdel
-clickAndWait|//input[@name='save']|
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=Test Arkivdel
 verifyTextPresent|Test Arkivdel|
 verifyTextPresent|Opprettet|
-open|/friark/arkivdel/list|
+open|/friark/series/list|
 verifyTextPresent|Test Arkivdel|

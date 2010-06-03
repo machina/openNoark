@@ -3,17 +3,17 @@ include|/friark/selenium/tests/inc/create_arkiv.html|name=jpTest
 include|/friark/selenium/tests/inc/create_arkivdel.html|name=jpTest
 include|/friark/selenium/tests/inc/create_mappe.html|name=jpTest,klasse_idx=0,arkivdel_idx=1
 clickAndWait|create|
-select|registreringstype|label=Journalpost
-select|referanseforelderBasismappe.id|index=1
-type|opprettetav|dfdsfsd
-type|tittel|fdsfsdf
-type|korrespondanseparttype|fdsfd
-type|korrespondansepartnavn|sfdsfs
-type|postadresse|dfsdfsdf
-type|postnummer|sfsdfsd
-type|poststed|fdsfs
-type|utenlandsadresse|fdsfdsfsd
-type|kontaktperson|fdsfds sdfdsfs
+select|recordType|label=RegistryEntry
+select|parentFile.id|index=1
+type|createdBy|dfdsfsd
+type|title|fdsfsdf
+type|clientType|fdsfd
+type|clientName|sfdsfs
+type|postalAddress|dfsdfsdf
+type|postalCode|sfsdfsd
+type|postalTown|fdsfs
+type|foreignAddress|fdsfdsfsd
+type|contactPerson|fdsfds sdfdsfs
 clickAndWait|//input[@value='Create']|
 clickAndWait|link=Korrespondansepart|
 verifyElementPresent|//table/tbody/tr[1]|

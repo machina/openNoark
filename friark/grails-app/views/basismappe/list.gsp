@@ -30,9 +30,9 @@
                         
                    	        <g:sortableColumn property="mappetype" title="Mappetype" />
                         
-                   	        <g:sortableColumn property="tittel" title="Tittel" />
+                   	        <g:sortableColumn property="title" title="Tittel" />
                         
-                   	        <g:sortableColumn property="offentligtittel" title="Offentligtittel" />
+                   	        <g:sortableColumn property="offentligtitle" title="Offentligtitle" />
                         
                         </tr>
                     </thead>
@@ -48,9 +48,9 @@
                         
                             <td>${fieldValue(bean:basismappeInstance, field:'mappetype')}</td>
                         
-                            <td>${fieldValue(bean:basismappeInstance, field:'tittel')}</td>
+                            <td>${fieldValue(bean:basismappeInstance, field:'title')}</td>
                         
-                            <td>${fieldValue(bean:basismappeInstance, field:'offentligtittel')}</td>
+                            <td>${fieldValue(bean:basismappeInstance, field:'offentligtitle')}</td>
                         
                         </tr>
                     </g:each>

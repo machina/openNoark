@@ -12,6 +12,21 @@
 <tr><td rowspan="1" colspan="3">create_mappe</td></tr>
 </thead><tbody>
 <tr>
+  <td>store</td>
+  <td>1</td>
+  <td>parent_idx</td>
+</tr>
+<tr>
+  <td>store</td>
+  <td></td>
+  <td>desc</td>
+</tr>
+<tr>
+  <td>store</td>
+  <td></td>
+  <td>medium</td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Arkivdeler</td>
 	<td></td>
@@ -23,13 +38,24 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>tittel</td>
+	<td>title</td>
 	<td>${name}</td>
 </tr>
 <tr>
+	<td>type</td>
+	<td>documentMedium</td>
+	<td>${medium}</td>
+</tr>
+
+<tr>
+  <td>type</td>
+  <td>description</td>
+  <td>${desc}</td>
+</tr>
+<tr>
 	<td>select</td>
-	<td>referanseforelder</td>
-	<td>index=1</td>
+	<td>parent</td>
+	<td>index=${parent_idx}</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>

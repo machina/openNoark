@@ -9,11 +9,11 @@ class SkjermingController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ skjermingInstanceList: Skjerming.list( params ), skjermingInstanceTotal: Skjerming.count() ]
+        [ skjermingInstanceList: Screening.list( params ), skjermingInstanceTotal: Screening.count() ]
    }
 
     def show = {
-        def skjermingInstance = Skjerming.get( params.id )
+        def skjermingInstance = Screening.get( params.id )
 
         if(!skjermingInstance) {
             flash.message = "Skjerming not found with id ${params.id}"
@@ -23,7 +23,7 @@ class SkjermingController {
    }
 
     def delete = {
-        def skjermingInstance = Skjerming.get( params.id )
+        def skjermingInstance = Screening.get( params.id )
         if(skjermingInstance) {
             try {
                 skjermingInstance.delete(flush:true)
@@ -42,7 +42,7 @@ class SkjermingController {
    }
 
     def edit = {
-        def skjermingInstance = Skjerming.get( params.id )
+        def skjermingInstance = Screening.get( params.id )
 
         if(!skjermingInstance) {
             flash.message = "Skjerming not found with id ${params.id}"
@@ -54,7 +54,7 @@ class SkjermingController {
    }
 
     def update = {
-        def skjermingInstance = Skjerming.get( params.id )
+        def skjermingInstance = Screening.get( params.id )
         if(skjermingInstance) {
             if(params.version) {
                 def version = params.version.toLong()

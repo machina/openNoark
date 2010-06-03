@@ -1,71 +1,71 @@
                            <tr class="prop basisRegParam">
                                 <td valign="top" class="name">
-                                    <label for="registreringsid">Registreringsid:</label>
+                                    <label for="recordID">Registreringsid:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'registreringsid','errors')}">
-                                    <input type="text" id="registreringsid" name="registreringsid" value="${fieldValue(bean:forenkletRegistreringInstance,field:'registreringsid')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop basisRegParam">
-                                <td valign="top" class="name">
-                                    <label for="tittel">Tittel:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'tittel','errors')}">
-                                    <input type="text" id="tittel" name="tittel" value="${fieldValue(bean:forenkletRegistreringInstance,field:'tittel')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'recordID','errors')}">
+                                    <input type="text" id="recordID" name="recordID" value="${fieldValue(bean:forenkletRegistreringInstance,field:'recordID')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop basisRegParam">
                                 <td valign="top" class="name">
-                                    <label for="offentligtittel">Offentligtittel:</label>
+                                    <label for="title">Tittel:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'offentligtittel','errors')}">
-                                    <input type="text" id="offentligtittel" name="offentligtittel" value="${fieldValue(bean:forenkletRegistreringInstance,field:'offentligtittel')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop basisRegParam">
-                                <td valign="top" class="name">
-                                    <label for="beskrivelse">Beskrivelse:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'beskrivelse','errors')}">
-                                    <input type="text" id="beskrivelse" name="beskrivelse" value="${fieldValue(bean:forenkletRegistreringInstance,field:'beskrivelse')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'title','errors')}">
+                                    <input type="text" id="title" name="title" value="${fieldValue(bean:forenkletRegistreringInstance,field:'title')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop basisRegParam">
                                 <td valign="top" class="name">
-                                    <label for="nøkkelord">Nøkkelord:</label>
+                                    <label for="officialTitle">Offentligtitle:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'nøkkelord','errors')}">
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'officialTitle','errors')}">
+                                    <input type="text" id="officialTitle" name="officialTitle" value="${fieldValue(bean:forenkletRegistreringInstance,field:'officialTitle')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop basisRegParam">
+                                <td valign="top" class="name">
+                                    <label for="description">Beskrivelse:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'description','errors')}">
+                                    <input type="text" id="description" name="description" value="${fieldValue(bean:forenkletRegistreringInstance,field:'description')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop basisRegParam">
+                                <td valign="top" class="name">
+                                    <label for="keyword">Nøkkelord:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'keyword','errors')}">
                                     
                                 </td>
                             </tr> 
                         
                             <tr class="prop basisRegParam">
                                 <td valign="top" class="name">
-                                    <label for="forfatter">Forfatter:</label>
+                                    <label for="author">Forfatter:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'forfatter','errors')}">
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'author','errors')}">
                                     
                                 </td>
                             </tr> 
                         
                             <tr class="prop basisRegParam">
                                 <td valign="top" class="name">
-                                    <label for="dokumentmedium">Dokumentmedium:</label>
+                                    <label for="documentMedium">Dokumentmedium:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'dokumentmedium','errors')}">
-                                    <input type="text" id="dokumentmedium" name="dokumentmedium" value="${fieldValue(bean:forenkletRegistreringInstance,field:'dokumentmedium')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'documentMedium','errors')}">
+                                    <input type="text" id="documentMedium" name="documentMedium" value="${fieldValue(bean:forenkletRegistreringInstance,field:'documentMedium')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop basisRegParam">
                                 <td valign="top" class="name">
-                                    <label for="oppbevaringssted">Oppbevaringssted:</label>
+                                    <label for="storageLocation">Oppbevaringssted:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'oppbevaringssted','errors')}">
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'storageLocation','errors')}">
                                     
                                 </td>
                             </tr> 

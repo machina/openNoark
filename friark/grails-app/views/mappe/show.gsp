@@ -30,35 +30,35 @@
                         <tr class="prop">
                             <td valign="top" class="name">Mappeid:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'mappeid')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'fileID')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Mappetype:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'mappetype')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'fileType')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Tittel:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'tittel')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'title')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Offentligtittel:</td>
+                            <td valign="top" class="name">Offentligtitle:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'offentligtittel')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'officialTitle')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Beskrivelse:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'beskrivelse')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'description')}</td>
                             
                         </tr>
                     
@@ -67,7 +67,7 @@
                             
                             <td valign="top" class="value">
 															<ul>
-															<g:each in="${basismappeInstance.nøkkelord}">
+															<g:each in="${basismappeInstance.keyword}">
 																<li>${it}</li>
 															</g:each>
 															</ul>
@@ -79,56 +79,56 @@
                         <tr class="prop">
                             <td valign="top" class="name">Dokumentmedium:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'dokumentmedium')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'documentMedium')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Oppbevaringssted:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'oppbevaringssted')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'storageLocation')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Opprettetdato:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'opprettetdato')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'createdDate')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Opprettetav:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'opprettetav')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'createdBy')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Avsluttetdato:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'avsluttetdato')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'finalisedDate')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Avsluttetav:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'avsluttetav')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:basismappeInstance, field:'finalisedBy')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Referanseforelder Klasse:</td>
+                            <td valign="top" class="name">Referanseparent Klasse:</td>
                             
-                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${basismappeInstance?.referanseforelderKlasse?.id}">${basismappeInstance?.referanseforelderKlasse?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${basismappeInstance?.parentClass?.id}">${basismappeInstance?.parentClass?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Referanseforelder Basismappe:</td>
+                            <td valign="top" class="name">Referanseparent Basismappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${basismappeInstance?.referanseforelderBasismappe?.id}">${basismappeInstance?.referanseforelderBasismappe?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${basismappeInstance?.parentFile?.id}">${basismappeInstance?.parentFile?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
@@ -137,7 +137,7 @@
                             
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
-                                <g:each var="r" in="${basismappeInstance.referansebarnBasismappe}">
+                                <g:each var="r" in="${basismappeInstance.childFile}">
                                     <li><g:link controller="basismappe" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
@@ -148,7 +148,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Referansearkivdel:</td>
                             
-                            <td valign="top" class="value"><g:link controller="arkivdel" action="show" id="${basismappeInstance?.referansearkivdel?.id}">${basismappeInstance?.referansearkivdel?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="arkivdel" action="show" id="${basismappeInstance?.recordSection?.id}">${basismappeInstance?.recordSection?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                        <tr class="prop">
@@ -156,7 +156,7 @@
                             
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
-                                <g:each var="r" in="${basismappeInstance.referansebarnForenkletRegistrering}">
+                                <g:each var="r" in="${basismappeInstance.childRecord}">
                                     <li><g:link controller="registrering" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>

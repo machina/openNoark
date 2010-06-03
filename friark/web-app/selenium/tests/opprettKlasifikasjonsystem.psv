@@ -1,10 +1,5 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-clickAndWait|link=Klassifikasjonssystemer|
-clickAndWait|link=New Klassifikasjonssystem|
-type|klassifikasjonstype|test
-type|tittel|test1
-type|beskrivelse|test
-clickAndWait|//input[@value='Create']|
+include|/friark/selenium/tests/inc/create_classificationSystem.html|type=test,title=test1,desc=test
 verifyTextPresent|test1|
-clickAndWait|link=Klassifikasjonssystem List|
+clickAndWait|link=ClassificationSystem List|
 verifyTextPresent|test1|

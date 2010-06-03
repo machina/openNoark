@@ -93,7 +93,7 @@ class RegistreringService {
 				if(!registrering.hasErrors() && registrering.save()){
 					if(korrespondansepart != null){
 						korrespondansepart.registryEntry = registrering
-						registrering.addToClient(korrespondansepart)
+						registrering.addToClients(korrespondansepart)
 						korrespondansepart.save()
 					}
 						

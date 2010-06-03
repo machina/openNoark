@@ -1,5 +1,5 @@
 
-<%@ page import="no.friark.ds.Journalpost" %>
+<%@ page import="no.friark.ds.*" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -31,22 +31,22 @@
                         		
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="registreringstype">Registreringstype:</label>
+                                    <label for="recordType">Registreringstype:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:journalpostInstance,field:'registreringstype','errors')}">
-                                    <g:select id="registreringstype" name="registreringstype" from="${typer}" value="${fieldValue(bean:journalpostInstance,field:'registreringstype')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:journalpostInstance,field:'recordType','errors')}">
+                                    <g:select id="recordType" name="recordType" from="${typer}" value="${fieldValue(bean:journalpostInstance,field:'recordType')}"/>
                                 </td>
                             </tr> 
                         
                         		<g:render template="forenkletReg_form"/>
-                      			<g:render template="basisReg_form" model="${[forenkletRegistreringInstance: new Journalpost()]}"/>
-														<g:render template="journal_form" model="${[forenkletRegistreringInstance: new Journalpost()]}"/>
+                      			<g:render template="basisReg_form" model="${[forenkletRegistreringInstance: new RegistryEntry()]}"/>
+														<g:render template="journal_form" model="${[forenkletRegistreringInstance: new RegistryEntry()]}"/>
 														<script>
-	                            if($('#registreringstype').val() != 'Journalpost'){
+	                            if($('#recordType').val() != 'Journalpost'){
   	                            $('.basisRegParam').hide();
 																$('.journalParam').hide();
     	                        }
-                            $('#registreringstype').change(function() {
+                            $('#recordType').change(function() {
                               if($(this).val() === 'Journalpost'){
                                 $('.basisRegParam').show();
                                 $('.journalParam').show();

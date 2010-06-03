@@ -106,7 +106,7 @@ class MappeController {
     def create = {
         def basismappeInstance = new BasicFile()
         basismappeInstance.properties = params
-        return ['basismappeInstance':basismappeInstance, typer: mappeService.fileTyper]
+        return ['basismappeInstance':basismappeInstance, typer: mappeService.fileTypes]
    }
 
     def save = {
@@ -127,7 +127,7 @@ class MappeController {
        }
         else {
 						println mappeInstance.errors
-            render(view:'create',model:[basismappeInstance:mappeInstance, typer: mappeService.fileTyper])
+            render(view:'create',model:[basismappeInstance:mappeInstance, typer: mappeService.fileTypes])
        }
    }
 

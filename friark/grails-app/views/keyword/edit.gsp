@@ -23,7 +23,7 @@
             <g:form method="post" >
                 <div class="dialog">
 								<ul>
-								<g:each in="${base.nøkkelord}">
+								<g:each in="${base.keyword}">
 									<li>${it} <g:link action="delete" params="[systemID: base.systemID, ord: it]">Delete</g:link></li>
 								</g:each>
 								</ul>

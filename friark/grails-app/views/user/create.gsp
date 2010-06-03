@@ -16,7 +16,6 @@
     <table>
       <tr>
         <td><label for="title"><g:message code="user.username"/></label></td>
-
         <td><g:textField id="username" name="username" value="${user?.username}"/></td>
       </tr>
       <tr>

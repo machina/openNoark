@@ -22,7 +22,7 @@ package no.friark.ds
 /**
 * CRUD opereasjoner for arkivskapere.
 */
-class ArkivskaperController {
+class FondsCreatorController {
     
     def index = { redirect(action:list,params:params) }
 
@@ -31,43 +31,43 @@ class ArkivskaperController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ arkivskaperInstanceList: Arkivskaper.list( params ), arkivskaperInstanceTotal: Arkivskaper.count() ]
+        [ arkivskaperInstanceList: FondsCreator.list( params ), arkivskaperInstanceTotal: FondsCreator.count() ]
    }
 
     def show = {
-        def arkivskaperInstance = Arkivskaper.get( params.id )
+        def arkivskaperInstance = FondsCreator.get( params.id )
 
         if(!arkivskaperInstance) {
-            flash.message = "Arkivskaper not found with id ${params.id}"
+            flash.message = "FondsCreator not found with id ${params.id}"
             redirect(action:list)
        }
         else { return [ arkivskaperInstance : arkivskaperInstance ] }
    }
 
     def delete = {
-        def arkivskaperInstance = Arkivskaper.get( params.id )
+        def arkivskaperInstance = FondsCreator.get( params.id )
         if(arkivskaperInstance) {
             try {
                 arkivskaperInstance.delete(flush:true)
-                flash.message = "Arkivskaper ${params.id} deleted"
+                flash.message = "FondsCreator ${params.id} deleted"
                 redirect(action:list)
            }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "Arkivskaper ${params.id} could not be deleted"
+                flash.message = "FondsCreator ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
            }
        }
         else {
-            flash.message = "Arkivskaper not found with id ${params.id}"
+            flash.message = "FondsCreator not found with id ${params.id}"
             redirect(action:list)
        }
    }
 
     def edit = {
-        def arkivskaperInstance = Arkivskaper.get( params.id )
+        def arkivskaperInstance = FondsCreator.get( params.id )
 
         if(!arkivskaperInstance) {
-            flash.message = "Arkivskaper not found with id ${params.id}"
+            flash.message = "FondsCreator not found with id ${params.id}"
             redirect(action:list)
        }
         else {
@@ -76,20 +76,20 @@ class ArkivskaperController {
    }
 
     def update = {
-        def arkivskaperInstance = Arkivskaper.get( params.id )
+        def arkivskaperInstance = FondsCreator.get( params.id )
         if(arkivskaperInstance) {
             if(params.version) {
                 def version = params.version.toLong()
                 if(arkivskaperInstance.version > version) {
                     
-                    arkivskaperInstance.errors.rejectValue("version", "arkivskaper.optimistic.locking.failure", "Another user has updated this Arkivskaper while you were editing.")
+                    arkivskaperInstance.errors.rejectValue("version", "arkivskaper.optimistic.locking.failure", "Another user has updated this FondsCreator while you were editing.")
                     render(view:'edit',model:[arkivskaperInstance:arkivskaperInstance])
                     return
                }
            }
             arkivskaperInstance.properties = params
             if(!arkivskaperInstance.hasErrors() && arkivskaperInstance.save()) {
-                flash.message = "Arkivskaper ${params.id} updated"
+                flash.message = "FondsCreator ${params.id} updated"
                 redirect(action:show,id:arkivskaperInstance.id)
            }
             else {
@@ -97,7 +97,7 @@ class ArkivskaperController {
            }
        }
         else {
-            flash.message = "Arkivskaper not found with id ${params.id}"
+            flash.message = "FondsCreator not found with id ${params.id}"
             redirect(action:list)
        }
    }
@@ -111,7 +111,7 @@ class ArkivskaperController {
     def save = {
         def arkivskaperInstance = new FondsCreator(params)
         if(!arkivskaperInstance.hasErrors() && arkivskaperInstance.save()) {
-            flash.message = "Arkivskaper ${arkivskaperInstance.id} created"
+            flash.message = "FondsCreator ${arkivskaperInstance.id} created"
             redirect(action:show,id:arkivskaperInstance.id)
        }
         else {

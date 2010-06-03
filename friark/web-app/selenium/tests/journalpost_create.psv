@@ -1,25 +1,18 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
-clickAndWait|link=Arkiv|
-clickAndWait|link=Nytt Arkiv|
-type|tittel|journ_post_tst
-type|beskrivelse|arkiv for dill og dall
-type|dokumentmedium|html
-clickAndWait|save|
-clickAndWait|link=Arkivdeler|
-clickAndWait|link=Ny Arkivdel|
-type|tittel|journ_post_tst
-type|beskrivelse|arkivdel for dill
-type|dokumentmedium|email
-select|referanseforelder|label=journ_post_tst
-clickAndWait|save|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=journ_post_tst
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=journ_post_tst
 include|/friark/selenium/tests/inc/create_mappe.html|name=jp_cr,klasse_idx=0,arkivdel_idx=1
 open|/friark/registrering/create|
-type|opprettetav|dsadasd
-type|arkivertav|dsadasd
-select|referanseforelderBasismappe.id|index=1
-select|registreringstype|label=Journalpost
+type|createdBy|dsadasd
+type|archivedBy|dsadasd
+select|parentFile.id|index=1
+select|recordType|label=RegistryEntry
 sleep|1000|
-type|tittel|jp_tittel
+type|title|jp_tittel
+type|clientName|client name
+type|clientType|clientType
+type|administrativeUnit|administrativeUnit
+type|executiveOfficer|executiveOfficer
 clickAndWait|//input[@value='Create']|
 verifyTextPresent|Ny registrering|
 verifyTextPresent|Journalpost|

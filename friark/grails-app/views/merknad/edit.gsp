@@ -80,7 +80,7 @@
                                     <label for="dokumentBeskrivelse">Dokument Beskrivelse:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'dokumentBeskrivelse','errors')}">
-                                    <g:select optionKey="id" from="${Dokumentbeskrivelse.list()}" name="dokumentBeskrivelse.id" value="${merknadInstance?.dokumentBeskrivelse?.id}" noSelection="['null':'']"></g:select>
+                                    <g:select optionKey="id" from="${DocumentDescription.list()}" name="dokumentBeskrivelse.id" value="${merknadInstance?.dokumentBeskrivelse?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         

@@ -68,15 +68,15 @@
                                     <label for="merknadstype">Baismappe:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'mappe','errors')}">
-                                    <g:select optionKey="id" optionValue="tittel" from="${Basismappe.list()}" name="mappe.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.mappe?.id}" ></g:select>
+                                    <g:select optionKey="id" optionValue="title" from="${Basismappe.list()}" name="mappe.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.mappe?.id}" ></g:select>
                                 </td>
                             </tr> 
 														<tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="merknadstype">Dokumentbeskrivelse:</label>
+                                    <label for="merknadstype">Dokumentdescription:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'dokumentBeskrivelse','errors')}">
-                                    <g:select optionKey="id" optionValue="systemID" from="${Dokumentbeskrivelse.list()}" name="dokumentBeskrivelse.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.dokumentBeskrivelse?.id}" ></g:select>
+                                    <g:select optionKey="id" optionValue="systemID" from="${DocumentDescription.list()}" name="dokumentBeskrivelse.id" noSelection="${[null:'Velg type']}" value="${merknadInstance?.dokumentBeskrivelse?.id}" ></g:select>
                                 </td>
                             </tr> 
                         

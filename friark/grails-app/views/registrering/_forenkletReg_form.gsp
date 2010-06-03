@@ -1,63 +1,63 @@
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referansearkivdel">Referansearkivdel:</label>
+                                    <label for="recordSection">Referansearkivdel:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referansearkivdel','errors')}">
-                                    <g:select optionKey="id" optionValue="tittel" from="${no.friark.ds.Arkivdel.list()}" name="referansearkivdel.id" value="${forenkletRegistreringInstance?.referansearkivdel?.id}" noSelection="['null':'']"></g:select>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="referanseforelderBasismappe">Referanseforelder Basismappe:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referanseforelderBasismappe','errors')}">
-                                    <g:select optionKey="id" optionValue="tittel" from="${no.friark.ds.Basismappe.list()}" name="referanseforelderBasismappe.id" value="${forenkletRegistreringInstance?.referanseforelderBasismappe?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'recordSection','errors')}">
+                                    <g:select optionKey="id" optionValue="title" from="${no.friark.ds.Series.list()}" name="recordSection.id" value="${forenkletRegistreringInstance?.recordSection?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="opprettetdato">Opprettetdato:</label>
+                                    <label for="parentFile">Referanseparent Basismappe:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'opprettetdato','errors')}">
-                                    <g:datePicker name="opprettetdato" value="${forenkletRegistreringInstance?.opprettetdato}" precision="minute" ></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="opprettetav">Opprettetav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'opprettetav','errors')}">
-                                    <input type="text" id="opprettetav" name="opprettetav" value="${fieldValue(bean:forenkletRegistreringInstance,field:'opprettetav')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'parentFile','errors')}">
+                                    <g:select optionKey="id" optionValue="title" from="${no.friark.ds.BasicFile.list()}" name="parentFile.id" value="${forenkletRegistreringInstance?.parentFile?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="arkivertdato">Arkivertdato:</label>
+                                    <label for="createdDate">Opprettetdato:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'arkivertdato','errors')}">
-                                    <g:datePicker name="arkivertdato" value="${forenkletRegistreringInstance?.arkivertdato}" precision="minute" ></g:datePicker>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="arkivertav">Arkivertav:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'arkivertav','errors')}">
-                                    <input type="text" id="arkivertav" name="arkivertav" value="${fieldValue(bean:forenkletRegistreringInstance,field:'arkivertav')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'createdDate','errors')}">
+                                    <g:datePicker name="createdDate" value="${forenkletRegistreringInstance?.createdDate}" precision="minute" ></g:datePicker>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referanseforelderKlasse">Referanseforelder Klasse:</label>
+                                    <label for="createdBy">Opprettetav:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referanseforelderKlasse','errors')}">
-                                    <g:select optionKey="id" from="${no.friark.ds.Klasse.list()}" name="referanseforelderKlasse.id" value="${forenkletRegistreringInstance?.referanseforelderKlasse?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'createdBy','errors')}">
+                                    <input type="text" id="createdBy" name="createdBy" value="${fieldValue(bean:forenkletRegistreringInstance,field:'createdBy')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="archivedDate">Fondsertdato:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'archivedDate','errors')}">
+                                    <g:datePicker name="archivedDate" value="${forenkletRegistreringInstance?.archivedDate}" precision="minute" ></g:datePicker>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="archivedBy">Fondsertav:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'archivedBy','errors')}">
+                                    <input type="text" id="archivedBy" name="archivedBy" value="${fieldValue(bean:forenkletRegistreringInstance,field:'archivedBy')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="parentClass">Referanseparent Klasse:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'parentClass','errors')}">
+                                    <g:select optionKey="id" from="${no.friark.ds.Klass.list()}" name="parentClass.id" value="${forenkletRegistreringInstance?.parentClass?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
@@ -65,10 +65,10 @@
                                 <td valign="top" class="name">
                                     <label for="dokumenter">Dokumenter:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'dokumenter','errors')}">
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'document','errors')}">
                                     
 <ul>
-<g:each var="d" in="${forenkletRegistreringInstance?.dokumenter?}">
+<g:each var="d" in="${forenkletRegistreringInstance?.document?}">
     <li><g:link controller="dokumentlink" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
@@ -79,12 +79,12 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="referansedokumentObjekt">Referansedokument Objekt:</label>
+                                    <label for="documentObject">Referansedokument Objekt:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'referansedokumentObjekt','errors')}">
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'documentObject','errors')}">
                                     
 <ul>
-<g:each var="r" in="${forenkletRegistreringInstance?.referansedokumentObjekt?}">
+<g:each var="r" in="${forenkletRegistreringInstance?.documentObject?}">
     <li><g:link controller="dokumentobjekt" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
@@ -95,10 +95,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="bevaringOgKassasjon">Bevaring Og Kassasjon:</label>
+                                    <label for="preservationAndDisposal">Bevaring Og Kassasjon:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'bevaringOgKassasjon','errors')}">
-                                    <g:select optionKey="id" from="${no.friark.ds.BevaringOgKassasjon.list()}" name="bevaringOgKassasjon.id" value="${forenkletRegistreringInstance?.bevaringOgKassasjon?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:forenkletRegistreringInstance,field:'preservationAndDisposal','errors')}">
+                                    <g:select optionKey="id" from="${no.friark.ds.PreservationAndDisposal.list()}" name="preservationAndDisposal.id" value="${forenkletRegistreringInstance?.preservationAndDisposal?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
 

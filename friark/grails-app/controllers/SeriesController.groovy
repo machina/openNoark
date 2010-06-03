@@ -40,10 +40,10 @@ class SeriesController {
 			arkivdel.recordSectionStatus = "Opprettet"
 			commonService.setNewSystemID(arkivdel)
 			commonService.setCreated(arkivdel)
-			if(!params.referanseforelder || params.referanseforelder == "null") {
-				arkivdel.referanseforelder = null
+			if(!params.parent || params.parent == "null") {
+				arkivdel.parent = null
 			} else {
-				arkivdel.referanseforelder = Fonds.get(params.referanseforelder)
+				arkivdel.parent = Fonds.get(params.parent)
 			}
 			if(!arkivdel.save()){
 				render(view: "create", model: [errors: arkivdel.errors])
@@ -62,7 +62,7 @@ class SeriesController {
 
 			def arkivdeler = Series.withCriteria {
   	    if(params.sort == "forelder"){
-    	    referanseforelder {
+    	    parent {
         	  order('title', params.order)
       	  }
 		    } else {
@@ -101,8 +101,8 @@ class SeriesController {
 				if(updateCommand.finalisedDate == null){
           params.finalisedDate = null
         }
-				if(updateCommand.arkivperiodestartdato == null) params.arkivperiodestartdato = null
-        if(updateCommand.arkivperiodesluttdato == null) params.arkivperiodesluttdato = null
+				if(updateCommand.recordsPeriodStartDate == null) params.recordsPeriodStartDate = null
+        if(updateCommand.recordsPeriodEndDate == null) params.recordsPeriodEndDate = null
 				if(updateCommand.createdDate != null && updateCommand.createdDate == arkivdel.createdDate){
 					params.createdDate = null
 				}
@@ -151,6 +151,6 @@ class SeriesController {
 class UpdateSeriesCommand {
   Date createdDate
   Date finalisedDate
-	Date arkivperiodestartdato
-	Date arkivperiodesluttdato
+	Date recordsPeriodStartDate
+	Date recordsPeriodEndDate
 }

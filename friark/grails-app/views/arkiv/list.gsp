@@ -12,15 +12,15 @@
 
     <table>
       <g:sortableColumn property="systemID" title="${message(code:'fonds.system.id')}"/>
-      <g:sortableColumn property="tittel" title="${message(code:'fonds.title')}"/>
-      <g:sortableColumn property="arkivstatus" title="${message(code:'fonds.status')}"/>
-      <g:sortableColumn property="forelderTittel" title="${message(code:'fonds.parent')}"/>
+      <g:sortableColumn property="title" title="${message(code:'fonds.title')}"/>
+      <g:sortableColumn property="fondsStatus" title="${message(code:'fonds.status')}"/>
+      <g:sortableColumn property="parentTittel" title="${message(code:'fonds.parent')}"/>
       <g:each in="${arkiver}" var="arkiv">
         <tr>
           <td>${arkiv.systemID}</td>
-          <td><g:link action="show" id="${arkiv.id}">${arkiv.tittel}</g:link></td>
-        <td>${arkiv.arkivstatus}</td>
-        <td>${arkiv.forelder?.tittel}</td>
+          <td><g:link action="show" id="${arkiv.id}">${arkiv.title}</g:link></td>
+        <td>${arkiv.fondsStatus}</td>
+        <td>${arkiv.parent?.title}</td>
         </tr>
       </g:each>
     </table>
