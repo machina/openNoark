@@ -46,7 +46,7 @@
     </g:each>
   </table>
   <g:form id='${user.id}' action="edit">
-    <g:select name="roleId" noSelection="${['null':'Select One...']}" from="${ShiroRole.findAll()}" optionKey="id" optionValue="name"/>
+    <g:select name="roleId" noSelection="${['null':message(code: 'select')]}" from="${ShiroRole.findAll()}" optionKey="id" optionValue="name"/>
     <g:submitButton name="add_role" value="${message(code: 'action.add')}" default="Add role" />
   </g:form>
 </body>
