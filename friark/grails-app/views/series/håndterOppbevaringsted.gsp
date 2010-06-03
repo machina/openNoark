@@ -4,7 +4,7 @@
     <meta name="layout" content="main" />
   </head>
   <body>
-    <h1><g:message code="fondspart.handle.locations.for" default="Handle locations for"/> ${arkivdel.id}</h1>
+    <h1><g:message code="series.handle.locations.for" default="Handle locations for"/> ${arkivdel.id}</h1>
   <g:if test="${errors}">
     <ul id="error_list">
       <g:each in="${errors}">

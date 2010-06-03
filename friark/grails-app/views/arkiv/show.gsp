@@ -8,7 +8,7 @@
   <body>
     <div class="nav">
       <span class="menuButton"><a class="home" href="${resource(dir:'')}"><g:message code="home" default="Home"/></a></span>
-      <span class="menuButton"><g:link class="list" action="list"><g:message code="fonds.list" default="Fonds list"/></g:link></span>
+      <span class="menuButton"><g:link class="list" action="list"><g:message code="list" default="List"/></g:link></span>
       <span class="menuButton"><g:link class="create" action="create"><g:message code="new" default="New"/></g:link></span>
     </div>
     <div class="body">
@@ -45,7 +45,6 @@
           <td valign="top" class="value">${arkiv.documentMedium}</td>
           </tr>
 
-
           <tr class="prop">
             <td valign="top" class="name"><g:message code="created.date" default="Created date"/>:</td>
           <td valign="top" class="value">${arkiv.createdDate}</td>
@@ -55,7 +54,6 @@
             <td valign="top" class="name"><g:message code="created.by" default="Created by"/>:</td>
           <td valign="top" class="value">${arkiv.createdBy}</td>
           </tr>
-
 
           <tr class="prop">
             <td valign="top" class="name"><g:message code="finalised.date" default="Finalised date"/>:</td>
@@ -71,7 +69,6 @@
           <td valign="top" class="value"><g:if test="${arkiv.parent}"><g:link action="show" id="${arkiv.parent.id}">${arkiv.parent.title}</g:link></g:if></td>
           </tr>
 
-
           <tr class="prop">
             <td valign="top" class="name"><g:message code="fonds.creator" default="Fonds creator"/>:</td>
           <td valign="top" class="value"><g:if test="${arkiv.fondsCreator}">
@@ -84,7 +81,7 @@
           </tr>
 
           <tr class="prop">
-            <td valign="top" class="name"><g:message code="fonds.storage.location" default="Stroage location"/>:</td>
+            <td valign="top" class="name"><g:message code="storage.location" default="Stroage location"/>:</td>
           <td valign="top" class="value"><ul>
               <g:each in="${arkiv.storageLocation}" var="sted">
                 <li>${sted}</li>
@@ -110,21 +107,16 @@
           </td>
           </tr>
 
-
           </tbody>
         </table>
       </div>
       <div class="buttons">
         <g:form controller="arkiv">
           <input type="hidden" name="id" value="${arkiv?.id}" />
-          <span class="button"><g:actionSubmit action="Edit" class="edit" value="Edit" /></span>
-          <span class="button"><g:actionSubmit class="delete" onclick="return confirm(message(code:'confirm.action'));" value="Delete" /></span>
+          <span class="button"><g:actionSubmit action="Edit" class="edit" value="${message(code:'action.edit',default:'Edit')}" /></span>
+          <span class="button"><g:actionSubmit class="delete" onclick="return confirm(message(code:'confirm.action',default:'Are you sure?'));" value="Delete" /></span>
         </g:form>
-<%--								<g:form controller="merknad" action="create" method="get">
-<input type="hidden" name="systemID" value="${arkiv?.systemID}" />
-<span class="button"><g:submitButton class="create" name="create_merknad" value="${message(code:'fonds.add.note')}:" /></span>
-</g:form> 
---%>
+
       </div>
     </div>
   </body>

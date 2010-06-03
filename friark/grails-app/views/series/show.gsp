@@ -80,7 +80,7 @@
                         </tr>
 
 												<tr class="prop">
-                            <td valign="top" class="name"><g:message code="fonds.parent" default="Fonds parent"/>:</td>
+                            <td valign="top" class="name"><g:message code="parent" default="Parent"/>:</td>
                             <td valign="top" class="value"><g:if test="${arkivdel.parent}"><g:link action="show" controller="arkiv" id="${arkivdel.parent.id}">${arkivdel.parent.title}</g:link></g:if></td>
                         </tr>
 
