@@ -4,7 +4,7 @@
     <meta name="layout" content="main" />
     </head>
     <body>
-        <h1>Lag ny arkivdel</h1>
+        <h1><g:message code="series.create" default="Create series"/></h1>
         <g:if test="${errors}">
           <ul id="error_list">
             <g:each in="${errors}">
@@ -17,7 +17,7 @@
 						<g:render template="createFormValues" />
             <tr>
               <td>&nbsp;</td>
-              <td><g:submitButton name="save" value="Opprett arkivdel"/></td>
+              <td><g:submitButton name="save" value="${message(code:'action.save',default:'Save')}"/></td>
             </tr>
 
           </table>

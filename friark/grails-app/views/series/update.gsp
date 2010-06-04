@@ -1,69 +1,71 @@
 <%! import no.friark.ds.* %>
 <html>
-    <head>
+  <head>
     <meta name="layout" content="main" />
-    </head>
-    <body>
-        <h1>Rediger arkivdel</h1>
-        <g:if test="${errors}">
-          <ul id="error_list">
-            <g:each in="${errors}">
-              <li>${it}</li>
+  </head>
+  <body>
+    <h1><g:message code="series.edit" default="Edit series"/></h1>
+  <g:if test="${errors}">
+    <ul id="error_list">
+      <g:each in="${errors}">
+        <li>${it}</li>
+      </g:each>
+    </ul>
+  </g:if>
+  <g:form name='archive_part' id='${arkivdel?.id}' action="update">
+    <table>
+      <g:render model="['arkivdel': arkivdel]" template="createFormValues"/>
+      <tr>
+        <td><label for="finalisedBy"><g:message code="finalised.by" default="Finalised by"/></label></td>
+        <td><g:textField id="finalisedBy" name="finalisedBy" value="${arkivdel.finalisedBy}"/></td>
+      </tr>
+      <tr>
+        <td><label for="parent"><g:message code="finalised.date" default="Finalised date"/></label></td>
+        <td><fa:datePicker precision="day" default="none" name="finalisedDate" noSelection="${[':':message(code:'not.selected',default:'Not selected')]}" value="${arkivdel.finalisedDate}"/></td>
+      </tr>
+
+       <tr>
+        <td><label for="fondsStatus"><g:message code="status" default="Status"/></label></td>
+        <td><g:select name="fondsStatus" value="${arkiv.fondsStatus}" from="${[message(code:'created'),message(code:'closed')]}"></g:select></td>
+      </tr>
+      
+      <tr class="prop">
+        <td valign="top" class="name">
+          <label for="Oppbevaringsted"><g:message code="storage.location" default="Storage location"/>:</label>
+        </td>
+        <td valign="top" class="value">
+          <ul>
+            <g:each in="${arkivdel.storageLocation}" var="sted">
+              <li>${sted}</li>
+            </g:each>
+            <li><g:link action="håndterOppbevaringsted" id="${arkivdel.id}"><g:message code="series.handle.storage.lcations" default="Handle storage locations"/></g:link></li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="prop">
+        <td valign="top" class="name">
+          <label for="referansebarnBasismappe"><g:message code="Files" default="Files"/></label>
+        </td>
+        <td valign="top" class="value ${hasErrors(bean:arkivdel,field:'referansemappe','errors')}">
+          <ul>
+            <g:each var="r" in="${arkivdel?.file}">
+              <li><g:link controller="basismappe" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
             </g:each>
           </ul>
-        </g:if>
-        <g:form name='archive_part' id='${arkivdel?.id}' action="update">
-          <table>
-						<g:render model="['arkivdel': arkivdel]" template="createFormValues"/>
-						<tr>
-              <td><label for="finalisedBy">Avsluttet av</label></td>
-              <td><g:textField id="finalisedBy" name="finalisedBy" value="${arkivdel.finalisedBy}"/></td>
-            </tr>
-            <tr>
-              <td><label for="parent">Avsluttet dato</label></td>
-              <td><fa:datePicker precision="day" default="none" name="finalisedDate" noSelection="${[':':'Ikke valgt']}" value="${arkivdel.finalisedDate}"/></td>
-            </tr> 
-						<tr>
-              <td><label for="arkivdelstatus">Status</label></td>
-							<td><g:select name="recordSectionStatus" value="${arkivdel.recordSectionStatus}" from='${["Opprettet", "Avsluttet"]}'></g:select></td>
-            </tr>
-						<tr class="prop">
-            	<td valign="top" class="name">
-            		<label for="Oppbevaringsted">Oppbevaringsted:</label>
-	             </td>
-               <td valign="top" class="value">
-  	             <ul>
-    	             <g:each in="${arkivdel.storageLocation}" var="sted">
-      	             <li>${sted}</li>
-                   </g:each>
-        	         <li><g:link action="håndterOppbevaringsted" id="${arkivdel.id}">Håndter oppbevaringsted</g:link></li>
-                 </ul>
-              </td>
-            </tr>
-						<tr class="prop">
-            	<td valign="top" class="name">
-              	<label for="referansebarnBasismappe">Mapper</label>
-              </td>
-              <td valign="top" class="value ${hasErrors(bean:arkivdel,field:'referansemappe','errors')}">
-								<ul>
-									<g:each var="r" in="${arkivdel?.file}">
-								    <li><g:link controller="basismappe" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
-									</g:each>
-								</ul>
-								<g:link controller="basismappe" params="['arkivdelid':arkivdel?.id]" action="create">Lag ny mappe</g:link>
-              </td>
-            </tr>
-						<tr>
-   						<td><label for="bevaringOgKassasjon">Kassasjonsvedtak</label></td>
-							<td><g:select name="preservationAndDisposal.id" noSelection="${[null:'Velg']}" from='${PreservationAndDisposal.list()}' optionKey="id" value="${arkivdel.preservationAndDisposal}"></g:select></td>
-						</tr>
+      <g:link controller="basismappe" params="['arkivdelid':arkivdel?.id]" action="create"><g:message code="action.create" default="Create"/></g:link>
+      </td>
+      </tr>
+      <tr>
+        <td><label for="bevaringOgKassasjon"><g:message code="preservation.and.disposal" default="Presaervation and disposal"/></label></td>
+        <td><g:select name="preservationAndDisposal.id" noSelection="${[null:message(code:'select',default:'Select ...')]}" from='${PreservationAndDisposal.list()}' optionKey="id" value="${arkivdel.preservationAndDisposal}"></g:select></td>
+      </tr>
 
-            <tr>
-              <td>&nbsp;</td>
-              <td><g:submitButton name="save" value="Endre arkivdel"/></td>
-            </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><g:submitButton name="save" value="${message(code:'save',default:'Save')}"/></td>
+      </tr>
 
-          </table>
-        </g:form>
-    </body>
+    </table>
+  </g:form>
+</body>
 </html>
