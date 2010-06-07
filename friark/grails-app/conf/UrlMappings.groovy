@@ -9,7 +9,15 @@ class UrlMappings {
      
       "/ws/$controller/$id?"{
             controller=$controller
-            action=[POST:"save",GET:"show",PUT:"update",DELETE:"delete"]
+
+            action="list"
+
+            if( id ){
+                action=[POST:"save",GET:"show",PUT:"update",DELETE:"delete"]
+            }else{
+                action=[POST:"save",GET:"list",PUT:"update",DELETE:"delete"]
+            }
+
             parseRequest=true
         }
      

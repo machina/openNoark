@@ -4,7 +4,7 @@
     <meta name="layout" content="main" />
   </head>
   <body>
-    <h1><g:message code="user.update"/></h1>
+    <h1><g:message code="update" default="Update"/></h1>
   <g:if test="${flash.message}">
     <div class="message">${flash.message}</div>
   </g:if>
@@ -19,16 +19,16 @@
   <g:form id='${user.id}' action="edit">
     <table>
       <tr>
-        <td><label for="title"><g:message code="user.username"/></label></td>
+        <td><label for="title"><g:message code="username" default="Username"/></label></td>
         <td>${user?.username}</td>
       </tr>
       <tr>
-        <td><label for="title"><g:message code="user.password"/></label></td>
+        <td><label for="title"><g:message code="password" default="Password"/></label></td>
         <td><g:textField id="passwd" name="passwd" value=""/></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><g:submitButton name="save" value="${message(code: 'user.update')}"/></td>
+        <td><g:submitButton name="save" value="${message(code: 'update', default:'Update')}"/></td>
       </tr>
     </table>
   </g:form>

@@ -38,8 +38,9 @@ class UserController {
     }
 
     def show = {
-        render "Show me heaven...\n"
-        render "blablabla: id " + params.id + ", action "+ params.action + "\n"
+        // TODO create a proper SHOW for users
+//        redirect( action: 'edit', params: params)
+        render( view: 'edit', model: edit())
     }
 
     /**
@@ -54,13 +55,13 @@ class UserController {
         if(params.del_perm){
             role.permissions.remove(params.perm)
             if(role.save()){
-                flash.message = "Permission removed"
+                flash.message = message(code:'permissions.removed', default:'Permission removed')
             }
         }
         if(params.add_perm){
             role.permissions << params.perm
             if(role.save()){
-                flash.message = "Permission added"
+                flash.message = message(code:'permissions.added', default:'Permission added')
             }
         }
         [role: role]
@@ -70,7 +71,7 @@ class UserController {
         if(request.method == 'POST'){
             def role = new ShiroRole(name: params.name)
             if(!role.hasErrors() && role.save()){
-                flash.message = "Rollen er opprettet"
+                flash.message = message(code:'roles.created', default:'Roles created')
                 render(view: "edit_role", model: [role: role])
             } else {
                 return [role: role]
@@ -107,10 +108,10 @@ class UserController {
             } else if(params.passwd != null && params.passwd != null){
                 user.passwordHash = new Sha1Hash(params.passwd).toHex()
                 if(!user.save()){
-                    flash.message = "Cound not edit user"
-    		    render(view: "create", model: [user: user])
+                    flash.message = message(code:'user.could.not.edit', default:'Could not edit user')
+                    render(view: "create", model: [user: user])
                 } else {
-                    flash.message = "User is changed"
+                    flash.message = message(code:'user.has.changed', default:'User has changed')
                     redirect(action: 'list', params: params)
                 }
             }
@@ -120,4 +121,4 @@ class UserController {
             return [user: ShiroUser.get(params.id)]
         }
     }
-}
+    }

@@ -14,10 +14,10 @@
     <span class="menuButton"><g:link class="roles" action="roles"><g:message code="roles" default="Roles"/></g:link></span>
   </div>
   <table>
-    <th><g:message code="user.username" default="Username"/></th>
+    <th><g:message code="username" default="Username"/></th>
     <g:each in="${users}" var="user">
       <tr>
-        <td><g:link action="edit" id="${user.id}">${user.username}</g:link></td>
+        <td><g:link action="edit" id="${user.id}">${username}</g:link></td>
       </tr>
     </g:each>
   </table>
