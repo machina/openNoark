@@ -14,7 +14,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Friark.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+import grails.converters.*
 import org.apache.shiro.SecurityUtils
 import no.friark.ds.*
 
@@ -34,7 +34,12 @@ class ArkivController {
 	*/
 	def save = {
 			fixParent(params)
-			def arkiv = new Fonds(params)
+			def arkiv
+
+			if(params.fonds) arkiv = new Fonds(params.fonds)
+			else arkiv = new Fonds(params)
+
+
 			arkiv.fondsStatus = "Opprettet"
 			commonService.setNewSystemID(arkiv)
 			commonService.setCreated(arkiv)
@@ -42,15 +47,30 @@ class ArkivController {
 			if(arkiv.parent) arkiv.parent.addToSubFonds(arkiv)
 			if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
 				flash.message = "Arkiv opprettet"
-				render(view: "show", model: [arkiv: arkiv])
-
-        } else {
-            render(view: "create", model: [errors: arkiv.errors])
-
+				withFormat {
+        	html {
+						render(view: "show", model: [arkiv: arkiv])
+          }
+          xml {
+          	render arkiv as XML
+          }
         }
+				
+        } else {
+					withFormat{
+						html {
+	            render(view: "create", model: [errors: arkiv.errors])
+						}
+						xml {
+							render text:"<errors>${arkiv.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"
+						}
+        }
+			}
     }
 
 	def list = {
+		println "LIST"
+		println params
 		if (!params.sort) params.sort = "title"
     if (!params.order) params.order = "asc"
 		def arkiver = Fonds.withCriteria {
@@ -63,11 +83,20 @@ class ArkivController {
 			}
 			
         }
-        [ arkiver: arkiver, arkivTotal: Fonds.count() ]
+			withFormat{
+        html { [ arkiver: arkiver, arkivTotal: Fonds.count() ] }
+				xml { render arkiver as XML  }
+
+			}
     }
 
     def show = {
-        return [arkiv: Fonds.get(params.id)]
+			println "SHOW"
+			withFormat{
+				html { return [arkiv: Fonds.get(params.id)] }
+				xml { render Fonds.get(params.id) as XML }
+
+			}
     }
 
     def edit = {
@@ -98,12 +127,56 @@ class ArkivController {
 				}
 				arkiv.properties = params
 				if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
-					render(view: "show", model: [arkiv: arkiv])
+					withFormat {
+	          html {
+  	          render(view: "show", model: [arkiv: arkiv])
+    	      }
+      	    xml {
+        	    render arkiv as XML
+          	}
+					}
     	  } else {
-					render(view: "update", model: [errors: arkiv.errors, arkiv: arkiv])
+					withFormat{
+            html {
+							render(view: "update", model: [errors: arkiv.errors, arkiv: arkiv])
+            }
+            xml {
+              render text:"<errors>${arkiv.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"
+            }
+        	}
+				}
+				break
+			case 'PUT':
+				params.fonds.title = params.fonds.title.trim(); params.fonds.fondsStatus = params.fonds.fondsStatus.trim(); params.fonds.systemID = params.fonds.systemID.trim();
+
+				println params
+				def arkiv = Fonds.get(params.fonds.id)
+				params.fonds.createdDate = arkiv.createdDate  //can not change created date
+        if(arkiv.finalisedDate != null && params.fonds.finalisedDate == null){
+            arkiv.errors.rejectValue "finalisedDate", "USER_ERROR",  "Kan ikke fjerne finalisedDate."
+            return [errors: arkiv.errors, arkiv: arkiv]
+        } else if(params.fonds.finalisedDate == null || params.fonds.finalisedDate == ""){
+          params.fondsfinalisedDate = null
+        }
+        stripParent(params.fonds, arkiv)
+        if(arkiv.fondsStatus != params.fonds.fondsStatus && params.fonds.fondsStatus == "Avsluttet"){
+          params.fonds.finalisedBy = SecurityUtils.subject.principal
+          params.fondsfinalisedDate = new Date()
+        }
+				arkiv.properties = params.fonds
+				if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
+					render arkiv as XML
+				} else {
+					render text:"<errors>${arkiv.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"
 				}
 				break
 		}
+	}
+
+	def delete = {
+		def fonds = Fonds.get(params.id)
+		fonds.delete()
+		render "success"
 	}
 
 	def stripParent(params, arkiv) {
@@ -124,9 +197,15 @@ class ArkivController {
 			params.parent.merge()
 		}
 	}
+
+	
 }
 
 class UpdateFondsCommand {
     Date createdDate
     Date finalisedDate
+		
+		String toString() {
+			"createdDate ${createdDate}, finalisedDate ${finalisedDate}"
+		}	
 }
