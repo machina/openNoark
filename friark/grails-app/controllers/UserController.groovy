@@ -17,6 +17,7 @@ along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 
 import org.apache.shiro.crypto.hash.Sha1Hash
 import no.friark.ds.*
+import friark.UserService
 
 /**
  * Operasjoner for å håndtere brukere, roller og tilganger.
@@ -25,6 +26,8 @@ import no.friark.ds.*
  * @author Kent Inge Fagerland Simonsen
  */
 class UserController {
+
+    def userService
 
     def index = {
         redirect(action: 'list', params: params)
@@ -39,7 +42,7 @@ class UserController {
 
     def show = {
         // TODO create a proper SHOW for users
-//        redirect( action: 'edit', params: params)
+        //        redirect( action: 'edit', params: params)
         render( view: 'edit', model: edit())
     }
 
@@ -49,7 +52,17 @@ class UserController {
     def roles = {
         [roles: ShiroRole.findAll()]
     }
-		
+
+    def delete = {
+        if( !params.id )
+        render ("Must provide id of user to delete")
+
+        def user = ShiroUser.get(params.id)
+        user.delete()
+
+        redirect( action:'list' )
+    }
+
     def edit_role = {
         def role = ShiroRole.get(params.id)
         if(params.del_perm){
@@ -87,38 +100,56 @@ class UserController {
     }
 
     def save = {
-        def user = new ShiroUser(params)
-        user.passwordHash = new Sha1Hash(params.passwd).toHex()
+        def user
+   
+        if( params.user ){
+
+            user = new ShiroUser(params.user)
+        }else{
+            user = new ShiroUser( params )
+            user.passwordHash = new Sha1Hash(params.passwd).toHex()
+        }
+
         if(!user.save()){
             render(view: "create", model: [user: user])
         } else {
             redirect(action: 'list', params: params)
         }
-    }
+    }  
 
     def edit = {
+
+        def user = ShiroUser.get(params.id)
+
         if(request.method == 'POST'){
-            def user = ShiroUser.get(params.id)
-            if(params.del_role){
-                user.removeFromRoles(ShiroRole.get(params.roleId))
-                user.save()
-            } else if(params.add_role){
-                user.addToRoles(ShiroRole.get(params.roleId))
-                user.save()
-            } else if(params.passwd != null && params.passwd != null){
-                user.passwordHash = new Sha1Hash(params.passwd).toHex()
-                if(!user.save()){
-                    flash.message = message(code:'user.could.not.edit', default:'Could not edit user')
-                    render(view: "create", model: [user: user])
-                } else {
-                    flash.message = message(code:'user.has.changed', default:'User has changed')
-                    redirect(action: 'list', params: params)
-                }
+            user = editOld()
+        }else if(request.method == 'PUT'){
+            user = userService.editREST(params.user ? params.user : params)
+        }
+        
+        return [user: user]
+    }
+
+    def editOld() {
+        def user = ShiroUser.get(params.id)
+
+        if(params.del_role){
+            user.removeFromRoles(ShiroRole.get(params.roleId))
+            user.save()
+        } else if(params.add_role){
+            user.addToRoles(ShiroRole.get(params.roleId))
+            user.save()
+        } else if(params.passwd != null && params.passwd != null){
+            user.passwordHash = new Sha1Hash(params.passwd).toHex()
+            if(!user.save()){
+                flash.message = message(code:'user.could.not.edit', default:'Could not edit user')
+                render(view: "create", model: [user: user])
+            } else {
+                flash.message = message(code:'user.has.changed', default:'User has changed')
+                redirect(action: 'list', params: params)
             }
-            return [user: user]
         }
-        else {
-            return [user: ShiroUser.get(params.id)]
-        }
+
+        return [user: user]
     }
-    }
+}

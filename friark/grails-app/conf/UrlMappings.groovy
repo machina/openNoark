@@ -7,20 +7,16 @@ class UrlMappings {
             }
         }        
      
-      "/ws/$controller/$id?"{
+      "/ws/$controller/$id?"(parseRequest:true){
             controller=$controller
-
             action="list"
 
-            if( id ){
-                action=[POST:"save",GET:"show",PUT:"update",DELETE:"delete"]
+            if( $id ){
+                action=[POST:"save",GET:"show",PUT:"edit",DELETE:"delete"]
             }else{
-                action=[POST:"save",GET:"list",PUT:"update",DELETE:"delete"]
+                action=[POST:"save",GET:"list",PUT:"edit",DELETE:"delete"]
             }
-
-            parseRequest=true
         }
-     
 
       "/"(view:"/index")
 	  "500"(view:'/error')

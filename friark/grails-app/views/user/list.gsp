@@ -17,7 +17,7 @@
     <th><g:message code="username" default="Username"/></th>
     <g:each in="${users}" var="user">
       <tr>
-        <td><g:link action="edit" id="${user.id}">${username}</g:link></td>
+        <td><g:link action="edit" id="${user.id}">${user.username}</g:link></td>
       </tr>
     </g:each>
   </table>

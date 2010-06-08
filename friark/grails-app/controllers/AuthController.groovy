@@ -40,6 +40,7 @@ class AuthController {
     * Sjekker inkommende kredentialer og utfører inlogging.
     */
     def signIn = {
+
         def authToken = new UsernamePasswordToken(params.username, params.password)
 
         // Support for "remember me"
