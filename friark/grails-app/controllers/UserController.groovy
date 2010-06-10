@@ -17,7 +17,7 @@ along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 
 import org.apache.shiro.crypto.hash.Sha1Hash
 import no.friark.ds.*
-import friark.UserService
+import org.friark.UserService
 
 /**
  * Operasjoner for å håndtere brukere, roller og tilganger.

@@ -1,4 +1,4 @@
-package friark
+package org.friark
 
 class UserService {
 
