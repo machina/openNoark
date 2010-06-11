@@ -29,8 +29,7 @@
         <td class="top"><g:textField name="sted" /></td>
       <td><span class="button"><g:submitButton name="save" value="${messages(code:'actions.save')}"/></span></td>
       </tr>
-
+    </g:form>
   </table>
-</g:form>
 </body>
 </html>

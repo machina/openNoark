@@ -7,17 +7,19 @@
     <title>Show FondsCreator</title>
   </head>
   <body>
+
     <div class="nav">
       <span class="menuButton"><a class="home" href="${resource(dir:'')}"><g:message code="home" default="Home"/></a></span>
       <span class="menuButton"><g:link class="list" action="list"><g:message code="list" default="List"/></g:link></span>
       <span class="menuButton"><g:link class="create" action="create"><g:message code="action.create" default="Create"/></g:link></span>
     </div>
+
     <div class="body">
       <h1><g:message code="fondscreator.show" default="Show fonds creator"/></h1>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
       </g:if>
-      <div class="dialog">
+     <div class="dialog">
         <table>
           <tbody>
             <tr class="prop">
@@ -63,10 +65,11 @@
       <div class="buttons">
         <g:form>
           <input type="hidden" name="id" value="${fondsCreatorInstance?.id}" />
-          <span class="button"><g:actionSubmit class="edit" value="${message(code:'action.edit)}" /></span>
+          <span class="button"><g:actionSubmit class="edit" value="${message(code:'action.edit')}" /></span>
           <span class="button"><g:actionSubmit class="delete" onclick="return confirm(message(code:'confirm.action'));" value="Delete" /></span>
         </g:form>
       </div>
     </div>
   </body>
+
 </html>

@@ -73,8 +73,8 @@
           </table>
         </div>
         <div class="buttons">
-          <span class="button"><g:actionSubmit class="save" value="${message(code:'action.update'}" /></span>
-          <span class="button"><g:actionSubmit class="delete" onclick="return confirm(message(code:'confirm.action'));" value="${message(code:'action.delete'}" /></span>
+          <span class="button"><g:actionSubmit class="save" value="${message(code:'action.update')}" /></span>
+          <span class="button"><g:actionSubmit class="delete" onclick="return confirm(message(code:'confirm.action'));" value="${message(code:'action.delete')}" /></span>
         </div>
       </g:form>
     </div>

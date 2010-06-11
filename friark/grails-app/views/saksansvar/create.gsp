@@ -1,5 +1,5 @@
 
-<%@ page import="no.friark.ds.Saksansvar" %>
+<%@ page import="no.friark.ds.*" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
