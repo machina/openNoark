@@ -36,24 +36,55 @@ class SeriesController {
 		* Lager en ny arkivdel. Denne funksjonen setter automatisk verdiene dor systemID, recordSectionStatus og createdBy
 		*/
 		def save = {
-			def arkivdel = new Series(params)
+			def arkivdel
+			def parent
+
+			if(params.series){  
+				parent = params.series.parent	
+				params.series.parent = null
+			}
+      else {	
+				parent = params.parent
+				params.parent = null
+			}
+			
+			if(params.series)  arkivdel = new Series(params.series)
+			else arkivdel = new Series(params)
 			arkivdel.recordSectionStatus = "Opprettet"
 			commonService.setNewSystemID(arkivdel)
 			commonService.setCreated(arkivdel)
-			if(!params.parent || params.parent == "null") {
+			println parent
+			if(parent == null || parent == "null") {
 				arkivdel.parent = null
 			} else {
-				arkivdel.parent = Fonds.get(params.parent)
+				arkivdel.parent = Fonds.get(parent)
 			}
 			if(!arkivdel.save()){
-				render(view: "create", model: [errors: arkivdel.errors])
+				withFormat {
+	        html {
+						render(view: "create", model: [errors: arkivdel.errors])
+					}
+					xml {
+						render text:"<errors>${arkivdel.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"
+					}
+				}
 			} else {
-				render(view: "show", model: [arkivdel: arkivdel])
+				withFormat {
+	        html {
+						render(view: "show", model: [arkivdel: arkivdel])
+					}
+					xml {
+          	render arkivdel as XML
+        	}
+				}
 			}
 		}
 	
 		def show = {
-			return [arkivdel: Series.get(params.id)]
+			withFormat {
+          html { return [arkivdel: Series.get(params.id)] }
+					xml {render Series.get(params.id) as XML }
+			}
 		}
 		
 		def list = {
@@ -113,6 +144,21 @@ class SeriesController {
           render(view: "update", model: [errors: arkivdel.errors, arkivdel: arkivdel])
         }
         break
+			case 'PUT':
+				println params
+				def arkivdel = Series.get(params.series.id)
+				params.series.createdDate = arkivdel.createdDate
+				params.series.recordSectionStatus = params.series.recordSectionStatus.trim()
+				params.series.parent = Fonds.get(params.series.'parent.id')
+				println params.series.parent
+				arkivdel.properties = params.series
+				println arkivdel.parent
+				if(!arkivdel.hasErrors() && arkivdel.validate() && arkivdel.save()){
+          render arkivdel as XML
+        } else {
+          render text:"<errors>${arkivdel.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"
+        }
+				break
     }
 
 	}
@@ -146,6 +192,17 @@ class SeriesController {
 
 
   }
+
+
+	/**
+	* TODO: read spec and find out if delete should be posssible on this object
+	*/
+  def delete = {
+    def series = Series.get(params.id)
+    series.delete()
+    render "success"
+  }
+
 
 }
 class UpdateSeriesCommand {
