@@ -28,8 +28,6 @@ class KlassController {
 		def klasseService
     def index = { redirect(action:list,params:params) }
 
-    // the delete, save and update actions only accept POST requests
-    static allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -54,7 +52,12 @@ class KlassController {
             flash.message = "Klass not found with id ${params.id}"
             redirect(action:list)
         }
-        else { return [ klasseInstance : klasseInstance ] }
+        else {
+					withFormat {
+						html {return [ klasseInstance : klasseInstance ]}
+						xml { render klasseInstance as XML}
+					}
+			 }
     }
 
     def delete = {
@@ -89,16 +92,23 @@ class KlassController {
     }
 
     def update = {
-        def klasseInstance = Klass.get( params.id )
+        def klasseInstance = Klass.get( params.id != null ? params.id : params.klass.id )
 				boolean success = false
         if(klasseInstance) {
 						(klasseInstance, success) = klasseService.update(klasseInstance, params)
             if(success) {
+							println "Saved Klass: ${klasseInstance}"
                 flash.message = "Klass ${params.id} updated"
-                redirect(action:show,id:klasseInstance.id)
+							withFormat{
+		            html {  redirect(action:show,id:klasseInstance.id) }
+								xml {render klasseInstance as XML }
+							}
             }
             else {
-                render(view:'edit',model:[klasseInstance:klasseInstance])
+								withFormat{
+			            html { render(view:'edit',model:[klasseInstance:klasseInstance]) }
+									xml { render text:"<errors>${klasseInstance.errors}</errors>", contentType:"text/xml",encoding:"UTF-8" }
+								}
             }
         }
         else {
@@ -117,10 +127,16 @@ class KlassController {
 				def (klasseInstance, success) = klasseService.save(params)
 				if(success) {
             flash.message = "Klass ${klasseInstance.id} created"
-            redirect(action:show,id:klasseInstance.id)
+						withFormat{
+							html{ redirect(action:show,id:klasseInstance.id) }
+							xml { render klasseInstance as XML }
+						}
         }
         else {
-            render(view:'create',model:[klasseInstance:klasseInstance])
+					withFormat{
+						html { render(view:'create',model:[klasseInstance:klasseInstance]) }
+						xml { render text:"<errors>${klasseInstance.errors}</errors>", contentType:"text/xml",encoding:"UTF-8" }
+					}
         }
     }
 }

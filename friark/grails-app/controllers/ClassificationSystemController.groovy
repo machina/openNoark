@@ -17,7 +17,7 @@
 
 
 import no.friark.ds.*
-
+import grails.converters.* 
 /**
 * CRUD-operasjoner for Kalssifikasjonsystem
 *
@@ -28,21 +28,30 @@ class ClassificationSystemController {
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
-    static allowedMethods = [delete:'POST', save:'POST', update:'POST']
+   // static allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
-        params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ klassifikasjonssystemInstanceList: ClassificationSystem.list( params ), klassifikasjonssystemInstanceTotal: ClassificationSystem.count() ]
-   }
+       params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
+			withFormat{
+	        html { [ klassifikasjonssystemInstanceList: ClassificationSystem.list( params ), klassifikasjonssystemInstanceTotal: ClassificationSystem.count() ] }
+					xml{ render ClassificationSystem.list() as XML }
+
+			}
+   }	
 
     def show = {
         def klassifikasjonssystemInstance = ClassificationSystem.get( params.id )
 
-        if(!klassifikasjonssystemInstance) {
+       if(!klassifikasjonssystemInstance) {
             flash.message = "ClassificationSystem not found with id ${params.id}"
             redirect(action:list)
        }
-        else { return [ klassifikasjonssystemInstance : klassifikasjonssystemInstance ] }
+       else { 
+				withFormat{
+					html { return [ klassifikasjonssystemInstance : klassifikasjonssystemInstance ] }
+					xml { render klassifikasjonssystemInstance as XML  }
+				}
+			}
    }
 
     def delete = {
@@ -77,6 +86,18 @@ class ClassificationSystemController {
    }
 
     def update = {
+			if(request.method == 'PUT'){
+				def klassifikasjonssystemInstance = ClassificationSystem.get( params.classificationSystem.id )
+				params.classificationSystem.createdDate =  klassifikasjonssystemInstance.createdDate//can not change created date
+				klassifikasjonssystemInstance.properties = params.classificationSystem
+        if(!klassifikasjonssystemInstance.hasErrors() && klassifikasjonssystemInstance.save()) {
+					render klassifikasjonssystemInstance as XML
+        } else {
+					render text:"<errors>${klassifikasjonssystemInstance.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"
+        }
+
+			}
+			else {
         def klassifikasjonssystemInstance = ClassificationSystem.get( params.id )
         if(klassifikasjonssystemInstance) {
             if(params.version) {
@@ -101,6 +122,7 @@ class ClassificationSystemController {
             flash.message = "ClassificationSystem not found with id ${params.id}"
             redirect(action:list)
        }
+		}
    }
 
     def create = {
@@ -110,15 +132,23 @@ class ClassificationSystemController {
    }
 
     def save = {
-        def klassifikasjonssystemInstance = new ClassificationSystem(params)
+        def klassifikasjonssystemInstance
+				if(params.classificationSystem) klassifikasjonssystemInstance = new ClassificationSystem(params.classificationSystem)
+				else klassifikasjonssystemInstance = new ClassificationSystem(params)
 				commonService.setCreated(klassifikasjonssystemInstance)
 				commonService.setNewSystemID(klassifikasjonssystemInstance)
         if(!klassifikasjonssystemInstance.hasErrors() && klassifikasjonssystemInstance.save()) {
             flash.message = "ClassificationSystem ${klassifikasjonssystemInstance.id} created"
-            redirect(action:show,id:klassifikasjonssystemInstance.id)
+						withFormat{
+		            html { redirect(action:show,id:klassifikasjonssystemInstance.id) }
+								xml { render klassifikasjonssystemInstance as XML }
+						}
        }
         else {
-            render(view:'create',model:[klassifikasjonssystemInstance:klassifikasjonssystemInstance])
+					withFormat{
+            html { render(view:'create',model:[klassifikasjonssystemInstance:klassifikasjonssystemInstance]) }
+						xml { render text:"<errors>${klassifikasjonssystemInstance.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"}
+					}
        }
    }
 }

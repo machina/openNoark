@@ -7,10 +7,11 @@ class KlasseService {
     boolean transactional = true
 
 		def save(params) {
+			if(params.klass) params = params.klass
 	    if (!SecurityUtils.subject.isPermitted("klasser:opprett")) {
 		   throw new Exception("Kassering ikke tillatt for bruker.")
      }
-  
+			params.parentClassificationSystem = ClassificationSystem.get(params.'parentClassificationSystem.id')
       def klasseInstance = new Klass(params)
       commonService.setCreated(klasseInstance)
       commonService.setNewSystemID(klasseInstance)
@@ -25,6 +26,9 @@ class KlasseService {
 
 		}
 		def update(klasseInstance, params) {
+			if(params.klass) params = params.klass
+			println "PARAMS: ${params}"
+			params.createdDate = klasseInstance.createdDate  //can not change created date
 			if (!SecurityUtils.subject.isPermitted("klasser:opprett")) {
        throw new Exception("Kassering ikke tillatt for bruker.")
      }
@@ -40,10 +44,11 @@ class KlasseService {
 						return [klasseInstance, false]
 					}
 			}
+			println "PARAMS.TITLE: ${params.title}"
+			params.parentClassificationSystem = ClassificationSystem.get(params.'parentClassificationSystem.id')
 		
-			
-
-			println "params.preservationAndDisposal ${params.preservationAndDisposal}"
+  
+			//printl  "params.preservationAndDisposal ${params.preservationAndDisposal}"
 			klasseInstance.properties = params
 			if(klasseInstance.finalisedDate != null){
 				klasseInstance.avsluttetav = SecurityUtils.subject.principal

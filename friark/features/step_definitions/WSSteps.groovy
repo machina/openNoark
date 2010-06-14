@@ -20,7 +20,21 @@ def defaultSeries = '''<?xml version="1.0" encoding="UTF-8"?>
 </series>
 '''
 
-def ctrlName = [Fonds: 'arkiv', Series: 'series']
+def defaultClassificationSystem = '''<?xml version="1.0" encoding="UTF-8"?>
+<classificationSystem>
+	<title>Test ClassificationSystem 1</title>
+</classificationSystem>
+'''
+
+def defaultKlass = '''<?xml version="1.0" encoding="UTF-8"?>
+<klass>
+	<title>Test Klass 1</title>
+	<parentClassificationSystem id="$parentId" />
+	<classID>1</classID>
+</klass>
+'''
+
+def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass']
 
 def currentResult
 
@@ -46,7 +60,7 @@ Given(~"I am logged in as admin"){
 
 
 
-When(~"I POST a new object to the ([A-Z][a-z]*) Controller"){ String ctrl ->
+When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
 	switch(ctrl){
 		case 'Fonds':
 			browser.post("http://localhost:8080/friark/ws/arkiv.xml",defaultFonds)
@@ -60,6 +74,20 @@ When(~"I POST a new object to the ([A-Z][a-z]*) Controller"){ String ctrl ->
 				currentResult = browser.pageSource
 				//println browser.pageSource
 			break
+			case 'ClassificationSystem':
+	      browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",defaultClassificationSystem)
+  	    currentResult = browser.pageSource
+				//println currentResult
+      break
+			case 'Klass':
+        browser.post("http://localhost:8080/friark/ws/${ctrlName['ClassificationSystem']}.xml",defaultClassificationSystem)
+				def sys = new XmlSlurper().parseText(browser.pageSource)
+				def klass = new SimpleTemplateEngine().createTemplate(defaultKlass).make([parentId: sys.@id]).toString()
+        browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",klass)
+        currentResult = browser.pageSource
+
+        //println currentResult
+      break
 		default:
         throw new Exception("Feature tried to contact unknown controller")
 
@@ -68,12 +96,12 @@ When(~"I POST a new object to the ([A-Z][a-z]*) Controller"){ String ctrl ->
 }
 
 
-Then(~"there should be (\\d+) ([A-Z][a-z]*) in the database"){ int num, String domain ->
+Then(~"there should be (\\d+) ([A-z]*) in the database"){ int num, String domain ->
 	browser.get("http://localhost:8080/friark/ws/${ctrlName[domain]}.xml")
 	def source = browser.pageSource
-	//println source
+//	println source
 	def list = new XmlSlurper().parseText(source)
-	def objs = list."${domain.toLowerCase()}"
+	def objs = list."${domain[0].toLowerCase() + domain.substring(1)}"
 	assertEquals num, objs.size()
 	currentValue = source
 	//assertTrue browser.getPageSource().length() > 0
@@ -81,35 +109,36 @@ Then(~"there should be (\\d+) ([A-Z][a-z]*) in the database"){ int num, String d
 }
 
 
-When(~"I create a updated ([A-Z][a-z]*)"){ String domain ->
+When(~"I create a updated ([A-z]*)"){ String domain ->
 	matcher = (currentResult =~ /Test ${domain} 1/)
 	obj= matcher.replaceAll( "updated title")
 }
 
-When(~"I PUT the updated object to the ([A-Z][a-z]*) Controller"){ String domain ->
-	println obj
+When(~"I PUT the updated object to the ([A-z]*) Controller"){ String domain ->
+	//println obj
 	browser.put("http://localhost:8080/friark/ws/${ctrlName[domain]}.xml",obj)
+	//println browser.pageSource
 }
 
-Then(~"the updated ([A-Z][a-z]*) should have the new title"){ String domain ->
+Then(~"the updated ([A-z]*) should have the new title"){ String domain ->
 	def source = browser.pageSource
-	println source
+	//println source
 	def updatedObj = new XmlSlurper().parseText(source)
 	assertEquals "updated title", updatedObj.title.toString().trim()
 }
 
-When(~"I GET the created ([A-Z][a-z]*)"){ String domain ->
+When(~"I GET the created ([A-z]*)"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
 	browser.get("http://localhost:8080/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
 	currentResult = browser.pageSource
 }
 
-Then(~"the created ([A-Z][a-z]*) should be returned"){ String domain ->
+Then(~"the created ([A-z]*) should be returned"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
 	assertEquals "Test ${domain} 1".toString() , res.title.toString().trim()
 }
 
-When(~"I delete the ([A-Z][a-z]*)"){ String domain ->
+When(~"I delete the ([A-z]*)"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
 	browser.delete("http://localhost:8080/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
 }
