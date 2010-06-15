@@ -1,4 +1,4 @@
-package friark
+package org.friark
 
 import grails.test.*
 
