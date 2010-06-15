@@ -31,6 +31,7 @@ class MappeService {
     * @param params Et Map som inneholder metadata for Mappen.
     */
 		def save(params) {
+				params = fixParams(params) 
 				if(!getFileTypes().contains(params.fileType)){
 					return [[errors: ["Mappetype er ikke tillatt"]], false]
 				}
@@ -49,7 +50,7 @@ class MappeService {
 				
 				def (delOk, error) = checkSeries(params, mappe)
 				if(!delOk){
-					println error
+					//println error
 					mappe.errors.reject 'org.friark.noexistingKey', error
 					return [mappe, false]
 				}
@@ -58,11 +59,35 @@ class MappeService {
 				if(!mappe.hasErrors() && mappe.save()) {
 					return [mappe, true]
 				}
-				println mappe.errors
+				//println mappe.errors
 				
 				return [mappe, false]
 		}
+	
+		def update(params){
+			params = fixParams(params)
 		
+			def file = BasicFile.get( params.id )			
+			params.createdDate = file.createdDate //creatdDate can not be changed
+			file.properties = params
+			if(!file.hasErrors() && file.save()) {
+				return [file,true]
+			}
+
+			return [file, false]
+		}
+		
+		/**
+		* returns a usable params
+		*/
+		private def fixParams(def params){
+			if(params.basicFile) params = params.basicFile
+      if(params.caseFile) params = params.caseFile
+      params.recordSection = Series.get(params.'recordSection.id')
+			commonService.trimAll(params)
+			return params
+		}
+
 		
 		private def checkSeries(params, mappe){
 			if(mappe.recordSection.recordSectionStatus == "Opprettet" && (mappe.recordSection.periodStatus == null  || mappe.recordSection.periodStatus == "Aktiv periode")){

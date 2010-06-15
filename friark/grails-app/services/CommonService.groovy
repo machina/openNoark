@@ -73,6 +73,11 @@ class CommonService {
         return defaults."${key}"
     }
 
+		void trimAll(def map){
+			map.keySet().each{
+				if(map[it] instanceof String) map[it] = map[it].trim()
+			}
+		}
 
     def defaults = [
         autorisert_ny_versjon_av_ekspedert: "false",

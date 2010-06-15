@@ -9,7 +9,7 @@ class MappeController {
     def index = { redirect(action:list,params:params) }
     def mappeService
     // the delete, save and update actions only accept POST requests
-    static allowedMethods = [delete:'POST', save:'POST', update:'POST']
+    //static allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -19,7 +19,7 @@ class MappeController {
                 return [ basismappeInstanceList: BasicFile.list( params ), basismappeInstanceTotal: BasicFile.count() ]
             }
             xml {
-                render (text: BasicFile.list() as XML, encoding: "UTF-8")
+                render BasicFile.list() as XML
             }
             json {
                 render BasicFile.list() as JSON
@@ -39,13 +39,14 @@ class MappeController {
                     return [ basismappeInstance : basismappeInstance ]
                 }
                 xml {
-                    render (text: basismappeInstance as XML, encoding: "UTF-8")
+                    render basismappeInstance as XML
                 }
             }
         }
     }
 
     def delete = {
+				println "DELETE: ${params}"
         def basismappeInstance = BasicFile.get( params.id )
         if(basismappeInstance) {
             try {
@@ -77,30 +78,20 @@ class MappeController {
     }
 
     def update = {
-        def basismappeInstance = BasicFile.get( params.id )
-        if(basismappeInstance) {
-            if(params.version) {
-                def version = params.version.toLong()
-                if(basismappeInstance.version > version) {
-                    
-                    basismappeInstance.errors.rejectValue("version", "basismappe.optimistic.locking.failure", "Another user has updated this BasicFile while you were editing.")
-                    render(view:'edit',model:[basismappeInstance:basismappeInstance])
-                    return
-                }
-            }
-            basismappeInstance.properties = params
-            if(!basismappeInstance.hasErrors() && basismappeInstance.save()) {
-                flash.message = "BasicFile ${params.id} updated"
-                redirect(action:show,id:basismappeInstance.id)
-            }
-            else {
-                render(view:'edit',model:[basismappeInstance:basismappeInstance])
-            }
-        }
-        else {
-            flash.message = "BasicFile not found with id ${params.id}"
-            redirect(action:list)
-        }
+			def (file, success) = mappeService.update(params)
+			if(success) {
+				withFormat{
+					html{ render(view:"show",[ basismappeInstance : file ])}
+					xml { render file as XML }
+				}
+		
+			} else {
+				withFormat{
+					html{ render(view:"edit",[ basismappeInstance : file ])}
+					xml { render text:"<errors>${file.errors}</errors>", contentType:"text/xml",encoding:"UTF-8" }
+				}
+	
+			}
     }
 
     def create = {
@@ -118,7 +109,7 @@ class MappeController {
                     render(view:"show",[ basismappeInstance : mappeInstance ])
                 }
                 xml {
-                    render basismappeInstance as XML
+                    render mappeInstance as XML
                 }
             }
             if(!response.isCommitted()){ //content negotioation failed, default to html

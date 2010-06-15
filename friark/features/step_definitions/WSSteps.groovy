@@ -34,7 +34,15 @@ def defaultKlass = '''<?xml version="1.0" encoding="UTF-8"?>
 </klass>
 '''
 
-def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass']
+def defaultFile = '''<?xml version="1.0" encoding="UTF-8"?>
+<basicFile>
+	<fileType>BasicFile</fileType>
+	<title>Test File 1</title>
+	<recordSection id="$parentId" />
+</basicFile>
+'''
+
+def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'mappe']
 
 def currentResult
 
@@ -73,12 +81,12 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
 				browser.post("http://localhost:8080/friark/ws/series.xml",series)
 				currentResult = browser.pageSource
 				//println browser.pageSource
-			break
+				break
 			case 'ClassificationSystem':
 	      browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",defaultClassificationSystem)
   	    currentResult = browser.pageSource
 				//println currentResult
-      break
+  	    break
 			case 'Klass':
         browser.post("http://localhost:8080/friark/ws/${ctrlName['ClassificationSystem']}.xml",defaultClassificationSystem)
 				def sys = new XmlSlurper().parseText(browser.pageSource)
@@ -87,7 +95,18 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
         currentResult = browser.pageSource
 
         //println currentResult
-      break
+	      break
+			case 'File':
+				browser.post("http://localhost:8080/friark/ws/arkiv.xml",defaultFonds)
+        def fonds = new XmlSlurper().parseText(browser.pageSource)
+        def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
+        browser.post("http://localhost:8080/friark/ws/series.xml",series)
+				def seriesRet = new XmlSlurper().parseText(browser.pageSource)
+				def file = new SimpleTemplateEngine().createTemplate(defaultFile).make([parentId: seriesRet.@id]).toString()
+				browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",file)
+				currentResult = browser.pageSource
+				//println currentResult
+				break
 		default:
         throw new Exception("Feature tried to contact unknown controller")
 
@@ -99,9 +118,9 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
 Then(~"there should be (\\d+) ([A-z]*) in the database"){ int num, String domain ->
 	browser.get("http://localhost:8080/friark/ws/${ctrlName[domain]}.xml")
 	def source = browser.pageSource
-//	println source
+	//println source
 	def list = new XmlSlurper().parseText(source)
-	def objs = list."${domain[0].toLowerCase() + domain.substring(1)}"
+	def objs = list."${domain == 'File' ? 'basicFile' : domain[0].toLowerCase() + domain.substring(1)}"
 	assertEquals num, objs.size()
 	currentValue = source
 	//assertTrue browser.getPageSource().length() > 0
@@ -140,5 +159,6 @@ Then(~"the created ([A-z]*) should be returned"){ String domain ->
 
 When(~"I delete the ([A-z]*)"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
+	//println "deleting: ${res.@id}"
 	browser.delete("http://localhost:8080/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
 }
