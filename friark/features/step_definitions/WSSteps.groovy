@@ -42,7 +42,16 @@ def defaultFile = '''<?xml version="1.0" encoding="UTF-8"?>
 </basicFile>
 '''
 
-def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'mappe']
+def defaultSimplifiedRecord = '''<?xml version="1.0" encoding="UTF-8"?>
+<simplifiedRecord>
+	<recordType>Forenkletregistrering</recordType>
+	<parentFile id="$parentId" />
+	<archivedBy>Test SimplifiedRecord 1</archivedBy>
+	<archivedDate>2010-06-15 16:01:18.281 CEST</archivedDate>
+</simplifiedRecord>
+'''
+
+def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'mappe', SimplifiedRecord: 'registrering']
 
 def currentResult
 
@@ -107,6 +116,20 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
 				currentResult = browser.pageSource
 				//println currentResult
 				break
+				case 'SimplifiedRecord':
+					browser.post("http://localhost:8080/friark/ws/arkiv.xml",defaultFonds)
+	        def fonds = new XmlSlurper().parseText(browser.pageSource)
+  	      def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
+    	    browser.post("http://localhost:8080/friark/ws/series.xml",series)
+      	  def seriesRet = new XmlSlurper().parseText(browser.pageSource)
+        	def file = new SimpleTemplateEngine().createTemplate(defaultFile).make([parentId: seriesRet.@id]).toString()
+	        browser.post("http://localhost:8080/friark/ws/mappe.xml",file)
+  				file = new XmlSlurper().parseText(browser.pageSource)
+					def record = new SimpleTemplateEngine().createTemplate(defaultSimplifiedRecord).make([parentId: seriesRet.@id]).toString()
+					browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",record)
+		      currentResult = browser.pageSource
+					println currentResult
+				break
 		default:
         throw new Exception("Feature tried to contact unknown controller")
 
@@ -136,14 +159,15 @@ When(~"I create a updated ([A-z]*)"){ String domain ->
 When(~"I PUT the updated object to the ([A-z]*) Controller"){ String domain ->
 	//println obj
 	browser.put("http://localhost:8080/friark/ws/${ctrlName[domain]}.xml",obj)
-	//println browser.pageSource
+	println browser.pageSource
 }
 
 Then(~"the updated ([A-z]*) should have the new title"){ String domain ->
 	def source = browser.pageSource
 	//println source
 	def updatedObj = new XmlSlurper().parseText(source)
-	assertEquals "updated title", updatedObj.title.toString().trim()
+	if(domain == "SimplifiedRecord") assertEquals "updated title", updatedObj.archivedBy.toString().trim()
+	else assertEquals "updated title", updatedObj.title.toString().trim()
 }
 
 When(~"I GET the created ([A-z]*)"){ String domain ->
@@ -154,7 +178,8 @@ When(~"I GET the created ([A-z]*)"){ String domain ->
 
 Then(~"the created ([A-z]*) should be returned"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
-	assertEquals "Test ${domain} 1".toString() , res.title.toString().trim()
+	if(domain == "SimplifiedRecord") assertEquals "Test ${domain} 1".toString() , res.archivedBy.toString().trim()
+	else assertEquals "Test ${domain} 1".toString() , res.title.toString().trim()
 }
 
 When(~"I delete the ([A-z]*)"){ String domain ->

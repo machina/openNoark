@@ -31,6 +31,7 @@ class RegistreringService {
     * @param params En Map av metadata for registreringen.
     */
 		def registrer(params){
+				params = fixParams(params)
         def registrering = null
 				println "regtype: ${params.recordType}"
 				def korrespondansepart = null
@@ -75,7 +76,7 @@ class RegistreringService {
 					
        }
         commonService.setNewSystemID registrering
-				
+				commonService.setCreated registrering
 				if(registrering.parentFile && registrering.parentFile.recordSection.periodStatus == "Overlappingsperiode"){
 					def mappe = registrering.parentFile
 					def del = mappe.recordSection
@@ -103,6 +104,29 @@ class RegistreringService {
 					return [registrering, true]
 				}
 		}
+
+	def update(params){
+		params = fixParams(params)
+		def record = SimplifiedRecord.get( params.id )	
+		params.createdDate = record.createdDate
+		params.createdBy = record.createdBy
+		record.properties = params
+    if(!record.hasErrors() && record.save()) {
+    	return [record, true]
+    }
+    else {
+			return [record, false]
+    }
+
+	}
+
+	def fixParams(def params){
+		if(params.simplifiedRecord) params = params.simplifiedRecord
+		commonService.trimAll(params)
+		params.parentFile = BasicFile.get(params.'parentFile.id')
+		params.archivedDate = Date.parse("yyyy-MM-dd hh:mm:ss.SSS z" ,params.archivedDate)
+		return params
+	}
 
 	def getRegistreringTyper(){
       commonService.getParameter("tilgjengelige_recordTyper").split(",").collect{it.trim()}

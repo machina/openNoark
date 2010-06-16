@@ -31,11 +31,14 @@ class RegistreringController {
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
-    static allowedMethods = [delete:'POST', save:'POST', update:'POST']
+//    static allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ forenkletRegistreringInstanceList: SimplifiedRecord.list( params ), forenkletRegistreringInstanceTotal: SimplifiedRecord.count() ]
+				withFormat{
+	        html {return [ forenkletRegistreringInstanceList: SimplifiedRecord.list( params ), forenkletRegistreringInstanceTotal: SimplifiedRecord.count() ] }
+					xml { render SimplifiedRecord.list() as XML }
+				}
    }
 
     def show = {
@@ -45,7 +48,12 @@ class RegistreringController {
             flash.message = "SimplifiedRecord not found with id ${params.id}"
             redirect(action:list)
        }
-        else { return [ forenkletRegistreringInstance : forenkletRegistreringInstance ] }
+        else {
+					withFormat{
+						html{ return [ forenkletRegistreringInstance : forenkletRegistreringInstance ] }
+						xml{ render forenkletRegistreringInstance as XML }
+					}
+			 }
    }
 
     def delete = {
@@ -80,30 +88,20 @@ class RegistreringController {
    }
 
     def update = {
-        def forenkletRegistreringInstance = SimplifiedRecord.get( params.id )
-        if(forenkletRegistreringInstance) {
-            if(params.version) {
-                def version = params.version.toLong()
-                if(forenkletRegistreringInstance.version > version) {
-                    
-                    forenkletRegistreringInstance.errors.rejectValue("version", "forenkletRegistrering.optimistic.locking.failure", "Another user has updated this SimplifiedRecord while you were editing.")
-                    render(view:'edit',model:[forenkletRegistreringInstance:forenkletRegistreringInstance])
-                    return
-               }
-           }
-            forenkletRegistreringInstance.properties = params
-            if(!forenkletRegistreringInstance.hasErrors() && forenkletRegistreringInstance.save()) {
+        def (forenkletRegistreringInstance, success) = registreringService.update(params)
+            if(success) {
                 flash.message = "SimplifiedRecord ${params.id} updated"
-                redirect(action:show,id:forenkletRegistreringInstance.id)
+								withFormat{
+									html{ redirect(action:show,id:forenkletRegistreringInstance.id) }
+									xml{ render forenkletRegistreringInstance as XML  }
+								}
            }
             else {
-                render(view:'edit',model:[forenkletRegistreringInstance:forenkletRegistreringInstance])
+							withFormat{
+		              html { render(view:'edit',model:[forenkletRegistreringInstance:forenkletRegistreringInstance]) }
+									xml { render text:"<errors>${forenkletRegistreringInstance.errors}</errors>", contentType:"text/xml",encoding:"UTF-8" }
+							}
            }
-       }
-        else {
-            flash.message = "SimplifiedRecord not found with id ${params.id}"
-            redirect(action:list)
-       }
    }
 
     def create = {
@@ -134,7 +132,11 @@ class RegistreringController {
 						}
        }
         else {
-            render(view:'create',model:[forenkletRegistreringInstance:forenkletRegistreringInstance, typer: registreringService.registreringTyper])
+            withFormat{
+							html{ render(view:'create',model:[forenkletRegistreringInstance:forenkletRegistreringInstance, typer: registreringService.registreringTyper]) }
+							form{ render(view:'create',model:[forenkletRegistreringInstance:forenkletRegistreringInstance, typer: registreringService.registreringTyper]) }
+							xml{render text:"<errors>${forenkletRegistreringInstance.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"}
+						}
        }
    }
 }
