@@ -9,6 +9,17 @@ class UrlMappings {
      
 //			"/ws/arkiv/$id?"(resource:"arkiv")
 
+			"/ws/search/$clazz/$query"() {
+				controller='search'
+				action='search'
+			}
+
+			"/ws/search/$query"() {
+        controller='search'
+        action='search'
+     	}
+
+
       "/ws/$controller"(parseRequest:true){
             controller=$controller
 							 action=[POST:"save",GET:"list",PUT:"update",DELETE:"delete"]
@@ -21,17 +32,8 @@ class UrlMappings {
            // parseRequest=true
         }
 
-			"/ws/search/$clazz/$query/"() {
-				controller='search'
-				action='search'
-			}
 
-			"/ws/search/$query/"() {
-        controller='search'
-        action='search'
-     	}
-
-      "/"(view:"/index")
+      "/"(controller: 'auth', action: 'index')
 	  "500"(view:'/error')
     }
 }

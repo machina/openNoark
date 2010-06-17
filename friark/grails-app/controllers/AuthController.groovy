@@ -33,7 +33,11 @@ class AuthController {
     * Viser login skjermen
     */
     def login = {
-        return [ username: params.username, rememberMe: (params.rememberMe != null), targetUri: params.targetUri ]
+				if(SecurityUtils.subject?.isAuthenticated()){
+					render view: '/index'
+				} else {
+	        return [ username: params.username, rememberMe: (params.rememberMe != null), targetUri: params.targetUri ]
+				}
    }
 
     /**
