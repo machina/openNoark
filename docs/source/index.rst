@@ -14,41 +14,19 @@ Contents:
 
    Arkiv
 
-   Arkivdel
+   Series
 
    Auth
    
-   Basismappe
+   Mappe
 
-   BevaringOgKassasjon
+   Registrering
 
-   Dokumentbeskrivelse
+   Klass
 
-   Dokumentlink
-
-   Dokumentobjekt
-
-   FileStoage
-
-   ForenkletRegistrering
-
-   Keyword
-
-   Klasse
-
-   Klassifikasjonssystem
-
-   Kryssreferanse
-
-   Merknad
-
-   MerknadType
-
-   Parameter
-
+   ClassificationSystem
+		
    Search
-
-   User
 
 .. Indeks
    ======

@@ -62,8 +62,9 @@ class SeriesController {
 			if(!arkivdel.save()){
 				withFormat {
 	        html {
-						render(view: "create", model: [errors: arkivdel.errors])
+						render(view: "create", model: [arkivdel: arkivdel, errors: arkivdel.errors])
 					}
+					
 					xml {
 						render text:"<errors>${arkivdel.errors}</errors>", contentType:"text/xml",encoding:"UTF-8"
 					}
@@ -163,7 +164,7 @@ class SeriesController {
 
 	}
 	
-	def håndterOppbevaringsted = {
+	def handleStorageLocation = {
 		return [arkivdel: Series.get(params.id)]
 	}
 
@@ -172,9 +173,9 @@ class SeriesController {
 		arkivdel.storageLocation.remove  params.sted
 		if(arkivdel.save()){
 			println arkivdel.errors
-			render view: 'håndterOppbevaringsted', model: [arkivdel: arkivdel]
+			render view: 'handleStorageLocation', model: [arkivdel: arkivdel]
 		}else{
-			render view: 'håndterOppbevaringsted', model: [arkivdel: arkivdel, errors: arkivdel.errors]
+			render view: 'handleStorageLocation', model: [arkivdel: arkivdel, errors: arkivdel.errors]
 			println arkivdel.errors
 		}
 	}
@@ -184,9 +185,9 @@ class SeriesController {
     arkivdel.storageLocation.add params.sted
 		if(arkivdel.save()){
       println arkivdel.errors
-      render view: 'håndterOppbevaringsted', model: [arkivdel: arkivdel]
+      render view: 'handleStorageLocation', model: [arkivdel: arkivdel]
     }else{
-      render view: 'håndterOppbevaringsted', model: [arkivdel: arkivdel, errors: arkivdel.errors]
+      render view: 'handleStorageLocation', model: [arkivdel: arkivdel, errors: arkivdel.errors]
       println arkivdel.errors
     }
 

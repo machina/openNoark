@@ -20,6 +20,7 @@ class HiddenDatePickerTagLib {
 	}	
 
 	def mselect = { attrs ->
+		println "MSELECT"
 		def type = attrs.type
 		def ftl = new FormTagLib()
 	
@@ -35,24 +36,12 @@ class HiddenDatePickerTagLib {
 	}
 
 	private mselect_select = { ftl, attrs ->
-		//save out
-		def old_out = out
-		//reset out into something we can controll
-    out = new StringWriter()
-		ftl.out = out
-		//get the original select and trick it to use this out
-		def select = ftl.select
-		select.setDelegate(this)
-		select(attrs)
+		out.println "<select name=\"${attrs['name']}\" id=\"${attrs['id']}\" MULTIPLE>"
+		attrs.from.each{
+			out.println "<option value=\"${it.ident()}\">${it.toString()}</option>"
+		}
 
-		//add "multiple" to the select tag
-		def result = out.toString()
-		def matcher = (result =~ />/)
-		result = matcher.replaceFirst("MULTIPLE>")
-
-		//put out back and wirte the tag
-		out = old_out
-		out << result
+		out.println "</select>"
 	}
 
 	private mselect_radio = { ftl, attrs ->

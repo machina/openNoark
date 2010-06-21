@@ -6,7 +6,7 @@ clickAndWait|link=Mapper|
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=dall|
 clickAndWait|_action_Edit|
-select|recordSectionStatus|label=Avsluttet
+select|recordSectionStatus|index=1
 clickAndWait|save|
 include|/friark/selenium/tests/inc/create_mappe.html|name=aaaaa,desc=aaa,medium=a,keyword=key,arkivdel_idx=2
 verifyTextNotPresent|created|

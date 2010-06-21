@@ -7,18 +7,33 @@ class UrlMappings {
             }
         }        
      
-      "/ws/$controller/$id?"(parseRequest:true){
-            controller=$controller
-            action="list"
+//			"/ws/arkiv/$id?"(resource:"arkiv")
 
-            if( $id ){
-                action=[POST:"save",GET:"show",PUT:"edit",DELETE:"delete"]
-            }else{
-                action=[POST:"save",GET:"list",PUT:"edit",DELETE:"delete"]
-            }
+			"/ws/search/$clazz/$query"() {
+				controller='search'
+				action='search'
+			}
+
+			"/ws/search/$query"() {
+        controller='search'
+        action='search'
+     	}
+
+
+      "/ws/$controller"(parseRequest:true){
+            controller=$controller
+							 action=[POST:"save",GET:"list",PUT:"update",DELETE:"delete"]
+           // parseRequest=true
+        }
+ 
+      "/ws/$controller/$id"(parseRequest:true){
+            controller=$controller
+	            action=[POST:"save",GET:"show",PUT:"update",DELETE:"delete"]
+           // parseRequest=true
         }
 
-      "/"(view:"/index")
+
+      "/"(controller: 'auth', action: 'index')
 	  "500"(view:'/error')
     }
 }

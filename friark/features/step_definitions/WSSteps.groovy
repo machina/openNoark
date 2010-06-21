@@ -128,7 +128,7 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
 					def record = new SimpleTemplateEngine().createTemplate(defaultSimplifiedRecord).make([parentId: seriesRet.@id]).toString()
 					browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",record)
 		      currentResult = browser.pageSource
-					println currentResult
+					//println currentResult
 				break
 		default:
         throw new Exception("Feature tried to contact unknown controller")
@@ -159,7 +159,7 @@ When(~"I create a updated ([A-z]*)"){ String domain ->
 When(~"I PUT the updated object to the ([A-z]*) Controller"){ String domain ->
 	//println obj
 	browser.put("http://localhost:8080/friark/ws/${ctrlName[domain]}.xml",obj)
-	println browser.pageSource
+	//println browser.pageSource
 }
 
 Then(~"the updated ([A-z]*) should have the new title"){ String domain ->
@@ -186,4 +186,16 @@ When(~"I delete the ([A-z]*)"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
 	//println "deleting: ${res.@id}"
 	browser.delete("http://localhost:8080/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
+}
+
+When(~"I search in ([A-z]+) for \"(.*)\"") { String domain, String query ->
+	if(domain == "all") browser.get("http://localhost:8080/friark/ws/search/${query}")
+	else browser.get("http://localhost:8080/friark/ws/search/${domain}/${query}")
+}
+
+Then(~"(\\d+) ([A-z]+) should be returned"){ int num, String domain ->
+	def source = browser.pageSource 
+  def list = new XmlSlurper().parseText(source) 
+	def objs = list."${domain[0].toLowerCase() + domain.substring(1)}"
+	assertEquals num, objs.size()
 }

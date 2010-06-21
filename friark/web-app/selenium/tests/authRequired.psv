@@ -4,7 +4,7 @@ verifyTitle|Login|
 type|username|admin
 type|password|admin
 clickAndWait|//input[@value='Sign in']|
-verifyTextPresent|Arkiver|
+verifyTextPresent|Fonds|
 open|/friark/auth/signOut|
 open|/friark/arkiv/list|
 verifyTitle|Login|

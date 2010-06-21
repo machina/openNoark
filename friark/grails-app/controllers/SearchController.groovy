@@ -28,6 +28,27 @@ class SearchController {
 		def searchableService
 		def archiveService
 
+
+		/**
+		* Searches in metadata
+		*/
+		def search = {
+			println params
+			if(params.query){
+				 def coder = new org.apache.commons.codec.net.URLCodec()
+   			 params.query = coder.decode(params.query)
+				 if(params.clazz) params.query = "alias:${params.clazz} ${params.query}"
+				try {
+                render searchableService.search(params.query, params).results as XML
+        } catch (SearchEngineQueryParseException ex) {
+						render text: "<errors><error>query unparsable, better luck next time</error></errors>", contentType:"text/xml",encoding:"UTF-8"
+        }
+
+			}
+			else render text: "<errors><error>no query found</error></errors>", contentType:"text/xml",encoding:"UTF-8"
+		}
+
+
 		/**
     * Tar imot en spørring som parameter "q" og returnerer resultatene fra å søke med denne spørringen i metadata.
     */

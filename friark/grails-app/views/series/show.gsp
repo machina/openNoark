@@ -133,7 +133,7 @@
       <div class="buttons">
         <g:form>
           <input type="hidden" name="id" value="${arkivdel.id}" />
-          <span class="button"><g:actionSubmit id="${arkivdel.id}" class="edit" value="${message(code:'action.edit',default:'Edit')}" /> </span>
+          <span class="button"><g:actionSubmit id="_action_Edit" class="edit" action="edit" value="${message(code:'action.edit',default:'Edit')}" /> </span>
           <span class="button"><g:actionSubmit class="delete" onclick="return confirm(message(code:'confirm',default:'Are you sure?'));" value="${message(code:'action.delete',default:'Delete')}" /></span>
         </g:form>
       </div>

@@ -81,13 +81,13 @@ class MappeController {
 			def (file, success) = mappeService.update(params)
 			if(success) {
 				withFormat{
-					html{ render(view:"show",[ basismappeInstance : file ])}
+					html{ render(view:"show",model: [ basismappeInstance : file ])}
 					xml { render file as XML }
 				}
 		
 			} else {
 				withFormat{
-					html{ render(view:"edit",[ basismappeInstance : file ])}
+					html{ render(view:"edit", model: [ basismappeInstance : file ])}
 					xml { render text:"<errors>${file.errors}</errors>", contentType:"text/xml",encoding:"UTF-8" }
 				}
 	
@@ -106,7 +106,7 @@ class MappeController {
             flash.message = "Mappe ${mappeInstance.id} created"
             withFormat {
                 html {
-                    render(view:"show",[ basismappeInstance : mappeInstance ])
+                    render view:"show", model: [basismappeInstance: mappeInstance ]
                 }
                 xml {
                     render mappeInstance as XML
