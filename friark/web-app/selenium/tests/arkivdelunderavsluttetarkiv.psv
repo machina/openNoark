@@ -1,11 +1,10 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
 open|/friark/arkiv/create|
 include|/friark/selenium/tests/inc/create_arkiv.html|name=Avsluttet arkiv
-verifyTextPresent|Arkiv opprettet|
 open|/friark/arkiv/list|
 clickAndWait|link=Avsluttet arkiv|
 clickAndWait|_action_Edit|
-select|fondsStatus|label=Avsluttet
+select|fondsStatus|index=1
 clickAndWait|save|
 verifyTextPresent|Avsluttet|
 include|/friark/selenium/tests/inc/create_arkivdel.html|name=test akrivdel

@@ -90,7 +90,7 @@ class MappeService {
 
 		
 		private def checkSeries(params, mappe){
-			if(mappe.recordSection.recordSectionStatus == "Opprettet" && (mappe.recordSection.periodStatus == null  || mappe.recordSection.periodStatus == "Aktiv periode")){
+			if(mappe.recordSection.recordSectionStatus == "Opprettet"  && (mappe.recordSection.periodStatus == null  || mappe.recordSection.periodStatus == "Aktiv periode")){
 				mappe.recordSection.addToFile(mappe)
 				return [true]
 			}

@@ -5,7 +5,7 @@ include|/friark/selenium/tests/inc/create_mappe.html|name=avs_mappe_besk,desc=aa
 verifyTextPresent|created|
 clickAndWait|_action_Edit|
 select|finalisedDate_day|label=1
-select|finalisedDate_month|label=January
+select|finalisedDate_month|index=1
 select|finalisedDate_year|label=1991
 clickAndWait|_action_Update|
 open|/friark/registrering/create|

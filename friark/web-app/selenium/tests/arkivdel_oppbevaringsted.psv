@@ -6,7 +6,7 @@ include|/friark/selenium/tests/inc/create_arkivdel.html|name=dall,desc=arkivdel 
 clickAndWait|link=Arkivdeler|
 clickAndWait|link=dall|
 clickAndWait|_action_Edit|
-clickAndWait|link=Håndter oppbevaringsted|
+clickAndWait|link=Handle storage locations|
 type|sted|hei
 clickAndWait|save|
 verifyTextPresent|hei|
@@ -22,7 +22,7 @@ verifyTextPresent|hei|
 verifyTextPresent|på|
 verifyTextPresent|deg|
 clickAndWait|_action_Edit|
-clickAndWait|link=Håndter oppbevaringsted|
+clickAndWait|link=Handle storage locations|
 clickAndWait|document.forms[1].elements[2]|
 clickAndWait|document.forms[1].elements[2]|
 verifyTextNotPresent|på|

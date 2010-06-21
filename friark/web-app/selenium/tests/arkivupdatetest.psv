@@ -1,6 +1,5 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
 include|/friark/selenium/tests/inc/create_arkiv.html|name=Test Arkiv oppdat
-verifyTextPresent|Arkiv opprettet|
 verifyTextPresent|Test Arkiv oppdat|
 verifyTextPresent||Opprettet|
 open|/friark/arkiv/list|
@@ -16,12 +15,12 @@ open|/friark/arkiv/list|
 verifyTextPresent|Test Arkiv oppdatert|
 clickAndWait|link=Test Arkiv oppdatert|
 clickAndWait|_action_Edit|
-select|fondsStatus|label=Avsluttet
+select|fondsStatus|index=1
 clickAndWait|save|
 verifyTextPresent|Avsluttet|
 open|/friark/arkiv/list|
 clickAndWait|link=Test Arkiv oppdatert|
 clickAndWait|_action_Edit|
-select|fondsStatus|label=Opprettet
+select|fondsStatus|index=0
 clickAndWait|save|
 verifyTextPresent|error|

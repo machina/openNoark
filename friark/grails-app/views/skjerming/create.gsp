@@ -21,7 +21,7 @@
                 <g:renderErrors bean="${skjermingInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" method="post" >
+            <g:form action="save" method="post"> 
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -75,7 +75,7 @@
                                     <label for="screeningCeasesDate">Klasser:</label>
                                 </td>
                                 <td valign="top" class="value">
-																		<friark:mselect id="klasser" name="klasser" type="select" from="${Klass.list()}"/> 
+																		<friark:mselect id="klasser" name="klasser" type="select" from="${Klass.list()}"/>  
                                 </td>
                             </tr> 
  
@@ -86,7 +86,7 @@
                 <div class="buttons">
                     <span class="button"><input class="save" type="submit" value="Create" /></span>
                 </div>
-            </g:form>
+            </g:form> 
         </div>
     </body>
 </html>

@@ -123,8 +123,8 @@ class RegistreringService {
 	def fixParams(def params){
 		if(params.simplifiedRecord) params = params.simplifiedRecord
 		commonService.trimAll(params)
-		params.parentFile = BasicFile.get(params.'parentFile.id')
-		params.archivedDate = Date.parse("yyyy-MM-dd hh:mm:ss.SSS z" ,params.archivedDate)
+		if(params.'parentFile.id' != null && params.'parentFile.id' != "null") params.parentFile = BasicFile.get(params.'parentFile.id')
+		if(params.archivedDate instanceof String) params.archivedDate = Date.parse("yyyy-MM-dd hh:mm:ss.SSS z" ,params.archivedDate)
 		return params
 	}
 

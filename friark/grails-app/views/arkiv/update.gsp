@@ -42,7 +42,7 @@
 
       <tr>
         <td><label for="fondsStatus"><g:message code="status" default="Status"/></label></td>
-        <td><g:select name="fondsStatus" value="${arkiv.fondsStatus}" from="${[message(code:'created'),message(code:'closed')]}"></g:select></td>
+        <td><g:select name="fondsStatus" optionKey="value" optionValue:"msg" value="${arkiv.fondsStatus}" from="${[[value: 'Opprettet', msg: message(code:'created')],[value: 'Avsluttet', msg: message(code:'closed')]]}"></g:select></td>
       </tr>
 
       <tr>

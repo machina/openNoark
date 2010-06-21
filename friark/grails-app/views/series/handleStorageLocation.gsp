@@ -13,7 +13,7 @@
     </ul>
   </g:if>
   <table>
-    <g:each in="${arkivdel.oppbevaringssted}" var="sted">
+    <g:each in="${arkivdel.storageLocation}" var="sted">
       <g:form action="fjernOppbevaringsted">
         <g:hiddenField name="arkivdelid" value="${arkivdel.id}" />
         <g:hiddenField name="sted" value="${sted}" />
@@ -27,7 +27,7 @@
       <g:hiddenField name="arkivdelid" value="${arkivdel.id}" />
       <tr class="prop">
         <td class="top"><g:textField name="sted" /></td>
-      <td><span class="button"><g:submitButton name="save" value="${messages(code:'actions.save')}"/></span></td>
+      <td><span class="button"><g:submitButton name="save" value="${message(code:'actions.save')}"/></span></td>
       </tr>
     </g:form>
   </table>

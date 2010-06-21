@@ -11,7 +11,7 @@
 // }
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
-grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
+grails.mime.types = [ html: ['text/html','application/xhtml+xml', 'application/x-www-form-urlencoded'],
                       xml: ['text/xml', 'application/xml'],
                       text: 'text/plain',
                       js: 'text/javascript',
@@ -21,7 +21,7 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
                       csv: 'text/csv',
                       all: '*/*',
                       json: ['application/json','text/json'],
-                      form: 'application/x-www-form-urlencoded',
+                      //form: 'application/x-www-form-urlencoded',
                       multipartForm: 'multipart/form-data'
                     ]
 // The default codec used to encode data with ${}

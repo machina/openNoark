@@ -25,8 +25,8 @@
       </tr>
 
        <tr>
-        <td><label for="fondsStatus"><g:message code="status" default="Status"/></label></td>
-        <td><g:select name="fondsStatus" value="${arkiv.fondsStatus}" from="${[message(code:'created'),message(code:'closed')]}"></g:select></td>
+        <td><label for="recordSectionStatus"><g:message code="status" default="Status"/></label></td>
+        <td><g:select optionKey="val" optionValue="msg" name="recordSectionStatus" value="${arkivdel.recordSectionStatus}" from="${[[val: 'Opprettet', msg: message(code:'created')],[val: 'Avsluttet', msg: message(code:'closed')]]}"></g:select></td>
       </tr>
       
       <tr class="prop">
@@ -38,7 +38,7 @@
             <g:each in="${arkivdel.storageLocation}" var="sted">
               <li>${sted}</li>
             </g:each>
-            <li><g:link action="håndterOppbevaringsted" id="${arkivdel.id}"><g:message code="series.handle.storage.lcations" default="Handle storage locations"/></g:link></li>
+            <li><g:link action="handleStorageLocation" id="${arkivdel.id}"><g:message code="series.handle.storage.lcations" default="Handle storage locations"/></g:link></li>
           </ul>
         </td>
       </tr>
