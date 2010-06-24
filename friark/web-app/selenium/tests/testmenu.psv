@@ -1,17 +1,17 @@
 include|/friark/selenium/tests/inc/clear_and_login.html
 clickAndWait|link=Fonds|
 verifyTextPresent|Fonds|
-clickAndWait|link=Arkivdeler|
-verifyTextPresent|Arkivdeler|
-clickAndWait|link=ClassificationSystemer|
-verifyTextPresent|ClassificationSystemer|
-clickAndWait|link=Klasser|
+clickAndWait|link=Series|
+verifyTextPresent|Series|
+clickAndWait|link=Classification systems|
+verifyTextPresent|ClassificationSystem|
+clickAndWait|link=Classes|
 verifyTextPresent|Klasse|
-clickAndWait|link=Mapper|
+clickAndWait|link=Files|
 verifyTextPresent|Basismappe|
-clickAndWait|link=Dokumentobjekter|
+clickAndWait|link=Document objects|
 verifyTextPresent|Dokumentobjekt|
-clickAndWait|link=Dokumentbeskrivelser|
-verifyTextPresent|Dokumentbeskrivelse|
-clickAndWait|link=Brukeradministrasjon|
+clickAndWait|link=Document descriptions|
+verifyTextPresent|Documentdescription|
+clickAndWait|link=User administration|
 verifyTextPresent|Bruker|

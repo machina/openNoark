@@ -9,4 +9,4 @@ clickAndWait|link=Klasse List|
 include|/friark/selenium/tests/inc/create_arkiv.html|name=dilldall,medium=html
 include|/friark/selenium/tests/inc/create_arkivdel.html|name=dill,desc=arkivdel for dill,medium=email
 include|/friark/selenium/tests/inc/create_arkivdel.html|name=dall,desc=arkivdel for dall,medium=email
-clickAndWait|link=Arkivdeler|
+clickAndWait|link=Series|

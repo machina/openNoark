@@ -9,7 +9,7 @@ clickAndWait|link=Rediger keyword|
 type|//input[@id='new']|tre
 clickAndWait|_action_Update|
 verifyTextPresent|tre|
-clickAndWait|link=Klasser|
+clickAndWait|link=Classes|
 clickAndWait|link=${klasseid}|
 verifyTextPresent|to|
 verifyTextPresent|tre|
@@ -20,7 +20,7 @@ clickAndWait|//a[contains(@href, 'ord=to')]|
 verifyTextNotPresent|to Delete|
 clickAndWait|//a[contains(@href, 'ord=tre')]|
 assertTextNotPresent|tre|
-clickAndWait|link=Klasser|
+clickAndWait|link=Classes|
 clickAndWait|link=${klasseid}|
 verifyTextNotPresent|tre|
 verifyTextPresent|en|

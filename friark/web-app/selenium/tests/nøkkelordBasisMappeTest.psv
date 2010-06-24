@@ -9,7 +9,7 @@ clickAndWait|link=Rediger nøkkelord|
 type|new|nøkkeltre
 clickAndWait|_action_Update|
 verifyTextPresent|nøkkeltre|
-clickAndWait|link=Mapper|
+clickAndWait|link=Files|
 clickAndWait|//td[1]/a|
 verifyTextPresent|nøkkelen|
 verifyTextPresent|nøkkelto|
@@ -18,7 +18,7 @@ clickAndWait|_action_Edit|
 clickAndWait|link=Rediger nøkkelord|
 clickAndWait|//a[contains(@href, 'ord=n%C3%B8kkelto')]|
 clickAndWait|//a[contains(@href, 'ord=n%C3%B8kkeltre')]|
-clickAndWait|link=Mapper|
+clickAndWait|link=Files|
 clickAndWait|//td[1]/a|
 verifyTextPresent|nøkkelen|
 verifyTextNotPresent|nøkkelto|

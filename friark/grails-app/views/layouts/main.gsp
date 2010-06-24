@@ -53,58 +53,58 @@
               <div class="leftmenumid">
                 <ul class="leftmenuUl">
                   <li class="leftmenuitem">
- 										<a href="/friark/search">Søk i metadata</a>                 
+ 										<a href="/friark/search">Search metadata</a>                 
 									</li>
                   <li class="leftmenuitem">
-                  	<a href="/friark/search/docSearch">Søk i dokumenter</a>
+                  	<a href="/friark/search/docSearch">Search documents</a>
 									</li>
   	              <li class="leftmenuitem">
             				<a href="/friark/arkiv/index">Fonds</a>
 									</li>
   	              <li class="leftmenuitem">
-                  	<a href="/friark/series/index">Arkivdeler</a>
+                  	<a href="/friark/series/index">Series</a>
 		 							</li>
 									<li class="leftmenuitem">
-            				<a href="/friark/fondsCreator">FondsCreator</a>
+            				<a href="/friark/arkivskaper">Fonds creators</a>
 									</li>
         	        <li class="leftmenuitem">
-                  	<a href="/friark/classificationSystem/index">ClassificationSystemer</a>
+                  	<a href="/friark/classificationSystem/index">Classification systems</a>
 									</li>
               	  <li class="leftmenuitem">
-                  	<a href="/friark/klass/index">Klasser</a>
+                  	<a href="/friark/klass/index">Classes</a>
 									</li>
     	            <li class="leftmenuitem">
-                  	<a href="/friark/mappe/index">Mapper</a>
+                  	<a href="/friark/mappe/index">Files</a>
 									</li>
 									<li class="leftmenuitem">
-                    <a href="/friark/client/index">Korrespondansepart</a>
+                    <a href="/friark/client/index">Clients</a>
                   </li>
 									<li class="leftmenuitem">
-                    <a href="/friark/saksansvar/index">Saksansvar</a>
+                    <a href="/friark/saksansvar/index">Case responsibilities</a>
                   </li>
     	            <li class="leftmenuitem">
-                  	<a href="/friark/skjerming/index">Skjerming</a>
+                  	<a href="/friark/skjerming/index">Screenings</a>
 									</li>
         	        <li class="leftmenuitem">
-                 		<a href="/friark/documentLink/index">Dokumentlinker</a>
+                 		<a href="/friark/documentLink/index">Document links</a>
 									</li>
               	  <li class="leftmenuitem">
-                  	<a href="/friark/documentObject/index">Dokumentobjekter</a>
+                  	<a href="/friark/documentObject/index">Document objects</a>
 									</li>
     	            <li class="leftmenuitem">
-                  	<a href="/friark/documentDescription/index">Dokumentbeskrivelser</a>
+                  	<a href="/friark/documentDescription/index">Document descriptions</a>
 									</li>
           	      <li class="leftmenuitem">
-                  	<a href="/friark/user/index">Brukeradministrasjon</a>
+                  	<a href="/friark/user/index">User administration</a>
 									</li>
 	                <li class="leftmenuitem">
-                  	<a href="/friark/merknad/list">Merknad</a>
+                  	<a href="/friark/merknad/list">Remarks</a>
 									</li>
       	          <li class="leftmenuitem">
-                  	<a href="/friark/kryssreferanse/list">Kryssreferanser</a>
+                  	<a href="/friark/kryssreferanse/list">Cross references</a>
 									</li>
 	                <li class="leftmenuitem">
-                  	<a href="/friark/preservationAndDisposal">Bevaring og kassasjon</a>
+                  	<a href="/friark/preservationAndDisposal">Preservations and disposals</a>
 									</li>
       	          <li class="leftmenuitem">
                   	<a href="/friark/auditLogEvent/list">Log</a>

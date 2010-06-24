@@ -3,7 +3,7 @@ clickAndWait|link=Fonds|
 include|/friark/selenium/tests/inc/create_arkiv.html|name=dilldall
 include|/friark/selenium/tests/inc/create_arkivdel.html|name=dill,desc=arkivdel for dill,medium=email
 include|/friark/selenium/tests/inc/create_arkivdel.html|name=dall,desc=arkivdel for dall,medium=email
-clickAndWait|link=Arkivdeler|
+clickAndWait|link=Series|
 clickAndWait|link=dall|
 clickAndWait|_action_Edit|
 clickAndWait|link=Handle storage locations|
@@ -16,7 +16,7 @@ verifyTextPresent|på|
 type|//input[@id='sted' and @name='sted' and @value='']|deg
 clickAndWait|save|
 verifyTextPresent|deg|
-clickAndWait|link=Arkivdeler|
+clickAndWait|link=Series|
 clickAndWait|link=dall|
 verifyTextPresent|hei|
 verifyTextPresent|på|
@@ -27,7 +27,7 @@ clickAndWait|document.forms[1].elements[2]|
 clickAndWait|document.forms[1].elements[2]|
 verifyTextNotPresent|på|
 verifyTextNotPresent|deg|
-clickAndWait|link=Arkivdeler|
+clickAndWait|link=Series|
 clickAndWait|link=dall|
 verifyTextNotPresent|på|
 verifyTextNotPresent|deg|
