@@ -27,19 +27,19 @@
 
               <tr class="prop">
                 <td valign="top" class="name">
-                  <label for="fondsCreatorid"><g:message code="id" default="ID"/>:</label>
+                  <label for="fondsCreatorID"><g:message code="id" default="ID"/>:</label>
                 </td>
-                <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'fondsCreatorid','errors')}">
-                  <input type="text" id="fondsCreatorid" name="fondsCreatorid" value="${fieldValue(bean:fondsCreatorInstance,field:'fondsCreatorid')}"/>
+                <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'fondsCreatorID','errors')}">
+                  <input type="text" id="fondsCreatorID" name="fondsCreatorID" value="${fieldValue(bean:fondsCreatorInstance,field:'fondsCreatorID')}"/>
                 </td>
               </tr>
 
               <tr class="prop">
                 <td valign="top" class="name">
-                  <label for="fondsCreatornavn"><g:message code="name" default="Name"/>:</label>
+                  <label for="fondsCreatorName"><g:message code="name" default="Name"/>:</label>
                 </td>
-                <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'fondsCreatornavn','errors')}">
-                  <input type="text" id="fondsCreatornavn" name="fondsCreatornavn" value="${fieldValue(bean:fondsCreatorInstance,field:'fondsCreatornavn')}"/>
+                <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'fondsCreatorName','errors')}">
+                  <input type="text" id="fondsCreatorName" name="fondsCreatorName" value="${fieldValue(bean:fondsCreatorInstance,field:'fondsCreatorName')}"/>
                 </td>
               </tr>
 

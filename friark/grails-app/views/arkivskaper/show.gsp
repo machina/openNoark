@@ -29,13 +29,13 @@
 
             <tr class="prop">
               <td valign="top" class="name"><g:message code="fondscreator.id" default="FondsCreatorID"/>:</td>
-              <td valign="top" class="value">${fieldValue(bean:fondsCreatorInstance, field:'fondsCreatorid')}</td>
+              <td valign="top" class="value">${fieldValue(bean:fondsCreatorInstance, field:'fondsCreatorID')}</td>
 
             </tr>
 
             <tr class="prop">
               <td valign="top" class="name"><g:message code="name" default="Name"/>:</td>
-              <td valign="top" class="value">${fieldValue(bean:fondsCreatorInstance, field:'fondsCreatornavn')}</td>
+              <td valign="top" class="value">${fieldValue(bean:fondsCreatorInstance, field:'fondsCreatorName')}</td>
 
             </tr>
 
@@ -51,7 +51,7 @@
 
               <td  valign="top" style="text-align:left;" class="value">
                 <ul>
-                  <g:each var="a" in="${fondsCreatorInstance.arkiv}">
+                  <g:each var="a" in="${fondsCreatorInstance.fonds}">
                     <li><g:link controller="arkiv" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
                   </g:each>
                 </ul>

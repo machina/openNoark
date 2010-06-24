@@ -22,7 +22,7 @@ package no.friark.ds
 /**
 * CRUD opereasjoner for arkivskapere.
 */
-class FondsCreatorController {
+class ArkivskaperController {
     
     def index = { redirect(action:list,params:params) }
 
@@ -31,24 +31,24 @@ class FondsCreatorController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ arkivskaperInstanceList: FondsCreator.list( params ), arkivskaperInstanceTotal: FondsCreator.count() ]
+        [ fondsCreatorInstanceList: FondsCreator.list( params ), fondsCreatorInstanceTotal: FondsCreator.count() ]
    }
 
     def show = {
-        def arkivskaperInstance = FondsCreator.get( params.id )
+        def fondsCreatorInstance = FondsCreator.get( params.id )
 
-        if(!arkivskaperInstance) {
+        if(!fondsCreatorInstance) {
             flash.message = "FondsCreator not found with id ${params.id}"
             redirect(action:list)
        }
-        else { return [ arkivskaperInstance : arkivskaperInstance ] }
+        else { return [ fondsCreatorInstance : fondsCreatorInstance ] }
    }
 
     def delete = {
-        def arkivskaperInstance = FondsCreator.get( params.id )
-        if(arkivskaperInstance) {
+        def fondsCreatorInstance = FondsCreator.get( params.id )
+        if(fondsCreatorInstance) {
             try {
-                arkivskaperInstance.delete(flush:true)
+                fondsCreatorInstance.delete(flush:true)
                 flash.message = "FondsCreator ${params.id} deleted"
                 redirect(action:list)
            }
@@ -64,36 +64,36 @@ class FondsCreatorController {
    }
 
     def edit = {
-        def arkivskaperInstance = FondsCreator.get( params.id )
+        def fondsCreatorInstance = FondsCreator.get( params.id )
 
-        if(!arkivskaperInstance) {
+        if(!fondsCreatorInstance) {
             flash.message = "FondsCreator not found with id ${params.id}"
             redirect(action:list)
        }
         else {
-            return [ arkivskaperInstance : arkivskaperInstance ]
+            return [ fondsCreatorInstance : fondsCreatorInstance ]
        }
    }
 
     def update = {
-        def arkivskaperInstance = FondsCreator.get( params.id )
-        if(arkivskaperInstance) {
+        def fondsCreatorInstance = FondsCreator.get( params.id )
+        if(fondsCreatorInstance) {
             if(params.version) {
                 def version = params.version.toLong()
-                if(arkivskaperInstance.version > version) {
+                if(fondsCreatorInstance.version > version) {
                     
-                    arkivskaperInstance.errors.rejectValue("version", "arkivskaper.optimistic.locking.failure", "Another user has updated this FondsCreator while you were editing.")
-                    render(view:'edit',model:[arkivskaperInstance:arkivskaperInstance])
+                    fondsCreatorInstance.errors.rejectValue("version", "arkivskaper.optimistic.locking.failure", "Another user has updated this FondsCreator while you were editing.")
+                    render(view:'edit',model:[fondsCreatorInstance:fondsCreatorInstance])
                     return
                }
            }
-            arkivskaperInstance.properties = params
-            if(!arkivskaperInstance.hasErrors() && arkivskaperInstance.save()) {
+            fondsCreatorInstance.properties = params
+            if(!fondsCreatorInstance.hasErrors() && fondsCreatorInstance.save()) {
                 flash.message = "FondsCreator ${params.id} updated"
-                redirect(action:show,id:arkivskaperInstance.id)
+                redirect(action:show,id:fondsCreatorInstance.id)
            }
             else {
-                render(view:'edit',model:[arkivskaperInstance:arkivskaperInstance])
+                render(view:'edit',model:[fondsCreatorInstance:fondsCreatorInstance])
            }
        }
         else {
@@ -103,19 +103,19 @@ class FondsCreatorController {
    }
 
     def create = {
-        def arkivskaperInstance = new FondsCreator()
-        arkivskaperInstance.properties = params
-        return ['arkivskaperInstance':arkivskaperInstance]
+        def fondsCreatorInstance = new FondsCreator()
+        fondsCreatorInstance.properties = params
+        return ['fondsCreatorInstance':fondsCreatorInstance]
    }
 
     def save = {
-        def arkivskaperInstance = new FondsCreator(params)
-        if(!arkivskaperInstance.hasErrors() && arkivskaperInstance.save()) {
-            flash.message = "FondsCreator ${arkivskaperInstance.id} created"
-            redirect(action:show,id:arkivskaperInstance.id)
+        def fondsCreatorInstance = new FondsCreator(params)
+        if(!fondsCreatorInstance.hasErrors() && fondsCreatorInstance.save()) {
+            flash.message = "FondsCreator ${fondsCreatorInstance.id} created"
+            redirect(action:show,id:fondsCreatorInstance.id)
        }
         else {
-            render(view:'create',model:[arkivskaperInstance:arkivskaperInstance])
+            render(view:'create',model:[fondsCreatorInstance:fondsCreatorInstance])
        }
    }
 }
