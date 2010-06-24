@@ -24,11 +24,11 @@
                         
                    	        <g:sortableColumn property="id" title="Id" />
                         
-                   	        <g:sortableColumn property="merknadstekst" title="Merknadstekst" />
+                   	        <g:sortableColumn property="remarkText" title="Merknadstekst" />
                         
-                   	        <g:sortableColumn property="merknadsdato" title="Merknadsdato" />
+                   	        <g:sortableColumn property="remarkDate" title="Merknadsdato" />
                         
-                   	        <g:sortableColumn property="merknadregistrertav" title="Merknadregistrertav" />
+                   	        <g:sortableColumn property="remarkRegisteredBy" title="Merknadregistrertav" />
                         
                    	        <th>Mappe</th>
                    	    
@@ -42,15 +42,15 @@
                         
                             <td><g:link action="show" id="${merknadInstance.id}">${fieldValue(bean:merknadInstance, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:merknadInstance, field:'merknadstekst')}</td>
+                            <td>${fieldValue(bean:merknadInstance, field:'remarkText')}</td>
                         
-                            <td>${fieldValue(bean:merknadInstance, field:'merknadsdato')}</td>
+                            <td>${fieldValue(bean:merknadInstance, field:'remarkDate')}</td>
                         
-                            <td>${fieldValue(bean:merknadInstance, field:'merknadregistrertav')}</td>
+                            <td>${fieldValue(bean:merknadInstance, field:'remarkRegisteredBy')}</td>
                         
-                            <td>${fieldValue(bean:merknadInstance, field:'mappe')}</td>
+                            <td>${fieldValue(bean:merknadInstance, field:'basicFile')}</td>
                         
-                            <td>${fieldValue(bean:merknadInstance, field:'basisRegistrering')}</td>
+                            <td>${fieldValue(bean:merknadInstance, field:'basicRecord')}</td>
                         
                         </tr>
                     </g:each>

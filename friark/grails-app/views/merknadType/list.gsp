@@ -24,7 +24,7 @@
                         
                    	        <g:sortableColumn property="id" title="Id" />
                         
-                   	        <g:sortableColumn property="navn" title="Navn" />
+                   	        <g:sortableColumn property="name" title="Navn" />
                         
                         </tr>
                     </thead>
@@ -34,7 +34,7 @@
                         
                             <td><g:link action="show" id="${merknadTypeInstance.id}">${fieldValue(bean:merknadTypeInstance, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:merknadTypeInstance, field:'navn')}</td>
+                            <td>${fieldValue(bean:merknadTypeInstance, field:'name')}</td>
                         
                         </tr>
                     </g:each>

@@ -33,49 +33,49 @@
                         <tr class="prop">
                             <td valign="top" class="name">Merknadstekst:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:merknadInstance, field:'merknadstekst')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:merknadInstance, field:'remarkText')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Merknadsdato:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:merknadInstance, field:'merknadsdato')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:merknadInstance, field:'remarkDate')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Merknadregistrertav:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:merknadInstance, field:'merknadregistrertav')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:merknadInstance, field:'remarkRegisteredBy')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Mappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${merknadInstance?.mappe?.id}">${merknadInstance?.mappe?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="basisbasicFile" action="show" id="${merknadInstance?.basicFile?.id}">${merknadInstance?.basicFile?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Basis Registrering:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basisregistrering" action="show" id="${merknadInstance?.basisRegistrering?.id}">${merknadInstance?.basisRegistrering?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="basisregistrering" action="show" id="${merknadInstance?.basicRecord?.id}">${merknadInstance?.basicRecord?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Dokument Beskrivelse:</td>
                             
-                            <td valign="top" class="value"><g:link controller="dokumentdescription" action="show" id="${merknadInstance?.dokumentBeskrivelse?.id}">${merknadInstance?.dokumentBeskrivelse?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="dokumentdescription" action="show" id="${merknadInstance?.documentDescription?.id}">${merknadInstance?.documentDescription?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Merknadstype:</td>
                             
-                            <td valign="top" class="value"><g:link controller="merknadType" action="show" id="${merknadInstance?.merknadstype?.id}">${merknadInstance?.merknadstype?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="merknadType" action="show" id="${merknadInstance?.remarkType?.id}">${merknadInstance?.remarkType?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     

@@ -33,7 +33,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Navn:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:merknadTypeInstance, field:'navn')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:merknadTypeInstance, field:'name')}</td>
                             
                         </tr>
                     
@@ -42,7 +42,7 @@
                             
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
-                                <g:each var="m" in="${merknadTypeInstance.merknad}">
+                                <g:each var="m" in="${merknadTypeInstance.remark}">
                                     <li><g:link controller="merknad" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>

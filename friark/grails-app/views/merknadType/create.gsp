@@ -29,10 +29,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="navn">Navn:</label>
+                                    <label for="name">Navn:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadTypeInstance,field:'navn','errors')}">
-                                    <input type="text" id="navn" name="navn" value="${fieldValue(bean:merknadTypeInstance,field:'navn')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:merknadTypeInstance,field:'name','errors')}">
+                                    <input type="text" id="name" name="name" value="${fieldValue(bean:merknadTypeInstance,field:'name')}"/>
                                 </td>
                             </tr> 
                         
