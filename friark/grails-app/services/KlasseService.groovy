@@ -49,7 +49,9 @@ class KlasseService {
 		
   
 			//printl  "params.preservationAndDisposal ${params.preservationAndDisposal}"
+			if(params.finalisedDate_year == "") params.finalisedDate = null
 			klasseInstance.properties = params
+
 			if(klasseInstance.finalisedDate != null){
 				klasseInstance.avsluttetav = SecurityUtils.subject.principal
 			}
