@@ -49,10 +49,10 @@
         <td valign="top" class="value ${hasErrors(bean:arkivdel,field:'referansemappe','errors')}">
           <ul>
             <g:each var="r" in="${arkivdel?.file}">
-              <li><g:link controller="basismappe" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+              <li><g:link controller="mappe" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
             </g:each>
           </ul>
-      <g:link controller="basismappe" params="['arkivdelid':arkivdel?.id]" action="create"><g:message code="action.create" default="Create"/></g:link>
+      <g:link controller="mappe" params="['arkivdelid':arkivdel?.id]" action="create"><g:message code="action.create" default="Create"/></g:link>
       </td>
       </tr>
       <tr>

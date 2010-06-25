@@ -113,7 +113,7 @@
             <td valign="top" class="name"><g:message code="files" default="Files"/>:</td>
           <td valign="top" class="value"><ul>
               <g:each in="${arkivdel.file}" var="mappe">
-                <li><g:link controller="basismappe" action="show" id="${mappe.id}">${mappe.title}</g:link></li>
+                <li><g:link controller="mappe" action="show" id="${mappe.id}">${mappe.title}</g:link></li>
               </g:each></ul>
           </td>
           </tr>

@@ -46,7 +46,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Referanseparent Basismappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${forenkletRegistreringInstance?.parentFile?.id}">${forenkletRegistreringInstance?.parentFile?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="mappe" action="show" id="${forenkletRegistreringInstance?.parentFile?.id}">${forenkletRegistreringInstance?.parentFile?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     

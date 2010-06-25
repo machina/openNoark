@@ -47,14 +47,14 @@
                         <tr class="prop">
                             <td valign="top" class="name">Fra Mappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${kryssreferanseInstance?.fraMappe?.id}">${kryssreferanseInstance?.fraMappe?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="mappe" action="show" id="${kryssreferanseInstance?.fraMappe?.id}">${kryssreferanseInstance?.fraMappe?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Til Mappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${kryssreferanseInstance?.tilMappe?.id}">${kryssreferanseInstance?.tilMappe?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="mappe" action="show" id="${kryssreferanseInstance?.tilMappe?.id}">${kryssreferanseInstance?.tilMappe?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     

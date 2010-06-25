@@ -171,10 +171,10 @@
                                     
 <ul>
 <g:each var="r" in="${basismappeInstance?.childFile?}">
-    <li><g:link controller="basismappe" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="mappe" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
-<g:link controller="basismappe" params="['basismappe.id':basismappeInstance?.id]" action="create">Add Basismappe</g:link>
+<g:link controller="mappe" params="['basismappe.id':basismappeInstance?.id]" action="create">Add Basismappe</g:link>
 
                                 </td>
                             </tr>  --%>
