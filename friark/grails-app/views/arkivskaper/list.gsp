@@ -21,8 +21,8 @@
           <thead>
             <tr>
           <g:sortableColumn property="id" title="${message(code:'id')}" />
-          <g:sortableColumn property="fondsCreatorid" title="${message(code:'id')}" />
-          <g:sortableColumn property="fondsCreatornavn" title="${message(code:'name')}" />
+          <g:sortableColumn property="fondsCreatorID" title="${message(code:'id')}" />
+          <g:sortableColumn property="fondsCreatorName" title="${message(code:'name')}" />
           <g:sortableColumn property="description" title="${message(code:'description')}" />
 
           </tr>
@@ -32,8 +32,8 @@
             <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
               <td><g:link action="show" id="${fondsCreatorInstance.id}">${fieldValue(bean:fondsCreatorInstance, field:'id')}</g:link></td>
-              <td>${fieldValue(bean:fondsCreatorInstance, field:'fondsCreatorid')}</td>
-              <td>${fieldValue(bean:fondsCreatorInstance, field:'fondsCreatornavn')}</td>
+              <td>${fieldValue(bean:fondsCreatorInstance, field:'fondsCreatorID')}</td>
+              <td>${fieldValue(bean:fondsCreatorInstance, field:'fondsCreatorName')}</td>
               <td>${fieldValue(bean:fondsCreatorInstance, field:'description')}</td>
 
             </tr>

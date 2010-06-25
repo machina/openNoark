@@ -18,7 +18,7 @@
 
 import no.friark.ds.*
 /**
-* CRUD-operajoner for MerknadType
+* CRUD-operajoner for RemarkType
 *
 * @author Kent Inge Fagerland Simonsen
 */
@@ -31,43 +31,43 @@ class MerknadTypeController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ merknadTypeInstanceList: MerknadType.list( params ), merknadTypeInstanceTotal: MerknadType.count() ]
+        [ merknadTypeInstanceList: RemarkType.list( params ), merknadTypeInstanceTotal: MerknadType.count() ]
    }
 
     def show = {
-        def merknadTypeInstance = MerknadType.get( params.id )
+        def merknadTypeInstance = RemarkType.get( params.id )
 
         if(!merknadTypeInstance) {
-            flash.message = "MerknadType not found with id ${params.id}"
+            flash.message = "RemarkType not found with id ${params.id}"
             redirect(action:list)
        }
         else { return [ merknadTypeInstance : merknadTypeInstance ] }
    }
 
     def delete = {
-        def merknadTypeInstance = MerknadType.get( params.id )
+        def merknadTypeInstance = RemarkType.get( params.id )
         if(merknadTypeInstance) {
             try {
                 merknadTypeInstance.delete(flush:true)
-                flash.message = "MerknadType ${params.id} deleted"
+                flash.message = "RemarkType ${params.id} deleted"
                 redirect(action:list)
            }
             catch(org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "MerknadType ${params.id} could not be deleted"
+                flash.message = "RemarkType ${params.id} could not be deleted"
                 redirect(action:show,id:params.id)
            }
        }
         else {
-            flash.message = "MerknadType not found with id ${params.id}"
+            flash.message = "RemarkType not found with id ${params.id}"
             redirect(action:list)
        }
    }
 
     def edit = {
-        def merknadTypeInstance = MerknadType.get( params.id )
+        def merknadTypeInstance = RemarkType.get( params.id )
 
         if(!merknadTypeInstance) {
-            flash.message = "MerknadType not found with id ${params.id}"
+            flash.message = "RemarkType not found with id ${params.id}"
             redirect(action:list)
        }
         else {
@@ -76,20 +76,20 @@ class MerknadTypeController {
    }
 
     def update = {
-        def merknadTypeInstance = MerknadType.get( params.id )
+        def merknadTypeInstance = RemarkType.get( params.id )
         if(merknadTypeInstance) {
             if(params.version) {
                 def version = params.version.toLong()
                 if(merknadTypeInstance.version > version) {
                     
-                    merknadTypeInstance.errors.rejectValue("version", "merknadType.optimistic.locking.failure", "Another user has updated this MerknadType while you were editing.")
+                    merknadTypeInstance.errors.rejectValue("version", "merknadType.optimistic.locking.failure", "Another user has updated this RemarkType while you were editing.")
                     render(view:'edit',model:[merknadTypeInstance:merknadTypeInstance])
                     return
                }
            }
             merknadTypeInstance.properties = params
             if(!merknadTypeInstance.hasErrors() && merknadTypeInstance.save()) {
-                flash.message = "MerknadType ${params.id} updated"
+                flash.message = "RemarkType ${params.id} updated"
                 redirect(action:show,id:merknadTypeInstance.id)
            }
             else {
@@ -97,7 +97,7 @@ class MerknadTypeController {
            }
        }
         else {
-            flash.message = "MerknadType not found with id ${params.id}"
+            flash.message = "RemarkType not found with id ${params.id}"
             redirect(action:list)
        }
    }
@@ -111,7 +111,7 @@ class MerknadTypeController {
     def save = {
         def merknadTypeInstance = new RemarkType(params)
         if(!merknadTypeInstance.hasErrors() && merknadTypeInstance.save()) {
-            flash.message = "MerknadType ${merknadTypeInstance.id} created"
+            flash.message = "RemarkType ${merknadTypeInstance.id} created"
             redirect(action:show,id:merknadTypeInstance.id)
        }
         else {

@@ -28,7 +28,7 @@
       </tr>
       <tr>
         <td><label for="fondsCreator"><g:message code="fonds.creator" default="Fonds creator"/></label></td>
-        <td><g:select name="fondsCreator" noSelection="${['':message(code:'select',default:'Select ...')]}" from='${FondsCreator.list()}' optionKey="id" optionValue="fondsCreatornavn"></g:select>
+        <td><g:select name="fondsCreator" noSelection="${['':message(code:'select',default:'Select ...')]}" from='${FondsCreator.list()}' optionKey="id" optionValue="fondsCreatorName"></g:select>
       </tr>
       <tr>
         <td><label for="parent"><g:message code="parent" default="Parent"/></label></td>

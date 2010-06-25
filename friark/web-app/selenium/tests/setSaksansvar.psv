@@ -16,5 +16,5 @@ type|contactPerson|fdsfds sdfdsfs
 type|administrativeUnit|admin enhet
 type|executiveOfficer|lvl 5 casehealer
 clickAndWait|//input[@value='Create']|
-clickAndWait|link=Saksansvar|
+clickAndWait|link=Case responsibilities|
 verifyElementPresent|//table/tbody/tr[1]|

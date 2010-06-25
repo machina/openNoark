@@ -15,5 +15,5 @@ type|postalTown|fdsfs
 type|foreignAddress|fdsfdsfsd
 type|contactPerson|fdsfds sdfdsfs
 clickAndWait|//input[@value='Create']|
-clickAndWait|link=Korrespondansepart|
+clickAndWait|link=Clients|
 verifyElementPresent|//table/tbody/tr[1]|

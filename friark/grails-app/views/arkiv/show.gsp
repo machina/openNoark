@@ -74,7 +74,7 @@
           <td valign="top" class="value"><g:if test="${arkiv.fondsCreator}">
             <ul>
               <g:each in="${arkiv.fondsCreator}" var="fondsCreator">
-                <li><g:link action="show" controller="fondsCreator" id="${fondsCreator.id}">${fondsCreator.fondsCreatornavn}</g:link></li>
+                <li><g:link action="show" controller="fondsCreator" id="${fondsCreator.id}">${fondsCreator.fondsCreatorName}</g:link></li>
               </g:each>
             </ul>
           </g:if></td>

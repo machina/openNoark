@@ -32,7 +32,7 @@
 
       <tr>
         <td><label for="fondsCreator"><g:message code="fonds.creator" default="Fonds creator"/></label></td>
-        <td><g:select name="fondsCreator" noSelection="${['':message(code:'select')]}" from='${FondsCreator.list()}' optionKey="id" optionValue="fondsCreatornavn"></g:select>
+        <td><g:select name="fondsCreator" noSelection="${['':message(code:'select')]}" from='${FondsCreator.list()}' optionKey="id" optionValue="fondsCreatorName"></g:select>
       </tr>
 
       <tr>

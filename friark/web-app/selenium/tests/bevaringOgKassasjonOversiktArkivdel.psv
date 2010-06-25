@@ -5,7 +5,7 @@ open|/friark/registrering/create|
 type|archivedBy|ad
 select|recordSection.id|label=regarkivdel_boko_ad
 clickAndWait|//input[@value='Create']|
-clickAndWait|link=Dokumentbeskrivelser|
+clickAndWait|link=Document descriptions|
 clickAndWait|link=New Documentdescription|
 type|documentType|ad
 type|documentStatus|ad
@@ -16,7 +16,7 @@ type|documentMedium|ad
 type|storageLocation|ad
 clickAndWait|//input[@value='Create']|
 include|/friark/selenium/tests/inc/create_documentLink.html|rec=index=1,desc=index=1,linkedAs=ad,linkedBy=ad,docNo=ad
-clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=Preservations and disposals|
 clickAndWait|link=New BevaringOgKassasjon|
 select|disposalDecision|label=Bevares
 type|disposalAuthority|ad
@@ -27,13 +27,13 @@ clickAndWait|link=Oversikt|
 select|til_year|label=2027
 clickAndWait|søk|
 verifyTextNotPresent|Treff|
-clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=Preservations and disposals|
 storeText|//td[1]|bevid
 clickAndWait|link=${bevid}|
 clickAndWait|link=Referanser|
 select|series.id|index=1
 clickAndWait|//input[@value='Legg til']|
-clickAndWait|link=Bevaring og kassasjon|
+clickAndWait|link=Preservations and disposals|
 clickAndWait|link=Oversikt|
 select|til_year|label=2035
 clickAndWait|søk|

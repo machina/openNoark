@@ -32,64 +32,64 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="merknadstekst">Merknadstekst:</label>
+                                    <label for="remarkText">Merknadstekst:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'merknadstekst','errors')}">
-                                    <input type="text" id="merknadstekst" name="merknadstekst" value="${fieldValue(bean:merknadInstance,field:'merknadstekst')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="merknadsdato">Merknadsdato:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'merknadsdato','errors')}">
-                                    <g:datePicker name="merknadsdato" value="${merknadInstance?.merknadsdato}" precision="minute" ></g:datePicker>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'remarkText','errors')}">
+                                    <input type="text" id="remarkText" name="remarkText" value="${fieldValue(bean:merknadInstance,field:'remarkText')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="merknadregistrertav">Merknadregistrertav:</label>
+                                    <label for="remarkDate">Merknadsdato:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'merknadregistrertav','errors')}">
-                                    <input type="text" id="merknadregistrertav" name="merknadregistrertav" value="${fieldValue(bean:merknadInstance,field:'merknadregistrertav')}"/>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="mappe">Mappe:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'mappe','errors')}">
-                                    <g:select optionKey="id" from="${Basismappe.list()}" name="mappe.id" value="${merknadInstance?.mappe?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'remarkDate','errors')}">
+                                    <g:datePicker name="remarkDate" value="${merknadInstance?.remarkDate}" precision="minute" ></g:datePicker>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="basisRegistrering">Basis Registrering:</label>
+                                    <label for="remarkRegisteredBy">Merknadregistrertav:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'basisRegistrering','errors')}">
-                                    <g:select optionKey="id" from="${Basisregistrering.list()}" name="basisRegistrering.id" value="${merknadInstance?.basisRegistrering?.id}" noSelection="['null':'']"></g:select>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="dokumentBeskrivelse">Dokument Beskrivelse:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'dokumentBeskrivelse','errors')}">
-                                    <g:select optionKey="id" from="${DocumentDescription.list()}" name="dokumentBeskrivelse.id" value="${merknadInstance?.dokumentBeskrivelse?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'remarkRegisteredBy','errors')}">
+                                    <input type="text" id="remarkRegisteredBy" name="remarkRegisteredBy" value="${fieldValue(bean:merknadInstance,field:'remarkRegisteredBy')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="merknadstype">Merknadstype:</label>
+                                    <label for="basicFile">Mappe:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'merknadstype','errors')}">
-                                    <g:select optionKey="id" from="${MerknadType.list()}" name="merknadstype.id" value="${merknadInstance?.merknadstype?.id}" ></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'basicFile','errors')}">
+                                    <g:select optionKey="id" from="${BasicFile.list()}" name="basicFile.id" value="${merknadInstance?.basicFile?.id}" noSelection="['null':'']"></g:select>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="basicRecord">Basis Registrering:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'basicRecord','errors')}">
+                                    <g:select optionKey="id" from="${BasicRecord.list()}" name="basicRecord.id" value="${merknadInstance?.basicRecord?.id}" noSelection="['null':'']"></g:select>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="documentDescription">Dokument Beskrivelse:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'documentDescription','errors')}">
+                                    <g:select optionKey="id" from="${DocumentDescription.list()}" name="documentDescription.id" value="${merknadInstance?.documentDescription?.id}" noSelection="['null':'']"></g:select>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="remarkType">Merknadstype:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:merknadInstance,field:'remarkType','errors')}">
+                                    <g:select optionKey="id" from="${RemarkType.list()}" name="remarkType.id" value="${merknadInstance?.remarkType?.id}" ></g:select>
                                 </td>
                             </tr> 
                         
