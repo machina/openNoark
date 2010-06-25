@@ -14,7 +14,7 @@
 					<ul class="searchResults">
 						<g:each var="result" in="${searchResult.results}" status="index">
 							<li>
-								<g:link action="show" id="${result.id}" controller="${result.getClass().getName().toLowerCase()}">${result}</g:link>
+								<g:link action="show" id="${result.id}" controller="${friark.controllerFor(obj:result)}">${result}</g:link>
 							</li>
 						</g:each>
 					</ul>			
