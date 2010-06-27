@@ -100,8 +100,11 @@
 	                <li class="leftmenuitem">
                   	<a href="/friark/merknad/list">Remarks</a>
 									</li>
+	                <li class="leftmenuitem">
+                  	<a href="/friark/merknadType/list">Remark types</a>
+									</li>
       	          <li class="leftmenuitem">
-                  	<a href="/friark/kryssreferanse/list">Cross references</a>
+                  	<a href="/friark/crossReference/list">Cross references</a>
 									</li>
 	                <li class="leftmenuitem">
                   	<a href="/friark/preservationAndDisposal">Preservations and disposals</a>
