@@ -94,7 +94,7 @@
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
                                 <g:each var="r" in="${preservationAndDisposalInstance.record}">
-                                    <li><g:link controller="forenkletRegistrering" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="registrering" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>

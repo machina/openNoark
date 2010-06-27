@@ -97,7 +97,7 @@
                     <g:each in="${liste}" var="dokumentdescriptionInstance" status="i">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:link action="show" controller="dokumentdescription" id="${dokumentdescriptionInstance.id}">${fieldValue(bean:dokumentdescriptionInstance, field:'id')}</g:link></td>
+                            <td><g:link action="show" controller="documentDescription" id="${dokumentdescriptionInstance.id}">${fieldValue(bean:dokumentdescriptionInstance, field:'id')}</g:link></td>
 
                             <td>${fieldValue(bean:dokumentdescriptionInstance, field:'systemID')}</td>
 
