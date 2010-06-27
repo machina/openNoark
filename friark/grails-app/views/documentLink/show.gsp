@@ -33,7 +33,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Referanseregistrering:</td>
                             
-                            <td valign="top" class="value"><g:link controller="forenkletRegistrering" action="show" id="${dokumentlinkInstance?.referenceRecord?.id}">${dokumentlinkInstance?.referenceRecord?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="registrering" action="show" id="${dokumentlinkInstance?.referenceRecord?.id}">${dokumentlinkInstance?.referenceRecord?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     

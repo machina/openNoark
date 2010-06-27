@@ -120,10 +120,10 @@
                                     
 <ul>
 <g:each var="r" in="${documentDescriptionInstance?.documentObject?}">
-    <li><g:link controller="documentobjekt" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="documentObject" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
-<g:link controller="documentobjekt" params="['documentDescription.id':documentDescriptionInstance?.id]" action="create">Add Documentobjekt</g:link>
+<g:link controller="documentObject" params="['documentDescription.id':documentDescriptionInstance?.id]" action="create">Add Documentobjekt</g:link>
 
                                 </td>
                             </tr> 
