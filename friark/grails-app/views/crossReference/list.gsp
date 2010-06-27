@@ -24,9 +24,9 @@
                         
                    	        <g:sortableColumn property="id" title="Id" />
                         
-                   	        <th>Til Klasse</th>
+                   	        <th>Til Klass</th>
                    	    
-                   	        <th>Fra Klasse</th>
+                   	        <th>Fra Klass</th>
                    	    
                    	        <th>Fra Mappe</th>
                    	    
@@ -42,15 +42,15 @@
                         
                             <td><g:link action="show" id="${kryssreferanseInstance.id}">${fieldValue(bean:kryssreferanseInstance, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:kryssreferanseInstance, field:'tilKlasse')}</td>
+                            <td>${fieldValue(bean:kryssreferanseInstance, field:'toClass')}</td>
                         
-                            <td>${fieldValue(bean:kryssreferanseInstance, field:'fraKlasse')}</td>
+                            <td>${fieldValue(bean:kryssreferanseInstance, field:'fromClass')}</td>
                         
-                            <td>${fieldValue(bean:kryssreferanseInstance, field:'fraMappe')}</td>
+                            <td>${fieldValue(bean:kryssreferanseInstance, field:'fromFile')}</td>
                         
-                            <td>${fieldValue(bean:kryssreferanseInstance, field:'tilMappe')}</td>
+                            <td>${fieldValue(bean:kryssreferanseInstance, field:'toFile')}</td>
                         
-                            <td>${fieldValue(bean:kryssreferanseInstance, field:'fraRegistrering')}</td>
+                            <td>${fieldValue(bean:kryssreferanseInstance, field:'fromRecord')}</td>
                         
                         </tr>
                     </g:each>

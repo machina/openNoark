@@ -31,44 +31,44 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Til Klasse:</td>
+                            <td valign="top" class="name">Til Klass:</td>
                             
-                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${kryssreferanseInstance?.tilKlasse?.id}">${kryssreferanseInstance?.tilKlasse?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${kryssreferanseInstance?.toClass?.id}">${kryssreferanseInstance?.toClass?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Fra Klasse:</td>
+                            <td valign="top" class="name">Fra Klass:</td>
                             
-                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${kryssreferanseInstance?.fraKlasse?.id}">${kryssreferanseInstance?.fraKlasse?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="klasse" action="show" id="${kryssreferanseInstance?.fromClass?.id}">${kryssreferanseInstance?.fromClass?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Fra Mappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="mappe" action="show" id="${kryssreferanseInstance?.fraMappe?.id}">${kryssreferanseInstance?.fraMappe?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="mappe" action="show" id="${kryssreferanseInstance?.fromFile?.id}">${kryssreferanseInstance?.fromFile?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Til Mappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="mappe" action="show" id="${kryssreferanseInstance?.tilMappe?.id}">${kryssreferanseInstance?.tilMappe?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="mappe" action="show" id="${kryssreferanseInstance?.toFile?.id}">${kryssreferanseInstance?.toFile?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Fra Registrering:</td>
                             
-                            <td valign="top" class="value"><g:link controller="forenkletRegistrering" action="show" id="${kryssreferanseInstance?.fraRegistrering?.id}">${kryssreferanseInstance?.fraRegistrering?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="registrering" action="show" id="${kryssreferanseInstance?.fromRecord?.id}">${kryssreferanseInstance?.fromRecord?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Til Registrering:</td>
                             
-                            <td valign="top" class="value"><g:link controller="forenkletRegistrering" action="show" id="${kryssreferanseInstance?.tilRegistrering?.id}">${kryssreferanseInstance?.tilRegistrering?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="registrering" action="show" id="${kryssreferanseInstance?.toRecord?.id}">${kryssreferanseInstance?.toRecord?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
