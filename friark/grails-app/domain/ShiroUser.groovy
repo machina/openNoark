@@ -5,6 +5,6 @@ class ShiroUser {
     static hasMany = [ roles: ShiroRole, permissions: String ]
 
     static constraints = {
-        username(nullable: false, blank: false)
+        username( nullable: false, blank: false,unique: true )
    }
 }

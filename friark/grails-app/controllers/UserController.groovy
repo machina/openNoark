@@ -96,7 +96,7 @@ class UserController {
     }
 
     def create = {
-        [user: new ShiroUser(username: params.username), errors: params.errors]
+            [user: new ShiroUser(username: params.username), errors: params.errors]
     }
 
     def save = {
