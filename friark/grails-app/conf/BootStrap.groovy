@@ -22,12 +22,19 @@ class BootStrap {
 			    if(!testRole.save()){
 			      println testRole.errors
 			   }
-			    def testUser = new ShiroUser(username: "testuser ", passwordHash: new Sha1Hash("testpassword").toHex()).save()
-			    testUser.addToRoles(ShiroRole.findByName("administrator"))
-			    testUser.save()
-			    if(!testUser.save()){
-      			println testUser.errors
-			   }
+					def testUser
+					if(ShiroUser.findByUsername("testuser")){
+							testUser = ShiroUser.findByUsername("testuser")
+					}else{
+				    testUser = new ShiroUser(username: "testuser", passwordHash: new Sha1Hash("testpassword").toHex())
+						if(!testUser.save()) println "testUser.errors"
+				    testUser.addToRoles(ShiroRole.findByName("administrator"))
+				    testUser.save()
+					
+				    if(!testUser.save()){
+  	    			println testUser.errors
+				   }
+					}
 					def subject = [ getPrincipal: { "testuser" },
                 isAuthenticated: { true },
 								isPermitted: isPermitted

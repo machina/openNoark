@@ -20,6 +20,10 @@ import no.friark.ds.*
 class ArkivControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
+			controller.commonService = new CommonService()
+			controller.metaClass.message = { def attrs ->
+				return attrs.code
+			}
     }
 
     protected void tearDown() {
@@ -28,7 +32,7 @@ class ArkivControllerTests extends ControllerUnitTestCase {
 
 	
 	void testupdateOppretterdato() {
-		Fonds ark = new Fonds(systemID: "1", title: "title", arkivstatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
+				Fonds ark = new Fonds(systemID: "1", title: "title", arkivstatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
 		if(!ark.save()){
 			println ark.errors
 			fail "unable to save archive"
@@ -40,12 +44,13 @@ class ArkivControllerTests extends ControllerUnitTestCase {
 		 controller.request.method = "POST"
 		def retval = controller.update([createdDate: Date.parse("yyyy-MM-dd", "2009-12-1")] as UpdateFondsCommand)
 		println "retval.errors: ${retval.errors}"
-		assertTrue( retval.errors.toString().contains("Kan ikke endre dato for opprettelse av arkiv.") )
+		assertTrue( retval.errors.toString().contains("fonds.cannot.change.created.date") )
 	}
 
 
 	void testupdatefinalisedDate() {
 		def createdDate = new Date()
+
     Fonds ark = new Fonds(systemID: "21", title: "title", arkivstatus: "Opprettet", createdDate: createdDate, createdBy: "meg", finalisedDate: new Date())
     ark.save()
 
@@ -55,7 +60,7 @@ class ArkivControllerTests extends ControllerUnitTestCase {
 
     def retval = controller.update([] as UpdateFondsCommand)
 		println "retval.errors: ${retval.errors}"
-    assertTrue (retval.errors.toString().contains( "Kan ikke fjerne finalisedDate.") )
+    assertTrue (retval.errors.toString().contains( "fonds.cannot.remove.finalised.date") )
 		
   }
 }
