@@ -68,7 +68,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Dokument Beskrivelse:</td>
                             
-                            <td valign="top" class="value"><g:link controller="dokumentdescription" action="show" id="${merknadInstance?.documentDescription?.id}">${merknadInstance?.documentDescription?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="documentDescription" action="show" id="${merknadInstance?.documentDescription?.id}">${merknadInstance?.documentDescription?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     

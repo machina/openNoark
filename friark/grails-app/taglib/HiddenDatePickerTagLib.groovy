@@ -49,4 +49,22 @@ class HiddenDatePickerTagLib {
     out << ftl.out.toString()
  }
 
+
+	def controllerFor = {attrs ->
+		def obj = attrs.obj
+		def className = obj.getClass().getName()[obj.getClass().getName().lastIndexOf('.') +1..obj.getClass().getName().length() - 1]
+		switch(className){
+			case "SimplifiedRecord":
+				out << "registrering"
+				break
+			case "Fonds":
+				out << "arkiv"
+				break
+			case "ClassificationSystem":
+				out << "classificationSystem"			
+				break
+			default:
+				out << className.toLowerCase()
+		}
+	}
 }

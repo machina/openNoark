@@ -43,10 +43,10 @@
                                 <td valign="top" class="name">
                                     <label for="merknad">Merknad:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:merknadTypeInstance,field:'merknad','errors')}">
+                                <td valign="top" class="value ${hasErrors(bean:merknadTypeInstance,field:'remark','errors')}">
                                     
 <ul>
-<g:each var="m" in="${merknadTypeInstance?.merknad?}">
+<g:each var="m" in="${merknadTypeInstance?.remark?}">
     <li><g:link controller="merknad" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>

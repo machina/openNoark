@@ -74,10 +74,10 @@
                                     
 <ul>
 <g:each var="r" in="${preservationAndDisposalInstance?.record?}">
-    <li><g:link controller="forenkletRegistrering" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="registrering" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
-<g:link controller="forenkletRegistrering" params="['bevaringOgKassasjon.id':preservationAndDisposalInstance?.id]" action="create">Add SimplifiedRecord</g:link>
+<g:link controller="registrering" params="['bevaringOgKassasjon.id':preservationAndDisposalInstance?.id]" action="create">Add SimplifiedRecord</g:link>
 
                                 </td>
                             </tr> 
@@ -138,10 +138,10 @@
                                     
 <ul>
 <g:each var="d" in="${preservationAndDisposalInstance?.documentDescription?}">
-    <li><g:link controller="dokumentdescription" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="documentDescription" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
-<g:link controller="dokumentdescription" params="['bevaringOgKassasjon.id':preservationAndDisposalInstance?.id]" action="create">Add DocumentDescription</g:link>
+<g:link controller="documentDescription" params="['bevaringOgKassasjon.id':preservationAndDisposalInstance?.id]" action="create">Add DocumentDescription</g:link>
 
                                 </td>
                             </tr> 

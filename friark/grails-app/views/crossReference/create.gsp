@@ -29,55 +29,55 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="tilKlasse">Til Klasse:</label>
+                                    <label for="toClass">Til Klass:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'tilKlasse','errors')}">
-                                    <g:select optionKey="id" from="${Klasse.list()}" name="tilKlasse.id" value="${kryssreferanseInstance?.tilKlasse?.id}" noSelection="['null':'']"></g:select>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="fraKlasse">Fra Klasse:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'fraKlasse','errors')}">
-                                    <g:select optionKey="id" from="${Klasse.list()}" name="fraKlasse.id" value="${kryssreferanseInstance?.fraKlasse?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'toClass','errors')}">
+                                    <g:select optionKey="id" from="${Klass.list()}" name="toClass.id" value="${kryssreferanseInstance?.toClass?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="fraMappe">Fra Mappe:</label>
+                                    <label for="fromClass">Fra Klass:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'fraMappe','errors')}">
-                                    <g:select optionKey="id" from="${Basismappe.list()}" name="fraMappe.id" value="${kryssreferanseInstance?.fraMappe?.id}" noSelection="['null':'']"></g:select>
-                                </td>
-                            </tr> 
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="tilMappe">Til Mappe:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'tilMappe','errors')}">
-                                    <g:select optionKey="id" from="${Basismappe.list()}" name="tilMappe.id" value="${kryssreferanseInstance?.tilMappe?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'fromClass','errors')}">
+                                    <g:select optionKey="id" from="${Klass.list()}" name="fromClass.id" value="${kryssreferanseInstance?.fromClass?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="fraRegistrering">Fra Registrering:</label>
+                                    <label for="fromFile">Fra Mappe:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'fraRegistrering','errors')}">
-                                    <g:select optionKey="id" from="${SimplifiedRecord.list()}" name="fraRegistrering.id" value="${kryssreferanseInstance?.fraRegistrering?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'fromFile','errors')}">
+                                    <g:select optionKey="id" from="${BasicFile.list()}" name="fromFile.id" value="${kryssreferanseInstance?.fromFile?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="tilRegistrering">Til Registrering:</label>
+                                    <label for="toFile">Til Mappe:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'tilRegistrering','errors')}">
-                                    <g:select optionKey="id" from="${SimplifiedRecord.list()}" name="tilRegistrering.id" value="${kryssreferanseInstance?.tilRegistrering?.id}" noSelection="['null':'']"></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'toFile','errors')}">
+                                    <g:select optionKey="id" from="${BasicFile.list()}" name="toFile.id" value="${kryssreferanseInstance?.toFile?.id}" noSelection="['null':'']"></g:select>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="fromRecord">Fra Registrering:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'fromRecord','errors')}">
+                                    <g:select optionKey="id" from="${SimplifiedRecord.list()}" name="fromRecord.id" value="${kryssreferanseInstance?.fromRecord?.id}" noSelection="['null':'']"></g:select>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="toRecord">Til Registrering:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:kryssreferanseInstance,field:'toRecord','errors')}">
+                                    <g:select optionKey="id" from="${SimplifiedRecord.list()}" name="toRecord.id" value="${kryssreferanseInstance?.toRecord?.id}" noSelection="['null':'']"></g:select>
                                 </td>
                             </tr> 
                         

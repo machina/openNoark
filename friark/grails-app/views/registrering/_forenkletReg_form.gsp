@@ -69,10 +69,10 @@
                                     
 <ul>
 <g:each var="d" in="${forenkletRegistreringInstance?.document?}">
-    <li><g:link controller="dokumentlink" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="documentLink" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
-<g:link controller="dokumentlink" params="['journalpost.id':forenkletRegistreringInstance?.id]" action="create">Add Dokumentlink</g:link>
+<g:link controller="documentLink" params="['journalpost.id':forenkletRegistreringInstance?.id]" action="create">Add Dokumentlink</g:link>
 
                                 </td>
                             </tr> 
@@ -85,10 +85,10 @@
                                     
 <ul>
 <g:each var="r" in="${forenkletRegistreringInstance?.documentObject?}">
-    <li><g:link controller="dokumentobjekt" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="documentObject" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
-<g:link controller="dokumentobjekt" params="['journalpost.id':forenkletRegistreringInstance?.id]" action="create">Add Dokumentobjekt</g:link>
+<g:link controller="documentObject" params="['journalpost.id':forenkletRegistreringInstance?.id]" action="create">Add Dokumentobjekt</g:link>
 
                                 </td>
                             </tr> 

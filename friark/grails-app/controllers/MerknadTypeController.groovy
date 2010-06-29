@@ -31,7 +31,7 @@ class MerknadTypeController {
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
-        [ merknadTypeInstanceList: RemarkType.list( params ), merknadTypeInstanceTotal: MerknadType.count() ]
+        [ merknadTypeInstanceList: RemarkType.list( params ), merknadTypeInstanceTotal: RemarkType.count() ]
    }
 
     def show = {

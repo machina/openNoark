@@ -82,14 +82,14 @@
                         <tr class="prop">
                             <td valign="top" class="name">Referansedokument Beskrivelse:</td>
                             
-                            <td valign="top" class="value"><g:link controller="dokumentdescription" action="show" id="${dokumentobjektInstance?.documentDescription?.id}">${dokumentobjektInstance?.documentDescription?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="documentDescription" action="show" id="${dokumentobjektInstance?.documentDescription?.id}">${dokumentobjektInstance?.documentDescription?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Referanseregistrering:</td>
                             
-                            <td valign="top" class="value"><g:link controller="forenkletRegistrering" action="show" id="${dokumentobjektInstance?.record?.id}">${dokumentobjektInstance?.record?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="registrering" action="show" id="${dokumentobjektInstance?.record?.id}">${dokumentobjektInstance?.record?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     

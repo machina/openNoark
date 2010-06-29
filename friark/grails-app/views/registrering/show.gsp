@@ -46,7 +46,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Referanseparent Basismappe:</td>
                             
-                            <td valign="top" class="value"><g:link controller="basismappe" action="show" id="${forenkletRegistreringInstance?.parentFile?.id}">${forenkletRegistreringInstance?.parentFile?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="mappe" action="show" id="${forenkletRegistreringInstance?.parentFile?.id}">${forenkletRegistreringInstance?.parentFile?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
@@ -98,7 +98,7 @@
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
                                 <g:each var="d" in="${forenkletRegistreringInstance.document}">
-                                    <li><g:link controller="dokumentlink" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="documentDescription" action="show" id="${d.documentDescription.id}">${d?.documentDescription.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
@@ -111,7 +111,7 @@
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
                                 <g:each var="r" in="${forenkletRegistreringInstance.documentObject}">
-                                    <li><g:link controller="dokumentobjekt" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="documentObject" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>

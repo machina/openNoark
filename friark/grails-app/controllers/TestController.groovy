@@ -5,6 +5,10 @@ class TestController {
 
 		def clearAll = {
 			def delete = { it.delete() }
+
+			CrossReference.list().collect delete		
+			Remark.list().collect delete
+			RemarkType.list().collect delete
 			CaseResponsibility.list().collect delete
 			Client.list().collect delete
 			PreservationAndDisposal.list().collect delete

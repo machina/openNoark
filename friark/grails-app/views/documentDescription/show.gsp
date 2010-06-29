@@ -120,7 +120,7 @@
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
                                 <g:each var="r" in="${documentDescriptionInstance.documentObject}">
-                                    <li><g:link controller="documentobjekt" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="documentObject" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
@@ -133,7 +133,7 @@
                             <td  valign="top" style="text-align:left;" class="value">
                                 <ul>
                                 <g:each var="r" in="${documentDescriptionInstance.records}">
-                                    <li><g:link controller="forenkletRegistrering" action="show" id="${r.referanseregistrering.id}">${r?.referanseregistrering?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="registrering" action="show" id="${r.referenceRecord.id}">${r?.referenceRecord?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>

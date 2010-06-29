@@ -15,7 +15,7 @@
 						<g:each var="result" in="${searchResult.iterator()}" status="index">
 							<li>
 								<g:set var="doc" value="${Dokumentobjekt.findBySystemID(result.get('DOC-OBJ'))}"/>
-								<g:link controller="dokumentobjekt" action="show" id="${doc.id}">${doc}</g:link>
+								<g:link controller="documentObject" action="show" id="${doc.id}">${doc}</g:link>
 							</li>
 						</g:each>
 					</ul>			
