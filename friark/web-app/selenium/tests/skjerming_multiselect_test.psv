@@ -1,0 +1,8 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_classificationSystem.html|type=bk_kl,title=test,desc=bk_kl
+include|/friark/selenium/tests/inc/create_klass.html|id=test,title=test,desc=bk_kl,key=bk_kl,sys=label=test
+include|/friark/selenium/tests/inc/create_klass.html|id=test2,title=test2,desc=bk_kl,key=bk_kl,sys=label=test
+clickAndWait|link=Screenings|
+clickAndWait|link=New Skjerming|
+verifyTextPresent|test|
+verifyTextPresent|test2|

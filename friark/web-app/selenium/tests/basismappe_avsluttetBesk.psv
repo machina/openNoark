@@ -1,0 +1,16 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=arkiv for dill og dall
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=avs_mappe_besk,desc=arkivdel for dill,medium=email
+include|/friark/selenium/tests/inc/create_mappe.html|name=avs_mappe_besk,desc=aaa,medium=a,keyword=key,arkivdel_idx=1
+verifyTextPresent|created|
+clickAndWait|_action_Edit|
+select|finalisedDate_day|label=1
+select|finalisedDate_month|index=1
+select|finalisedDate_year|label=1991
+clickAndWait|_action_Update|
+open|/friark/registrering/create|
+type|createdBy|dsadasd
+type|archivedBy|dsadasd
+select|parentFile.id|label=avs_mappe_besk
+clickAndWait|//input[@value='Create']|
+verifyTextPresent|Ny registrering|

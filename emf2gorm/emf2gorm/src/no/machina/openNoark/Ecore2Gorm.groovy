@@ -1,22 +1,27 @@
 /*
-    This file is part of Friark.
-
-    Friark is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Friark is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with Friark.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ import org.eclipse.core.runtime.QualifiedName;
+ This file is part of Friark.
+ Friark is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ Friark is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ You should have received a copy of the GNU General Public License
+ along with Friark.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 package no.machina.openNoark
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectNature;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.QualifiedName;
 import java.io.ByteArrayInputStream;
 import java.io.StringWriter;
 import java.io.File;
@@ -69,10 +74,10 @@ class Ecore2Gorm {
 						//TODO: these will have to be handled at some point
 						break
 						default:
-							def mul = findMultiplicity(it)
-							//call the builder with the current attribute
-							"${it.name}"(type: translateType(it.eType.name) ,multiplicity: mul, unique: it.isUnique())
-							break
+						def mul = findMultiplicity(it)
+						//call the builder with the current attribute
+						"${it.name}"(type: translateType(it.eType.name) ,multiplicity: mul, unique: it.isUnique())
+						break
 					}//end switch
 				} //end klass.eContents
 				
@@ -81,17 +86,37 @@ class Ecore2Gorm {
 			//Write the class to file			
 			try{ 
 				IProject project = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)
-				IFolder src = project.getFolder("src")
 				
-				IFolder pkg = src
+				def src = getSrc(project)
+				
+				def pkg = src
+				if(!pkg.exists()) pkg.create false, false, null
 				packageName.tokenize('.').each{
-					pkg = pkg.getFolder(it)
+					if(pkg instanceof File){
+						pkg = new File(pkg.getAbsolutePath() + File.separator + it)
+					} else {
+						pkg = pkg.getFolder(it)
+					}
 					if(!pkg.exists()) pkg.create false, false, null
 				}
-				IFile f = pkg.getFile("${klass.name}.groovy")//new File("src/${packageName.split('.').join('/')}")
-				if(f.exists()) f.delete true, null
+								
+				def f
+				if( pkg instanceof File){
+					f = new File( pkg.getAbsolutePath() + File.separator +  "${klass.name}.groovy")
+					if(f.exists()) f.delete()
+				} else {
+					f = pkg.getFile("${klass.name}.groovy")
+					if(f.exists()) f.delete true, null
+				}
+				
+				
+				//if(f.exists()) f.delete true, null
 				ByteArrayInputStream is = new ByteArrayInputStream(writer.toString().getBytes());
-				f.create(is, true, null)
+				if(f instanceof File){
+					f.append is
+				} else {
+					f.create(is, true, null)
+				}
 				//f.write writer.toString()
 				
 				
@@ -101,6 +126,40 @@ class Ecore2Gorm {
 			
 			
 		}//end classes
+	}
+	
+	def getSrc(IProject project){
+		String dir = "";
+		try {
+			dir = project.getPersistentProperty(
+					new QualifiedName(Platform.getBundle("emf2gorm").getSymbolicName(), "generateToDir")
+					);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		def src
+		if(dir != ""){
+			src = new File(dir)
+			def getFile = {String file -> 
+				if(delegate.isDirectory()){
+					return new File(delegate, file)
+				}
+				return null;
+			} 
+			def create = {boolean a, boolean b, Object o ->
+				if(!delegate.exists()){
+					delegate.mkdirs()
+				}
+			}
+			getFile.setDelegate src
+			create.setDelegate src
+			src.metaClass.getFile = getFile
+			src.metaClass.create = create
+		} else {
+			src = project.getFolder("src")
+		}
+		return src;
 	}
 	
 	/**

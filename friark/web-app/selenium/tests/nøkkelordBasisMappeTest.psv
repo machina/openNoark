@@ -1,0 +1,25 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=nøkkelord test
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=nøkkelord test
+include|/friark/selenium/tests/inc/create_mappe.html|name=nøkkelord test,arkivdel_idx=1,keyword=nøkkelen nøkkelto
+verifyTextPresent|nøkkelen|
+verifyTextPresent|nøkkelto|
+clickAndWait|_action_Edit|
+clickAndWait|link=Rediger nøkkelord|
+type|new|nøkkeltre
+clickAndWait|_action_Update|
+verifyTextPresent|nøkkeltre|
+clickAndWait|link=Files|
+clickAndWait|//td[1]/a|
+verifyTextPresent|nøkkelen|
+verifyTextPresent|nøkkelto|
+verifyTextPresent|nøkkeltre|
+clickAndWait|_action_Edit|
+clickAndWait|link=Rediger nøkkelord|
+clickAndWait|//a[contains(@href, 'ord=n%C3%B8kkelto')]|
+clickAndWait|//a[contains(@href, 'ord=n%C3%B8kkeltre')]|
+clickAndWait|link=Files|
+clickAndWait|//td[1]/a|
+verifyTextPresent|nøkkelen|
+verifyTextNotPresent|nøkkelto|
+verifyTextNotPresent|nøkkeltre|

@@ -1,0 +1,19 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=jpTest
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=jpTest
+include|/friark/selenium/tests/inc/create_mappe.html|name=jpTest,klasse_idx=0,arkivdel_idx=1
+clickAndWait|create|
+select|recordType|label=RegistryEntry
+select|parentFile.id|index=1
+type|createdBy|dfdsfsd
+type|title|fdsfsdf
+type|clientType|fdsfd
+type|clientName|sfdsfs
+type|postalAddress|dfsdfsdf
+type|postalCode|sfsdfsd
+type|postalTown|fdsfs
+type|foreignAddress|fdsfdsfsd
+type|contactPerson|fdsfds sdfdsfs
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Clients|
+verifyElementPresent|//table/tbody/tr[1]|

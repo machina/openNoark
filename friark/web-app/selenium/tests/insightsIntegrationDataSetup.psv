@@ -1,0 +1,10 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=Insights Arkiv,desc=Arkiv for insights integrasjon,medium=AnyHolder
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=Insights arkivdel,desc=Insights Arkiv,medium=no.machina.gestalt2.ds.Any
+include|/friark/selenium/tests/inc/create_mappe.html|name=mappe1,arkivdel_idx=1
+include|/friark/selenium/tests/inc/create_mappe.html|name=mappe,arkivdel_idx=1
+include|/friark/selenium/tests/inc/create_mappe.html|name=mappe2,desc=mappe nr 2,arkivdel_idx=1
+clickAndWait|create|
+type|archivedBy|reg 1
+select|parentFile.id|label=mappe1
+click|//input[@value='Create']|

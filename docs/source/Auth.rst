@@ -1,25 +1,19 @@
 Auth
 ====
 
-Auth controlleren lar brukere logge seg inn og ut.
+Allows useres to log in and out.
 
 WS metoder
 ^^^^^^^^^^
 
-/auth/login
-~~~~~~~~~~~
-
 /auth/signIn?username=[username]&password=[password]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  Logger inn som brukeren med brukernavn [username] og passord [password]. Retunerer html-versjon av innloggingsiden ved feil og
-  html versjon av friark sin default hovedside ved suksess.
+  Loggs in as the user [username] with the password [password].
 
 /auth/signOut
 ~~~~~~~~~~~~~
 
-  Invaliderer sessjonen
+  Invalidated the session
 
-/auth/unauthorized
-~~~~~~~~~~~~~~~~~~
 

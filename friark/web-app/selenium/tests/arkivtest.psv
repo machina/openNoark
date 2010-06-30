@@ -1,0 +1,6 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=Test Arkiv
+verifyTextPresent|Test Arkiv|
+verifyTextPresent|Opprettet|
+open|/friark/arkiv/list|
+verifyTextPresent|Test Arkiv|

@@ -1,0 +1,9 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_classificationSystem.html|type=test,title=edittest1
+clickAndWait|link=ClassificationSystem List|
+verifyTextPresent|edittest1|
+clickAndWait|link=edittest1|
+clickAndWait|_action_Edit|
+type|description|blabla
+clickAndWait|_action_Update|
+verifyTextPresent|blabla|

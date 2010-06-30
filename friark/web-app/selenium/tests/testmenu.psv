@@ -1,0 +1,17 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+clickAndWait|link=Fonds|
+verifyTextPresent|Fonds|
+clickAndWait|link=Series|
+verifyTextPresent|Series|
+clickAndWait|link=Classification systems|
+verifyTextPresent|ClassificationSystem|
+clickAndWait|link=Classes|
+verifyTextPresent|Klasse|
+clickAndWait|link=Files|
+verifyTextPresent|Basismappe|
+clickAndWait|link=Document objects|
+verifyTextPresent|Dokumentobjekt|
+clickAndWait|link=Document descriptions|
+verifyTextPresent|Documentdescription|
+clickAndWait|link=User administration|
+verifyTextPresent|Bruker|

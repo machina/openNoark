@@ -1,0 +1,10 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=Test Arkiv for arkivdel
+verifyTextPresent|Test Arkiv for arkivdel|
+open|/friark/arkiv/list|
+verifyTextPresent|Test Arkiv for arkivdel|
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=Test Arkivdel
+verifyTextPresent|Test Arkivdel|
+verifyTextPresent|Opprettet|
+open|/friark/series/list|
+verifyTextPresent|Test Arkivdel|

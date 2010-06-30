@@ -1,0 +1,40 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=regarkiv_boko_ad
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=regarkivdel_boko_ad
+open|/friark/registrering/create|
+type|archivedBy|ad
+select|recordSection.id|label=regarkivdel_boko_ad
+clickAndWait|//input[@value='Create']|
+include|/friark/selenium/tests/inc/create_documentDescription.html|title=ad
+include|/friark/selenium/tests/inc/create_documentLink.html|rec=index=1,desc=index=1,linkedAs=ad,linkedBy=ad,docNo=ad
+include|/friark/selenium/tests/inc/create_classificationSystem.html|type=bk_kl,title=bk_kl,desc=bk_kl
+include|/friark/selenium/tests/inc/create_klass.html|title=bk_kl,desc=bk_kl,key=bk_kl,sys=label=bk_kl
+include|/friark/selenium/tests/inc/create_mappe.html|name=bokok,klasse_idx=1,arkivdel_idx=1
+open|/friark/registrering/list|
+storeText|//td[1]|regid
+clickAndWait|link=${regid}|
+clickAndWait|_action_Edit|
+select|parentFile.id|index=1
+clickAndWait|_action_Update|
+clickAndWait|link=Preservations and disposals|
+clickAndWait|link=New BevaringOgKassasjon|
+select|disposalDecision|label=Bevares
+type|disposalAuthority|3
+type|preservationTime|dfs
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=BevaringOgKassasjon List|
+clickAndWait|link=Oversikt|
+select|til_year|label=2046
+clickAndWait|søk|
+verifyTextNotPresent|Treff|
+clickAndWait|link=Preservations and disposals|
+storeText|//td[1]|bevid
+clickAndWait|link=${bevid}|
+clickAndWait|link=Referanser|
+select|klass.id|index=1
+clickAndWait|//input[@value='Legg til']|
+clickAndWait|link=Preservations and disposals|
+clickAndWait|link=Oversikt|
+select|til_year|label=2050
+clickAndWait|søk|
+verifyTextPresent|Treff|

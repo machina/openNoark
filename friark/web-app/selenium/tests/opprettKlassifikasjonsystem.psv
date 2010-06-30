@@ -1,0 +1,12 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_classificationSystem.html|type=Journal,title=Test journal klassifikasjonsystem,desc=testesystem
+include|/friark/selenium/tests/inc/create_klass.html|id=1,title=epost,desc=epost,sys=label=Test journal klassifikasjonsystem
+include|/friark/selenium/tests/inc/create_klass.html|id=1,title=spam,desc=spam,sys=label=Test journal klassifikasjonsystem,parent=label=Klasse : 1
+include|/friark/selenium/tests/inc/create_klass.html|id=2,title=nyttig,desc=Nyttig,sys=label=Test journal klassifikasjonsystem,parent=label=Klasse : 1
+include|/friark/selenium/tests/inc/create_klass.html|id=1,title=jobb,desc=jobb,sys=label=Test journal klassifikasjonsystem,parent=label=Klasse : 1.2
+include|/friark/selenium/tests/inc/create_klass.html|id=2,title=personlig,desc=personlig,sys=label=Test journal klassifikasjonsystem,parent=label=Klasse : 1.2
+clickAndWait|link=Klasse List|
+include|/friark/selenium/tests/inc/create_arkiv.html|name=dilldall,medium=html
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=dill,desc=arkivdel for dill,medium=email
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=dall,desc=arkivdel for dall,medium=email
+clickAndWait|link=Series|

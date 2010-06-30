@@ -1,0 +1,17 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=arkiv
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=dill,desc=arkivdel for dill,medium=email
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=dall,desc=arkivdel for dall,medium=email
+clickAndWait|link=Files|
+clickAndWait|link=Series|
+clickAndWait|link=dall|
+clickAndWait|_action_Edit|
+select|recordSectionStatus|index=1
+clickAndWait|save|
+include|/friark/selenium/tests/inc/create_mappe.html|name=aaaaa,desc=aaa,medium=a,keyword=key,arkivdel_idx=2
+verifyTextNotPresent|created|
+verifyTextPresent|Kan ikke lege til en mappe i et arkiv med|
+open|/friark/registrering/create|
+type|archivedBy|dsadasd
+select|recordSection.id|label=dall
+verifyTextPresent|Ny registrering|

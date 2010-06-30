@@ -1,0 +1,19 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=journ_post_tst
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=journ_post_tst
+include|/friark/selenium/tests/inc/create_mappe.html|name=jp_cr,klasse_idx=0,arkivdel_idx=1
+open|/friark/registrering/create|
+type|createdBy|dsadasd
+type|archivedBy|dsadasd
+select|parentFile.id|index=1
+select|recordType|label=RegistryEntry
+sleep|1000|
+type|title|jp_tittel
+type|clientName|client name
+type|clientType|clientType
+type|administrativeUnit|administrativeUnit
+type|executiveOfficer|executiveOfficer
+clickAndWait|//input[@value='Create']|
+verifyTextPresent|Ny registrering|
+verifyTextPresent|Journalpost|
+verifyTextPresent|jp_tittel

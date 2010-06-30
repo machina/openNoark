@@ -1,0 +1,110 @@
+include|/friark/selenium/tests/inc/clear_and_login.html
+include|/friark/selenium/tests/inc/create_arkiv.html|name=regarkiv_boko
+include|/friark/selenium/tests/inc/create_arkivdel.html|name=regarkivdel_boko
+include|/friark/selenium/tests/inc/create_mappe.html|name=regmappe_boko,desc=aaa,medium=a,keyword=key,arkivdel_idx=1
+clickAndWait|create|
+select|parentFile.id|label=regmappe_boko
+type|archivedBy|sfsdfsdfsdfs
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Document descriptions|
+clickAndWait|link=New Documentdescription|
+type|documentType|dill
+type|documentStatus|dall
+type|title|dok_boko
+type|description|desc
+type|author|meg
+type|documentMedium|none
+type|storageLocation|her
+clickAndWait|//input[@value='Create']|
+storeText|//td[2]|dok_id_1
+clickAndWait|link=Document objects|
+clickAndWait|link=New Dokumentobjekt|
+type|versionNumber|1
+type|variantFormat|1
+type|format|tekst
+type|formatDetails|utf-8
+select|documentDescription.id|label=regexp:.* : ${dok_id_1}
+type|documentFile|/etc/passwd
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Preservations and disposals|
+clickAndWait|link=New BevaringOgKassasjon|
+select|disposalDecision|label=Bevares
+type|disposalAuthority|fdsfsd
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Referanser|
+select|documentDescription.id|label=regexp:.* : ${dok_id_1}
+clickAndWait|//input[@value='Legg til']|
+clickAndWait|link=Preservations and disposals|
+clickAndWait|link=Oversikt|
+select|fra_year|label=2000
+select|til_year|label=2018
+clickAndWait|søk|
+verifyTextPresent|Treff|
+verifyElementPresent|//table/tbody/tr[1]|
+verifyElementNotPresent|//table/tbody/tr[2]|
+clickAndWait|link=Preservations and disposals|
+storeText|//td[1]|bevid
+clickAndWait|link=${bevid}|
+clickAndWait|link=Referanser|
+select|record.id|index=1
+clickAndWait|//input[@value='Legg til']|
+clickAndWait|link=Document descriptions|
+clickAndWait|link=New Documentdescription|
+type|documentType|2
+type|documentStatus|2
+type|title|222
+type|description|2
+type|author|2
+type|documentMedium|2223
+type|storageLocation|2
+clickAndWait|//input[@value='Create']|
+storeText|//td[2]|dok_id_2
+include|/friark/selenium/tests/inc/create_documentLink.html|rec=index=1,desc=label=regexp:.* : ${dok_id_2},linkedAs=2,linkedBy=2,docNo=2
+clickAndWait|link=Preservations and disposals|
+clickAndWait|link=Oversikt|
+select|fra_year|label=1992
+select|til_year|label=2033
+clickAndWait|søk|
+verifyTextPresent|Treff|
+verifyElementPresent|//table/tbody/tr[1]|
+verifyElementPresent|//table/tbody/tr[2]|
+verifyElementNotPresent|//table/tbody/tr[3]|
+clickAndWait|link=Files|
+storeText|//td[1]|mappeid
+clickAndWait|link=${mappeid}|
+clickAndWait|create|
+select|parentFile.id|label=regmappe_boko
+clickAndWait|//input[@value='Create']|
+clickAndWait|link=Document descriptions|
+clickAndWait|link=New Documentdescription|
+type|documentType|3
+type|documentStatus|3
+type|title|3
+type|description|3
+type|author|3
+type|documentMedium|3
+clickAndWait|//input[@value='Create']|
+storeText|//td[2]|dok_id_3
+include|/friark/selenium/tests/inc/create_documentLink.html|rec=index=2,desc=label=regexp:.* : ${dok_id_3},linkedAs=3,linkedBy=3,docNo=3
+clickAndWait|link=Preservations and disposals|
+clickAndWait|link=Oversikt|
+select|fra_year|label=1991
+select|til_year|label=2025
+clickAndWait|søk|
+verifyElementNotPresent|//table/tbody/tr[3]|
+clickAndWait|link=Preservations and disposals|
+storeText|//td[1]|bevid
+clickAndWait|link=${bevid}|
+clickAndWait|link=Referanser|
+select|file.id|label=regexp:.* : ${mappeid}
+clickAndWait|//input[@value='Legg til']|
+clickAndWait|link=Preservations and disposals|
+clickAndWait|link=Oversikt|
+select|fra_year|label=1991
+select|til_year|label=2025
+clickAndWait|søk|
+verifyTextPresent|Treff|
+verifyElementPresent|//table/tbody/tr[1]|
+verifyElementPresent|//table/tbody/tr[2]|
+verifyElementPresent|//table/tbody/tr[3]|
+verifyElementNotPresent|//table/tbody/tr[4]|
