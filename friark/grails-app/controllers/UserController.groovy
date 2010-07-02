@@ -17,6 +17,8 @@ along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 
 import org.apache.shiro.crypto.hash.Sha1Hash
 import no.friark.ds.*
+import org.friark.*
+import org.friark.shiro.*
 import org.friark.UserService
 
 /**
@@ -28,6 +30,7 @@ import org.friark.UserService
 class UserController {
 
     def userService
+    def roleService
 
     def index = {
         redirect(action: 'list', params: params)
@@ -64,20 +67,27 @@ class UserController {
     }
 
     def edit_role = {
-        def role = ShiroRole.get(params.id)
-        if(params.del_perm){
-            role.permissions.remove(params.perm)
-            if(role.save()){
-                flash.message = message(code:'permissions.removed', default:'Permission removed')
-            }
-        }
-        if(params.add_perm){
-            role.permissions << params.perm
-            if(role.save()){
-                flash.message = message(code:'permissions.added', default:'Permission added')
-            }
-        }
-        [role: role]
+	/**
+        * def role = ShiroRole.get(params.id)
+        * if(params.del_perm){
+        *    role.permissions.remove(params.perm)
+        *    if(role.save()){
+        *        flash.message = message(code:'permissions.removed', default:'Permission removed')
+        *    }
+        * }
+        * if(params.add_perm){
+        *    role.permissions << params.perm
+        *    if(role.save()){
+        *        flash.message = message(code:'permissions.added', default:'Permission added')
+        *    }
+        *}
+        *[role: role]
+ 	*/
+
+        def success = roleService.update(params)
+
+	commonService.log( 'Role updated, status: ' + success )
+
     }
 		
     def create_role = {
