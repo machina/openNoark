@@ -16,7 +16,7 @@
 */
 
 import grails.test.*
-import no.friark.ds.*
+import org.friark.ds.*
 
 class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
   protected void setUp() {

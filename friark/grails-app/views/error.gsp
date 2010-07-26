@@ -1,4 +1,4 @@
-<%! import no.friark.ds.* %>
+<%! import org.friark.ds.* %>
 <html>
   <head>
 	  <title>Grails Runtime Exception</title>

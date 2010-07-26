@@ -1,4 +1,4 @@
-<%! import no.friark.ds.* %>
+<%! import org.friark.ds.* %>
 <tr>
   <td><label for="title"><g:message code="title" default="Title"/></label></td>
   <td><g:textField id="title" name="title" value="${arkivdel?.title}"/></td>

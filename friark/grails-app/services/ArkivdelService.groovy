@@ -15,7 +15,7 @@
     along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import no.friark.ds.*
+import org.friark.ds.*
 
 /**
 * Metoder for å gjøre operasjoner på Series objekter.

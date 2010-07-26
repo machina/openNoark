@@ -16,7 +16,7 @@
 */
 
 package no.friark
-import no.friark.ds.*
+import org.friark.ds.*
 class Filter{
 
 	def mappe = [:]

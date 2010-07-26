@@ -16,7 +16,7 @@
 */
 
 import no.friark.*
-import no.friark.ds.*
+import org.friark.ds.*
 import no.machina.gestalt2.SandboxingClassLoader
 import org.apache.shiro.SecurityUtils
 

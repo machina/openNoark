@@ -16,7 +16,7 @@
 */
 
 import grails.test.*
-import no.friark.ds.*
+import org.friark.ds.*
 class PreservationAndDisposalControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()

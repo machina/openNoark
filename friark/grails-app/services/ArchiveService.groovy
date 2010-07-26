@@ -43,7 +43,7 @@ import org.apache.lucene.index.Term;
 import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
 import no.machina.utils.StringInputStream
 
-import no.friark.ds.*
+import org.friark.ds.*
 
 /**
 * Inneholder metoder for å håndtere et enkelt elektronisk arkiv. Arkivets lokasjon abgjøres av konfigurasjonsparameteren "archivePath".

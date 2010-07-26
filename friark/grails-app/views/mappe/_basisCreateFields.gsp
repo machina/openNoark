@@ -1,4 +1,4 @@
-<%! import no.friark.ds.* %>
+<%! import org.friark.ds.* %>
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="mappetype">Mappetype:</label>

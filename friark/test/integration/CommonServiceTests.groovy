@@ -16,8 +16,8 @@
 */
 
 import grails.test.*
-import no.friark.ds.*
-import no.friark.ds.Fonds
+import org.friark.ds.*
+import org.friark.ds.Fonds
 
 class CommonServiceTests extends GrailsUnitTestCase {
     protected void setUp() {

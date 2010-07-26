@@ -22,7 +22,7 @@ import no.friark.Filter
 import no.friark.FilterBuilder
 import no.machina.gestalt2.SandboxingClassLoader
 import org.codehaus.groovy.control.CompilerConfiguration
-import no.friark.ds.*
+import org.friark.ds.*
 class FilterBuilderTests extends GroovyTestCase {
 
 	void testFilterBuilder() {

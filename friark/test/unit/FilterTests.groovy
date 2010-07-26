@@ -19,7 +19,7 @@
 
 import grails.test.*
 import no.friark.Filter
-import no.friark.ds.*
+import org.friark.ds.*
 class FilterTests extends GroovyTestCase {
 
 	void testFilter() {

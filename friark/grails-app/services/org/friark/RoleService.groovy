@@ -1,6 +1,6 @@
 package org.friark
 
-import no.friark.ds.*
+import org.friark.ds.*
 
 class RoleService{ 
    static transactional = true

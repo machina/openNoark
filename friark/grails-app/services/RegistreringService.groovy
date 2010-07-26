@@ -16,7 +16,7 @@
 */
 
 import org.apache.commons.lang.time.FastDateFormat
-import no.friark.ds.*
+import org.friark.ds.*
 import static no.machina.utils.DateUtils.*
 
 /**

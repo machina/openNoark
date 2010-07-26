@@ -1,4 +1,4 @@
-import no.friark.ds.*
+import org.friark.ds.*
 import org.apache.shiro.SecurityUtils
 class KlasseService {
 

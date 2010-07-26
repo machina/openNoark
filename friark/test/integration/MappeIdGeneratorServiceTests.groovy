@@ -1,5 +1,5 @@
 import grails.test.*
-import no.friark.ds.*
+import org.friark.ds.*
 import java.text.DecimalFormat
 
 class MappeIdGeneratorServiceTests extends GrailsUnitTestCase {
