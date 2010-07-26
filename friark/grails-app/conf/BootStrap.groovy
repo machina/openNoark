@@ -2,7 +2,8 @@ import org.apache.shiro.crypto.hash.Sha1Hash
 import grails.converters.*
 import grails.util.Environment
 
-import no.friark.ds.*
+import org.friark.ds.*
+import org.friark.shiro.*
 class BootStrap {
 
      def init = { servletContext ->
@@ -78,14 +79,14 @@ class BootStrap {
 
 
 			// Administrator user and role. 
-				def adminRole = new ShiroRole(name: "administrator") 
-				adminRole.addToPermissions("user")
-				adminRole.addToPermissions("klasser")
+				def adminRole = new ShiroRole(name: "administrator", permissions: []) 
+				adminRole.permissions << "user"
+				adminRole.permissions << "klasser"
 
 				if(!adminRole.save()){
 					println adminRole.errors
 				}
-				adminRole.addToPermissions("klasser")
+				adminRole.permissions << "klasser"
 				if(!adminRole.save()){
           println adminRole.errors
        }
