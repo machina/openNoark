@@ -51,7 +51,7 @@ def defaultSimplifiedRecord = '''<?xml version="1.0" encoding="UTF-8"?>
 </simplifiedRecord>
 '''
 
-def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'mappe', SimplifiedRecord: 'registrering']
+def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'file', SimplifiedRecord: 'registrering']
 
 def currentResult
 
@@ -80,11 +80,12 @@ Given(~"I am logged in as admin"){
 When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
 	switch(ctrl){
 		case 'Fonds':
-			browser.post("http://localhost:8080/friark/ws/arkiv.xml",defaultFonds)
+			browser.post("http://localhost:8080/friark/ws/${ctrlName['Fonds']}.xml",defaultFonds)
+			//println "new fonds says: "+browser.pageSource
 			currentResult = browser.pageSource
 			break
 		case 'Series':
-				browser.post("http://localhost:8080/friark/ws/arkiv.xml",defaultFonds)	
+				browser.post("http://localhost:8080/friark/ws/${ctrlName['Fonds']}.xml",defaultFonds)	
 				def fonds = new XmlSlurper().parseText(browser.pageSource)
 				def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
 				browser.post("http://localhost:8080/friark/ws/series.xml",series)
@@ -184,13 +185,15 @@ Then(~"the created ([A-z]*) should be returned"){ String domain ->
 
 When(~"I delete the ([A-z]*)"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
-	//println "deleting: ${res.@id}"
+	println "deleting: ${res.@id}"
 	browser.delete("http://localhost:8080/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
+	//println browser.pageSource
 }
 
 When(~"I search in ([A-z]+) for \"(.*)\"") { String domain, String query ->
-	if(domain == "all") browser.get("http://localhost:8080/friark/ws/search/${query}")
-	else browser.get("http://localhost:8080/friark/ws/search/${domain}/${query}")
+	if(domain == "all") browser.get("http://localhost:8080/friark/ws/search/${query}.xml")
+	else browser.get("http://localhost:8080/friark/ws/search/${domain}/${query}.xml")
+	println browser.pageSource
 }
 
 Then(~"(\\d+) ([A-z]+) should be returned"){ int num, String domain ->

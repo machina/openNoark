@@ -1,12 +1,12 @@
 import org.friark.ds.*
 import org.apache.shiro.SecurityUtils
-class KlasseService {
+class KlassService {
 
 		def commonService
 
     boolean transactional = true
 
-		def save(params) {
+    def create(params) {
 			if(params.klass) params = params.klass
 	    if (!SecurityUtils.subject.isPermitted("klasser:opprett")) {
 		   throw new Exception("Kassering ikke tillatt for bruker.")
@@ -25,7 +25,9 @@ class KlasseService {
       return [klasseInstance, false]
 
 		}
-		def update(klasseInstance, params) {
+		
+	def update(params) {
+		def klasseInstance = Klass.get( params.id != null ? params.id : params.klass.id )
 			if(params.klass) params = params.klass
 			println "PARAMS: ${params}"
 			params.createdDate = klasseInstance.createdDate  //can not change created date

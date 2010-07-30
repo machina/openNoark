@@ -9,12 +9,12 @@ class UrlMappings {
      
 //			"/ws/arkiv/$id?"(resource:"arkiv")
 
-			"/ws/search/$clazz/$query"() {
+			"/ws/search/$clazz/$q"() {
 				controller='search'
 				action='search'
 			}
 
-			"/ws/search/$query"() {
+			"/ws/search/$q"() {
         controller='search'
         action='search'
      	}

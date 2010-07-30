@@ -2,10 +2,11 @@ package org.friark
 
 import org.friark.ds.*
 
-class FondsService {
+class ArkivService {
     static transactional = true
 
     def final static CREATED = "Opprettet"
+    def final static FINALISED = "Avsluttet"
     def commonService
 
     def create( def params ){
@@ -54,6 +55,12 @@ class FondsService {
         }
 
         arkiv.properties = params.fonds
+	
+	if(arkiv.save()){
+		return [arkiv, true]
+	}else {
+		return [arkiv, false]
+	}
     }
 
     def delete( def id ){
@@ -96,7 +103,7 @@ class FondsService {
     }
 
     def stripParent(params, arkiv) {
-        if( commonService.isNull(params.parent)){
+        if( commonService.isNull(params.parent) || "".equals(params.parent) ){
             params.parent = null
             arkiv.parent = null
         } else if(params.parent instanceof String){

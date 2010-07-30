@@ -30,7 +30,7 @@ class RegistreringService {
     * Lager en ny Registrering basert på de inkommende metadata.
     * @param params En Map av metadata for registreringen.
     */
-		def registrer(params){
+		def create(params){
 				params = fixParams(params)
         def registrering = null
 				println "regtype: ${params.recordType}"

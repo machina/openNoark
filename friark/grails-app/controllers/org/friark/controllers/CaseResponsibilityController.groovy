@@ -1,0 +1,138 @@
+package org.friark.controllers
+
+import grails.converters.XML
+import javax.annotation.Generated
+
+import org.friark.ds.CaseResponsibility
+
+class CaseResponsibilityController {
+	def caseResponsibilityService
+	 
+	
+	@Generated
+	def index = {
+		
+			redirect(action: "list", params: params)
+		
+	}
+		
+	
+	@Generated
+	def list = {
+		
+		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
+		withFormat{
+			html{ 
+				return [ caseResponsibilityInstanceList: CaseResponsibility.list( params ), caseResponsibilityInstanceTotal: CaseResponsibility.count() ]
+			}
+			xml{
+				render CaseResponsibility.list() as XML
+			}
+		}
+		
+	}
+		
+	
+	@Generated
+	def show = {
+		
+		withFormat{
+			html{ 
+				return [ caseResponsibilityInstance: CaseResponsibility.get( params.id )]
+			}
+			xml{
+				render CaseResponsibility.get(params.id) as XML
+			}
+		}
+		
+	}
+		
+	
+	@Generated
+	def create = {
+		
+		caseResponsibilityInstance = new CaseResponsibility()
+		caseResponsibilityInstance.properties = params
+		return [caseResponsibilityInstance: caseResponsibilityInstance]
+		
+	}
+		
+	
+	@Generated
+	def save = {
+		
+		if(caseResponsibilityService && caseResponsibilityService.metaClass.pickMethod("create", [Object.class] as Class[])){
+			def (caseResponsibilityInstance, success) = caseResponsibilityService.create( params )
+			withFormat {
+				html { render(view: "show", model: [caseResponsibilityInstance: caseResponsibilityInstance]) }
+                xml { render caseResponsibilityInstance as XML }
+			
+			}
+		} else {
+			def _params = params.caseResponsibility ? params.caseResponsibility : params
+			
+			def caseResponsibilityInstance = new CaseResponsibility(_params)
+    	    if (caseResponsibilityInstance.save(flush: true)) {
+        	    flash.message = "${message(code: 'default.created.message', args: [message(code: 'caseResponsibility.label', default: ' CaseResponsibility'), caseResponsibilityInstance.id])}"
+            	redirect(action: "show", id: caseResponsibilityInstance.id)
+	        }
+    	    else {
+        	    render(view: "create", model: [caseResponsibilityInstance: caseResponsibilityInstance])
+	        }
+	    }		
+		
+	}
+		
+	
+	@Generated
+	def update = {
+		
+		if(caseResponsibilityService && caseResponsibilityService.metaClass.pickMethod("update", [Object.class] as Class[])){
+			def (caseResponsibilityInstance, success) = caseResponsibilityService.update( params )
+			withFormat {
+				html { render(view: "show", model: [caseResponsibilityInstance: caseResponsibilityInstance]) }
+                xml { render caseResponsibilityInstance as XML }
+			
+			}
+		} else {
+			def caseResponsibilityInstance = caseResponsibility.get(params.id)
+			if (caseResponsibilityInstance) {
+        	    if (params.version) {
+            	    def version = params.version.toLong()
+                	if (caseResponsibilityInstance.version > version) {
+
+                    	caseResponsibilityInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'caseResponsibility.label', default: 'caseResponsibility')] as Object[], "Another user has updated this caseResponsibility while you were editing")
+ 	                   render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
+    	                return
+        	        }
+            	}
+	            caseResponsibilityInstance.properties = params
+    	        if (!caseResponsibilityInstance.hasErrors() && caseResponsibilityInstance.save(flush: true)) {
+        	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'caseResponsibility.label', default: 'caseResponsibility'), caseResponsibilityInstance.id])}"
+            	    withFormat {
+            	    	html { 
+            	    		redirect(action: "show", id: caseResponsibilityInstance.id)
+            			}
+            			xml { render caseResponsibilityInstance as XML }
+            		}
+            	}
+            	else {
+            		withFormat {
+            	    	html { 
+            	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
+            			}
+            			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }
+            		}
+                	
+            	}
+        	}
+        	else {
+            	flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'caseResponsibility.label', default: 'caseResponsibility'), params.id])}"
+            	redirect(action: "list")
+        	}
+        }
+		
+	}
+		
+	
+}

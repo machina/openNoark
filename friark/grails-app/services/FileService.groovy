@@ -20,7 +20,7 @@ import org.friark.ds.*
 /**
 * Tilbyr diverse operasjoner på mapper.
 */
-class MappeService {
+class FileService {
 
     boolean transactional = true
 		def commonService
@@ -30,7 +30,7 @@ class MappeService {
     * Lager en ny mappe med de inkommende paramerterene.
     * @param params Et Map som inneholder metadata for Mappen.
     */
-		def save(params) {
+		def create(params) {
 				params = fixParams(params) 
 				if(!getFileTypes().contains(params.fileType)){
 					return [[errors: ["Mappetype er ikke tillatt"]], false]

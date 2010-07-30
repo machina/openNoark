@@ -20,11 +20,56 @@ import org.friark.ds.*
 /**
 * Metoder for å gjøre operasjoner på Series objekter.
 */
-class ArkivdelService {
+class SeriesService {
 
     boolean transactional = true
 		def commonService
 
+
+	def create(def params){
+		def arkivdel
+		def parent
+		if(params.series) params = params.series
+		
+		parent = params.parent
+		params.parent = null
+		
+		arkivdel = new Series(params)
+		arkivdel.recordSectionStatus = "Opprettet"
+		commonService.setNewSystemID(arkivdel)
+		commonService.setCreated(arkivdel)
+		
+		if(parent == null || parent == "null") {
+			arkivdel.parent = null
+		} else {
+			arkivdel.parent = Fonds.get(parent)
+		}
+                        
+		if(arkivdel.save()){
+			return [arkivdel, true]
+		} else {
+			return [arkivdel, false]
+		}
+	}
+	
+
+	def update(def params){
+		if(params.series) params = params.series
+		def arkivdel = Series.get(params.id)
+		params.createdDate = arkivdel.createdDate
+		params.recordSectionStatus = params.recordSectionStatus.trim()
+		params.parent = Fonds.get(params.'parent.id')
+		println params.parent
+		arkivdel.properties = params
+		println arkivdel.parent
+		if(!arkivdel.hasErrors() && arkivdel.validate() && arkivdel.save()){
+			println "saved"
+			return [arkivdel, true]
+		} else {
+			println "error: ${arkivdel.errors}"
+			return [arkivdel, false]
+		}
+	}
 		/**
 		* Finner alle Mapper under den inkommende arkivdelen som ikke er avsluttet.
     * @param del Seriesen som inneholder mapppene

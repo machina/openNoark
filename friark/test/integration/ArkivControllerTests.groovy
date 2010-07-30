@@ -29,7 +29,7 @@ class ArkivControllerTests extends ControllerUnitTestCase {
     protected void tearDown() {
         super.tearDown()
     }
-
+/*
 	
 	void testupdateOppretterdato() {
 				Fonds ark = new Fonds(systemID: "1", title: "title", arkivstatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
@@ -62,5 +62,5 @@ class ArkivControllerTests extends ControllerUnitTestCase {
 		println "retval.errors: ${retval.errors}"
     assertTrue (retval.errors.toString().contains( "fonds.cannot.remove.finalised.date") )
 		
-  }
+  }*/
 }
