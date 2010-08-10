@@ -51,7 +51,7 @@ def defaultSimplifiedRecord = '''<?xml version="1.0" encoding="UTF-8"?>
 </simplifiedRecord>
 '''
 
-def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'file', SimplifiedRecord: 'registrering']
+def ctrlName = [Fonds: 'fonds', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'file', SimplifiedRecord: 'record']
 
 def currentResult
 
@@ -111,11 +111,12 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
         def fonds = new XmlSlurper().parseText(browser.pageSource)
         def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
         browser.post("http://localhost:8080/friark/ws/series.xml",series)
+				println browser.pageSource
 				def seriesRet = new XmlSlurper().parseText(browser.pageSource)
 				def file = new SimpleTemplateEngine().createTemplate(defaultFile).make([parentId: seriesRet.@id]).toString()
 				browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",file)
 				currentResult = browser.pageSource
-				//println currentResult
+				println currentResult
 				break
 				case 'SimplifiedRecord':
 					browser.post("http://localhost:8080/friark/ws/arkiv.xml",defaultFonds)
