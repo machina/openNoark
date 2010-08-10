@@ -51,7 +51,7 @@ class CrossReferenceController {
 	@Generated
 	def create = {
 		
-		crossReferenceInstance = new CrossReference()
+		def crossReferenceInstance = new CrossReference()
 		crossReferenceInstance.properties = params
 		return [crossReferenceInstance: crossReferenceInstance]
 		
@@ -95,7 +95,7 @@ class CrossReferenceController {
 			
 			}
 		} else {
-			def crossReferenceInstance = crossReference.get(params.id)
+			def crossReferenceInstance = CrossReference.get(params.id)
 			if (crossReferenceInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class CrossReferenceController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'crossReference.label', default: 'crossReference'), crossReferenceInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: crossReferenceInstance.id)
+            	    		render(view: "edit", model: [crossReferenceInstance: crossReferenceInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [crossReferenceInstance: crossReferenceInstance])
             			}
             			xml { render crossReferenceInstance as XML }
             		}
@@ -119,6 +122,9 @@ class CrossReferenceController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [crossReferenceInstance: crossReferenceInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [crossReferenceInstance: crossReferenceInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

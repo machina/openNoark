@@ -51,7 +51,7 @@ class PreservationAndDisposalController {
 	@Generated
 	def create = {
 		
-		preservationAndDisposalInstance = new PreservationAndDisposal()
+		def preservationAndDisposalInstance = new PreservationAndDisposal()
 		preservationAndDisposalInstance.properties = params
 		return [preservationAndDisposalInstance: preservationAndDisposalInstance]
 		
@@ -95,7 +95,7 @@ class PreservationAndDisposalController {
 			
 			}
 		} else {
-			def preservationAndDisposalInstance = preservationAndDisposal.get(params.id)
+			def preservationAndDisposalInstance = PreservationAndDisposal.get(params.id)
 			if (preservationAndDisposalInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class PreservationAndDisposalController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'preservationAndDisposal.label', default: 'preservationAndDisposal'), preservationAndDisposalInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: preservationAndDisposalInstance.id)
+            	    		render(view: "edit", model: [preservationAndDisposalInstance: preservationAndDisposalInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [preservationAndDisposalInstance: preservationAndDisposalInstance])
             			}
             			xml { render preservationAndDisposalInstance as XML }
             		}
@@ -119,6 +122,9 @@ class PreservationAndDisposalController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [preservationAndDisposalInstance: preservationAndDisposalInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [preservationAndDisposalInstance: preservationAndDisposalInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

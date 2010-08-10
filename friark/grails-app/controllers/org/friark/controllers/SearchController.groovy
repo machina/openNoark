@@ -9,13 +9,9 @@ class SearchController {
 	
 	@Generated
 	def search = {
-		println "SEARCHING"
-		println "searchService: ${searchService}"
-		println "searchService.metaClass.pickMethod(\"search\", [Object.class] as Class[]): ${searchService.metaClass.pickMethod("search", [Object.class] as Class[])}"
-		println params	
-		if(searchService && searchService.metaClass.pickMethod("search", [Object.class] as Class[])){
+		
+			if(searchService && searchService.metaClass.pickMethod("search", [Object.class] as Class[])){
 				def result = searchService.search(params)
-				println "result: ${result}"
 				withFormat {
             	    	html { 
             	    		return [result: result]

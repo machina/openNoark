@@ -51,7 +51,7 @@ class DocumentObjectController {
 	@Generated
 	def create = {
 		
-		documentObjectInstance = new DocumentObject()
+		def documentObjectInstance = new DocumentObject()
 		documentObjectInstance.properties = params
 		return [documentObjectInstance: documentObjectInstance]
 		
@@ -95,7 +95,7 @@ class DocumentObjectController {
 			
 			}
 		} else {
-			def documentObjectInstance = documentObject.get(params.id)
+			def documentObjectInstance = DocumentObject.get(params.id)
 			if (documentObjectInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class DocumentObjectController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'documentObject.label', default: 'documentObject'), documentObjectInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: documentObjectInstance.id)
+            	    		render(view: "edit", model: [documentObjectInstance: documentObjectInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [documentObjectInstance: documentObjectInstance])
             			}
             			xml { render documentObjectInstance as XML }
             		}
@@ -119,6 +122,9 @@ class DocumentObjectController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [documentObjectInstance: documentObjectInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [documentObjectInstance: documentObjectInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

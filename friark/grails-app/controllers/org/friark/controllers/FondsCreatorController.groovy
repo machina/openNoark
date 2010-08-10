@@ -5,8 +5,8 @@ import javax.annotation.Generated
 
 import org.friark.ds.FondsCreator
 
-class ArkivskaperController {
-	def arkivskaperService
+class FondsCreatorController {
+	def fondsCreatorService
 	 
 	
 	@Generated
@@ -51,7 +51,7 @@ class ArkivskaperController {
 	@Generated
 	def create = {
 		
-		fondsCreatorInstance = new FondsCreator()
+		def fondsCreatorInstance = new FondsCreator()
 		fondsCreatorInstance.properties = params
 		return [fondsCreatorInstance: fondsCreatorInstance]
 		
@@ -61,8 +61,8 @@ class ArkivskaperController {
 	@Generated
 	def save = {
 		
-		if(arkivskaperService && arkivskaperService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (fondsCreatorInstance, success) = arkivskaperService.create( params )
+		if(fondsCreatorService && fondsCreatorService.metaClass.pickMethod("create", [Object.class] as Class[])){
+			def (fondsCreatorInstance, success) = fondsCreatorService.create( params )
 			withFormat {
 				html { render(view: "show", model: [fondsCreatorInstance: fondsCreatorInstance]) }
                 xml { render fondsCreatorInstance as XML }
@@ -87,15 +87,15 @@ class ArkivskaperController {
 	@Generated
 	def update = {
 		
-		if(arkivskaperService && arkivskaperService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (fondsCreatorInstance, success) = arkivskaperService.update( params )
+		if(fondsCreatorService && fondsCreatorService.metaClass.pickMethod("update", [Object.class] as Class[])){
+			def (fondsCreatorInstance, success) = fondsCreatorService.update( params )
 			withFormat {
 				html { render(view: "show", model: [fondsCreatorInstance: fondsCreatorInstance]) }
                 xml { render fondsCreatorInstance as XML }
 			
 			}
 		} else {
-			def fondsCreatorInstance = fondsCreator.get(params.id)
+			def fondsCreatorInstance = FondsCreator.get(params.id)
 			if (fondsCreatorInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class ArkivskaperController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'fondsCreator.label', default: 'fondsCreator'), fondsCreatorInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: fondsCreatorInstance.id)
+            	    		render(view: "edit", model: [fondsCreatorInstance: fondsCreatorInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [fondsCreatorInstance: fondsCreatorInstance])
             			}
             			xml { render fondsCreatorInstance as XML }
             		}
@@ -119,6 +122,9 @@ class ArkivskaperController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [fondsCreatorInstance: fondsCreatorInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [fondsCreatorInstance: fondsCreatorInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

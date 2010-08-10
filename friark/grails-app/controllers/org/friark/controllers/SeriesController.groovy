@@ -51,7 +51,7 @@ class SeriesController {
 	@Generated
 	def create = {
 		
-		seriesInstance = new Series()
+		def seriesInstance = new Series()
 		seriesInstance.properties = params
 		return [seriesInstance: seriesInstance]
 		
@@ -95,7 +95,7 @@ class SeriesController {
 			
 			}
 		} else {
-			def seriesInstance = series.get(params.id)
+			def seriesInstance = Series.get(params.id)
 			if (seriesInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class SeriesController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'series.label', default: 'series'), seriesInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: seriesInstance.id)
+            	    		render(view: "edit", model: [seriesInstance: seriesInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [seriesInstance: seriesInstance])
             			}
             			xml { render seriesInstance as XML }
             		}
@@ -119,6 +122,9 @@ class SeriesController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [seriesInstance: seriesInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [seriesInstance: seriesInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

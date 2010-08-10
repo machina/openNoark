@@ -51,7 +51,7 @@ class DocumentLinkController {
 	@Generated
 	def create = {
 		
-		documentLinkInstance = new DocumentLink()
+		def documentLinkInstance = new DocumentLink()
 		documentLinkInstance.properties = params
 		return [documentLinkInstance: documentLinkInstance]
 		
@@ -95,7 +95,7 @@ class DocumentLinkController {
 			
 			}
 		} else {
-			def documentLinkInstance = documentLink.get(params.id)
+			def documentLinkInstance = DocumentLink.get(params.id)
 			if (documentLinkInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class DocumentLinkController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'documentLink.label', default: 'documentLink'), documentLinkInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: documentLinkInstance.id)
+            	    		render(view: "edit", model: [documentLinkInstance: documentLinkInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [documentLinkInstance: documentLinkInstance])
             			}
             			xml { render documentLinkInstance as XML }
             		}
@@ -119,6 +122,9 @@ class DocumentLinkController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [documentLinkInstance: documentLinkInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [documentLinkInstance: documentLinkInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

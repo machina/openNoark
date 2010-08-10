@@ -51,7 +51,7 @@ class ClientController {
 	@Generated
 	def create = {
 		
-		clientInstance = new Client()
+		def clientInstance = new Client()
 		clientInstance.properties = params
 		return [clientInstance: clientInstance]
 		
@@ -95,7 +95,7 @@ class ClientController {
 			
 			}
 		} else {
-			def clientInstance = client.get(params.id)
+			def clientInstance = Client.get(params.id)
 			if (clientInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class ClientController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'client.label', default: 'client'), clientInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: clientInstance.id)
+            	    		render(view: "edit", model: [clientInstance: clientInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [clientInstance: clientInstance])
             			}
             			xml { render clientInstance as XML }
             		}
@@ -119,6 +122,9 @@ class ClientController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [clientInstance: clientInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [clientInstance: clientInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

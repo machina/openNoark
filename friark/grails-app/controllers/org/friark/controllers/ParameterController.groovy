@@ -51,7 +51,7 @@ class ParameterController {
 	@Generated
 	def create = {
 		
-		parameterInstance = new Parameter()
+		def parameterInstance = new Parameter()
 		parameterInstance.properties = params
 		return [parameterInstance: parameterInstance]
 		
@@ -95,7 +95,7 @@ class ParameterController {
 			
 			}
 		} else {
-			def parameterInstance = parameter.get(params.id)
+			def parameterInstance = Parameter.get(params.id)
 			if (parameterInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class ParameterController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'parameter.label', default: 'parameter'), parameterInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: parameterInstance.id)
+            	    		render(view: "edit", model: [parameterInstance: parameterInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [parameterInstance: parameterInstance])
             			}
             			xml { render parameterInstance as XML }
             		}
@@ -119,6 +122,9 @@ class ParameterController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [parameterInstance: parameterInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [parameterInstance: parameterInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

@@ -51,7 +51,7 @@ class CaseResponsibilityController {
 	@Generated
 	def create = {
 		
-		caseResponsibilityInstance = new CaseResponsibility()
+		def caseResponsibilityInstance = new CaseResponsibility()
 		caseResponsibilityInstance.properties = params
 		return [caseResponsibilityInstance: caseResponsibilityInstance]
 		
@@ -95,7 +95,7 @@ class CaseResponsibilityController {
 			
 			}
 		} else {
-			def caseResponsibilityInstance = caseResponsibility.get(params.id)
+			def caseResponsibilityInstance = CaseResponsibility.get(params.id)
 			if (caseResponsibilityInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class CaseResponsibilityController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'caseResponsibility.label', default: 'caseResponsibility'), caseResponsibilityInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: caseResponsibilityInstance.id)
+            	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
             			}
             			xml { render caseResponsibilityInstance as XML }
             		}
@@ -119,6 +122,9 @@ class CaseResponsibilityController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

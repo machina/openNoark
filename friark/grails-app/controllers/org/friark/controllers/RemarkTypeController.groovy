@@ -51,7 +51,7 @@ class RemarkTypeController {
 	@Generated
 	def create = {
 		
-		remarkTypeInstance = new RemarkType()
+		def remarkTypeInstance = new RemarkType()
 		remarkTypeInstance.properties = params
 		return [remarkTypeInstance: remarkTypeInstance]
 		
@@ -95,7 +95,7 @@ class RemarkTypeController {
 			
 			}
 		} else {
-			def remarkTypeInstance = remarkType.get(params.id)
+			def remarkTypeInstance = RemarkType.get(params.id)
 			if (remarkTypeInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class RemarkTypeController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'remarkType.label', default: 'remarkType'), remarkTypeInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: remarkTypeInstance.id)
+            	    		render(view: "edit", model: [remarkTypeInstance: remarkTypeInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [remarkTypeInstance: remarkTypeInstance])
             			}
             			xml { render remarkTypeInstance as XML }
             		}
@@ -119,6 +122,9 @@ class RemarkTypeController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [remarkTypeInstance: remarkTypeInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [remarkTypeInstance: remarkTypeInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

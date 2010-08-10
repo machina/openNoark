@@ -51,7 +51,7 @@ class KlassController {
 	@Generated
 	def create = {
 		
-		klassInstance = new Klass()
+		def klassInstance = new Klass()
 		klassInstance.properties = params
 		return [klassInstance: klassInstance]
 		
@@ -95,7 +95,7 @@ class KlassController {
 			
 			}
 		} else {
-			def klassInstance = klass.get(params.id)
+			def klassInstance = Klass.get(params.id)
 			if (klassInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class KlassController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'klass.label', default: 'klass'), klassInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: klassInstance.id)
+            	    		render(view: "edit", model: [klassInstance: klassInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [klassInstance: klassInstance])
             			}
             			xml { render klassInstance as XML }
             		}
@@ -119,6 +122,9 @@ class KlassController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [klassInstance: klassInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [klassInstance: klassInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

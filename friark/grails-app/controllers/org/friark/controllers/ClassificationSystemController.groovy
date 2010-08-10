@@ -51,7 +51,7 @@ class ClassificationSystemController {
 	@Generated
 	def create = {
 		
-		classificationSystemInstance = new ClassificationSystem()
+		def classificationSystemInstance = new ClassificationSystem()
 		classificationSystemInstance.properties = params
 		return [classificationSystemInstance: classificationSystemInstance]
 		
@@ -95,7 +95,7 @@ class ClassificationSystemController {
 			
 			}
 		} else {
-			def classificationSystemInstance = classificationSystem.get(params.id)
+			def classificationSystemInstance = ClassificationSystem.get(params.id)
 			if (classificationSystemInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class ClassificationSystemController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'classificationSystem.label', default: 'classificationSystem'), classificationSystemInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: classificationSystemInstance.id)
+            	    		render(view: "edit", model: [classificationSystemInstance: classificationSystemInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [classificationSystemInstance: classificationSystemInstance])
             			}
             			xml { render classificationSystemInstance as XML }
             		}
@@ -119,6 +122,9 @@ class ClassificationSystemController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [classificationSystemInstance: classificationSystemInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [classificationSystemInstance: classificationSystemInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

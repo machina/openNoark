@@ -51,7 +51,7 @@ class FileController {
 	@Generated
 	def create = {
 		
-		basicFileInstance = new BasicFile()
+		def basicFileInstance = new BasicFile()
 		basicFileInstance.properties = params
 		return [basicFileInstance: basicFileInstance]
 		
@@ -95,7 +95,7 @@ class FileController {
 			
 			}
 		} else {
-			def basicFileInstance = basicFile.get(params.id)
+			def basicFileInstance = BasicFile.get(params.id)
 			if (basicFileInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class FileController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'basicFile.label', default: 'basicFile'), basicFileInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: basicFileInstance.id)
+            	    		render(view: "edit", model: [basicFileInstance: basicFileInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [basicFileInstance: basicFileInstance])
             			}
             			xml { render basicFileInstance as XML }
             		}
@@ -119,6 +122,9 @@ class FileController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [basicFileInstance: basicFileInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [basicFileInstance: basicFileInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

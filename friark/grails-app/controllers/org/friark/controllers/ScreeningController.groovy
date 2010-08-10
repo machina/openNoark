@@ -5,8 +5,8 @@ import javax.annotation.Generated
 
 import org.friark.ds.Screening
 
-class SkjermingController {
-	def skjermingService
+class ScreeningController {
+	def screeningService
 	 
 	
 	@Generated
@@ -51,7 +51,7 @@ class SkjermingController {
 	@Generated
 	def create = {
 		
-		screeningInstance = new Screening()
+		def screeningInstance = new Screening()
 		screeningInstance.properties = params
 		return [screeningInstance: screeningInstance]
 		
@@ -61,8 +61,8 @@ class SkjermingController {
 	@Generated
 	def save = {
 		
-		if(skjermingService && skjermingService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (screeningInstance, success) = skjermingService.create( params )
+		if(screeningService && screeningService.metaClass.pickMethod("create", [Object.class] as Class[])){
+			def (screeningInstance, success) = screeningService.create( params )
 			withFormat {
 				html { render(view: "show", model: [screeningInstance: screeningInstance]) }
                 xml { render screeningInstance as XML }
@@ -87,15 +87,15 @@ class SkjermingController {
 	@Generated
 	def update = {
 		
-		if(skjermingService && skjermingService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (screeningInstance, success) = skjermingService.update( params )
+		if(screeningService && screeningService.metaClass.pickMethod("update", [Object.class] as Class[])){
+			def (screeningInstance, success) = screeningService.update( params )
 			withFormat {
 				html { render(view: "show", model: [screeningInstance: screeningInstance]) }
                 xml { render screeningInstance as XML }
 			
 			}
 		} else {
-			def screeningInstance = screening.get(params.id)
+			def screeningInstance = Screening.get(params.id)
 			if (screeningInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +111,10 @@ class SkjermingController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'screening.label', default: 'screening'), screeningInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: screeningInstance.id)
+            	    		render(view: "edit", model: [screeningInstance: screeningInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [screeningInstance: screeningInstance])
             			}
             			xml { render screeningInstance as XML }
             		}
@@ -119,6 +122,9 @@ class SkjermingController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [screeningInstance: screeningInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [screeningInstance: screeningInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }
