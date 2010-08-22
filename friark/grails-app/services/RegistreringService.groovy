@@ -75,7 +75,7 @@ class RegistreringService {
          }
 					
        }
-        commonService.setNewSystemID registrering
+	        commonService.setNewSystemID registrering
 				commonService.setCreated registrering
 				if(registrering.parentFile && registrering.parentFile.recordSection.periodStatus == "Overlappingsperiode"){
 					def mappe = registrering.parentFile
@@ -92,18 +92,22 @@ class RegistreringService {
 						if(!saksansvar.save()) println saksansvar.errors
 				}
 				if(!registrering.hasErrors() && registrering.save()){
+                                    println "creating: ${registrering}"
+                                    println "creating: ${registrering.parentFile}"
+
+
 					if(korrespondansepart != null){
 						korrespondansepart.registryEntry = registrering
 						registrering.addToClients(korrespondansepart)
 						korrespondansepart.save()
 					}
 						
-					return [registrering, false]
+					return [registrering, true]
 				} else {
 					println registrering.errors
-					return [registrering, true]
+					return [registrering, false]
 				}
-		}
+	}
 
 	def update(params){
 		params = fixParams(params)

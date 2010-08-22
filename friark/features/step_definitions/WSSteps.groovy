@@ -124,9 +124,9 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
     	    browser.post("http://localhost:8080/friark/ws/series.xml",series)
       	  def seriesRet = new XmlSlurper().parseText(browser.pageSource)
         	def file = new SimpleTemplateEngine().createTemplate(defaultFile).make([parentId: seriesRet.@id]).toString()
-	        browser.post("http://localhost:8080/friark/ws/mappe.xml",file)
+	        browser.post("http://localhost:8080/friark/ws/file.xml",file)
   				file = new XmlSlurper().parseText(browser.pageSource)
-					def record = new SimpleTemplateEngine().createTemplate(defaultSimplifiedRecord).make([parentId: seriesRet.@id]).toString()
+					def record = new SimpleTemplateEngine().createTemplate(defaultSimplifiedRecord).make([parentId: file.@id]).toString()
 					browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",record)
 		      currentResult = browser.pageSource
 					//println currentResult
@@ -185,7 +185,7 @@ Then(~"the created ([A-z]*) should be returned"){ String domain ->
 
 When(~"I delete the ([A-z]*)"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
-	println "deleting: ${res.@id}"
+	//println "deleting: ${res.@id}"
 	browser.delete("http://localhost:8080/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
 	//println browser.pageSource
 }
@@ -193,7 +193,13 @@ When(~"I delete the ([A-z]*)"){ String domain ->
 When(~"I search in ([A-z]+) for \"(.*)\"") { String domain, String query ->
 	if(domain == "all") browser.get("http://localhost:8080/friark/ws/search/${query}.xml")
 	else browser.get("http://localhost:8080/friark/ws/search/${domain}/${query}.xml")
-	println browser.pageSource
+	//println browser.pageSource
+}
+
+When(~"I search in ([A-z]+) for \"(.*)\" as OEP") { String domain, String query ->
+	if(domain == "all") browser.get("http://localhost:8080/friark/ws/search/${query}.oep")
+	else browser.get("http://localhost:8080/friark/ws/search/${domain}/${query}.oep")
+	//println browser.pageSource
 }
 
 Then(~"(\\d+) ([A-z]+) should be returned"){ int num, String domain ->
@@ -201,4 +207,12 @@ Then(~"(\\d+) ([A-z]+) should be returned"){ int num, String domain ->
   def list = new XmlSlurper().parseText(source) 
 	def objs = list."${domain[0].toLowerCase() + domain.substring(1)}"
 	assertEquals num, objs.size()
+}
+
+Then(~"an OEP journal with (\\d+) posts is returned"){int num ->
+  def source = browser.pageSource
+  def list = new XmlSlurper(true, true).parseText(source)
+  list = list."RAPPORT"
+  def objs = list."NOARKSAK.OJ"
+  assertEquals num, objs.size()
 }

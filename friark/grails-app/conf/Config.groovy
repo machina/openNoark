@@ -22,7 +22,8 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml', 'application/x
                       all: '*/*',
                       json: ['application/json','text/json'],
                       //form: 'application/x-www-form-urlencoded',
-                      multipartForm: 'multipart/form-data'
+                      multipartForm: 'multipart/form-data',
+                      oep: 'application/oep'
                     ]
 // The default codec used to encode data with ${}
 grails.views.default.codec="none" // none, html, base64

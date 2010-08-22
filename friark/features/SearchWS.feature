@@ -18,3 +18,11 @@ Feature: Search
 		Then 1 Fonds should be returned
 		And 0 Series should be returned
 	
+	Scenario: Search a Registration as OEP
+		Given an empty database 
+		And I am logged in as admin
+		When I POST a new object to the SimplifiedRecord Controller
+		And I search in all for "Test SimplifiedRecord" as OEP
+		Then an OEP journal with 1 posts is returned
+
+
