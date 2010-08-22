@@ -1,0 +1,2415 @@
+<?xml version="1.0" encoding="ASCII"?>
+<MVCore:EMVCPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MVCore="org.friark" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="friark" nsURI="org.friark" nsPrefix="org">
+  <eSubpackages xsi:type="MVCore:EMVCPackage" name="ds" nsURI="org.friark.ds" nsPrefix="org">
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="AdministrativeUnit">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for administrasjonsstruktur&#xA;&#xA;Metadata for administrasjonsstruktur skal ikke avleves, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata enn det som er listet opp her. &#xA;&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Administrasjonsstruktur"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativeUnitName" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Administrativenhetnavn"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativeUnitStatus">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Administrativenhetsstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="generalUnit">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferanseoverordnetEnhet"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Fonds" eSuperTypes="//ds/Base">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for arkiv (Fonds)"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Arkiv"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static auditable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark2.machina.no">
+        <details key="constraint" value="fondsStatus(inList: [&quot;Opprettet&quot;, &quot;Avsluttet&quot;])"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static searchable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static belongsTo = FondsCreator"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fondsStatus" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Arkivstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentMedium" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumentmedium"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLocation" unique="false" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Oppbevaringssted"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedBy" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" unique="false" eType="//ds/Fonds" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforelder"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referenceChildSeries" upperBound="-1" eType="//ds/Series" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansebarn_arkivdel"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subFonds" upperBound="-1" eType="//ds/Fonds" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansebarn_arkiv"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fondsCreator" unique="false" upperBound="-1" eType="//ds/FondsCreator"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Series" eSuperTypes="//ds/Base">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for arkivdel"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Arkivdel"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static auditable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="parent( validator: {&#xA;  if(it.fondsStatus == &quot;Opprettet&quot;) return true&#xA;  return &quot;Kan ikke legge inn arkivdeler under et avsluttet arkiv.&quot;&#xA;})"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="recordSectionStatus(inList: [&quot;Opprettet&quot;, &quot;Avsluttet&quot;])"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no/searchable">
+        <details key="except" value="parent,classificationSystem"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="periodStatus(inList: [&quot;Aktiv periode&quot;, &quot;Overlappingsperiode&quot;,&quot;Avsluttet periode&quot;])"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordSectionStatus" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Arkivdelstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentMedium" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumentmedium"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLocation" unique="false" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Oppbevaringssted"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedBy" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordsPeriodStartDate" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Arkivperiodestartdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordsPeriodEndDate" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Arkivperiodesluttdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" unique="false" lowerBound="1" eType="//ds/Fonds" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforelder"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="precursor" unique="false" eType="//ds/Series" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforl&#xf8;per"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="successor" unique="false" eType="//ds/Series" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansearvtaker"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="classificationSystem" unique="false" eType="//ds/ClassificationSystem" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferanseklassifikasjonsSystem"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="file" upperBound="-1" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansemappe"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="record" upperBound="-1" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseregistrering"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preservationAndDisposal" unique="false" eType="//ds/PreservationAndDisposal"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodStatus" unique="false">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="FondsCreator">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for arkivskaper&#xA;&#xA;Grupperes inn i:&#x9;Arkiv&#xA;Forekomst:&#x9;&#x9;1-M&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Arkivskaper"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no/searchable">
+        <details key="except" value="arkiv"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fondsCreatorID" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Arkivskaperid"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fondsCreatorName" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Arkivskapernavn"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fonds" unique="false" upperBound="-1" eType="//ds/Fonds"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Transfer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for avlevering&#xA;&#xA;Metadata for avlevering skal avleveres som en egen fil.&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Avlevering"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="responsibleExport" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Ansvarligeksport"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exportedDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Eksportertdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFilesExported" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Antallmappereksportert"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfRecordsExported" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="AntallregistreringerEksportert"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfDocumentsExported" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="AntalldokumenterEksportert"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumMetadata" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sjekksummetadata"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumTransfer" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sjekksumavlevering"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumAlgorithm" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sjekksumalgoritme"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="SignOff">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for avskrivning&#xA;&#xA;Grupperes inn i:&#x9;Journalpost&#xA;Forekomst:&#x9;&#x9;0-M&#xA;.Avskrivning er obligatorisk for inng&#xe5;ende dokumenter og organinterne dokumenter som skal f&#xf8;lges opp.&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Avskrivning"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signOffDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avskrivningsdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signedOffBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avskrevetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signOffMethod" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avskrivningsm&#xe5;te"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signOffsRegistryEntry" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferanseavskriverJournalpost"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signOffedByRegistryEntry" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferanseavskrivesavJournalpost"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="BasicFile" eSuperTypes="//ds/Base">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for basismappe"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Basismappe"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static auditable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="mapping" value="tablePerHierarchy false"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no/searchable">
+        <details key="except" value="recordSection"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="recordSection( validator: {&#xA;  if(it == null || it.finalisedDate == null) return true&#xA;  return &quot;Kan ikke legge en mappe under en avsluttet arkivdel.&quot;&#xA;})"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileID" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Mappeid"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileType" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Mappetype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="officialTitle" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Offentligtittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" unique="false" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="N&#xf8;kkelord"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentMedium" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumentmedium"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLocation" unique="false" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Oppbevaringssted"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedBy" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentClass" unique="false" eType="//ds/Klass" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforelder_klasse"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentFile" unique="false" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforelder_basismappe"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="childRecord" upperBound="-1" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansebarn_forenkletRegistrering"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="childFile" upperBound="-1" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansebarn_basismappe"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recordSection" unique="false" lowerBound="1" eType="//ds/Series" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansearkivdel"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bevaringOgKassasjon" unique="false" eType="//ds/PreservationAndDisposal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="merknad" unique="false" upperBound="-1" eType="//ds/Remark"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="BasicRecord" eSuperTypes="//ds/SimplifiedRecord">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for basisregistrering&#xA;&#xA;Metadata for forenkletRegistrering inng&#xe5;r i basisregistrering, f&#xf8;lgende metadata kommer i tillegg."/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Basisregistrering"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="mapping" value="tablePerHierarchy false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordID" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Registreringsid"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="officialTitle">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Offentligtittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" unique="false" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="N&#xf8;kkelord"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" unique="false" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Forfatter"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentMedium">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumentmedium"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLocation" unique="false" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Oppbevaringssted"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="merknad" unique="false" upperBound="-1" eType="//ds/Remark"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="PreservationAndDisposal">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for bevaring og kassasjon&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse&#xA;Forekomst:&#x9;&#x9;0-1&#xA;&lt;br/>&#xA;I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket niv&#xe5; i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter p&#xe5; saksniv&#xe5;et."/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="BevaringOgKassasjon"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark2.machina.no">
+        <details key="constraint" value="disposalDecision(inList: [&quot;Bevares&quot;, &quot;Kasseres&quot;, &quot;Vurderes senere&quot;])"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposalDecision" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Kassasjonsvedtak"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposalAuthority" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Kassasjonshjemmel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="preservationTime" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Bevaringstid"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposalDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Kassasjonsdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="record" unique="false" upperBound="-1" eType="//ds/SimplifiedRecord"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="series" unique="false" upperBound="-1" eType="//ds/Series"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="file" unique="false" upperBound="-1" eType="//ds/BasicFile"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="klass" unique="false" upperBound="-1" eType="//ds/Klass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="documentDescription" unique="false" upperBound="-1" eType="//ds/DocumentDescription"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="UserAdministration">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for brukeradministrasjon&#xA;&#xA;Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her."/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Brukeradministrasjon"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userName" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Brukernavn"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userRole" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Brukerrolle"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userStatus">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Brukerstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="DocumentDescription" eSuperTypes="//ds/Base">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for dokumentbeskrivelse&#xA;&#xA;En dokumentbeskrivelse kan v&#xe6;re knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. &#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Dokumentbeskrivelse"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static searchable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static auditable = true"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentType" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumenttype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentStatus" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumentstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Forfatter"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentMedium" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumentmedium"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLocation" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Oppbevaringssted"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="documentObject" upperBound="-1" eType="//ds/DocumentObject" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferansedokumentObjekt"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preservationAndDisposal" unique="false" eType="//ds/PreservationAndDisposal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="remark" unique="false" upperBound="-1" eType="//ds/Remark"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="records" upperBound="-1" eType="//ds/DocumentLink" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferansedokumentBeskrivelse"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposalDate" unique="false">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposedBy" unique="false" defaultValueLiteral="">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="DocumentFlow">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for dokumentflyt&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Journalpost&#xA;Forekomst:&#x9;&#x9;0-M"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Dokumentflyt"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowTo" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Flyttil"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowFrom" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Flytfra"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowRecivedDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Flytmottattdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowSentDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Flytsendtdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowStatus" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Flytstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowRemark">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Flytmerknad"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="DocumentLink">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for dokumentlink&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Dokumentbeskrivelse&#xA;Forekomst:&#x9;&#x9;1&#xA;&lt;br/>&#xA;Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Dokumentlink"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referenceRecord" unique="false" lowerBound="1" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseregistrering"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkedRecordAs" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="TilknyttetregistreringSom"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentNumber" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumentnummer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkedDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tilknyttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkedBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tilknyttetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="documentDescription" unique="false" eType="//ds/DocumentDescription"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="DocumentObject" eSuperTypes="//ds/Base">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for dokumentobjekt"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Dokumentobjekt"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no/attributes">
+        <details key="auditable" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="documentDescription( validator: { val, obj ->&#xA;  if(obj.documentDescription == null &amp;&amp; obj.record == null) return &quot;Dokumentobjekt m&#xe5; v&#xe6;re tilknyttet enten et dokumentobjekt eller en registrering.&quot;&#xA;  if(obj.documentDescription != null &amp;&amp; obj.record != null) return &quot;Dokumentobjekt m&#xe5; v&#xe6;re tilknyttet enten et dokumentobjekt eller en registrering.&quot;&#xA;  return true&#xA;})"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionNumber" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Versjonsnummer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="variantFormat" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Variantformat"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Format"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatDetails" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Formatdetaljer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="documentDescription" unique="false" eType="//ds/DocumentDescription" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferansedokumentBeskrivelse"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="record" unique="false" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseregistrering"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentFile" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansedokumentfil"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksum" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sjekksumdokument"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumAlgorithm" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sjekksumalgoritme"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileSize" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Filst&#xf8;rrelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="ChangeLog">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for endringslogg&#xA;&#xA;Metadata for endringslogg skal ikke grupperes inn i en annen arkivenhet, men avleveres som en egen fil.&#xa0; Endringsloggen m&#xe5; derfor ha referanse til hvilken arkivenhet endringen tilh&#xf8;rer, og hvilket metadataelement som er blitt endret. &#xA;&#xA;Ikke alle endringer skal avleveres. Aktuelle endringer kan&#xa0; v&#xe6;re&#xa0; endring av saksstatus, journal-status, tilgangsrestriksjon, klassifikasjon (referanse til klasse), saksansvarlig, saksbehandler. N&#xe6;rmere spesifikasjon av hvilke endringer som skal avleveres, vil komme i en senere versjon. "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Endringslogg"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordUnit" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansearkivenhet"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadata" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansemetadata"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="changedDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Endretdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="changedBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Endretav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousValue" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tidligereverdi"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newValue" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Nyverdi"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Grading">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for gradering&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Basismappe, Forenklet registrering, Dokmentbeskrivelse.&#xA;Forekomst:&#x9;0-1"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Gradering"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="grading" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Gradering"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gradingDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Graderingsdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gradingBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Gradertav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="downGradingDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Nedgraderingsdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="downGradedBy">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Nedgradertav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="RegistryEntry" eSuperTypes="//ds/BasicRecord">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for journalpost&#xA;&#xA;Metadata for basisregistrering inng&#xe5;r i journalpost, f&#xf8;lgende metadata kommer i tillegg."/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Journalpost"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serialNumber" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="L&#xf8;penummer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryEntryType" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Journalposttype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordStatus" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Journalstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Journaldato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Dokumentetsdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recivedDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Mottattdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sentDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sendtdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Forfallsdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidentialityAssessedDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Offentlighetsvurdertdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfAppendicies">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Antallvedlegg"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loanedDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Utl&#xe5;ntdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loanedTo">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Utl&#xe5;nttil"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="clients" lowerBound="1" upperBound="-1" eType="//ds/Client"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="caseResponsibility" unique="false" lowerBound="1" eType="//ds/CaseResponsibility"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Klass" eSuperTypes="//ds/Base">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for klasse"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Klasse"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="transient" value="String fullId"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static auditable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="afterLoad" value="if(parentClass){&#xA;&#x9;fullId = &quot;${parentClass.classID}.${classID}&quot;&#xA;}else{&#xA;&#x9;fullId = &quot;${classID}&quot;&#xA;}&#xA;println &quot;fullId: ${fullId}&quot;"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="toString" value="&quot;Klasse : ${fullId}&quot;"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="classID" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Klasseid"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" unique="false" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="N&#xf8;kkelord"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedBy" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentClassificationSystem" unique="false" lowerBound="1" eType="//ds/ClassificationSystem" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforelder_klassifikasjonssystem"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentClass" unique="false" eType="//ds/Klass" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforelder_klasse"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="childClass" upperBound="-1" eType="//ds/Klass" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansebarn_klasse"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="childFile" upperBound="-1" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansebarn_basismappe"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="childRecord" upperBound="-1" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansebarn_forenkletRegistrering"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preservationAndDisposal" unique="false" eType="//ds/PreservationAndDisposal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="screening" eType="//ds/Screening"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="ClassificationSystem" eSuperTypes="//ds/Base">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for klassifikasjonssystem"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Klassifikasjonssystem"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static searchable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static auditable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="toString" value="&quot;${title}&quot;"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="classificationType" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Klassifikasjonstype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedBy" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1" eType="//ds/Klass" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansebarn"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="ConversionToArchivalFormat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for konvertering til arkivformat&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Dokumentobjekt&#xA;Forekomst:&#x9;&#x9;0-1&#xA;&lt;br/>&#xA;Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konvertering er valgfritt, og kan forekomme en gang."/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="KonverteringTilArkivformat"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="convertedDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Konvertertdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="convertedBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Konvertertav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousFormat" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tidligereformat"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousFormatDetails">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tidligereformatdetaljer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Client">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for korrespondansepart&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Journalpost&#xA;Forekomst:&#x9;&#x9;1-M"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Korrespondansepart"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientType" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Korrespondanseparttype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientName" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Korrespondansepartnavn"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalAddress">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Postadresse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postCode">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Postnummer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalTown">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Poststed"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreignAddress">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Utenlandsadresse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Epostadresse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="telephoneNumber">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Telefonnummer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactPerson">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Kontaktperson"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="registryEntry" lowerBound="1" eType="//ds/RegistryEntry"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="CrossReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for kryssreferanse&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Klasse, Basismappe, Basisregistrering&#xA;Forekomst:&#x9;&#x9;0-M&#xA;&lt;br/>&#xA;Referansen kan g&#xe5; fra en klasse til en annen klasse, fra en mappe til en annen mappe, fra en registrering til en annen registrering, fra en mappe til en registrering og fra en registrering til en mappe. Kryssreferansen&#xa0; vil ogs&#xe5; omfatte spesialiseringer.&#xa0; En kryssreferanse kan derfor g&#xe5; fra en m&#xf8;temappe til en saksmappe. "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Kryssreferanse"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="toClass( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.toFile != null || obj.toRecord != null)) return &quot;Kryssreferanser kan bare ha en til attributt.&quot;&#xA;  return true&#xA;})&#xA;toFile( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.toClass != null || obj.toRecord != null)) return &quot;Kryssreferanser kan bare ha en til attributt.&quot;&#xA;  return true&#xA;})&#xA;toRecord( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.toFile != null || obj.toClass != null)) return &quot;Kryssreferanser kan bare ha en til attributt.&quot;&#xA;  return true&#xA;})"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="fromClass( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.fromFile != null || obj.fromRecord != null)) return &quot;Kryssreferanser kan bare ha en fra attributt.&quot;&#xA;  return true&#xA;})&#xA;fromFile( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.fromClass != null || obj.fromRecord != null)) return &quot;Kryssreferanser kan bare ha en fra attributt.&quot;&#xA;  return true&#xA;})&#xA;fromRecord( validator: { val, obj ->&#xA;  if(val != null  &amp;&amp; (obj.fromFile != null || obj.fromClass != null)) return &quot;Kryssreferanser kan bare ha en fra attributt.&quot;&#xA;  return true&#xA;})"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toClass" unique="false" eType="//ds/Klass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fromClass" unique="false" eType="//ds/Klass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fromFile" unique="false" eType="//ds/BasicFile"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toFile" unique="false" eType="//ds/BasicFile"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toRecord" unique="false" eType="//ds/SimplifiedRecord"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fromRecord" unique="false" eType="//ds/SimplifiedRecord"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Remark">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for merknad&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Basismappe, Basisregistrering, Dokumentbeskrivelse&#xA;Forekomst:&#x9;&#x9;0-M&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Merknad"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkText" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Merknadstekst"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Merknadsdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkRegisteredBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Merknadregistrertav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="basicFile" unique="false" eType="//ds/BasicFile"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="basicRecord" unique="false" eType="//ds/BasicRecord"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="documentDescription" unique="false" eType="//ds/DocumentDescription"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="remarkType" lowerBound="1" eType="//ds/RemarkType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="RemarkType">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="MerknadType"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" changeable="false">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="remark" upperBound="-1" eType="//ds/Remark"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="MeetingParticipant">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for m&#xf8;tedeltaker&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;M&#xf8;temappe&#xA;Forekomst:&#x9;&#x9;1-M&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="M&#xf8;tedeltaker"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingParticipantName" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="M&#xf8;tedeltakernavn"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingParticipantFunction" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="M&#xf8;tedeltakerfunksjon"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="MeetingFile" eSuperTypes="//ds/BasicFile">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for m&#xf8;temappe&#xA;&lt;br/>&#xA;Metadata for basismappe inng&#xe5;r i m&#xf8;temappe, f&#xf8;lgende metadata kommer i tillegg."/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="M&#xf8;temappe"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingNumber" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="M&#xf8;tenummer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="board" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Utvalg"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="M&#xf8;tedato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingPlace">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="M&#xf8;tested"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="previousMeeting" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforrigem&#xf8;te"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nextMeeting" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansenestem&#xf8;te"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="meetingRecord" eSuperTypes="//ds/BasicRecord">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for m&#xf8;teregistrering&#xA;&lt;br/>&#xA;Metadata for basisregistrering inng&#xe5;r i m&#xf8;teregistrering, f&#xf8;lgende metadata kommer i tillegg.&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="M&#xf8;teregistrering"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moeteregistreringstype" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="M&#xf8;teregistreringstype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moetesakstype" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="M&#xf8;tesakstype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moeteregistreringsstatus">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="M&#xf8;teregistreringsstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativenhet" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Administrativenhet"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="saksbehandler" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Saksbehandler"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toMeetingRecord" upperBound="-1" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferansetilM&#xf8;teregistrering"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fromMeetingRecord" upperBound="-1" eType="//ds/SimplifiedRecord" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansefram&#xf8;teregistrering"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Precedent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for presedens&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Saksmappe, Journalpost&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-M"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Presedens"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Presedensdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tittel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Beskrivelse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentAuthority">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Presedenshjemmel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="leagalSourceFactor" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Rettskildefaktor"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentApprovedDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Presedensgodkjentdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentApprovedBy">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Presedensgodkjentav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedBy">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Avsluttetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentStatus">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Presedensstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="CaseResponsibility">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for saksansvar&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Journalpost&lt;br/>&#xA;Forekomst:&#x9;&#x9;1-M&#xA;&#xA;Ved organinterne dokumenter som skal f&#xf8;lges opp, er det behov for &#xe5; gruppere informasjon om saksansvar fordi denne&#xa0; kan forekomme flere ganger. "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Saksansvar"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativeUnit" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Administrativenhet"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="executiveOfficer" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Saksbehandler"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryManagementUnit">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Journalenhet"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="registryEntry" upperBound="-1" eType="//ds/RegistryEntry"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="CaseDistribution">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for saksfordeling&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Saksmappe, journalpost&#xA;Forekomst:&#x9;&#x9;0-M"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Saksfordeling"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedTo" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Fordelttil"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Fordeltav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Fordeltdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="CaseFile" eSuperTypes="//ds/BasicFile">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for saksmappe&#xA;&#xA;Metadata for basismappe inng&#xe5;r i saksmappe, f&#xf8;lgende metadata kommer i tillegg."/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Saksmappe"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static belongsTo = Klass"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="caseDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Saksdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativeUnit" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Administrativenhet"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="caseResponsible" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Saksansvarlig"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryManagementUnit" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Journalenhet"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="caseStatus" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Saksstatus"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loanedDate" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Utl&#xe5;ntdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loanedTo" unique="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Utl&#xe5;nttil"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="secondaryClassification" upperBound="-1" eType="//ds/Klass" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansesekund&#xe6;rKlassifikasjon"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="precedent" unique="false" eType="//ds/Precedent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="CaseParty">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for sakspart&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Saksmappe&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-M&#xA;&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Sakspart"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="casePartyID">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sakspartid"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="casePartyName" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sakspartnavn"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="casePartyRole" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Sakspartrolle"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalAddress">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Postadresse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postCode">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Postnummer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalTown">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Poststed"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreignAddress">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Utenlandsadresse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Epostadresse"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="telephoneNumber">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Telefonnummer"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactPerson">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Kontaktperson"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Screening">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for skjerming&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse&#xA;&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-1&#xA;&lt;br/>&#xA;I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket niv&#xe5; i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter p&#xe5; journalpostniv&#xe5;et.&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Skjerming"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessRestriction" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Tilgangsrestriksjon"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningAuthority" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Skjermingshjemmel"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningMetadata" unique="false" lowerBound="1" upperBound="-1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Skjermingmetadata"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningDocument">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Skjermingdokument"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningDuration" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Skjermingsvarighet"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningCeasesDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Skjermingopph&#xf8;rerdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="DeletionOfDocuments">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for sletting av dokumenter&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Arkivdel, dokumentbeskrivelse&#xA;Forekomst:&#x9;&#x9;0-M&#xA;&#xA;Ved sletting av tidligere versjoner (siste versjon kan ikke slettes), produksjonsformat og varianter skal metadata grupperes inn i dokumentbeskrivelse. De tilh&#xf8;rende dokumentobjekter skal da slettes.&#xA;&#xA;Ved sletting av innholdet i en arkivdel (som ikke har bevaringsverdi), skal alle mapper og underordnede arkivenheter som tilh&#xf8;rere arkivdelen slettes. "/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="SlettingAvDokumenter"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletionType" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Slettingstype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletedDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Slettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletedBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Slettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="CompletedDisposal">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for utf&#xf8;rt kassasjon&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Dokumentbeskrivelse&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-1&#xA;&#xA;Ved kassasjon skal dokumentobjektet slettes. &#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Utf&#xf8;rtKassasjon"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposedOfDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Kassertdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposedOfBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Kassertav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="VerificationOfElectronicSignature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for verifisering av elektronisk signatur&#xA;&lt;br/>&#xA;Grupperes inn i:&#x9;Journalpost&lt;br/>&#xA;Forekomst:&#x9;&#x9;0-1"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="VerifiseringAvElektroniskSignatur"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="electronicSignatureSecurityLevel" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ElektronisksignaturSikkerhetsniv&#xe5;"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="electronicSignatureVerified" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ElektronisksignaturVerfisert"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="verifiedDate" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Verifisertdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="verifiedBy" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Verfisertav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Base">
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="mapping" value="tablePerHierarchy false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemID" lowerBound="1" changeable="false" defaultValueLiteral="">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="SimplifiedRecord" eSuperTypes="//ds/Base">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Metadata for forenklet registrering"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="ForenkletRegistrering"/>
+        <details key="kind" value="elementOnly"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="attribute" value="static auditable = true"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="mapping" value="tablePerHierarchy false"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no/searchable">
+        <details key="except" value="recordSection,parentFile"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="recordSection( validator: {&#xA;  if(it == null || it.finalisedDate == null) return true&#xA;  return &quot;Kan ikke legge en registrering under en avsluttet arkivdel.&quot;&#xA;})"/>
+      </eAnnotations>
+      <eAnnotations source="http://opennoark.machina.no">
+        <details key="constraint" value="parentFile( validator: {&#xA;  if(it == null || it.finalisedDate == null) return true&#xA;  return &quot;Kan ikke legge en registrering under en avsluttet mappe.&quot;&#xA;})"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordType" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Registreringstype"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Opprettetav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="archivedDate" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Arkivertdato"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="archivedBy" unique="false" lowerBound="1">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Arkivertav"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentFile" ordered="false" unique="false" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforelder_basismappe"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentClass" unique="false" eType="//ds/Klass" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referanseforelder_klasse"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recordSection" unique="false" eType="//ds/Series" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Referansearkivdel"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="document" upperBound="-1" eType="//ds/DocumentLink" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferansedokumentBeskrivelse"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="documentObject" upperBound="-1" eType="//ds/DocumentObject" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ReferansedokumentObjekt"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preservationAndDisposal" unique="false" eType="//ds/PreservationAndDisposal"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EDomainClass" name="Parameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" defaultValueLiteral="" derived="true">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages xsi:type="MVCore:EMVCPackage" name="controllers" nsURI="org.friark.controllers" nsPrefix="org">
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Fonds">
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/Fonds"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Remark">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/Remark"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/Remark"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/Remark"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/Remark"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/Remark"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/Remark"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="RemarkType">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/RemarkType"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/RemarkType"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/RemarkType"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/RemarkType"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/RemarkType"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/RemarkType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="ClassificationSystem">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/ClassificationSystem"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/ClassificationSystem"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/ClassificationSystem"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/ClassificationSystem"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/ClassificationSystem"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/ClassificationSystem"/>
+      <eOperations xsi:type="MVCore:EAction" name="delete" eType="//ds/ClassificationSystem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Parameter">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/Parameter"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/Parameter"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/Parameter"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/Parameter"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/Parameter"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="File">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/BasicFile"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/BasicFile"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/BasicFile"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/BasicFile"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/BasicFile"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/BasicFile"/>
+      <eOperations xsi:type="MVCore:EAction" name="delete" eType="//ds/BasicFile"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="CaseResponsibility">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/CaseResponsibility"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/CaseResponsibility"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/CaseResponsibility"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/CaseResponsibility"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/CaseResponsibility"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/CaseResponsibility"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Arkivskaper">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/FondsCreator"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/FondsCreator"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/FondsCreator"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/FondsCreator"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/FondsCreator"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/FondsCreator"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Skjerming">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/Screening"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/Screening"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/Screening"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/Screening"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/Screening"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/Screening"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Client">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/Client"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/Client"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/Client"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/Client"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/Client"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/Client"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Registrering">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/SimplifiedRecord"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/SimplifiedRecord"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/SimplifiedRecord"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/SimplifiedRecord"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/SimplifiedRecord"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/SimplifiedRecord"/>
+      <eOperations xsi:type="MVCore:EAction" name="delete" eType="//ds/SimplifiedRecord"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="DocumentObject">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/DocumentObject"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/DocumentObject"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/DocumentObject"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/DocumentObject"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/DocumentObject"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/DocumentObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="DocumentDescription">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/DocumentDescription"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/DocumentDescription"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/DocumentDescription"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/DocumentDescription"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/DocumentDescription"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/DocumentDescription"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="DocumentLink">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/DocumentLink"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/DocumentLink"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/DocumentLink"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/DocumentLink"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/DocumentLink"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/DocumentLink"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="PreservationAndDisposal">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/PreservationAndDisposal"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/PreservationAndDisposal"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/PreservationAndDisposal"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/PreservationAndDisposal"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/PreservationAndDisposal"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/PreservationAndDisposal"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="CrossReference">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/CrossReference"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/CrossReference"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/CrossReference"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/CrossReference"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/CrossReference"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/CrossReference"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Arkiv">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/Fonds"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/Fonds"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/Fonds"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/Fonds"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/Fonds"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/Fonds"/>
+      <eOperations xsi:type="MVCore:EAction" name="delete" eType="//ds/Fonds"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Search">
+      <eOperations xsi:type="MVCore:EAction" name="search"/>
+      <eOperations xsi:type="MVCore:EAction" name="docSearch"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Klass">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/Klass"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/Klass"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/Klass"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/Klass"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/Klass"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/Klass"/>
+      <eOperations xsi:type="MVCore:EAction" name="delete" eType="//ds/Klass"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Series">
+      <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/Series"/>
+      <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/Series"/>
+      <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/Series"/>
+      <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/Series"/>
+      <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/Series"/>
+      <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/Series"/>
+      <eOperations xsi:type="MVCore:EAction" name="delete" eType="//ds/Series"/>
+    </eClassifiers>
+  </eSubpackages>
+</MVCore:EMVCPackage>
