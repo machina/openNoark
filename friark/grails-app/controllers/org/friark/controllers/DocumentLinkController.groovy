@@ -9,7 +9,7 @@ class DocumentLinkController {
 	def documentLinkService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		documentLinkInstance = new DocumentLink()
+		def documentLinkInstance = new DocumentLink()
 		documentLinkInstance.properties = params
 		return [documentLinkInstance: documentLinkInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(documentLinkService && documentLinkService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (documentLinkInstance, success) = documentLinkService.create( params )
+		if(documentLinkService && (documentLinkService.metaClass.pickMethod("create", [Object.class] as Class[]) || documentLinkService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def documentLinkInstance
+			def success
+			if(documentLinkService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentLinkInstance, success) = documentLinkService.create( params, request )
+			else (documentLinkInstance, success) = documentLinkService.create( params )
 			withFormat {
 				html { render(view: "show", model: [documentLinkInstance: documentLinkInstance]) }
                 xml { render documentLinkInstance as XML }
@@ -84,18 +87,22 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(documentLinkService && documentLinkService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (documentLinkInstance, success) = documentLinkService.update( params )
+		if(documentLinkService && (documentLinkService.metaClass.pickMethod("update", [Object.class] as Class[]) || documentLinkService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def documentLinkInstance
+			def success
+			if(documentLinkService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentLinkInstance, success) = documentLinkService.update( params, request )
+			else (documentLinkInstance, success) = documentLinkService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [documentLinkInstance: documentLinkInstance]) }
                 xml { render documentLinkInstance as XML }
 			
 			}
 		} else {
-			def documentLinkInstance = documentLink.get(params.id)
+			def documentLinkInstance = DocumentLink.get(params.id)
 			if (documentLinkInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class DocumentLinkController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'documentLink.label', default: 'documentLink'), documentLinkInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: documentLinkInstance.id)
+            	    		render(view: "edit", model: [documentLinkInstance: documentLinkInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [documentLinkInstance: documentLinkInstance])
             			}
             			xml { render documentLinkInstance as XML }
             		}
@@ -119,6 +129,9 @@ class DocumentLinkController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [documentLinkInstance: documentLinkInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [documentLinkInstance: documentLinkInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

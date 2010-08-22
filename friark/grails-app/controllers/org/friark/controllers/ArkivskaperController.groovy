@@ -9,7 +9,7 @@ class ArkivskaperController {
 	def arkivskaperService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class ArkivskaperController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class ArkivskaperController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class ArkivskaperController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		fondsCreatorInstance = new FondsCreator()
+		def fondsCreatorInstance = new FondsCreator()
 		fondsCreatorInstance.properties = params
 		return [fondsCreatorInstance: fondsCreatorInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(arkivskaperService && arkivskaperService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (fondsCreatorInstance, success) = arkivskaperService.create( params )
+		if(arkivskaperService && (arkivskaperService.metaClass.pickMethod("create", [Object.class] as Class[]) || arkivskaperService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def fondsCreatorInstance
+			def success
+			if(arkivskaperService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsCreatorInstance, success) = arkivskaperService.create( params, request )
+			else (fondsCreatorInstance, success) = arkivskaperService.create( params )
 			withFormat {
 				html { render(view: "show", model: [fondsCreatorInstance: fondsCreatorInstance]) }
                 xml { render fondsCreatorInstance as XML }
@@ -84,18 +87,22 @@ class ArkivskaperController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(arkivskaperService && arkivskaperService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (fondsCreatorInstance, success) = arkivskaperService.update( params )
+		if(arkivskaperService && (arkivskaperService.metaClass.pickMethod("update", [Object.class] as Class[]) || arkivskaperService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def fondsCreatorInstance
+			def success
+			if(arkivskaperService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsCreatorInstance, success) = arkivskaperService.update( params, request )
+			else (fondsCreatorInstance, success) = arkivskaperService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [fondsCreatorInstance: fondsCreatorInstance]) }
                 xml { render fondsCreatorInstance as XML }
 			
 			}
 		} else {
-			def fondsCreatorInstance = fondsCreator.get(params.id)
+			def fondsCreatorInstance = FondsCreator.get(params.id)
 			if (fondsCreatorInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class ArkivskaperController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'fondsCreator.label', default: 'fondsCreator'), fondsCreatorInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: fondsCreatorInstance.id)
+            	    		render(view: "edit", model: [fondsCreatorInstance: fondsCreatorInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [fondsCreatorInstance: fondsCreatorInstance])
             			}
             			xml { render fondsCreatorInstance as XML }
             		}
@@ -119,6 +129,9 @@ class ArkivskaperController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [fondsCreatorInstance: fondsCreatorInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [fondsCreatorInstance: fondsCreatorInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

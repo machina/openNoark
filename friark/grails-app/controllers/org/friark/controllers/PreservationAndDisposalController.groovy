@@ -9,7 +9,7 @@ class PreservationAndDisposalController {
 	def preservationAndDisposalService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		preservationAndDisposalInstance = new PreservationAndDisposal()
+		def preservationAndDisposalInstance = new PreservationAndDisposal()
 		preservationAndDisposalInstance.properties = params
 		return [preservationAndDisposalInstance: preservationAndDisposalInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(preservationAndDisposalService && preservationAndDisposalService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (preservationAndDisposalInstance, success) = preservationAndDisposalService.create( params )
+		if(preservationAndDisposalService && (preservationAndDisposalService.metaClass.pickMethod("create", [Object.class] as Class[]) || preservationAndDisposalService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def preservationAndDisposalInstance
+			def success
+			if(preservationAndDisposalService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (preservationAndDisposalInstance, success) = preservationAndDisposalService.create( params, request )
+			else (preservationAndDisposalInstance, success) = preservationAndDisposalService.create( params )
 			withFormat {
 				html { render(view: "show", model: [preservationAndDisposalInstance: preservationAndDisposalInstance]) }
                 xml { render preservationAndDisposalInstance as XML }
@@ -84,18 +87,22 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(preservationAndDisposalService && preservationAndDisposalService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (preservationAndDisposalInstance, success) = preservationAndDisposalService.update( params )
+		if(preservationAndDisposalService && (preservationAndDisposalService.metaClass.pickMethod("update", [Object.class] as Class[]) || preservationAndDisposalService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def preservationAndDisposalInstance
+			def success
+			if(preservationAndDisposalService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (preservationAndDisposalInstance, success) = preservationAndDisposalService.update( params, request )
+			else (preservationAndDisposalInstance, success) = preservationAndDisposalService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [preservationAndDisposalInstance: preservationAndDisposalInstance]) }
                 xml { render preservationAndDisposalInstance as XML }
 			
 			}
 		} else {
-			def preservationAndDisposalInstance = preservationAndDisposal.get(params.id)
+			def preservationAndDisposalInstance = PreservationAndDisposal.get(params.id)
 			if (preservationAndDisposalInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class PreservationAndDisposalController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'preservationAndDisposal.label', default: 'preservationAndDisposal'), preservationAndDisposalInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: preservationAndDisposalInstance.id)
+            	    		render(view: "edit", model: [preservationAndDisposalInstance: preservationAndDisposalInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [preservationAndDisposalInstance: preservationAndDisposalInstance])
             			}
             			xml { render preservationAndDisposalInstance as XML }
             		}
@@ -119,6 +129,9 @@ class PreservationAndDisposalController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [preservationAndDisposalInstance: preservationAndDisposalInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [preservationAndDisposalInstance: preservationAndDisposalInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

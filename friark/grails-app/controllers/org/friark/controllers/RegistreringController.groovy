@@ -9,7 +9,7 @@ class RegistreringController {
 	def registreringService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class RegistreringController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class RegistreringController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class RegistreringController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		simplifiedRecordInstance = new SimplifiedRecord()
+		def simplifiedRecordInstance = new SimplifiedRecord()
 		simplifiedRecordInstance.properties = params
 		return [simplifiedRecordInstance: simplifiedRecordInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(registreringService && registreringService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (simplifiedRecordInstance, success) = registreringService.create( params )
+		if(registreringService && (registreringService.metaClass.pickMethod("create", [Object.class] as Class[]) || registreringService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def simplifiedRecordInstance
+			def success
+			if(registreringService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (simplifiedRecordInstance, success) = registreringService.create( params, request )
+			else (simplifiedRecordInstance, success) = registreringService.create( params )
 			withFormat {
 				html { render(view: "show", model: [simplifiedRecordInstance: simplifiedRecordInstance]) }
                 xml { render simplifiedRecordInstance as XML }
@@ -84,18 +87,22 @@ class RegistreringController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(registreringService && registreringService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (simplifiedRecordInstance, success) = registreringService.update( params )
+		if(registreringService && (registreringService.metaClass.pickMethod("update", [Object.class] as Class[]) || registreringService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def simplifiedRecordInstance
+			def success
+			if(registreringService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (simplifiedRecordInstance, success) = registreringService.update( params, request )
+			else (simplifiedRecordInstance, success) = registreringService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [simplifiedRecordInstance: simplifiedRecordInstance]) }
                 xml { render simplifiedRecordInstance as XML }
 			
 			}
 		} else {
-			def simplifiedRecordInstance = simplifiedRecord.get(params.id)
+			def simplifiedRecordInstance = SimplifiedRecord.get(params.id)
 			if (simplifiedRecordInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class RegistreringController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'simplifiedRecord.label', default: 'simplifiedRecord'), simplifiedRecordInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: simplifiedRecordInstance.id)
+            	    		render(view: "edit", model: [simplifiedRecordInstance: simplifiedRecordInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [simplifiedRecordInstance: simplifiedRecordInstance])
             			}
             			xml { render simplifiedRecordInstance as XML }
             		}
@@ -119,6 +129,9 @@ class RegistreringController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [simplifiedRecordInstance: simplifiedRecordInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [simplifiedRecordInstance: simplifiedRecordInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }
@@ -135,7 +148,7 @@ class RegistreringController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def delete = {
 		
 		def simplifiedRecordInstance = SimplifiedRecord.get(params.id)

@@ -9,7 +9,7 @@ class ParameterController {
 	def parameterService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		parameterInstance = new Parameter()
+		def parameterInstance = new Parameter()
 		parameterInstance.properties = params
 		return [parameterInstance: parameterInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(parameterService && parameterService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (parameterInstance, success) = parameterService.create( params )
+		if(parameterService && (parameterService.metaClass.pickMethod("create", [Object.class] as Class[]) || parameterService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def parameterInstance
+			def success
+			if(parameterService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (parameterInstance, success) = parameterService.create( params, request )
+			else (parameterInstance, success) = parameterService.create( params )
 			withFormat {
 				html { render(view: "show", model: [parameterInstance: parameterInstance]) }
                 xml { render parameterInstance as XML }
@@ -84,18 +87,22 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(parameterService && parameterService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (parameterInstance, success) = parameterService.update( params )
+		if(parameterService && (parameterService.metaClass.pickMethod("update", [Object.class] as Class[]) || parameterService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def parameterInstance
+			def success
+			if(parameterService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (parameterInstance, success) = parameterService.update( params, request )
+			else (parameterInstance, success) = parameterService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [parameterInstance: parameterInstance]) }
                 xml { render parameterInstance as XML }
 			
 			}
 		} else {
-			def parameterInstance = parameter.get(params.id)
+			def parameterInstance = Parameter.get(params.id)
 			if (parameterInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class ParameterController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'parameter.label', default: 'parameter'), parameterInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: parameterInstance.id)
+            	    		render(view: "edit", model: [parameterInstance: parameterInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [parameterInstance: parameterInstance])
             			}
             			xml { render parameterInstance as XML }
             		}
@@ -119,6 +129,9 @@ class ParameterController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [parameterInstance: parameterInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [parameterInstance: parameterInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

@@ -9,7 +9,7 @@ class SkjermingController {
 	def skjermingService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class SkjermingController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class SkjermingController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class SkjermingController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		screeningInstance = new Screening()
+		def screeningInstance = new Screening()
 		screeningInstance.properties = params
 		return [screeningInstance: screeningInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(skjermingService && skjermingService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (screeningInstance, success) = skjermingService.create( params )
+		if(skjermingService && (skjermingService.metaClass.pickMethod("create", [Object.class] as Class[]) || skjermingService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def screeningInstance
+			def success
+			if(skjermingService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (screeningInstance, success) = skjermingService.create( params, request )
+			else (screeningInstance, success) = skjermingService.create( params )
 			withFormat {
 				html { render(view: "show", model: [screeningInstance: screeningInstance]) }
                 xml { render screeningInstance as XML }
@@ -84,18 +87,22 @@ class SkjermingController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(skjermingService && skjermingService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (screeningInstance, success) = skjermingService.update( params )
+		if(skjermingService && (skjermingService.metaClass.pickMethod("update", [Object.class] as Class[]) || skjermingService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def screeningInstance
+			def success
+			if(skjermingService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (screeningInstance, success) = skjermingService.update( params, request )
+			else (screeningInstance, success) = skjermingService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [screeningInstance: screeningInstance]) }
                 xml { render screeningInstance as XML }
 			
 			}
 		} else {
-			def screeningInstance = screening.get(params.id)
+			def screeningInstance = Screening.get(params.id)
 			if (screeningInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class SkjermingController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'screening.label', default: 'screening'), screeningInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: screeningInstance.id)
+            	    		render(view: "edit", model: [screeningInstance: screeningInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [screeningInstance: screeningInstance])
             			}
             			xml { render screeningInstance as XML }
             		}
@@ -119,6 +129,9 @@ class SkjermingController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [screeningInstance: screeningInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [screeningInstance: screeningInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

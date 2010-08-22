@@ -9,7 +9,7 @@ class KlassController {
 	def klassService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class KlassController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class KlassController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class KlassController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		klassInstance = new Klass()
+		def klassInstance = new Klass()
 		klassInstance.properties = params
 		return [klassInstance: klassInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(klassService && klassService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (klassInstance, success) = klassService.create( params )
+		if(klassService && (klassService.metaClass.pickMethod("create", [Object.class] as Class[]) || klassService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def klassInstance
+			def success
+			if(klassService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (klassInstance, success) = klassService.create( params, request )
+			else (klassInstance, success) = klassService.create( params )
 			withFormat {
 				html { render(view: "show", model: [klassInstance: klassInstance]) }
                 xml { render klassInstance as XML }
@@ -84,18 +87,22 @@ class KlassController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(klassService && klassService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (klassInstance, success) = klassService.update( params )
+		if(klassService && (klassService.metaClass.pickMethod("update", [Object.class] as Class[]) || klassService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def klassInstance
+			def success
+			if(klassService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (klassInstance, success) = klassService.update( params, request )
+			else (klassInstance, success) = klassService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [klassInstance: klassInstance]) }
                 xml { render klassInstance as XML }
 			
 			}
 		} else {
-			def klassInstance = klass.get(params.id)
+			def klassInstance = Klass.get(params.id)
 			if (klassInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class KlassController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'klass.label', default: 'klass'), klassInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: klassInstance.id)
+            	    		render(view: "edit", model: [klassInstance: klassInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [klassInstance: klassInstance])
             			}
             			xml { render klassInstance as XML }
             		}
@@ -119,6 +129,9 @@ class KlassController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [klassInstance: klassInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [klassInstance: klassInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }
@@ -135,7 +148,7 @@ class KlassController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def delete = {
 		
 		def klassInstance = Klass.get(params.id)

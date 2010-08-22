@@ -9,7 +9,7 @@ class DocumentDescriptionController {
 	def documentDescriptionService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class DocumentDescriptionController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class DocumentDescriptionController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class DocumentDescriptionController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		documentDescriptionInstance = new DocumentDescription()
+		def documentDescriptionInstance = new DocumentDescription()
 		documentDescriptionInstance.properties = params
 		return [documentDescriptionInstance: documentDescriptionInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(documentDescriptionService && documentDescriptionService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (documentDescriptionInstance, success) = documentDescriptionService.create( params )
+		if(documentDescriptionService && (documentDescriptionService.metaClass.pickMethod("create", [Object.class] as Class[]) || documentDescriptionService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def documentDescriptionInstance
+			def success
+			if(documentDescriptionService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentDescriptionInstance, success) = documentDescriptionService.create( params, request )
+			else (documentDescriptionInstance, success) = documentDescriptionService.create( params )
 			withFormat {
 				html { render(view: "show", model: [documentDescriptionInstance: documentDescriptionInstance]) }
                 xml { render documentDescriptionInstance as XML }
@@ -84,18 +87,22 @@ class DocumentDescriptionController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(documentDescriptionService && documentDescriptionService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (documentDescriptionInstance, success) = documentDescriptionService.update( params )
+		if(documentDescriptionService && (documentDescriptionService.metaClass.pickMethod("update", [Object.class] as Class[]) || documentDescriptionService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def documentDescriptionInstance
+			def success
+			if(documentDescriptionService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentDescriptionInstance, success) = documentDescriptionService.update( params, request )
+			else (documentDescriptionInstance, success) = documentDescriptionService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [documentDescriptionInstance: documentDescriptionInstance]) }
                 xml { render documentDescriptionInstance as XML }
 			
 			}
 		} else {
-			def documentDescriptionInstance = documentDescription.get(params.id)
+			def documentDescriptionInstance = DocumentDescription.get(params.id)
 			if (documentDescriptionInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class DocumentDescriptionController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'documentDescription.label', default: 'documentDescription'), documentDescriptionInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: documentDescriptionInstance.id)
+            	    		render(view: "edit", model: [documentDescriptionInstance: documentDescriptionInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [documentDescriptionInstance: documentDescriptionInstance])
             			}
             			xml { render documentDescriptionInstance as XML }
             		}
@@ -119,6 +129,9 @@ class DocumentDescriptionController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [documentDescriptionInstance: documentDescriptionInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [documentDescriptionInstance: documentDescriptionInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

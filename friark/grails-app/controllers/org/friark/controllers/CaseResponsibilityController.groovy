@@ -9,7 +9,7 @@ class CaseResponsibilityController {
 	def caseResponsibilityService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		caseResponsibilityInstance = new CaseResponsibility()
+		def caseResponsibilityInstance = new CaseResponsibility()
 		caseResponsibilityInstance.properties = params
 		return [caseResponsibilityInstance: caseResponsibilityInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(caseResponsibilityService && caseResponsibilityService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (caseResponsibilityInstance, success) = caseResponsibilityService.create( params )
+		if(caseResponsibilityService && (caseResponsibilityService.metaClass.pickMethod("create", [Object.class] as Class[]) || caseResponsibilityService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def caseResponsibilityInstance
+			def success
+			if(caseResponsibilityService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (caseResponsibilityInstance, success) = caseResponsibilityService.create( params, request )
+			else (caseResponsibilityInstance, success) = caseResponsibilityService.create( params )
 			withFormat {
 				html { render(view: "show", model: [caseResponsibilityInstance: caseResponsibilityInstance]) }
                 xml { render caseResponsibilityInstance as XML }
@@ -84,18 +87,22 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(caseResponsibilityService && caseResponsibilityService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (caseResponsibilityInstance, success) = caseResponsibilityService.update( params )
+		if(caseResponsibilityService && (caseResponsibilityService.metaClass.pickMethod("update", [Object.class] as Class[]) || caseResponsibilityService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def caseResponsibilityInstance
+			def success
+			if(caseResponsibilityService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (caseResponsibilityInstance, success) = caseResponsibilityService.update( params, request )
+			else (caseResponsibilityInstance, success) = caseResponsibilityService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [caseResponsibilityInstance: caseResponsibilityInstance]) }
                 xml { render caseResponsibilityInstance as XML }
 			
 			}
 		} else {
-			def caseResponsibilityInstance = caseResponsibility.get(params.id)
+			def caseResponsibilityInstance = CaseResponsibility.get(params.id)
 			if (caseResponsibilityInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class CaseResponsibilityController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'caseResponsibility.label', default: 'caseResponsibility'), caseResponsibilityInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: caseResponsibilityInstance.id)
+            	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
             			}
             			xml { render caseResponsibilityInstance as XML }
             		}
@@ -119,6 +129,9 @@ class CaseResponsibilityController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [caseResponsibilityInstance: caseResponsibilityInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

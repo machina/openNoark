@@ -9,10 +9,10 @@ class FondsController {
 	def fondsService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		fondsInstance = new Fonds()
+		def fondsInstance = new Fonds()
 		fondsInstance.properties = params
 		return [fondsInstance: fondsInstance]
 		

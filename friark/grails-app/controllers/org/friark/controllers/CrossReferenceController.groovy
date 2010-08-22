@@ -9,7 +9,7 @@ class CrossReferenceController {
 	def crossReferenceService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class CrossReferenceController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class CrossReferenceController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,21 +48,24 @@ class CrossReferenceController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
-		crossReferenceInstance = new CrossReference()
+		def crossReferenceInstance = new CrossReference()
 		crossReferenceInstance.properties = params
 		return [crossReferenceInstance: crossReferenceInstance]
 		
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(crossReferenceService && crossReferenceService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (crossReferenceInstance, success) = crossReferenceService.create( params )
+		if(crossReferenceService && (crossReferenceService.metaClass.pickMethod("create", [Object.class] as Class[]) || crossReferenceService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def crossReferenceInstance
+			def success
+			if(crossReferenceService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (crossReferenceInstance, success) = crossReferenceService.create( params, request )
+			else (crossReferenceInstance, success) = crossReferenceService.create( params )
 			withFormat {
 				html { render(view: "show", model: [crossReferenceInstance: crossReferenceInstance]) }
                 xml { render crossReferenceInstance as XML }
@@ -84,18 +87,22 @@ class CrossReferenceController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(crossReferenceService && crossReferenceService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (crossReferenceInstance, success) = crossReferenceService.update( params )
+		if(crossReferenceService && (crossReferenceService.metaClass.pickMethod("update", [Object.class] as Class[]) || crossReferenceService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def crossReferenceInstance
+			def success
+			if(crossReferenceService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (crossReferenceInstance, success) = crossReferenceService.update( params, request )
+			else (crossReferenceInstance, success) = crossReferenceService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [crossReferenceInstance: crossReferenceInstance]) }
                 xml { render crossReferenceInstance as XML }
 			
 			}
 		} else {
-			def crossReferenceInstance = crossReference.get(params.id)
+			def crossReferenceInstance = CrossReference.get(params.id)
 			if (crossReferenceInstance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -111,7 +118,10 @@ class CrossReferenceController {
         	        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'crossReference.label', default: 'crossReference'), crossReferenceInstance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: crossReferenceInstance.id)
+            	    		render(view: "edit", model: [crossReferenceInstance: crossReferenceInstance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [crossReferenceInstance: crossReferenceInstance])
             			}
             			xml { render crossReferenceInstance as XML }
             		}
@@ -119,6 +129,9 @@ class CrossReferenceController {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [crossReferenceInstance: crossReferenceInstance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [crossReferenceInstance: crossReferenceInstance])
             			}
             			xml { render text:"<errors>${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }
