@@ -51,13 +51,21 @@ def defaultSimplifiedRecord = '''<?xml version="1.0" encoding="UTF-8"?>
 </simplifiedRecord>
 '''
 
-def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'file', SimplifiedRecord: 'registrering']
+def defaultDocumentDescription = '''<?xml version="1.0" encoding="UTF-8"?>
+<documentDescription>
+	<documentType>epost</documentType>
+	<documentStatus>dilldall</documentStatus>
+	<title>Test DocumentDescription 1</title>
+</documentDescription>
+'''
+
+def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'file', SimplifiedRecord: 'registrering', DocumentDescription: 'documentDescription']
 
 def currentResult
 
 Given(~"an empty database"){
-	browser.get("http://localhost:8080/friark/auth/signIn?username=admin&password=admin")
-	browser.get("http://localhost:8080/friark/test/clearAll")
+	browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/auth/signIn?username=admin&password=admin")
+	browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/test/clearAll")
 }
 
 
@@ -72,7 +80,7 @@ Given(~"an empty database"){
 }*/
 
 Given(~"I am logged in as admin"){
-	browser.get("http://localhost:8080/friark/auth/signIn?username=admin&password=admin")
+	browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/auth/signIn?username=admin&password=admin")
 }
 
 
@@ -80,57 +88,62 @@ Given(~"I am logged in as admin"){
 When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
 	switch(ctrl){
 		case 'Fonds':
-			browser.post("http://localhost:8080/friark/ws/${ctrlName['Fonds']}.xml",defaultFonds)
+			browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName['Fonds']}.xml",defaultFonds)
 			//println "new fonds says: "+browser.pageSource
 			currentResult = browser.pageSource
 			break
 		case 'Series':
-				browser.post("http://localhost:8080/friark/ws/${ctrlName['Fonds']}.xml",defaultFonds)	
+				browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName['Fonds']}.xml",defaultFonds)	
 				def fonds = new XmlSlurper().parseText(browser.pageSource)
 				def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
-				browser.post("http://localhost:8080/friark/ws/series.xml",series)
+				browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/series.xml",series)
 				currentResult = browser.pageSource
 				//println browser.pageSource
 				break
 			case 'ClassificationSystem':
-	      browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",defaultClassificationSystem)
+	      browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName[ctrl]}.xml",defaultClassificationSystem)
   	    currentResult = browser.pageSource
 				//println currentResult
   	    break
 			case 'Klass':
-        browser.post("http://localhost:8080/friark/ws/${ctrlName['ClassificationSystem']}.xml",defaultClassificationSystem)
+        browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName['ClassificationSystem']}.xml",defaultClassificationSystem)
 				def sys = new XmlSlurper().parseText(browser.pageSource)
 				def klass = new SimpleTemplateEngine().createTemplate(defaultKlass).make([parentId: sys.@id]).toString()
-        browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",klass)
+        browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName[ctrl]}.xml",klass)
         currentResult = browser.pageSource
 
         //println currentResult
 	      break
 			case 'File':
-				browser.post("http://localhost:8080/friark/ws/arkiv.xml",defaultFonds)
+				browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/arkiv.xml",defaultFonds)
         def fonds = new XmlSlurper().parseText(browser.pageSource)
         def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
-        browser.post("http://localhost:8080/friark/ws/series.xml",series)
+        browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/series.xml",series)
 				def seriesRet = new XmlSlurper().parseText(browser.pageSource)
 				def file = new SimpleTemplateEngine().createTemplate(defaultFile).make([parentId: seriesRet.@id]).toString()
-				browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",file)
+				browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName[ctrl]}.xml",file)
 				currentResult = browser.pageSource
 				//println currentResult
 				break
 				case 'SimplifiedRecord':
-					browser.post("http://localhost:8080/friark/ws/arkiv.xml",defaultFonds)
+					browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/arkiv.xml",defaultFonds)
 	        def fonds = new XmlSlurper().parseText(browser.pageSource)
   	      def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
-    	    browser.post("http://localhost:8080/friark/ws/series.xml",series)
+    	    browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/series.xml",series)
       	  def seriesRet = new XmlSlurper().parseText(browser.pageSource)
         	def file = new SimpleTemplateEngine().createTemplate(defaultFile).make([parentId: seriesRet.@id]).toString()
-	        browser.post("http://localhost:8080/friark/ws/file.xml",file)
+	        browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/file.xml",file)
   				file = new XmlSlurper().parseText(browser.pageSource)
 					def record = new SimpleTemplateEngine().createTemplate(defaultSimplifiedRecord).make([parentId: file.@id]).toString()
-					browser.post("http://localhost:8080/friark/ws/${ctrlName[ctrl]}.xml",record)
+					browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName[ctrl]}.xml",record)
 		      currentResult = browser.pageSource
 					//println currentResult
 				break
+		case 'DocumentDescription':
+			browser.post("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/documentDescription.xml",defaultDocumentDescription)
+			currentResult = browser.pageSource
+			println currentResult
+		break
 		default:
         throw new Exception("Feature tried to contact unknown controller")
 
@@ -140,9 +153,9 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
 
 
 Then(~"there should be (\\d+) ([A-z]*) in the database"){ int num, String domain ->
-	browser.get("http://localhost:8080/friark/ws/${ctrlName[domain]}.xml")
+	browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName[domain]}.xml")
 	def source = browser.pageSource
-	//println source
+	println source
 	def list = new XmlSlurper().parseText(source)
 	def objs = list."${domain == 'File' ? 'basicFile' : domain[0].toLowerCase() + domain.substring(1)}"
 	assertEquals num, objs.size()
@@ -159,13 +172,15 @@ When(~"I create a updated ([A-z]*)"){ String domain ->
 
 When(~"I PUT the updated object to the ([A-z]*) Controller"){ String domain ->
 	//println obj
-	browser.put("http://localhost:8080/friark/ws/${ctrlName[domain]}.xml",obj)
+	browser.put("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName[domain]}.xml",obj)
 	//println browser.pageSource
 }
 
 Then(~"the updated ([A-z]*) should have the new title"){ String domain ->
 	def source = browser.pageSource
-	//println source
+
+	println "UPDATED SOURCE"
+	println source
 	def updatedObj = new XmlSlurper().parseText(source)
 	if(domain == "SimplifiedRecord") assertEquals "updated title", updatedObj.archivedBy.toString().trim()
 	else assertEquals "updated title", updatedObj.title.toString().trim()
@@ -173,7 +188,7 @@ Then(~"the updated ([A-z]*) should have the new title"){ String domain ->
 
 When(~"I GET the created ([A-z]*)"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
-	browser.get("http://localhost:8080/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
+	browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
 	currentResult = browser.pageSource
 }
 
@@ -185,20 +200,20 @@ Then(~"the created ([A-z]*) should be returned"){ String domain ->
 
 When(~"I delete the ([A-z]*)"){ String domain ->
 	def res = new XmlSlurper().parseText(currentResult)
-	//println "deleting: ${res.@id}"
-	browser.delete("http://localhost:8080/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
-	//println browser.pageSource
+	println "deleting: ${res.@id}"
+	browser.delete("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
+	println browser.pageSource
 }
 
 When(~"I search in ([A-z]+) for \"(.*)\"") { String domain, String query ->
-	if(domain == "all") browser.get("http://localhost:8080/friark/ws/search/${query}.xml")
-	else browser.get("http://localhost:8080/friark/ws/search/${domain}/${query}.xml")
+	if(domain == "all") browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/search/${query}.xml")
+	else browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/search/${domain}/${query}.xml")
 	//println browser.pageSource
 }
 
 When(~"I search in ([A-z]+) for \"(.*)\" as OEP") { String domain, String query ->
-	if(domain == "all") browser.get("http://localhost:8080/friark/ws/search/${query}.oep")
-	else browser.get("http://localhost:8080/friark/ws/search/${domain}/${query}.oep")
+	if(domain == "all") browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/search/${query}.oep")
+	else browser.get("http://localhost:${System.getProperty('server.port', '8080') }/friark/ws/search/${domain}/${query}.oep")
 	//println browser.pageSource
 }
 

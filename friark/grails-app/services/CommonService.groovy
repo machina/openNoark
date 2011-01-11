@@ -17,25 +17,26 @@ along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 
 import org.friark.ds.*
 import org.apache.shiro.SecurityUtils
+
 /**
- * Inneholder nyttige metoder som benyttes av flere kontrollere.
+ * Contains common helper methods which are used by several controllers
  */
 class CommonService {
 
     boolean transactional = true
 
     /**
-     * Setter systemID på et inkommende objekt til en vilkårlig UUID
-     * @param obj Et objekt med et felt "systemId"
-     */
+    * Sets the system ID on an incoming object to a random UUID
+    * @param obj An object with a "systemId" field
+    */
     def setNewSystemID(def obj) {
         obj.systemID = UUID.randomUUID().toString()
     }
 
     /**
-     * Avgjør om det inkommende objektet er null eller strengen "null"
-     * @param obj Et objekt
-     * @return true hvis obj er null eller lik "null", false ellers.
+     * Determines if the incoming object is null or an the string "null"
+     * @param obj An object 
+     * @return true if the object is null or the string "null", else false
      */
     boolean isNull(def obj){
         return obj == null || obj == 'null'
@@ -46,7 +47,9 @@ class CommonService {
     }
 
     /**
-     * Setter fletene createdBy og opprettetdata på det innkommende objektet til hhv den innloggede brukerens brukernavn og dagens dato.
+     * Sets the fields "createdBy" and "createdDate" for the incoming object 
+     * with the name of the user currently logged in and today's date 
+     * respectively
      * @param obj, et objekt med feltene createdBy og createdDate
      */
     void setCreated(obj) {
@@ -63,9 +66,9 @@ class CommonService {
     }
 
     /**
-     * Henter frem en konfigurasjonsparameter gitt ved en nøkkel.
-     * @param key Parameteren som ønskes
-    @ @return String, parameterverdien.
+     * Gets the configuration parameter specified by the key
+     * @param key The key of the parameter wanted 
+     * @ @return The parameter value as a string
      */
     String getParameter(def key){
         def param = Parameter.findByKey(key.toString())
@@ -73,11 +76,11 @@ class CommonService {
         return defaults."${key}"
     }
 
-		void trimAll(def map){
-			map.keySet().each{
-				if(map[it] instanceof String) map[it] = map[it].trim()
-			}
-		}
+    void trimAll(def map){
+	map.keySet().each{
+		if(map[it] instanceof String) map[it] = map[it].trim()
+	}
+    }  
 
     def defaults = [
         autorisert_ny_versjon_av_ekspedert: "false",

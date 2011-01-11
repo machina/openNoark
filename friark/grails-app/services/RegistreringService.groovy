@@ -24,80 +24,83 @@ import static no.machina.utils.DateUtils.*
 */
 class RegistreringService {
 
-    boolean transactional = true
-		def commonService
-		/**
-    * Lager en ny Registrering basert på de inkommende metadata.
-    * @param params En Map av metadata for registreringen.
-    */
-		def create(params){
-				params = fixParams(params)
-        def registrering = null
-				println "regtype: ${params.recordType}"
-				def korrespondansepart = null
-				def saksansvar
-				//for webservices
-        if(params.registrering != null){
-          params.registrering.archivedDate = parse(params.SimplifiedRecord.archivedDate)
-          params.registrering.createdDate = parse(params.SimplifiedRecord.createdDate)
+	boolean transactional = true
+	def commonService
 
-          switch(params.recordType){
-						case 'Forenkletregistrering':
-							registrering = new SimplifiedRecord(params.registrering)
-							break
-						case 'RegistryEntry':
-							registrering = new RegistryEntry(params.registrering)
-							break
-					}
+	/**
+    	* Lager en ny Registrering basert på de inkommende metadata.
+    	* @param params En Map av metadata for registreringen.
+    	*/
+	def create(params){
+		params = fixParams(params)
+        	def registrering = null
+		def korrespondansepart = null
+		def saksansvar
 
-					if(params.registrering.mappe_id != null){
-            registrering.setReferanseforelderBasicFile(BasicFile.get(Long.parseLong(params.SimplifiedRecord.mappe_id)))
-         }
-          if(params.registrering.klasse_id != null){
-            registrering.setReferanseforelderKlass(Klass.get(Long.parseLong(params.SimplifiedRecord.klasse_id)))
-         }
-          if(params.registrering.arkivdel_id != null){
-            registrering.setReferansearkivdel(Series.get(Long.parseLong(params.SimplifiedRecord.arkivdel_id)))
-         }
-					
+		println "regtype: ${params.recordType}"
 
+        	if(params.registrering != null){
+          		params.registrering.archivedDate = parse(params.SimplifiedRecord.archivedDate)
+          		params.registrering.createdDate = parse(params.SimplifiedRecord.createdDate)
+
+          	switch(params.recordType){
+			case 'Forenkletregistrering':
+				registrering = new SimplifiedRecord(params.registrering)
+				break
+			case 'RegistryEntry':
+				registrering = new RegistryEntry(params.registrering)
+				break
+		}
+
+		if(params.registrering.mappe_id != null){
+            		registrering.setReferanseforelderBasicFile(BasicFile.get(Long.parseLong(params.SimplifiedRecord.mappe_id)))
+         	}
+
+          	if(params.registrering.klasse_id != null){
+            		registrering.setReferanseforelderKlass(Klass.get(Long.parseLong(params.SimplifiedRecord.klasse_id)))
+         	}
+
+          	if(params.registrering.arkivdel_id != null){
+            		registrering.setReferansearkivdel(Series.get(Long.parseLong(params.SimplifiedRecord.arkivdel_id)))
+         	}
        } else { //for web interface
-					
-					switch(params.recordType){
-            case 'Forenkletregistrering':
-              registrering = new SimplifiedRecord(params)
-              break
-            case 'RegistryEntry':
-              registrering = new RegistryEntry(params)
-							korrespondansepart = new Client(params)
-							saksansvar = new CaseResponsibility(params)
-              break
-         }
-					
+		switch(params.recordType){
+            		case 'Forenkletregistrering':
+              			registrering = new SimplifiedRecord(params)
+		              	break
+            		case 'RegistryEntry':
+              			registrering = new RegistryEntry(params)
+				korrespondansepart = new Client(params)
+				saksansvar = new CaseResponsibility(params)
+              			break
+         	}
        }
-	        commonService.setNewSystemID registrering
-				commonService.setCreated registrering
-				if(registrering.parentFile && registrering.parentFile.recordSection.periodStatus == "Overlappingsperiode"){
-					def mappe = registrering.parentFile
-					def del = mappe.recordSection
-					del.removeFromFile mappe
-					del.save()
-					del.successor.addToFile mappe
-					del.successor.save()
-				}
+
+       	commonService.setNewSystemID registrering
+	commonService.setCreated registrering
+
+	if(registrering.parentFile && registrering.parentFile.recordSection.periodStatus == "Overlappingsperiode"){
+		def mappe = registrering.parentFile
+		def del = mappe.recordSection
+		del.removeFromFile mappe
+		del.save()
+		del.successor.addToFile mappe
+		del.successor.save()
+	}
 				
-				if(saksansvar != null){
-						saksansvar.addToRegistryEntry(registrering)
-						registrering.caseResponsibility = saksansvar
-						if(!saksansvar.save()) println saksansvar.errors
-				}
-				if(!registrering.hasErrors() && registrering.save()){
-                                    println "creating: ${registrering}"
-                                    println "creating: ${registrering.parentFile}"
+	if(saksansvar != null){
+		saksansvar.addToRegistryEntry(registrering)
+		registrering.caseResponsibility = saksansvar
 
+		if(!saksansvar.save()) println saksansvar.errors
+	}
 
-					if(korrespondansepart != null){
-						korrespondansepart.registryEntry = registrering
+	if(!registrering.hasErrors() && registrering.save()){
+                println "creating: ${registrering}"
+                println "creating: ${registrering.parentFile}"
+
+		if(korrespondansepart != null){
+			korrespondansepart.registryEntry = registrering
 						registrering.addToClients(korrespondansepart)
 						korrespondansepart.save()
 					}

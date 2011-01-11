@@ -9,7 +9,7 @@ class ArkivController {
 	def arkivService
 	 
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class ArkivController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class ArkivController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class ArkivController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def create = {
 		
 		def fondsInstance = new Fonds()
@@ -58,14 +58,11 @@ class ArkivController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def save = {
 		
-		if(arkivService && (arkivService.metaClass.pickMethod("create", [Object.class] as Class[]) || arkivService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
-			def fondsInstance
-			def success
-			if(arkivService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsInstance, success) = arkivService.create( params, request )
-			else (fondsInstance, success) = arkivService.create( params )
+		if(arkivService && arkivService.metaClass.pickMethod("create", [Object.class] as Class[])){
+			def (fondsInstance, success) = arkivService.create( params )
 			withFormat {
 				html { render(view: "show", model: [fondsInstance: fondsInstance]) }
                 xml { render fondsInstance as XML }
@@ -87,15 +84,11 @@ class ArkivController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def update = {
 		
-		if(arkivService && (arkivService.metaClass.pickMethod("update", [Object.class] as Class[]) || arkivService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
-			def fondsInstance
-			def success
-			if(arkivService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsInstance, success) = arkivService.update( params, request )
-			else (fondsInstance, success) = arkivService.update( params )
-			
+		if(arkivService && arkivService.metaClass.pickMethod("update", [Object.class] as Class[])){
+			def (fondsInstance, success) = arkivService.update( params )
 			withFormat {
 				html { render(view: "show", model: [fondsInstance: fondsInstance]) }
                 xml { render fondsInstance as XML }
@@ -148,7 +141,7 @@ class ArkivController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def delete = {
 		
 		def fondsInstance = Fonds.get(params.id)

@@ -20,14 +20,14 @@ import org.friark.ds.*
 class DocumentObjectTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
-				mockForConstraintsTests(DocumentObject)
+	mockForConstraintsTests(DocumentObject)
     }
 
     protected void tearDown() {
         super.tearDown()
     }
 	
-		void testNullablereferansedocumentDescription(){
+    void testNullablereferansedocumentDescription(){
 
     def dok = new DocumentObject(systemID: "test",
                                   versionNumber:"1",
@@ -38,9 +38,9 @@ class DocumentObjectTests extends GrailsUnitTestCase {
                                   record: new SimplifiedRecord()
 
                                   );
-		dok.validate()
-		println dok.errors
-    assertTrue "To many not null constraints", dok.validate()
+	dok.validate()
+	println dok.errors
+        assertTrue "To many not null constraints", dok.validate()
 		assertFalse dok.hasErrors()
 	}
 
@@ -58,8 +58,6 @@ class DocumentObjectTests extends GrailsUnitTestCase {
 		assertFalse dok.hasErrors()
 	}
 
-
-
 	void testNotNullableReferansedocumentDescriptionAndReg(){
 
     def dok = new DocumentObject(systemID: "test",
@@ -75,7 +73,4 @@ class DocumentObjectTests extends GrailsUnitTestCase {
 		assertTrue dok.hasErrors()
 
 	}
-
-
-	
 }

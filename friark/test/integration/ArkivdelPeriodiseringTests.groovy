@@ -29,12 +29,14 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
   }
 
 	/*
-	*	Det skal være mulig å knytte nyopprettede mapper til en arkivdel som inneholder en aktiv arkivperiode.
+	*	Det skal være mulig å knytte nyopprettede mapper til en arkivdel som 
+	* 	inneholder en aktiv arkivperiode.
 	*/
 	void testaddMappeTilNySeries(){
 		def (ark, del, reg) = createStructure()
 		println "ark: ${ark}, del ${del}, reg: ${reg}"
-		def mappeService = new MappeService()
+		//def mappeService = new MappeService()
+		def mappeService = new FileService()
 		mappeService.commonService = new CommonService()
 		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
 		def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
@@ -50,14 +52,17 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 	}	
 
 	/**
-	*En arkivdel som inneholder en overlappingsperiode, skal være sperret for tilføyelse av nyopprettede mapper. Men eksisterende mapper i en overlappingsperiode skal være åpne for nye registreringer.
+	*	En arkivdel som inneholder en overlappingsperiode, skal være 
+	*	sperret for tilføyelse av nyopprettede mapper. Men eksisterende 
+	*	mapper i en overlappingsperiode skal være åpne for nye 
+	*	registreringer.
 	*/
 	void testaddMappeTilFondselOverlapp(){
 		def (ark, del, reg) = createStructure()
 		println "ark: ${ark}, del ${del}, reg: ${reg}"
 		del.periodStatus = "Overlappingsperiode"
 		saveOrFail del
-		def mappeService = new MappeService()
+		def mappeService = new FileService()
 		mappeService.commonService = new CommonService()
 		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
 
@@ -71,11 +76,13 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 	}
 
 	/**
-	*	Dersom en ny registrering føyes til en mappe som tilhører en arkivdel i overlappingsperiode, skal mappen automatisk overføres til arkivdelens arvtaker.
+	*	Dersom en ny registrering føyes til en mappe som tilhører en 
+	*	arkivdel i overlappingsperiode, skal mappen automatisk overføres
+	*	til arkivdelens arvtaker.
 	*/
 	void testaddRegToMappeInOverlapp(){
 		def (ark, del, reg) = createStructure()
-		def mappeService = new MappeService()
+		def mappeService = new FileService()
 		mappeService.commonService = new CommonService()
 		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
 
@@ -110,14 +117,17 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
 
 	/**
-	*	En arkivdel som inneholder en avsluttet arkivperiode, skal være sperret for tilføyelse av nye mapper. Alle mapper skal være lukket, slik at heller ingen registreringer og dokumenter kan føyes til.
+	*	En arkivdel som inneholder en avsluttet arkivperiode, skal være 
+	*	sperret for tilføyelse av nye mapper. Alle mapper skal være 
+	*	lukket, slik at heller ingen registreringer og dokumenter kan 
+	*	føyes til.
 	*/
 	void testmapperIAvsluttetFondsperiode(){
 		def (ark, del, reg) = createStructure()
     println "ark: ${ark}, del ${del}, reg: ${reg}"
     del.periodStatus = "Avsluttet periode"
     saveOrFail del
-    def mappeService = new MappeService()
+    def mappeService = new FileService()
     mappeService.commonService = new CommonService()
 		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
 
@@ -131,12 +141,13 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
 
 	/**
-	* Det skal være mulig å få en oversikt over mapper som fremdeles er åpne i en overlappingsperiode.
+	* Det skal være mulig å få en oversikt over mapper som fremdeles er åpne 
+	* i en overlappingsperiode.
 	*/
 	void testseOverlappMapper(){
 		def (ark, del, reg) = createStructure()
 
-		def mappeService = new MappeService()
+		def mappeService = new FileService()
     mappeService.commonService = new CommonService()
 		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
 
@@ -147,7 +158,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		params.fileID = "2010/00002"
 		def (mappe)= mappeService.save(params)
 	
-		def arkivdelService = new ArkivdelService()
+		def arkivdelService = new SeriesService()
 
 		def res = arkivdelService.findOpenMappe(del)
 		
@@ -162,7 +173,8 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 	}
 
 	/**
-	*	Det skal være mulig å overføre åpne mapper fra en arkivdel i en overlappingsperiode til arkivdelens arvtaker.
+	* Det skal være mulig å overføre åpne mapper fra en arkivdel i en 
+	* overlappingsperiode til arkivdelens arvtaker.
 	*/
 /*	void testoverføreMapperOverlapping(){
 		//arkivdel kan endres
@@ -170,7 +182,8 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 	}*/
 
 	/**
-	*Dersom dokumentene i en arkivdel er ikke-elektroniske (fysiske), skal det også være mulig å registrere storageLocation.
+	* Dersom dokumentene i en arkivdel er ikke-elektroniske (fysiske), skal 
+	* det også være mulig å registrere storageLocation.
 	*/
 /*	void testrefOppbevaringsted(){
 		//skal testes i funksjonstester	
@@ -190,6 +203,4 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
     return [ark, del, reg]
  }
-
-
 }

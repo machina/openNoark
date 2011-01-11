@@ -9,7 +9,7 @@ class CaseResponsibilityController {
 	def caseResponsibilityService
 	 
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def create = {
 		
 		def caseResponsibilityInstance = new CaseResponsibility()
@@ -58,14 +58,11 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def save = {
 		
-		if(caseResponsibilityService && (caseResponsibilityService.metaClass.pickMethod("create", [Object.class] as Class[]) || caseResponsibilityService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
-			def caseResponsibilityInstance
-			def success
-			if(caseResponsibilityService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (caseResponsibilityInstance, success) = caseResponsibilityService.create( params, request )
-			else (caseResponsibilityInstance, success) = caseResponsibilityService.create( params )
+		if(caseResponsibilityService && caseResponsibilityService.metaClass.pickMethod("create", [Object.class] as Class[])){
+			def (caseResponsibilityInstance, success) = caseResponsibilityService.create( params )
 			withFormat {
 				html { render(view: "show", model: [caseResponsibilityInstance: caseResponsibilityInstance]) }
                 xml { render caseResponsibilityInstance as XML }
@@ -87,15 +84,11 @@ class CaseResponsibilityController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def update = {
 		
-		if(caseResponsibilityService && (caseResponsibilityService.metaClass.pickMethod("update", [Object.class] as Class[]) || caseResponsibilityService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
-			def caseResponsibilityInstance
-			def success
-			if(caseResponsibilityService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (caseResponsibilityInstance, success) = caseResponsibilityService.update( params, request )
-			else (caseResponsibilityInstance, success) = caseResponsibilityService.update( params )
-			
+		if(caseResponsibilityService && caseResponsibilityService.metaClass.pickMethod("update", [Object.class] as Class[])){
+			def (caseResponsibilityInstance, success) = caseResponsibilityService.update( params )
 			withFormat {
 				html { render(view: "show", model: [caseResponsibilityInstance: caseResponsibilityInstance]) }
                 xml { render caseResponsibilityInstance as XML }

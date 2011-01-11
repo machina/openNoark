@@ -18,58 +18,60 @@
 import org.friark.ds.*
 
 /**
-* Tilbyr diverse operasjoner på mapper.
+* Offers misc operations on the files
 */
 class FileService {
 
-    boolean transactional = true
-		def commonService
-    def mappeIdGeneratorService
+	boolean transactional = true
+	def commonService
+	def mappeIdGeneratorService
 
-    /**
-    * Lager en ny mappe med de inkommende paramerterene.
-    * @param params Et Map som inneholder metadata for Mappen.
-    */
-		def create(params) {
-				params = fixParams(params) 
-				if(!getFileTypes().contains(params.fileType)){
-					return [[errors: ["Mappetype er ikke tillatt"]], false]
-				}
-				def mappe
-				switch(params.fileType){
-					case 'BasicFile':
-						mappe =  new BasicFile(params)
-						break
-					case 'CaseFile':
-						mappe =  new CaseFile(params)
+    	/**
+	* Creates a file with the incoming parameters
+	* @param params A map containing the file's metadata
+    	*/
+	def create(params) {
+		params = fixParams(params) 
+		if(!getFileTypes().contains(params.fileType)){
+			/** TODO externalise strings*/
+			return [[errors: ["Mappetype er ikke tillatt"]], false]
+		}
 
-				}
-				mappe.fileID = mappeIdGeneratorService.generatorForMappe(mappe).call()
-				commonService.setNewSystemID mappe
-				commonService.setCreated(mappe)
+		def mappe
+		switch(params.fileType){
+			case 'BasicFile':
+				mappe =  new BasicFile(params)
+				break
+			case 'CaseFile':
+				mappe =  new CaseFile(params)
+		}
+
+		mappe.fileID = mappeIdGeneratorService.generatorForMappe(mappe).call()
+		commonService.setNewSystemID mappe
+		commonService.setCreated(mappe)
 				
-				def (delOk, error) = checkSeries(params, mappe)
-				if(!delOk){
-					//println error
-					mappe.errors.reject 'org.friark.noexistingKey', error
-					return [mappe, false]
-				}
-				if(params.keyword && params.keyword instanceof String) mappe.keyword = params.keyword.tokenize(" ")
+		def (delOk, error) = checkSeries(params, mappe)
+		if(!delOk){
+			mappe.errors.reject 'org.friark.noexistingKey', error
+			return [mappe, false]
+		}
+
+		if(params.keyword && params.keyword instanceof String) mappe.keyword = params.keyword.tokenize(" ")
+			if(!mappe.hasErrors() && mappe.save()) {
+				return [mappe, true]
+			}
 				
-				if(!mappe.hasErrors() && mappe.save()) {
-					return [mappe, true]
-				}
-				//println mappe.errors
-				
-				return [mappe, false]
+			return [mappe, false]
 		}
 	
 		def update(params){
 			params = fixParams(params)
 		
 			def file = BasicFile.get( params.id )			
-			params.createdDate = file.createdDate //creatdDate can not be changed
+			//createdDate can not be changed
+			params.createdDate = file.createdDate 
 			file.properties = params
+
 			if(!file.hasErrors() && file.save()) {
 				return [file,true]
 			}
@@ -78,19 +80,21 @@ class FileService {
 		}
 		
 		/**
-		* returns a usable params
+		* Returns a usable parameter
 		*/
 		private def fixParams(def params){
 			if(params.basicFile) params = params.basicFile
-      if(params.caseFile) params = params.caseFile
-      params.recordSection = Series.get(params.'recordSection.id')
+      			if(params.caseFile) params = params.caseFile
+
+      			params.recordSection = Series.get(params.'recordSection.id')
 			commonService.trimAll(params)
 			return params
 		}
-
 		
 		private def checkSeries(params, mappe){
-			if(mappe.recordSection.recordSectionStatus == "Opprettet"  && (mappe.recordSection.periodStatus == null  || mappe.recordSection.periodStatus == "Aktiv periode")){
+			if(mappe.recordSection.recordSectionStatus == "Opprettet"  
+			&& (mappe.recordSection.periodStatus == null  || mappe.recordSection.periodStatus == "Aktiv periode"))
+			{
 				mappe.recordSection.addToFile(mappe)
 				return [true]
 			}

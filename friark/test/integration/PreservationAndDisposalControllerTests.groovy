@@ -17,6 +17,8 @@
 
 import grails.test.*
 import org.friark.ds.*
+import org.friark.controllers.PreservationAndDisposalController
+
 class PreservationAndDisposalControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
@@ -26,9 +28,10 @@ class PreservationAndDisposalControllerTests extends ControllerUnitTestCase {
         super.tearDown()
     }
 
-	  /**
+    /**
      * 5.10.28 
-     * Det skal ikke være mulig å sette disposalDecision "Kasseres" på en mappe som er registrert som presedenssak.
+     * Det skal ikke være mulig å sette disposalDecision "Kasseres" på en mappe 
+     *	som er registrert som presedenssak.
      * 
      */
     void testKassasjonPrecedentSak(){
@@ -43,19 +46,17 @@ class PreservationAndDisposalControllerTests extends ControllerUnitTestCase {
 
       sm.precedent = presedens
       saveOrFail(sm)
-			controller.params.disposalDecision = "Kasseres"
-			controller.params.preservationTime =  1
+      controller.params.disposalDecision = "Kasseres"
+      controller.params.preservationTime =  1
       controller.params.disposalDate = new Date()
       controller.params.file = sm
-			controller.save()
-
-			assertEquals 0, PreservationAndDisposal.list().size()
-
-
-			controller.params.disposalDecision = "Bevares"
-
       controller.save()
-			assertEquals 1, PreservationAndDisposal.list().size()
+
+      assertEquals 0, PreservationAndDisposal.list().size()
+
+      controller.params.disposalDecision = "Bevares"
+      controller.save()
+      assertEquals 1, PreservationAndDisposal.list().size()
     }
 
     def createStructure(){

@@ -25,7 +25,6 @@ import org.apache.tika.sax.*
 import org.apache.tika.metadata.Metadata
 import org.xml.sax.helpers.DefaultHandler
 
-
 import org.apache.lucene.search.Hits;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.document.Field;
@@ -46,7 +45,10 @@ import no.machina.utils.StringInputStream
 import org.friark.ds.*
 
 /**
-* Inneholder metoder for å håndtere et enkelt elektronisk arkiv. Arkivets lokasjon abgjøres av konfigurasjonsparameteren "archivePath".
+* Contains methods for handling a single electronic archive
+* 
+* The location of the archive is set by the configuration 
+* parameter "archivePath"
 */
 class ArchiveService implements org.springframework.context.ApplicationContextAware {
 	def grailsApplication
@@ -54,9 +56,13 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 	def servletContext = SCH.servletContext
 	
 	/**
-	* Arkiverer en fil som filen knyttet til DocumentObject objektet med id docId og indexerer den.
-	* @param docId  Id til dokumentobjektet som skal knyttes til den inkommende filen.
-  * @param file Filen som skal arkiveres, som en innkommende base64 enkodet fil.
+	* Archives a file as the file attached to the DocumentObject 
+	* object with id docId and indexes it
+	* 
+	* @param docId Id for the document object which will be attached to 
+	*	 the file
+	* @param file The file that is to be archived as an incoming 
+ 	*	      base64 encoded file
 	*/
 	def archive(docId, file){
 		def path = "${grailsApplication.config.archivePath}/${docId}"
@@ -70,9 +76,11 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 	}
 
 	/**
-  * Fjerner filen forbundet med det inkommende dokumentobjektet fra arkivet.
-  * @param dokumentobjekt Objeket som er knyttet til filen som slettes-
-  */
+	* Removes the file attached to the incoming document object from 
+	* the archive
+	* @param documentObject The object attached to the file that is to 
+	*			be deleted
+	*/
 	def delteFromArchive(DocumentObject dokumentobjekt){
 		if(dokumentobjekt.documentFile){
 			removeFromIndex(dokumentobjekt.systemID)
@@ -81,34 +89,38 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 		}
 	}
 
-  /**
-  * Fjerner dokumentet som er kyttet til den inkommede DocumentObject id'en fra søkeindexen for elektroniske dokumenter.
-  * @param docId Streng som inneholder id'en til dokumentet som skal fjernes fra indexen.
-  */
+	/**
+	* Removes the document that is attached to the incoming document object 
+	* id from the search index for electronic documents.
+	* @param docId String that contains the ID for the document to be 
+	*	       removed from the index.
+	*/
 	def removeFromIndex(docId){
+
 		if(!servletContext.docIdx) {
-			return //liten vits i å fjerne fra ikke-eksisiterende index
-   }
-			IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
-			writer.deleteDocuments( new Term("DOC-OBJ", docId))
-			writer.flush()
-			writer.close()
+			return //if there is no index, return 
+		}
+
+		IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
+		writer.deleteDocuments( new Term("DOC-OBJ", docId))
+		writer.flush()
+		writer.close()
 	}
 
 	/**
-	* Indexerer den inkommende filen.
-	* @param docId Id'en til dokumentobjektet
-  * @param file filen som indexeres.
+	* Indexes the incoming file 
+	* @param docId The document object id
+  	* @param file The file that is to be indexed 
 	*/
 	def indexFile(docId, file){
 		
 		if(!servletContext.docIdx) {
 			println "!servletContext.docIdx"
 			servletContext.docIdx = new RAMDirectory()
-			
 		} else {
 			println("docIdx: ${servletContext.docIdx}")
 		}
+
 		def doc = DocumentObject.findBySystemID(docId)
 		
 		Metadata metadata = new Metadata();
@@ -119,48 +131,46 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 				
 		Document ldoc = new Document();
 		ldoc.add(new Field("CONTENT", handler.toString(), Field.Store.YES, Field.Index.TOKENIZED))
-		println "content: ${handler.toString()}"
-		//doc.add(new Field("FILENAME", file.name, Field.Store.YES, Field.Index.UN_TOKENIZED));
 		ldoc.add(new Field("DOC-OBJ", doc.systemID, Field.Store.YES, Field.Index.NO))
 		
 		IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
-		//println "docs in index pre: ${writer.docCount()}  ${writer.numRamDocs()}"
 		writer.addDocument(ldoc)
-		//println "docs in index post: ${writer.docCount()}  ${writer.numRamDocs()}"
 		writer.flush()
 		writer.close()
-	
 	}
 
 	/**
-	* Utføerer et søk i det elektroniske arkivet ved hjelp av indexen.
-  * @param searchTerms En String som inneholder søket.
+	* Performs a search in the electronic archive by help of the index
+	* @param searchTerms A string containing the search.
 	*/
 	def searchArchive(def searchTerms){
 		IndexSearcher searcher = new IndexSearcher(servletContext.docIdx)
 		
 		QueryParser parser = new QueryParser("CONTENT", new StandardAnalyzer())
 		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
-    parser.setAllowLeadingWildcard(true);
+    		parser.setAllowLeadingWildcard(true);
+
 		Query query = parser.parse(searchTerms)
 
 		def hits = searcher.search(query)
 		return hits
 	}
 
-  /**
-  * Henter dokumentet som er knyttet til den innkommende dokumentobjekt id'en.
-  * @param docId Id'en til dokumentobjektet som er knyttet til den ønskede filen
-  * @return det ønskede dokumentet som en byte[]
-  */
+	/**
+	* Retrieves the document that is attached to the ID of the incoming 
+	* document object.
+	* @param docId The ID of the document object that is attached 
+		       to the file
+	* @return The expected document as a byte array
+	*/
 	def retrive(docId){
 		def path = "${grailsApplication.config.archivePath}/${docId}"
 		def bytes
+
 		new File(path).eachFile{
 			bytes = it.text
 		}
+
 		return bytes
 	}
-
-	
 }

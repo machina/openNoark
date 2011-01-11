@@ -1,8 +1,9 @@
 import org.friark.ds.*
 import java.text.DecimalFormat
+
 class MappeIdGeneratorService {
 
-  boolean transactional = true
+	boolean transactional = true
 
 	def generatorForMappe(mappe){
 		if(mappe instanceof CaseFile) return mappeIdGenerator
@@ -10,11 +11,13 @@ class MappeIdGeneratorService {
 		return null
 	}
 
-
 	def mappeIdGenerator = {
 		def now = new Date()
 		def maxMappe = CaseFile.executeQuery("select max(s.fileID) from CaseFile s WHERE s.fileID like '${now.format('yy')}/%' ")
-		if( maxMappe[0] == null) return "${now.format('yy')}/00001"
+
+		if( maxMappe[0] == null) 
+			return "${now.format('yy')}/00001"
+
 		def i = maxMappe[0].substring(3, maxMappe[0].length()).toLong()
 		i++
 		i = new DecimalFormat("00000").format(i)
@@ -24,10 +27,12 @@ class MappeIdGeneratorService {
 
 	def seqGenerator = {
 		def maxMappe = BasicFile.executeQuery("select s.fileID from BasicFile s WHERE s.fileID not like '${new Date().format('yy')}/%' ORDER BY length(s.fileID) desc, s.fileID desc")
-		if( maxMappe[0] == null) return "1"
-    def i = maxMappe[0].toLong()
-    i++
-    return "${i}"
-	}
 
+		if( maxMappe[0] == null) 
+			return "1"
+
+	    	def i = maxMappe[0].toLong()
+    		i++
+    		return "${i}"
+	}
 }

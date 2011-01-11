@@ -44,7 +44,6 @@ environments {
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
    }
-
 }
 
 // log4j configuration
@@ -69,6 +68,3 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
-
-
-     

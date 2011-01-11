@@ -9,7 +9,7 @@ class PreservationAndDisposalController {
 	def preservationAndDisposalService
 	 
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def create = {
 		
 		def preservationAndDisposalInstance = new PreservationAndDisposal()
@@ -58,14 +58,11 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def save = {
 		
-		if(preservationAndDisposalService && (preservationAndDisposalService.metaClass.pickMethod("create", [Object.class] as Class[]) || preservationAndDisposalService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
-			def preservationAndDisposalInstance
-			def success
-			if(preservationAndDisposalService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (preservationAndDisposalInstance, success) = preservationAndDisposalService.create( params, request )
-			else (preservationAndDisposalInstance, success) = preservationAndDisposalService.create( params )
+		if(preservationAndDisposalService && preservationAndDisposalService.metaClass.pickMethod("create", [Object.class] as Class[])){
+			def (preservationAndDisposalInstance, success) = preservationAndDisposalService.create( params )
 			withFormat {
 				html { render(view: "show", model: [preservationAndDisposalInstance: preservationAndDisposalInstance]) }
                 xml { render preservationAndDisposalInstance as XML }
@@ -87,15 +84,11 @@ class PreservationAndDisposalController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def update = {
 		
-		if(preservationAndDisposalService && (preservationAndDisposalService.metaClass.pickMethod("update", [Object.class] as Class[]) || preservationAndDisposalService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
-			def preservationAndDisposalInstance
-			def success
-			if(preservationAndDisposalService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (preservationAndDisposalInstance, success) = preservationAndDisposalService.update( params, request )
-			else (preservationAndDisposalInstance, success) = preservationAndDisposalService.update( params )
-			
+		if(preservationAndDisposalService && preservationAndDisposalService.metaClass.pickMethod("update", [Object.class] as Class[])){
+			def (preservationAndDisposalInstance, success) = preservationAndDisposalService.update( params )
 			withFormat {
 				html { render(view: "show", model: [preservationAndDisposalInstance: preservationAndDisposalInstance]) }
                 xml { render preservationAndDisposalInstance as XML }

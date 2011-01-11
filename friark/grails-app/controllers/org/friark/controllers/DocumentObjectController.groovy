@@ -9,7 +9,7 @@ class DocumentObjectController {
 	def documentObjectService
 	 
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def create = {
 		
 		def documentObjectInstance = new DocumentObject()
@@ -58,14 +58,11 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def save = {
 		
-		if(documentObjectService && (documentObjectService.metaClass.pickMethod("create", [Object.class] as Class[]) || documentObjectService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
-			def documentObjectInstance
-			def success
-			if(documentObjectService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentObjectInstance, success) = documentObjectService.create( params, request )
-			else (documentObjectInstance, success) = documentObjectService.create( params )
+		if(documentObjectService && documentObjectService.metaClass.pickMethod("create", [Object.class] as Class[])){
+			def (documentObjectInstance, success) = documentObjectService.create( params )
 			withFormat {
 				html { render(view: "show", model: [documentObjectInstance: documentObjectInstance]) }
                 xml { render documentObjectInstance as XML }
@@ -87,15 +84,11 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def update = {
 		
-		if(documentObjectService && (documentObjectService.metaClass.pickMethod("update", [Object.class] as Class[]) || documentObjectService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
-			def documentObjectInstance
-			def success
-			if(documentObjectService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentObjectInstance, success) = documentObjectService.update( params, request )
-			else (documentObjectInstance, success) = documentObjectService.update( params )
-			
+		if(documentObjectService && documentObjectService.metaClass.pickMethod("update", [Object.class] as Class[])){
+			def (documentObjectInstance, success) = documentObjectService.update( params )
 			withFormat {
 				html { render(view: "show", model: [documentObjectInstance: documentObjectInstance]) }
                 xml { render documentObjectInstance as XML }
@@ -143,6 +136,29 @@ class DocumentObjectController {
             	flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'documentObject.label', default: 'documentObject'), params.id])}"
             	redirect(action: "list")
         	}
+        }
+		
+	}
+		
+	
+	@Generated
+	def delete = {
+		
+		def documentObjectInstance = DocumentObject.get(params.id)
+        if (documentObjectInstance) {
+            try {
+                documentObjectInstance.delete(flush: true)
+                flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'documentObject.label', default: 'documentObject'), params.id])}"
+                redirect(action: "list")
+            }
+            catch (org.springframework.dao.DataIntegrityViolationException e) {
+                flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'documentObject.label', default: 'documentObject'), params.id])}"
+                redirect(action: "show", id: params.id)
+            }
+        }
+        else {
+            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'documentObject.label', default: 'documentObject'), params.id])}"
+            redirect(action: "list")
         }
 		
 	}

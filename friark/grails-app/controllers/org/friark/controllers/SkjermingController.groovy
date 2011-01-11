@@ -9,7 +9,7 @@ class SkjermingController {
 	def skjermingService
 	 
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class SkjermingController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class SkjermingController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class SkjermingController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def create = {
 		
 		def screeningInstance = new Screening()
@@ -58,14 +58,11 @@ class SkjermingController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def save = {
 		
-		if(skjermingService && (skjermingService.metaClass.pickMethod("create", [Object.class] as Class[]) || skjermingService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
-			def screeningInstance
-			def success
-			if(skjermingService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (screeningInstance, success) = skjermingService.create( params, request )
-			else (screeningInstance, success) = skjermingService.create( params )
+		if(skjermingService && skjermingService.metaClass.pickMethod("create", [Object.class] as Class[])){
+			def (screeningInstance, success) = skjermingService.create( params )
 			withFormat {
 				html { render(view: "show", model: [screeningInstance: screeningInstance]) }
                 xml { render screeningInstance as XML }
@@ -87,15 +84,11 @@ class SkjermingController {
 	}
 		
 	
-	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
+	@Generated
 	def update = {
 		
-		if(skjermingService && (skjermingService.metaClass.pickMethod("update", [Object.class] as Class[]) || skjermingService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
-			def screeningInstance
-			def success
-			if(skjermingService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (screeningInstance, success) = skjermingService.update( params, request )
-			else (screeningInstance, success) = skjermingService.update( params )
-			
+		if(skjermingService && skjermingService.metaClass.pickMethod("update", [Object.class] as Class[])){
+			def (screeningInstance, success) = skjermingService.update( params )
 			withFormat {
 				html { render(view: "show", model: [screeningInstance: screeningInstance]) }
                 xml { render screeningInstance as XML }

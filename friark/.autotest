@@ -1,4 +1,3 @@
-
 Autotest.add_hook :died do |at|
 	puts "DIED: #{$!.inspect}"
 	p $!.backtrace
@@ -6,45 +5,44 @@ end
 
 module Autotest::GnomeNotify
 
-  # Time notification will be displayed before disappearing automatically
-  EXPIRATION_IN_SECONDS = 2
-  ERROR_STOCK_ICON = "gtk-dialog-error"
-  SUCCESS_STOCK_ICON = "gtk-dialog-info"
+   # Time notification will be displayed before disappearing automatically
+   EXPIRATION_IN_SECONDS = 2
+   ERROR_STOCK_ICON = "gtk-dialog-error"
+   SUCCESS_STOCK_ICON = "gtk-dialog-info"
 
-  # Convenience method to send an error notification message
-  #
-  # [stock_icon]   Stock icon name of icon to display
-  # [title]        Notification message title
-  # [message]      Core message for the notification
-  def self.notify stock_icon, title, message
-    options = "-t #{EXPIRATION_IN_SECONDS * 1000} -i #{stock_icon}"
-    system "notify-send #{options} '#{title}' '#{message}'"
-  end
+   # Convenience method to send an error notification message
+   #
+   # [stock_icon]   Stock icon name of icon to display
+   # [title]        Notification message title
+   # [message]      Core message for the notification
+   def self.notify stock_icon, title, message
+      options = "-t #{EXPIRATION_IN_SECONDS * 1000} -i #{stock_icon}"
+      system "notify-send #{options} '#{title}' '#{message}'"
+   end
 
-  Autotest.add_hook :red do |at|
-    notify ERROR_STOCK_ICON, "Tests failed", "#{at.files_to_test.size} tests failed"
-  end
+   Autotest.add_hook :red do |at|
+      notify ERROR_STOCK_ICON, "Tests failed", "#{at.files_to_test.size} tests failed"
+   end
 
-  Autotest.add_hook :green do |at|
-    notify SUCCESS_STOCK_ICON, "All tests passed, good job!", ""
-  end
+   Autotest.add_hook :green do |at|
+      notify SUCCESS_STOCK_ICON, "All tests passed, good job!", ""
+   end
 
 end
-
-
 
 # Override autotest to make it understand grails
 #
 class Autotest
 
-	##
-	# Finding the right tests for changed files
-	#
-	def test_files_for(filename)
-		if filename =~ /.*Controller.groovy$/ 
-			f = filename.sub(/\.groovy/, '').sub(/.*\//, '')
-			return Dir["test/**/#{f}Tests.groovy"]
-		end
+   ##
+   # Finding the right tests for changed files
+   #
+
+   def test_files_for(filename)
+      if filename =~ /.*Controller.groovy$/ 
+         f = filename.sub(/\.groovy/, '').sub(/.*\//, '')
+ 	 return Dir["test/**/#{f}Tests.groovy"]
+   end
 	
     return Dir["test/**/*.groovy"]
   end 
