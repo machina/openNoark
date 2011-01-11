@@ -2347,6 +2347,7 @@
       <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/DocumentObject"/>
       <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/DocumentObject"/>
       <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/DocumentObject"/>
+      <eOperations xsi:type="MVCore:EAction" name="delete" eType="//ds/DocumentObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="MVCore:EControllerClass" name="DocumentDescription">
       <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/DocumentDescription"/>
@@ -2355,6 +2356,7 @@
       <eOperations xsi:type="MVCore:EAction" name="create" eType="//ds/DocumentDescription"/>
       <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/DocumentDescription"/>
       <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/DocumentDescription"/>
+      <eOperations xsi:type="MVCore:EAction" name="delete" eType="//ds/DocumentDescription"/>
     </eClassifiers>
     <eClassifiers xsi:type="MVCore:EControllerClass" name="DocumentLink">
       <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/DocumentLink"/>
