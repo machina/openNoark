@@ -37,7 +37,7 @@ class KlassService {
 		if(params.klass) 
 			params = params.klass
 
-		println "PARAMS: ${params}"
+		// println "PARAMS: ${params}"
 		params.createdDate = klasseInstance.createdDate  //can not change created date
 
 		if (!SecurityUtils.subject.isPermitted("klasser:opprett")) {
@@ -57,7 +57,7 @@ class KlassService {
 			}
 		}
 
-		println "PARAMS.TITLE: ${params.title}"
+		// println "PARAMS.TITLE: ${params.title}"
 		params.parentClassificationSystem = ClassificationSystem.get(params.'parentClassificationSystem.id')
 		
 		if(params.finalisedDate_year == "") 
