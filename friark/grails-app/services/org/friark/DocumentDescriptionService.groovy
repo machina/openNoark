@@ -30,7 +30,6 @@ class DocumentDescriptionService {
 		def documentDescription
 		if(params.documentDescription) params = params.documentDescription
 		
-		
 		documentDescription = new DocumentDescription(params)
 		commonService.setNewSystemID(documentDescription)
 		commonService.setCreated(documentDescription)
@@ -45,7 +44,6 @@ class DocumentDescriptionService {
 		}
 	}
 	
-
 	def update(def params){
 		if(params.documentDescription) params = params.documentDescription
 

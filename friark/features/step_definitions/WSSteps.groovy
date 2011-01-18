@@ -40,6 +40,7 @@ def defaultDocumentObject = '''<?xml version="1.0" encoding="UTF-8"?>
    <documentDescription id="$docId" />
    <variantFormat>variantFormat</variantFormat>
    <format>Format</format>
+   <documentFile>Test DocumentObject 1</documentFile>
 </documentObject>
 '''
 
@@ -180,29 +181,30 @@ When(~"I create a updated ([A-z]*)"){ String domain ->
 When(~"I PUT the updated object to the ([A-z]*) Controller"){ String domain ->
     //println obj
     browser.put("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/${ctrlName[domain]}.xml",obj)
-    //println browser.pageSource
 }
 
 Then(~"the updated ([A-z]*) should have the new title"){ String domain ->
     def source = browser.pageSource
 
-    //println "UPDATED SOURCE"
-    //println source
     def updatedObj = new XmlSlurper().parseText(source)
+
     if(domain == "SimplifiedRecord") assertEquals "updated title", updatedObj.archivedBy.toString().trim()
-    //else if (domin == "DocumentObject" ) assertEquals "", updatedObj.title
+    else if (domain == "DocumentObject" ) assertEquals "updated title",updatedObj.documentFile.toString().trim() 
     else assertEquals "updated title", updatedObj.title.toString().trim()
 }
 
 When(~"I GET the created ([A-z]*)"){ String domain ->
     def res = new XmlSlurper().parseText(currentResult)
+
     browser.get("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
     currentResult = browser.pageSource
 }
 
 Then(~"the created ([A-z]*) should be returned"){ String domain ->
     def res = new XmlSlurper().parseText(currentResult)
-    if(domain == "SimplifiedRecord") assertEquals "Test ${domain} 1".toString() , res.archivedBy.toString().trim()
+
+    if(domain == "SimplifiedRecord" ) assertEquals "Test ${domain} 1".toString() , res.archivedBy.toString().trim()
+    else if (domain == "DocumentObject" ) assertEquals "Test ${domain} 1".toString(), res.documentFile.toString().trim() 
     else assertEquals "Test ${domain} 1".toString() , res.title.toString().trim()
 }
 
@@ -210,13 +212,11 @@ When(~"I delete the ([A-z]*)"){ String domain ->
     def res = new XmlSlurper().parseText(currentResult)
     //println "deleting: ${res.@id}"
     browser.delete("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/${ctrlName[domain]}/${res.@id}.xml")
-    //println browser.pageSource
 }
 
 When(~"I search in ([A-z]+) for \"(.*)\"") { String domain, String query ->
     if(domain == "all") browser.get("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/search/${query}.xml")
     else browser.get("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/search/${domain}/${query}.xml")
-    //println browser.pageSource
 }
 
 When(~"I search in ([A-z]+) for \"(.*)\" as OEP") { String domain, String query ->

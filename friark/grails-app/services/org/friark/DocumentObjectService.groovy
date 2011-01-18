@@ -43,7 +43,9 @@ class DocumentObjectService {
 	def update(def params){
 		if(params.documentObject) params = params.documentObject
 
-		def documentObject = DocumentDescription.get(params.id)
+		params.documentDescription = DocumentDescription.get( params."documentDescription.id" )
+
+		def documentObject = DocumentObject.get(params.id)
 		params.createdDate = documentObject.createdDate
 		params.createdBy = documentObject.createdBy
 		documentObject.properties = params
@@ -52,7 +54,7 @@ class DocumentObjectService {
 			println "saved"
 			return [documentObject, true]
 		} else {
-			println "error: ${arkivdel.errors}"
+			println "error: ${documentObject.errors}"
 			return [documentObject, false]
 		}
 	}
