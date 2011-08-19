@@ -16,28 +16,28 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Opprettetdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Opprettetav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Avsluttetdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativeUnitStatus">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativeUnitStatus" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Administrativenhetsstatus"/>
@@ -321,7 +321,7 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Beskrivelse"/>
@@ -338,56 +338,56 @@
         <details key="name" value="Avlevering"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="responsibleExport" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="responsibleExport" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Ansvarligeksport"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exportedDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exportedDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Eksportertdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFilesExported" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFilesExported" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Antallmappereksportert"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfRecordsExported" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfRecordsExported" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="AntallregistreringerEksportert"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfDocumentsExported" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfDocumentsExported" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="AntalldokumenterEksportert"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumMetadata" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumMetadata" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Sjekksummetadata"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumTransfer" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumTransfer" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Sjekksumavlevering"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumAlgorithm" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumAlgorithm" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Sjekksumalgoritme"/>
@@ -403,21 +403,21 @@
         <details key="name" value="Avskrivning"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signOffDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signOffDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Avskrivningsdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signedOffBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signedOffBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Avskrevetav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signOffMethod" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signOffMethod" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Avskrivningsm&#xe5;te"/>
@@ -606,7 +606,7 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Beskrivelse"/>
@@ -627,7 +627,7 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentMedium">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentMedium" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Dokumentmedium"/>
@@ -703,35 +703,35 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userRole" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userRole" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Brukerrolle"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Opprettetdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Opprettetav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Avsluttetdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userStatus">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userStatus" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Brukerstatus"/>
@@ -859,21 +859,21 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowRecivedDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowRecivedDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Flytmottattdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowSentDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowSentDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Flytsendtdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowStatus" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowStatus" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Flytstatus"/>
@@ -1037,42 +1037,42 @@
         <details key="name" value="Endringslogg"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordUnit" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordUnit" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Referansearkivenhet"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadata" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadata" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Referansemetadata"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="changedDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="changedDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Endretdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="changedBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="changedBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Endretav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousValue" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousValue" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Tidligereverdi"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newValue" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newValue" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Nyverdi"/>
@@ -1088,35 +1088,35 @@
         <details key="name" value="Gradering"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="grading" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="grading" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Gradering"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gradingDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gradingDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Graderingsdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gradingBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gradingBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Gradertav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="downGradingDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="downGradingDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Nedgraderingsdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="downGradedBy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="downGradedBy" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Nedgradertav"/>
@@ -1139,84 +1139,84 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryEntryType" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryEntryType" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Journalposttype"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordStatus" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordStatus" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Journalstatus"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Journaldato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Dokumentetsdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recivedDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recivedDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Mottattdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sentDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sentDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Sendtdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Forfallsdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidentialityAssessedDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidentialityAssessedDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Offentlighetsvurdertdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfAppendicies">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfAppendicies" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Antallvedlegg"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loanedDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loanedDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Utl&#xe5;ntdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loanedTo">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loanedTo" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Utl&#xe5;nttil"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="clients" lowerBound="1" upperBound="-1" eType="//ds/Client"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="clients" unique="false" lowerBound="1" upperBound="-1" eType="//ds/Client"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="caseResponsibility" unique="false" lowerBound="1" eType="//ds/CaseResponsibility"/>
     </eClassifiers>
     <eClassifiers xsi:type="MVCore:EDomainClass" name="Klass" eSuperTypes="//ds/Base">
@@ -1409,28 +1409,28 @@
         <details key="name" value="KonverteringTilArkivformat"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="convertedDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="convertedDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Konvertertdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="convertedBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="convertedBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Konvertertav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousFormat" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousFormat" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Tidligereformat"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousFormatDetails">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="previousFormatDetails" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Tidligereformatdetaljer"/>
@@ -1446,7 +1446,7 @@
         <details key="name" value="Korrespondansepart"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientType" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientType" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Korrespondanseparttype"/>
@@ -1460,49 +1460,49 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalAddress">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalAddress" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Postadresse"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postCode">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postCode" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Postnummer"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalTown">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalTown" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Poststed"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreignAddress">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreignAddress" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Utenlandsadresse"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Epostadresse"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="telephoneNumber">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="telephoneNumber" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Telefonnummer"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactPerson">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactPerson" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Kontaktperson"/>
@@ -1540,21 +1540,21 @@
         <details key="name" value="Merknad"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkText" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkText" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Merknadstekst"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Merknadsdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkRegisteredBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarkRegisteredBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Merknadregistrertav"/>
@@ -1564,7 +1564,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="basicFile" unique="false" eType="//ds/BasicFile"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="basicRecord" unique="false" eType="//ds/BasicRecord"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="documentDescription" unique="false" eType="//ds/DocumentDescription"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="remarkType" lowerBound="1" eType="//ds/RemarkType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="remarkType" unique="false" lowerBound="1" eType="//ds/RemarkType"/>
     </eClassifiers>
     <eClassifiers xsi:type="MVCore:EDomainClass" name="RemarkType">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1584,14 +1584,14 @@
         <details key="name" value="M&#xf8;tedeltaker"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingParticipantName" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingParticipantName" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="M&#xf8;tedeltakernavn"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingParticipantFunction" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingParticipantFunction" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="M&#xf8;tedeltakerfunksjon"/>
@@ -1621,27 +1621,27 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="M&#xf8;tedato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingPlace">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="meetingPlace" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="M&#xf8;tested"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previousMeeting" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="previousMeeting" unique="false" eType="//ds/BasicFile" containment="true" resolveProxies="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Referanseforrigem&#xf8;te"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nextMeeting" eType="//ds/BasicFile" containment="true" resolveProxies="false">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nextMeeting" unique="false" eType="//ds/BasicFile" containment="true" resolveProxies="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Referansenestem&#xf8;te"/>
@@ -1656,35 +1656,35 @@
         <details key="name" value="M&#xf8;teregistrering"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moeteregistreringstype" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moeteregistreringstype" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="M&#xf8;teregistreringstype"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moetesakstype" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moetesakstype" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="M&#xf8;tesakstype"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moeteregistreringsstatus">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="moeteregistreringsstatus" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="M&#xf8;teregistreringsstatus"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativenhet" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativenhet" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Administrativenhet"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="saksbehandler" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="saksbehandler" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Saksbehandler"/>
@@ -1712,21 +1712,21 @@
         <details key="name" value="Presedens"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Presedensdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Opprettetdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Opprettetav"/>
@@ -1740,56 +1740,56 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Beskrivelse"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentAuthority">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentAuthority" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Presedenshjemmel"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="leagalSourceFactor" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="leagalSourceFactor" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Rettskildefaktor"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentApprovedDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentApprovedDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Presedensgodkjentdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentApprovedBy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentApprovedBy" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Presedensgodkjentav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedDate" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Avsluttetdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedBy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalisedBy" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Avsluttetav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentStatus">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precedentStatus" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Presedensstatus"/>
@@ -1805,21 +1805,21 @@
         <details key="name" value="Saksansvar"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativeUnit" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="administrativeUnit" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Administrativenhet"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="executiveOfficer" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="executiveOfficer" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Saksbehandler"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryManagementUnit">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registryManagementUnit" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Journalenhet"/>
@@ -1836,21 +1836,21 @@
         <details key="name" value="Saksfordeling"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedTo" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedTo" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Fordelttil"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Fordeltav"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributedDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Fordeltdato"/>
@@ -1941,63 +1941,63 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="casePartyName" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="casePartyName" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Sakspartnavn"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="casePartyRole" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="casePartyRole" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Sakspartrolle"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalAddress">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalAddress" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Postadresse"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postCode">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postCode" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Postnummer"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalTown">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalTown" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Poststed"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreignAddress">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreignAddress" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Utenlandsadresse"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Epostadresse"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="telephoneNumber">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="telephoneNumber" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Telefonnummer"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactPerson">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactPerson" unique="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Kontaktperson"/>
@@ -2013,14 +2013,14 @@
         <details key="name" value="Skjerming"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessRestriction" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessRestriction" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Tilgangsrestriksjon"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningAuthority" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningAuthority" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Skjermingshjemmel"/>
@@ -2041,14 +2041,14 @@
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningDuration" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningDuration" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Skjermingsvarighet"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningCeasesDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="screeningCeasesDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Skjermingopph&#xf8;rerdato"/>
@@ -2064,21 +2064,21 @@
         <details key="name" value="SlettingAvDokumenter"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletionType" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletionType" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Slettingstype"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletedDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletedDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Slettetdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletedBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletedBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Slettetav"/>
@@ -2094,14 +2094,14 @@
         <details key="name" value="Utf&#xf8;rtKassasjon"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposedOfDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposedOfDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Kassertdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposedOfBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="disposedOfBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Kassertav"/>
@@ -2117,28 +2117,28 @@
         <details key="name" value="VerifiseringAvElektroniskSignatur"/>
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="electronicSignatureSecurityLevel" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="electronicSignatureSecurityLevel" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ElektronisksignaturSikkerhetsniv&#xe5;"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="electronicSignatureVerified" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="electronicSignatureVerified" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ElektronisksignaturVerfisert"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="verifiedDate" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="verifiedDate" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Verifisertdato"/>
         </eAnnotations>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="verifiedBy" lowerBound="1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="verifiedBy" unique="false" lowerBound="1">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Verfisertav"/>
@@ -2331,7 +2331,7 @@
       <eOperations xsi:type="MVCore:EAction" name="save" eType="//ds/Client"/>
       <eOperations xsi:type="MVCore:EAction" name="update" eType="//ds/Client"/>
     </eClassifiers>
-    <eClassifiers xsi:type="MVCore:EControllerClass" name="Registrering">
+    <eClassifiers xsi:type="MVCore:EControllerClass" name="Registration">
       <eOperations xsi:type="MVCore:EAction" name="index" eType="//ds/SimplifiedRecord"/>
       <eOperations xsi:type="MVCore:EAction" name="list" eType="//ds/SimplifiedRecord"/>
       <eOperations xsi:type="MVCore:EAction" name="show" eType="//ds/SimplifiedRecord"/>
