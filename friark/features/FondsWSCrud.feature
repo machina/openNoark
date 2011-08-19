@@ -1,7 +1,7 @@
 Feature: Fonds CRUD
    In order to do basic operations on Fonds
    As an authorized user
-   I want to do CRUD operatoins on FONDS
+   I want to do CRUD operations on FONDS
 
 Scenario: Create a Fonds
    Given an empty database 

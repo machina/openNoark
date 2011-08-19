@@ -1,7 +1,7 @@
 Feature: DocumentDescription CRUD
    In order to do basic operations on DocumentDescription
    As an authorized user
-   I want to do CRUD operatoins on DocumentDescription
+   I want to do CRUD operations on DocumentDescription
 
 Scenario: Create a DocumentDescription
    Given an empty database 

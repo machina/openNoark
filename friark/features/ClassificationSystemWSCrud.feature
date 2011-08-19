@@ -1,7 +1,7 @@
 Feature: ClassificationSystem CRUD
 	 In order to do basic operations on ClassificationSystem
 	 As an authorized user
-	 I want to do CRUD operatoins on ClassificationSystems
+	 I want to do CRUD operations on ClassificationSystems
 
 Scenario: Create a ClassificationSystem
 	  Given an empty database 

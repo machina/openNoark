@@ -1,7 +1,7 @@
 Feature: Klass CRUD
    In order to do basic operations on Klass
    As an authorized user
-   I want to do CRUD operatoins on Klasss
+   I want to do CRUD operations on Klasss
 
 Scenario: Create a Klass
    Given an empty database 

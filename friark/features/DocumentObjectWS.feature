@@ -1,7 +1,7 @@
 Feature: DocumentObject CRUD
    In order to do basic operations on DocumentObject
    As an authorized user
-   I want to do CRUD operatoins on DocumentObject
+   I want to do CRUD operations on DocumentObject
 
 Scenario: Create a DocumentObject
    Given an empty database 

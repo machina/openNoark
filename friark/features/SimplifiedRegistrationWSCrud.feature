@@ -1,7 +1,7 @@
 Feature: SimplifiedRecord CRUD
    In order to do basic operations on SimplifiedRecord
    As an authorized user
-   I want to do CRUD operatoins on SimplifiedRecord
+   I want to do CRUD operations on SimplifiedRecord
 
 Scenario: Create a SimplifiedRecord
    Given an empty database 

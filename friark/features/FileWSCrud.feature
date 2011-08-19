@@ -1,7 +1,7 @@
 Feature: File CRUD
    In order to do basic operations on File
    As an authorized user
-   I want to do CRUD operatoins on File
+   I want to do CRUD operations on File
 
 Scenario: Create a File
    Given an empty database 

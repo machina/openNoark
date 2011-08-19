@@ -1,7 +1,7 @@
 Feature: Fonds
    In order to satisfy requirements on Fonds
    As an authorized user
-   I want to do operatoins on Fonds and recive the correct result
+   I want to do operations on Fonds and recive the correct result
 
 Scenario: Create a Fonds with systemID
    Given an empty database 
