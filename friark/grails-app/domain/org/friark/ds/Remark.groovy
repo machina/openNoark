@@ -16,11 +16,11 @@ class Remark {
   RemarkType remarkType
   static constraints = {
     remarkText(nullable: false)
-    remarkText(unique: true)
+    remarkText(unique: false)
     remarkDate(nullable: false)
-    remarkDate(unique: true)
+    remarkDate(unique: false)
     remarkRegisteredBy(nullable: false)
-    remarkRegisteredBy(unique: true)
+    remarkRegisteredBy(unique: false)
     basicFile(nullable: true)
     basicFile(unique: false)
     basicRecord(nullable: true)
@@ -28,7 +28,7 @@ class Remark {
     documentDescription(nullable: true)
     documentDescription(unique: false)
     remarkType(nullable: false)
-    remarkType(unique: true)
+    remarkType(unique: false)
   }
   static hasMany = [:]
   static mapping = {

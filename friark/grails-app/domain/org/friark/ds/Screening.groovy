@@ -17,17 +17,17 @@ class Screening {
   Date screeningCeasesDate
   static constraints = {
     accessRestriction(nullable: false)
-    accessRestriction(unique: true)
+    accessRestriction(unique: false)
     screeningAuthority(nullable: false)
-    screeningAuthority(unique: true)
+    screeningAuthority(unique: false)
     screeningMetadata(minSize: 1)
     screeningMetadata(unique: false)
     screeningDocument(nullable: true)
     screeningDocument(unique: true)
     screeningDuration(nullable: false)
-    screeningDuration(unique: true)
+    screeningDuration(unique: false)
     screeningCeasesDate(nullable: false)
-    screeningCeasesDate(unique: true)
+    screeningCeasesDate(unique: false)
   }
   static hasMany = [screeningMetadata:String]
   static mapping = {

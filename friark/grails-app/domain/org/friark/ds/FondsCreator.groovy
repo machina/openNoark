@@ -16,7 +16,7 @@ class FondsCreator {
     fondsCreatorName(nullable: false)
     fondsCreatorName(unique: true)
     description(nullable: true)
-    description(unique: true)
+    description(unique: false)
     fonds(nullable: true)
     fonds(unique: false)
   }

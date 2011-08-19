@@ -14,13 +14,13 @@ class ConversionToArchivalFormat {
   String previousFormatDetails
   static constraints = {
     convertedDate(nullable: false)
-    convertedDate(unique: true)
+    convertedDate(unique: false)
     convertedBy(nullable: false)
-    convertedBy(unique: true)
+    convertedBy(unique: false)
     previousFormat(nullable: false)
-    previousFormat(unique: true)
+    previousFormat(unique: false)
     previousFormatDetails(nullable: true)
-    previousFormatDetails(unique: true)
+    previousFormatDetails(unique: false)
   }
   static hasMany = [:]
   static mapping = {

@@ -17,13 +17,13 @@ class MeetingFile extends BasicFile{
     board(nullable: false)
     board(unique: true)
     meetingDate(nullable: false)
-    meetingDate(unique: true)
+    meetingDate(unique: false)
     meetingPlace(nullable: true)
-    meetingPlace(unique: true)
+    meetingPlace(unique: false)
     previousMeeting(nullable: true)
-    previousMeeting(unique: true)
+    previousMeeting(unique: false)
     nextMeeting(nullable: true)
-    nextMeeting(unique: true)
+    nextMeeting(unique: false)
   }
   static hasMany = [:]
   static mapping = {

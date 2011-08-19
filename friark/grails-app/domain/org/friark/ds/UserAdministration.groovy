@@ -15,15 +15,15 @@ class UserAdministration {
     userName(nullable: false)
     userName(unique: true)
     userRole(nullable: false)
-    userRole(unique: true)
+    userRole(unique: false)
     createdDate(nullable: false)
-    createdDate(unique: true)
+    createdDate(unique: false)
     createdBy(nullable: true)
-    createdBy(unique: true)
+    createdBy(unique: false)
     finalisedDate(nullable: true)
-    finalisedDate(unique: true)
+    finalisedDate(unique: false)
     userStatus(nullable: true)
-    userStatus(unique: true)
+    userStatus(unique: false)
   }
   static hasMany = [:]
   static mapping = {

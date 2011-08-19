@@ -13,9 +13,9 @@ class CompletedDisposal {
   String disposedOfBy
   static constraints = {
     disposedOfDate(nullable: false)
-    disposedOfDate(unique: true)
+    disposedOfDate(unique: false)
     disposedOfBy(nullable: false)
-    disposedOfBy(unique: true)
+    disposedOfBy(unique: false)
   }
   static hasMany = [:]
   static mapping = {

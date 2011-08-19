@@ -15,17 +15,17 @@ class ChangeLog {
   String newValue
   static constraints = {
     recordUnit(nullable: false)
-    recordUnit(unique: true)
+    recordUnit(unique: false)
     metadata(nullable: false)
-    metadata(unique: true)
+    metadata(unique: false)
     changedDate(nullable: false)
-    changedDate(unique: true)
+    changedDate(unique: false)
     changedBy(nullable: false)
-    changedBy(unique: true)
+    changedBy(unique: false)
     previousValue(nullable: false)
-    previousValue(unique: true)
+    previousValue(unique: false)
     newValue(nullable: false)
-    newValue(unique: true)
+    newValue(unique: false)
   }
   static hasMany = [:]
   static mapping = {

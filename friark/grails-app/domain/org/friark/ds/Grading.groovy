@@ -13,15 +13,15 @@ class Grading {
   String downGradedBy
   static constraints = {
     grading(nullable: false)
-    grading(unique: true)
+    grading(unique: false)
     gradingDate(nullable: false)
-    gradingDate(unique: true)
+    gradingDate(unique: false)
     gradingBy(nullable: false)
-    gradingBy(unique: true)
+    gradingBy(unique: false)
     downGradingDate(nullable: true)
-    downGradingDate(unique: true)
+    downGradingDate(unique: false)
     downGradedBy(nullable: true)
-    downGradedBy(unique: true)
+    downGradedBy(unique: false)
   }
   static hasMany = [:]
   static mapping = {

@@ -11,9 +11,9 @@ class MeetingParticipant {
   String meetingParticipantFunction
   static constraints = {
     meetingParticipantName(nullable: false)
-    meetingParticipantName(unique: true)
+    meetingParticipantName(unique: false)
     meetingParticipantFunction(nullable: false)
-    meetingParticipantFunction(unique: true)
+    meetingParticipantFunction(unique: false)
   }
   static hasMany = [:]
   static mapping = {

@@ -15,11 +15,11 @@ class DeletionOfDocuments {
   String deletedBy
   static constraints = {
     deletionType(nullable: false)
-    deletionType(unique: true)
+    deletionType(unique: false)
     deletedDate(nullable: false)
-    deletedDate(unique: true)
+    deletedDate(unique: false)
     deletedBy(nullable: false)
-    deletedBy(unique: true)
+    deletedBy(unique: false)
   }
   static hasMany = [:]
   static mapping = {

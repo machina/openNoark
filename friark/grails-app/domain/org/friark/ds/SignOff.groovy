@@ -15,11 +15,11 @@ class SignOff {
   SimplifiedRecord signOffedByRegistryEntry
   static constraints = {
     signOffDate(nullable: false)
-    signOffDate(unique: true)
+    signOffDate(unique: false)
     signedOffBy(nullable: false)
-    signedOffBy(unique: true)
+    signedOffBy(unique: false)
     signOffMethod(nullable: false)
-    signOffMethod(unique: true)
+    signOffMethod(unique: false)
     signOffsRegistryEntry(nullable: true)
     signOffsRegistryEntry(unique: true)
     signOffedByRegistryEntry(nullable: true)

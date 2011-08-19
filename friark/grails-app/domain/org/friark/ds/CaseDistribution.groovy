@@ -11,11 +11,11 @@ class CaseDistribution {
   String distributedDate
   static constraints = {
     distributedTo(nullable: false)
-    distributedTo(unique: true)
+    distributedTo(unique: false)
     distributedBy(nullable: false)
-    distributedBy(unique: true)
+    distributedBy(unique: false)
     distributedDate(nullable: false)
-    distributedDate(unique: true)
+    distributedDate(unique: false)
   }
   static hasMany = [:]
   static mapping = {

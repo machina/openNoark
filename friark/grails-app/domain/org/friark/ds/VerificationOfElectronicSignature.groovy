@@ -12,13 +12,13 @@ class VerificationOfElectronicSignature {
   String verifiedBy
   static constraints = {
     electronicSignatureSecurityLevel(nullable: false)
-    electronicSignatureSecurityLevel(unique: true)
+    electronicSignatureSecurityLevel(unique: false)
     electronicSignatureVerified(nullable: false)
-    electronicSignatureVerified(unique: true)
+    electronicSignatureVerified(unique: false)
     verifiedDate(nullable: false)
-    verifiedDate(unique: true)
+    verifiedDate(unique: false)
     verifiedBy(nullable: false)
-    verifiedBy(unique: true)
+    verifiedBy(unique: false)
   }
   static hasMany = [:]
   static mapping = {

@@ -16,21 +16,21 @@ class Transfer {
   String checksumAlgorithm
   static constraints = {
     responsibleExport(nullable: false)
-    responsibleExport(unique: true)
+    responsibleExport(unique: false)
     exportedDate(nullable: false)
-    exportedDate(unique: true)
+    exportedDate(unique: false)
     numberOfFilesExported(nullable: false)
-    numberOfFilesExported(unique: true)
+    numberOfFilesExported(unique: false)
     numberOfRecordsExported(nullable: false)
-    numberOfRecordsExported(unique: true)
+    numberOfRecordsExported(unique: false)
     numberOfDocumentsExported(nullable: false)
-    numberOfDocumentsExported(unique: true)
+    numberOfDocumentsExported(unique: false)
     checksumMetadata(nullable: false)
-    checksumMetadata(unique: true)
+    checksumMetadata(unique: false)
     checksumTransfer(nullable: false)
-    checksumTransfer(unique: true)
+    checksumTransfer(unique: false)
     checksumAlgorithm(nullable: false)
-    checksumAlgorithm(unique: true)
+    checksumAlgorithm(unique: false)
   }
   static hasMany = [:]
   static mapping = {

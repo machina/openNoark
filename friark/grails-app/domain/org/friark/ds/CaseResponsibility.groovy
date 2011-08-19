@@ -13,11 +13,11 @@ class CaseResponsibility {
   String registryManagementUnit
   static constraints = {
     administrativeUnit(nullable: false)
-    administrativeUnit(unique: true)
+    administrativeUnit(unique: false)
     executiveOfficer(nullable: false)
-    executiveOfficer(unique: true)
+    executiveOfficer(unique: false)
     registryManagementUnit(nullable: true)
-    registryManagementUnit(unique: true)
+    registryManagementUnit(unique: false)
     registryEntry(nullable: true)
     registryEntry(unique: true)
   }
