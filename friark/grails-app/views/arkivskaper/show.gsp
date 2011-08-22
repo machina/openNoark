@@ -1,5 +1,5 @@
 
-<%@ page import="no.friark.ds.FondsCreator" %>
+<%@ page import="org.friark.ds.FondsCreator" %>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

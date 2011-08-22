@@ -1,5 +1,5 @@
 
-<%@ page import="no.friark.ds.FondsCreator" %>
+<%@ page import="org.friark.ds.FondsCreator" %>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -62,7 +62,7 @@
                 </td>
                 <td valign="top" class="value ${hasErrors(bean:fondsCreatorInstance,field:'fonds','errors')}">
             <g:select name="fonds"
-                      from="${no.friark.ds.Fonds.list()}"
+                      from="${org.friark.ds.Fonds.list()}"
                       size="5" multiple="yes" optionKey="id"
                       value="${fondsCreatorInstance?.fonds}" />
 
