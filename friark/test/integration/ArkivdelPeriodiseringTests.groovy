@@ -15,6 +15,7 @@
     along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import org.friark.services.*
 import grails.test.*
 import org.friark.ds.*
 
