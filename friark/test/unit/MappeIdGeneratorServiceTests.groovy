@@ -1,5 +1,7 @@
 import grails.test.*
 import org.friark.ds.*
+import org.friark.services
+
 class MappeIdGeneratorServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
