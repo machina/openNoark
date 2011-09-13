@@ -9,7 +9,7 @@ class ClassificationSystemController {
 	def classificationSystemService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class ClassificationSystemController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class ClassificationSystemController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class ClassificationSystemController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def classificationSystemInstance = new ClassificationSystem()
@@ -58,11 +58,14 @@ class ClassificationSystemController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(classificationSystemService && classificationSystemService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (classificationSystemInstance, success) = classificationSystemService.create( params )
+		if(classificationSystemService && (classificationSystemService.metaClass.pickMethod("create", [Object.class] as Class[]) || classificationSystemService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def classificationSystemInstance
+			def success
+			if(classificationSystemService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (classificationSystemInstance, success) = classificationSystemService.create( params, request )
+			else (classificationSystemInstance, success) = classificationSystemService.create( params )
 			withFormat {
 				html { render(view: "show", model: [classificationSystemInstance: classificationSystemInstance]) }
                 xml { render classificationSystemInstance as XML }
@@ -84,11 +87,15 @@ class ClassificationSystemController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(classificationSystemService && classificationSystemService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (classificationSystemInstance, success) = classificationSystemService.update( params )
+		if(classificationSystemService && (classificationSystemService.metaClass.pickMethod("update", [Object.class] as Class[]) || classificationSystemService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def classificationSystemInstance
+			def success
+			if(classificationSystemService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (classificationSystemInstance, success) = classificationSystemService.update( params, request )
+			else (classificationSystemInstance, success) = classificationSystemService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [classificationSystemInstance: classificationSystemInstance]) }
                 xml { render classificationSystemInstance as XML }
@@ -141,7 +148,7 @@ class ClassificationSystemController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def delete = {
 		
 		def classificationSystemInstance = ClassificationSystem.get(params.id)

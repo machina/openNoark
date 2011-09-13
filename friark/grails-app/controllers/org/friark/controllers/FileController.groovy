@@ -9,7 +9,7 @@ class FileController {
 	def fileService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class FileController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class FileController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class FileController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def basicFileInstance = new BasicFile()
@@ -58,11 +58,14 @@ class FileController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(fileService && fileService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (basicFileInstance, success) = fileService.create( params )
+		if(fileService && (fileService.metaClass.pickMethod("create", [Object.class] as Class[]) || fileService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def basicFileInstance
+			def success
+			if(fileService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (basicFileInstance, success) = fileService.create( params, request )
+			else (basicFileInstance, success) = fileService.create( params )
 			withFormat {
 				html { render(view: "show", model: [basicFileInstance: basicFileInstance]) }
                 xml { render basicFileInstance as XML }
@@ -84,11 +87,15 @@ class FileController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(fileService && fileService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (basicFileInstance, success) = fileService.update( params )
+		if(fileService && (fileService.metaClass.pickMethod("update", [Object.class] as Class[]) || fileService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def basicFileInstance
+			def success
+			if(fileService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (basicFileInstance, success) = fileService.update( params, request )
+			else (basicFileInstance, success) = fileService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [basicFileInstance: basicFileInstance]) }
                 xml { render basicFileInstance as XML }
@@ -141,7 +148,7 @@ class FileController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def delete = {
 		
 		def basicFileInstance = BasicFile.get(params.id)

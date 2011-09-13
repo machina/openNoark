@@ -9,7 +9,7 @@ class RegistrationController {
 	def registrationService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class RegistrationController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class RegistrationController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class RegistrationController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def simplifiedRecordInstance = new SimplifiedRecord()
@@ -58,11 +58,14 @@ class RegistrationController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(registrationService && registrationService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (simplifiedRecordInstance, success) = registrationService.create( params )
+		if(registrationService && (registrationService.metaClass.pickMethod("create", [Object.class] as Class[]) || registrationService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def simplifiedRecordInstance
+			def success
+			if(registrationService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (simplifiedRecordInstance, success) = registrationService.create( params, request )
+			else (simplifiedRecordInstance, success) = registrationService.create( params )
 			withFormat {
 				html { render(view: "show", model: [simplifiedRecordInstance: simplifiedRecordInstance]) }
                 xml { render simplifiedRecordInstance as XML }
@@ -84,11 +87,15 @@ class RegistrationController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(registrationService && registrationService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (simplifiedRecordInstance, success) = registrationService.update( params )
+		if(registrationService && (registrationService.metaClass.pickMethod("update", [Object.class] as Class[]) || registrationService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def simplifiedRecordInstance
+			def success
+			if(registrationService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (simplifiedRecordInstance, success) = registrationService.update( params, request )
+			else (simplifiedRecordInstance, success) = registrationService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [simplifiedRecordInstance: simplifiedRecordInstance]) }
                 xml { render simplifiedRecordInstance as XML }
@@ -141,7 +148,7 @@ class RegistrationController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def delete = {
 		
 		def simplifiedRecordInstance = SimplifiedRecord.get(params.id)

@@ -9,7 +9,7 @@ class DocumentObjectController {
 	def documentObjectService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def documentObjectInstance = new DocumentObject()
@@ -58,11 +58,14 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(documentObjectService && documentObjectService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (documentObjectInstance, success) = documentObjectService.create( params )
+		if(documentObjectService && (documentObjectService.metaClass.pickMethod("create", [Object.class] as Class[]) || documentObjectService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def documentObjectInstance
+			def success
+			if(documentObjectService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentObjectInstance, success) = documentObjectService.create( params, request )
+			else (documentObjectInstance, success) = documentObjectService.create( params )
 			withFormat {
 				html { render(view: "show", model: [documentObjectInstance: documentObjectInstance]) }
                 xml { render documentObjectInstance as XML }
@@ -84,11 +87,15 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(documentObjectService && documentObjectService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (documentObjectInstance, success) = documentObjectService.update( params )
+		if(documentObjectService && (documentObjectService.metaClass.pickMethod("update", [Object.class] as Class[]) || documentObjectService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def documentObjectInstance
+			def success
+			if(documentObjectService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentObjectInstance, success) = documentObjectService.update( params, request )
+			else (documentObjectInstance, success) = documentObjectService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [documentObjectInstance: documentObjectInstance]) }
                 xml { render documentObjectInstance as XML }
@@ -141,7 +148,7 @@ class DocumentObjectController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def delete = {
 		
 		def documentObjectInstance = DocumentObject.get(params.id)

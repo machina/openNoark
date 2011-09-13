@@ -9,7 +9,7 @@ class ClientController {
 	def clientService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class ClientController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class ClientController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class ClientController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def clientInstance = new Client()
@@ -58,11 +58,14 @@ class ClientController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(clientService && clientService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (clientInstance, success) = clientService.create( params )
+		if(clientService && (clientService.metaClass.pickMethod("create", [Object.class] as Class[]) || clientService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def clientInstance
+			def success
+			if(clientService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (clientInstance, success) = clientService.create( params, request )
+			else (clientInstance, success) = clientService.create( params )
 			withFormat {
 				html { render(view: "show", model: [clientInstance: clientInstance]) }
                 xml { render clientInstance as XML }
@@ -84,11 +87,15 @@ class ClientController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(clientService && clientService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (clientInstance, success) = clientService.update( params )
+		if(clientService && (clientService.metaClass.pickMethod("update", [Object.class] as Class[]) || clientService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def clientInstance
+			def success
+			if(clientService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (clientInstance, success) = clientService.update( params, request )
+			else (clientInstance, success) = clientService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [clientInstance: clientInstance]) }
                 xml { render clientInstance as XML }

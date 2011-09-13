@@ -9,7 +9,7 @@ class ParameterController {
 	def parameterService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def parameterInstance = new Parameter()
@@ -58,11 +58,14 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(parameterService && parameterService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (parameterInstance, success) = parameterService.create( params )
+		if(parameterService && (parameterService.metaClass.pickMethod("create", [Object.class] as Class[]) || parameterService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def parameterInstance
+			def success
+			if(parameterService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (parameterInstance, success) = parameterService.create( params, request )
+			else (parameterInstance, success) = parameterService.create( params )
 			withFormat {
 				html { render(view: "show", model: [parameterInstance: parameterInstance]) }
                 xml { render parameterInstance as XML }
@@ -84,11 +87,15 @@ class ParameterController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(parameterService && parameterService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (parameterInstance, success) = parameterService.update( params )
+		if(parameterService && (parameterService.metaClass.pickMethod("update", [Object.class] as Class[]) || parameterService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def parameterInstance
+			def success
+			if(parameterService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (parameterInstance, success) = parameterService.update( params, request )
+			else (parameterInstance, success) = parameterService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [parameterInstance: parameterInstance]) }
                 xml { render parameterInstance as XML }

@@ -9,7 +9,7 @@ class RemarkTypeController {
 	def remarkTypeService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class RemarkTypeController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class RemarkTypeController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class RemarkTypeController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def remarkTypeInstance = new RemarkType()
@@ -58,11 +58,14 @@ class RemarkTypeController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(remarkTypeService && remarkTypeService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (remarkTypeInstance, success) = remarkTypeService.create( params )
+		if(remarkTypeService && (remarkTypeService.metaClass.pickMethod("create", [Object.class] as Class[]) || remarkTypeService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def remarkTypeInstance
+			def success
+			if(remarkTypeService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (remarkTypeInstance, success) = remarkTypeService.create( params, request )
+			else (remarkTypeInstance, success) = remarkTypeService.create( params )
 			withFormat {
 				html { render(view: "show", model: [remarkTypeInstance: remarkTypeInstance]) }
                 xml { render remarkTypeInstance as XML }
@@ -84,11 +87,15 @@ class RemarkTypeController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(remarkTypeService && remarkTypeService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (remarkTypeInstance, success) = remarkTypeService.update( params )
+		if(remarkTypeService && (remarkTypeService.metaClass.pickMethod("update", [Object.class] as Class[]) || remarkTypeService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def remarkTypeInstance
+			def success
+			if(remarkTypeService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (remarkTypeInstance, success) = remarkTypeService.update( params, request )
+			else (remarkTypeInstance, success) = remarkTypeService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [remarkTypeInstance: remarkTypeInstance]) }
                 xml { render remarkTypeInstance as XML }

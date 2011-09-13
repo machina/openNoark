@@ -9,7 +9,7 @@ class SeriesController {
 	def seriesService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class SeriesController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class SeriesController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class SeriesController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def seriesInstance = new Series()
@@ -58,11 +58,14 @@ class SeriesController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(seriesService && seriesService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (seriesInstance, success) = seriesService.create( params )
+		if(seriesService && (seriesService.metaClass.pickMethod("create", [Object.class] as Class[]) || seriesService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def seriesInstance
+			def success
+			if(seriesService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (seriesInstance, success) = seriesService.create( params, request )
+			else (seriesInstance, success) = seriesService.create( params )
 			withFormat {
 				html { render(view: "show", model: [seriesInstance: seriesInstance]) }
                 xml { render seriesInstance as XML }
@@ -84,11 +87,15 @@ class SeriesController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(seriesService && seriesService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (seriesInstance, success) = seriesService.update( params )
+		if(seriesService && (seriesService.metaClass.pickMethod("update", [Object.class] as Class[]) || seriesService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def seriesInstance
+			def success
+			if(seriesService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (seriesInstance, success) = seriesService.update( params, request )
+			else (seriesInstance, success) = seriesService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [seriesInstance: seriesInstance]) }
                 xml { render seriesInstance as XML }
@@ -141,7 +148,7 @@ class SeriesController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def delete = {
 		
 		def seriesInstance = Series.get(params.id)

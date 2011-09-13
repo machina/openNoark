@@ -9,7 +9,7 @@ class DocumentLinkController {
 	def documentLinkService
 	 
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {
 		
 			redirect(action: "list", params: params)
@@ -17,7 +17,7 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def list = {
 		
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
@@ -33,7 +33,7 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def show = {
 		
 		withFormat{
@@ -48,7 +48,7 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def create = {
 		
 		def documentLinkInstance = new DocumentLink()
@@ -58,11 +58,14 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(documentLinkService && documentLinkService.metaClass.pickMethod("create", [Object.class] as Class[])){
-			def (documentLinkInstance, success) = documentLinkService.create( params )
+		if(documentLinkService && (documentLinkService.metaClass.pickMethod("create", [Object.class] as Class[]) || documentLinkService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+			def documentLinkInstance
+			def success
+			if(documentLinkService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentLinkInstance, success) = documentLinkService.create( params, request )
+			else (documentLinkInstance, success) = documentLinkService.create( params )
 			withFormat {
 				html { render(view: "show", model: [documentLinkInstance: documentLinkInstance]) }
                 xml { render documentLinkInstance as XML }
@@ -84,11 +87,15 @@ class DocumentLinkController {
 	}
 		
 	
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(documentLinkService && documentLinkService.metaClass.pickMethod("update", [Object.class] as Class[])){
-			def (documentLinkInstance, success) = documentLinkService.update( params )
+		if(documentLinkService && (documentLinkService.metaClass.pickMethod("update", [Object.class] as Class[]) || documentLinkService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+			def documentLinkInstance
+			def success
+			if(documentLinkService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (documentLinkInstance, success) = documentLinkService.update( params, request )
+			else (documentLinkInstance, success) = documentLinkService.update( params )
+			
 			withFormat {
 				html { render(view: "show", model: [documentLinkInstance: documentLinkInstance]) }
                 xml { render documentLinkInstance as XML }
