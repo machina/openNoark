@@ -17,7 +17,7 @@
 
 import grails.test.*
 import org.friark.ds.*
-class ArkivControllerTests extends ControllerUnitTestCase {
+class FondsControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
 			controller.commonService = new CommonService()

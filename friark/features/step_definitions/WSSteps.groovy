@@ -69,7 +69,7 @@ def defaultDocumentDescription = '''<?xml version="1.0" encoding="UTF-8"?>
 </documentDescription>
 '''
 
-def ctrlName = [Fonds: 'arkiv', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'file', SimplifiedRecord: 'registrering', DocumentDescription: 'documentDescription', DocumentObject: 'documentObject']
+def ctrlName = [Fonds: 'fonds', Series: 'series', ClassificationSystem: 'classificationSystem', Klass: 'klass', File: 'file', SimplifiedRecord: 'registrering', DocumentDescription: 'documentDescription', DocumentObject: 'documentObject']
 
 def currentResult
 
@@ -123,7 +123,7 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
         //println currentResult
         break
         case 'File':
-        browser.post("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/arkiv.xml",defaultFonds)
+        browser.post("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/fonds.xml",defaultFonds)
         def fonds = new XmlSlurper().parseText(browser.pageSource)
         def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
         browser.post("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/series.xml",series)
@@ -134,7 +134,7 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
         //println currentResult
         break
         case 'SimplifiedRecord':
-        browser.post("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/arkiv.xml",defaultFonds)
+        browser.post("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/fonds.xml",defaultFonds)
         def fonds = new XmlSlurper().parseText(browser.pageSource)
         def series = new SimpleTemplateEngine().createTemplate(defaultSeries).make([parentId: fonds.@id]).toString()
         browser.post("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/series.xml",series)

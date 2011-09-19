@@ -6,7 +6,7 @@ import javax.annotation.Generated
 import org.friark.ds.FondsCreator
 
 class FondsCreatorController {
-	def arkivskaperService
+	def fondsCreatorService
 	 
 	
 	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
@@ -61,11 +61,11 @@ class FondsCreatorController {
 	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(arkivskaperService && (arkivskaperService.metaClass.pickMethod("create", [Object.class] as Class[]) || arkivskaperService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+		if(fondsCreatorService && (fondsCreatorService.metaClass.pickMethod("create", [Object.class] as Class[]) || fondsCreatorService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
 			def fondsCreatorInstance
 			def success
-			if(arkivskaperService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsCreatorInstance, success) = arkivskaperService.create( params, request )
-			else (fondsCreatorInstance, success) = arkivskaperService.create( params )
+			if(fondsCreatorService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsCreatorInstance, success) = fondsCreatorService.create( params, request )
+			else (fondsCreatorInstance, success) = fondsCreatorService.create( params )
 			withFormat {
 				html { render(view: "show", model: [fondsCreatorInstance: fondsCreatorInstance]) }
                 xml { render fondsCreatorInstance as XML }
@@ -90,11 +90,11 @@ class FondsCreatorController {
 	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(arkivskaperService && (arkivskaperService.metaClass.pickMethod("update", [Object.class] as Class[]) || arkivskaperService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+		if(fondsCreatorService && (fondsCreatorService.metaClass.pickMethod("update", [Object.class] as Class[]) || fondsCreatorService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
 			def fondsCreatorInstance
 			def success
-			if(arkivskaperService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsCreatorInstance, success) = arkivskaperService.update( params, request )
-			else (fondsCreatorInstance, success) = arkivskaperService.update( params )
+			if(fondsCreatorService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsCreatorInstance, success) = fondsCreatorService.update( params, request )
+			else (fondsCreatorInstance, success) = fondsCreatorService.update( params )
 			
 			withFormat {
 				html { render(view: "show", model: [fondsCreatorInstance: fondsCreatorInstance]) }

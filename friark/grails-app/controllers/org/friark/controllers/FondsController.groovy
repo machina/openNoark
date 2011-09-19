@@ -6,7 +6,7 @@ import javax.annotation.Generated
 import org.friark.ds.Fonds
 
 class FondsController {
-	def arkivService
+	def fondsService
 	 
 	
 	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
@@ -61,11 +61,11 @@ class FondsController {
 	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def save = {
 		
-		if(arkivService && (arkivService.metaClass.pickMethod("create", [Object.class] as Class[]) || arkivService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
+		if(fondsService && (fondsService.metaClass.pickMethod("create", [Object.class] as Class[]) || fondsService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
 			def fondsInstance
 			def success
-			if(arkivService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsInstance, success) = arkivService.create( params, request )
-			else (fondsInstance, success) = arkivService.create( params )
+			if(fondsService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsInstance, success) = fondsService.create( params, request )
+			else (fondsInstance, success) = fondsService.create( params )
 			withFormat {
 				html { render(view: "show", model: [fondsInstance: fondsInstance]) }
                 xml { render fondsInstance as XML }
@@ -90,11 +90,11 @@ class FondsController {
 	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def update = {
 		
-		if(arkivService && (arkivService.metaClass.pickMethod("update", [Object.class] as Class[]) || arkivService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
+		if(fondsService && (fondsService.metaClass.pickMethod("update", [Object.class] as Class[]) || fondsService.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
 			def fondsInstance
 			def success
-			if(arkivService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsInstance, success) = arkivService.update( params, request )
-			else (fondsInstance, success) = arkivService.update( params )
+			if(fondsService.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (fondsInstance, success) = fondsService.update( params, request )
+			else (fondsInstance, success) = fondsService.update( params )
 			
 			withFormat {
 				html { render(view: "show", model: [fondsInstance: fondsInstance]) }

@@ -34,7 +34,7 @@ class FileService {
 		params = fixParams(params) 
 		if(!getFileTypes().contains(params.fileType)){
 			/** TODO externalise strings*/
-			return [[errors: ["Mappetype er ikke tillatt"]], false]
+			return [[errors: ["File type not allowed"]], false]
 		}
 
 		def mappe
@@ -99,7 +99,7 @@ class FileService {
 				return [true]
 			}
 
-			return [false, "Kan ikke lege til en mappe i et arkiv med periodestatus ${mappe.recordSection.periodStatus}"]
+			return [false, "Cannot add a file to a fonds with periodstatus ${mappe.recordSection.periodStatus}"]
 		}
 
 		def getFileTypes(){
