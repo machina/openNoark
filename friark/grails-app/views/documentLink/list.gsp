@@ -57,9 +57,11 @@
                     </tbody>
                 </table>
             </div>
+            <%--
             <div class="paginateButtons">
                 <g:paginate total="${dokumentlinkInstanceTotal}" />
             </div>
+            --%>
         </div>
     </body>
 </html>

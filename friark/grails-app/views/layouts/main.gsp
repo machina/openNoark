@@ -53,19 +53,19 @@
               <div class="leftmenumid">
                 <ul class="leftmenuUl">
                   <li class="leftmenuitem">
- 										<a href="/friark/search">Search metadata</a>                 
+ 										<a href="/friark/search/index.gsp">Search metadata</a>                 
 									</li>
                   <li class="leftmenuitem">
                   	<a href="/friark/search/docSearch">Search documents</a>
 									</li>
   	              <li class="leftmenuitem">
-            				<a href="/friark/arkiv/index">Fonds</a>
+            				<a href="/friark/fonds/list.gsp">Fonds</a>
 									</li>
   	              <li class="leftmenuitem">
                   	<a href="/friark/series/index">Series</a>
 		 							</li>
 									<li class="leftmenuitem">
-            				<a href="/friark/arkivskaper">Fonds creators</a>
+            				<a href="/friark/fondsCreator">Fonds creators</a>
 									</li>
         	        <li class="leftmenuitem">
                   	<a href="/friark/classificationSystem/index">Classification systems</a>
@@ -74,16 +74,16 @@
                   	<a href="/friark/klass/index">Classes</a>
 									</li>
     	            <li class="leftmenuitem">
-                  	<a href="/friark/mappe/index">Files</a>
+                  	<a href="/friark/file/index">Files</a>
 									</li>
 									<li class="leftmenuitem">
                     <a href="/friark/client/index">Clients</a>
                   </li>
 									<li class="leftmenuitem">
-                    <a href="/friark/saksansvar/index">Case responsibilities</a>
+                    <a href="/friark/caseResponsible/list.gsp">Case responsibilities</a>
                   </li>
     	            <li class="leftmenuitem">
-                  	<a href="/friark/skjerming/index">Screenings</a>
+                  	<a href="/friark/screening/index">Screenings</a>
 									</li>
         	        <li class="leftmenuitem">
                  		<a href="/friark/documentLink/index">Document links</a>
@@ -95,13 +95,13 @@
                   	<a href="/friark/documentDescription/index">Document descriptions</a>
 									</li>
           	      <li class="leftmenuitem">
-                  	<a href="/friark/user/index">User administration</a>
+                  	<a href="/friark/user/list.gsp">User administration</a>
 									</li>
 	                <li class="leftmenuitem">
-                  	<a href="/friark/merknad/list">Remarks</a>
+                  	<a href="/friark/remark/list">Remarks</a>
 									</li>
 	                <li class="leftmenuitem">
-                  	<a href="/friark/merknadType/list">Remark types</a>
+                  	<a href="/friark/remarkType/list">Remark types</a>
 									</li>
       	          <li class="leftmenuitem">
                   	<a href="/friark/crossReference/list">Cross references</a>

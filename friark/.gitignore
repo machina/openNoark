@@ -3,3 +3,4 @@ test/reports/*
 *.war
 docs/api
 docs/gapi
+target/*

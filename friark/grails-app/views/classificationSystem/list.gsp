@@ -50,9 +50,11 @@
                     </tbody>
                 </table>
             </div>
+            <%--
             <div class="paginateButtons">
                 <g:paginate total="${klassifikasjonssystemInstanceTotal}" />
             </div>
+            --%>
         </div>
     </body>
 </html>

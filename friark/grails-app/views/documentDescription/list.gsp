@@ -57,9 +57,11 @@
                     </tbody>
                 </table>
             </div>
+            <%--
             <div class="paginateButtons">
                 <g:paginate total="${documentDescriptionInstanceTotal}" />
             </div>
+            --%>
         </div>
     </body>
 </html>

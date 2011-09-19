@@ -44,9 +44,11 @@
                     </tbody>
                 </table>
             </div>
+            <%--
             <div class="paginateButtons">
                 <g:paginate total="${parameterInstanceTotal}" />
             </div>
+            --%>
         </div>
     </body>
 </html>

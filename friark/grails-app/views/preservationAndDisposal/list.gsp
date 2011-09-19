@@ -55,9 +55,11 @@
                     </tbody>
                 </table>
             </div>
+            <%--
             <div class="paginateButtons">
                 <g:paginate total="${preservationAndDisposalInstanceTotal}" />
             </div>
+            --%>
         </div>
     </body>
 </html>
