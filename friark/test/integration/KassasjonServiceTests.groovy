@@ -18,6 +18,7 @@
 import grails.test.*
 import org.friark.ds.*
 import org.friark.ds.Fonds
+import org.friark.services.FondsService
 
 class KassasjonServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
@@ -168,7 +169,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Kasseres"]
 
       KassasjonService service = new KassasjonService()
-			service.archiveService = new ArchiveService()
+			service.fondsService = new FondsService()
       def list = service.oversikt(co)
       assertEquals 1, list?.size()
 			
@@ -205,7 +206,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Kasseres"]
 
       KassasjonService service = new KassasjonService()
-			service.archiveService = new ArchiveService()
+			service.fondsService = new FondsService()
       def list = service.oversikt(co)
       assertEquals 1, list?.size()
 			
@@ -247,7 +248,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Kasseres"]
 
       KassasjonService service = new KassasjonService()
-			service.archiveService = new ArchiveService()
+			service.fondsService = new FondsService()
       def list = service.oversikt(co)
       assertEquals 1, list?.size()
 
@@ -305,7 +306,7 @@ class KassasjonServiceTests extends GrailsUnitTestCase {
 			def co = [fra: new Date() - 2, til: new Date() + 2, disposalDecision: "Kasseres"]
 			
       KassasjonService service = new KassasjonService()
-			service.archiveService = new ArchiveService()
+			service.fondsService = new FondsService()
       def list = service.oversikt(co)
       assertEquals 1, list?.size()
 			

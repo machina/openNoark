@@ -5,7 +5,7 @@ import javax.annotation.Generated
 
 import org.friark.ds.Screening
 
-class SkjermingController {
+class ScreeningController {
 	def skjermingService
 	 
 	
