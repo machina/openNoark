@@ -5,7 +5,7 @@ import javax.annotation.Generated
 
 import org.friark.ds.Fonds
 
-class ArkivController {
+class FondsController {
 	def arkivService
 	 
 	
