@@ -15,6 +15,8 @@
     along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+package org.friark.services;
+
 import grails.converters.*
 import org.apache.tika.*
 import org.apache.tika.utils.*
@@ -50,7 +52,7 @@ import org.friark.ds.*
 * The location of the archive is set by the configuration 
 * parameter "archivePath"
 */
-class ArchiveService implements org.springframework.context.ApplicationContextAware {
+class FondsService implements org.springframework.context.ApplicationContextAware {
 	def grailsApplication
 	org.springframework.context.ApplicationContext applicationContext
 	def servletContext = SCH.servletContext
@@ -81,7 +83,7 @@ class ArchiveService implements org.springframework.context.ApplicationContextAw
 	* @param documentObject The object attached to the file that is to 
 	*			be deleted
 	*/
-	def delteFromArchive(DocumentObject dokumentobjekt){
+	def deleteFromArchive(DocumentObject dokumentobjekt){
 		if(dokumentobjekt.documentFile){
 			removeFromIndex(dokumentobjekt.systemID)
 			def f = new File(dokumentobjekt.documentFile)
