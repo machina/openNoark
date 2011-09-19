@@ -2,7 +2,7 @@ package org.friark
 
 import org.friark.ds.*
 
-class ArkivService {
+class FondsService {
     static transactional = true
 
     def final static CREATED = "Opprettet"
@@ -12,25 +12,25 @@ class ArkivService {
     def create( def params ){
         fixParent(params)
 
-        def arkiv = getFonds(params)
+        def fonds = getFonds(params)
         def success = false
 
-        arkiv.fondsStatus = CREATED
+        fonds.fondsStatus = CREATED
 
-        commonService.setNewSystemID(arkiv)
-        commonService.setCreated(arkiv)
+        commonService.setNewSystemID(fonds)
+        commonService.setCreated(fonds)
 
-        stripParent(params, arkiv)
+        stripParent(params, fonds)
 
-        if(arkiv.parent){
-            arkiv.parent.addToSubFonds(arkiv)
+        if(fonds.parent){
+            fonds.parent.addToSubFonds(fonds)
         }
 
-        if(!arkiv.hasErrors() && arkiv.validate() && arkiv.save()){
+        if(!fonds.hasErrors() && fonds.validate() && fonds.save()){
             success = true
         }
 
-        return [arkiv,success]
+        return [fonds,success]
     }
 
     def retrieve( def id ){
@@ -38,28 +38,28 @@ class ArkivService {
     }
 
     def update( def params ){
-        def arkiv = Fonds.get(params.fonds.id)
-        params.fonds.createdDate = arkiv.createdDate  //cannot change created date
+        def fonds = Fonds.get(params.fonds.id)
+        params.fonds.createdDate = fonds.createdDate  //cannot change created date
 
-        if(arkiv.finalisedDate != null && params.fonds.finalisedDate == null){
-            arkiv.errors.rejectValue "finalisedDate", "USER_ERROR",  message(code:'fonds.cannot.remove.finalised.date')
-            return [errors: arkiv.errors, arkiv: arkiv]
+        if(fonds.finalisedDate != null && params.fonds.finalisedDate == null){
+            fonds.errors.rejectValue "finalisedDate", "USER_ERROR",  message(code:'fonds.cannot.remove.finalised.date')
+            return [errors: fonds.errors, fonds: fonds]
         } else if(params.fonds.finalisedDate == null || params.fonds.finalisedDate == ""){
             params.fondsfinalisedDate = null
         }
 
-        stripParent(params.fonds, arkiv)
-        if(arkiv.fondsStatus != params.fonds.fondsStatus && params.fonds.fondsStatus == FINALISED){
+        stripParent(params.fonds, fonds)
+        if(fonds.fondsStatus != params.fonds.fondsStatus && params.fonds.fondsStatus == FINALISED){
             params.fonds.finalisedBy = SecurityUtils.subject.principal
             params.fondsfinalisedDate = new Date()
         }
 
-        arkiv.properties = params.fonds
+        fonds.properties = params.fonds
 	
-	if(arkiv.save()){
-		return [arkiv, true]
+	if(fonds.save()){
+		return [fonds, true]
 	}else {
-		return [arkiv, false]
+		return [fonds, false]
 	}
     }
 
@@ -86,7 +86,7 @@ class ArkivService {
             params.order = "asc"
         }
 
-        def arkiver = Fonds.withCriteria {
+        def fondser = Fonds.withCriteria {
             if(params.sort == "parentTittel"){
                 parent { order('title', params.order) }
             } else {
@@ -94,20 +94,20 @@ class ArkivService {
             }
         }
 
-        return arkiver
+        return fondser
     }
 
     def getFonds(def params){
-        def arkiv = (params.fonds ) ? new Fonds(params.fonds) : new Fonds( params)
-        return arkiv
+        def fonds = (params.fonds ) ? new Fonds(params.fonds) : new Fonds( params)
+        return fonds
     }
 
-    def stripParent(params, arkiv) {
+    def stripParent(params, fonds) {
         if( commonService.isNull(params.parent) || "".equals(params.parent) ){
             params.parent = null
-            arkiv.parent = null
+            fonds.parent = null
         } else if(params.parent instanceof String){
-            arkiv.parent = Fonds.get(Integer.parseInt(params.parent))
+            fonds.parent = Fonds.get(Integer.parseInt(params.parent))
         }
     }
     def fixParent(params){
