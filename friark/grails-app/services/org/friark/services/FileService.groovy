@@ -15,7 +15,10 @@
     along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+package org.friark.services
+
 import org.friark.ds.*
+import org.friark.services.MappeIdGeneratorService;
 
 /**
 * Offers misc operations on the files
