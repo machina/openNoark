@@ -1,178 +1,122 @@
-/*
-    This file is part of Friark.
-
-    Friark is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Friark is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with Friark.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-package org.friark.services;
-
-import grails.converters.*
-import org.apache.tika.*
-import org.apache.tika.utils.*
-import org.apache.tika.parser.*
-import org.apache.tika.parser.html.*
-import org.apache.tika.config.TikaConfig
-import org.apache.tika.sax.*
-import org.apache.tika.metadata.Metadata
-import org.xml.sax.helpers.DefaultHandler
-
-import org.apache.lucene.search.Hits;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.search.Searcher;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.store.RAMDirectory;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.index.IndexReader
-import org.apache.lucene.queryParser.QueryParser;
-import org.apache.lucene.queryParser.ParseException;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.index.Term;
-
-import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
-import no.machina.utils.StringInputStream
+package org.friark
 
 import org.friark.ds.*
 
-/**
-* Contains methods for handling a single electronic archive
-* 
-* The location of the archive is set by the configuration 
-* parameter "archivePath"
-*/
-class FondsService implements org.springframework.context.ApplicationContextAware {
-	def grailsApplication
-	org.springframework.context.ApplicationContext applicationContext
-	def servletContext = SCH.servletContext
+class FondsService {
+    static transactional = true
+
+    def final static CREATED = "Opprettet"
+    def final static FINALISED = "Avsluttet"
+    def commonService
+
+    def create( def params ){
+        fixParent(params)
+
+        def fonds = getFonds(params)
+        def success = false
+
+        fonds.fondsStatus = CREATED
+
+        commonService.setNewSystemID(fonds)
+        commonService.setCreated(fonds)
+
+        stripParent(params, fonds)
+
+        if(fonds.parent){
+            fonds.parent.addToSubFonds(fonds)
+        }
+
+        if(!fonds.hasErrors() && fonds.validate() && fonds.save()){
+            success = true
+        }
+
+        return [fonds,success]
+    }
+
+    def retrieve( def id ){
+
+    }
+
+    def update( def params ){
+        def fonds = Fonds.get(params.fonds.id)
+        params.fonds.createdDate = fonds.createdDate  //cannot change created date
+
+        if(fonds.finalisedDate != null && params.fonds.finalisedDate == null){
+            fonds.errors.rejectValue "finalisedDate", "USER_ERROR",  message(code:'fonds.cannot.remove.finalised.date')
+            return [errors: fonds.errors, fonds: fonds]
+        } else if(params.fonds.finalisedDate == null || params.fonds.finalisedDate == ""){
+            params.fondsfinalisedDate = null
+        }
+
+        stripParent(params.fonds, fonds)
+        if(fonds.fondsStatus != params.fonds.fondsStatus && params.fonds.fondsStatus == FINALISED){
+            params.fonds.finalisedBy = SecurityUtils.subject.principal
+            params.fondsfinalisedDate = new Date()
+        }
+
+        fonds.properties = params.fonds
 	
-	/**
-	* Archives a file as the file attached to the DocumentObject 
-	* object with id docId and indexes it
-	* 
-	* @param docId Id for the document object which will be attached to 
-	*	 the file
-	* @param file The file that is to be archived as an incoming 
- 	*	      base64 encoded file
-	*/
-	def archive(docId, file){
-		def path = "${grailsApplication.config.archivePath}/${docId}"
-		new File(path).mkdir()
-		path = "${path}/data"
-		def data = file.text
-		
-		new File(path).append(data.decodeBase64())
-		
-		indexFile(docId, new ByteArrayInputStream(data.decodeBase64()))
+	if(fonds.save()){
+		return [fonds, true]
+	}else {
+		return [fonds, false]
 	}
+    }
 
-	/**
-	* Removes the file attached to the incoming document object from 
-	* the archive
-	* @param documentObject The object attached to the file that is to 
-	*			be deleted
-	*/
-	def deleteFromArchive(DocumentObject dokumentobjekt){
-		if(dokumentobjekt.documentFile){
-			removeFromIndex(dokumentobjekt.systemID)
-			def f = new File(dokumentobjekt.documentFile)
-			if(f.exists()) f.delete()
-		}
-	}
+    def delete( def id ){
+        def success = false
+        def fonds = Fonds.get(id)
 
-	/**
-	* Removes the document that is attached to the incoming document object 
-	* id from the search index for electronic documents.
-	* @param docId String that contains the ID for the document to be 
-	*	       removed from the index.
-	*/
-	def removeFromIndex(docId){
+        if( fonds != null ){
+            fonds.delete()
+            success = true
+        }
 
-		if(!servletContext.docIdx) {
-			return //if there is no index, return 
-		}
+        commonService.log( 'Deleting Fonds id :' + id + ' status: ' +success)
 
-		IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
-		writer.deleteDocuments( new Term("DOC-OBJ", docId))
-		writer.flush()
-		writer.close()
-	}
+        return success
+    }
 
-	/**
-	* Indexes the incoming file 
-	* @param docId The document object id
-  	* @param file The file that is to be indexed 
-	*/
-	def indexFile(docId, file){
-		
-		if(!servletContext.docIdx) {
-			println "!servletContext.docIdx"
-			servletContext.docIdx = new RAMDirectory()
-		} else {
-			println("docIdx: ${servletContext.docIdx}")
-		}
+    def list( def params ){
+          if (!params.sort){
+            params.sort = "title"
+        }
 
-		def doc = DocumentObject.findBySystemID(docId)
-		
-		Metadata metadata = new Metadata();
-		metadata.set(Metadata.CONTENT_TYPE, doc.format);
+        if (!params.order) {
+            params.order = "asc"
+        }
 
-		def handler = new BodyContentHandler();
-		new AutoDetectParser().parse(file, handler, metadata);
-				
-		Document ldoc = new Document();
-		ldoc.add(new Field("CONTENT", handler.toString(), Field.Store.YES, Field.Index.TOKENIZED))
-		ldoc.add(new Field("DOC-OBJ", doc.systemID, Field.Store.YES, Field.Index.NO))
-		
-		IndexWriter writer = new IndexWriter(servletContext.docIdx, new StandardAnalyzer(), false)
-		writer.addDocument(ldoc)
-		writer.flush()
-		writer.close()
-	}
+        def fondser = Fonds.withCriteria {
+            if(params.sort == "parentTittel"){
+                parent { order('title', params.order) }
+            } else {
+                order(params.sort, params.order)
+            }
+        }
 
-	/**
-	* Performs a search in the electronic archive by help of the index
-	* @param searchTerms A string containing the search.
-	*/
-	def searchArchive(def searchTerms){
-		IndexSearcher searcher = new IndexSearcher(servletContext.docIdx)
-		
-		QueryParser parser = new QueryParser("CONTENT", new StandardAnalyzer())
-		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
-    		parser.setAllowLeadingWildcard(true);
+        return fondser
+    }
 
-		Query query = parser.parse(searchTerms)
+    def getFonds(def params){
+        def fonds = (params.fonds ) ? new Fonds(params.fonds) : new Fonds( params)
+        return fonds
+    }
 
-		def hits = searcher.search(query)
-		return hits
-	}
-
-	/**
-	* Retrieves the document that is attached to the ID of the incoming 
-	* document object.
-	* @param docId The ID of the document object that is attached 
-		       to the file
-	* @return The expected document as a byte array
-	*/
-	def retrive(docId){
-		def path = "${grailsApplication.config.archivePath}/${docId}"
-		def bytes
-
-		new File(path).eachFile{
-			bytes = it.text
-		}
-
-		return bytes
-	}
+    def stripParent(params, fonds) {
+        if( commonService.isNull(params.parent) || "".equals(params.parent) ){
+            params.parent = null
+            fonds.parent = null
+        } else if(params.parent instanceof String){
+            fonds.parent = Fonds.get(Integer.parseInt(params.parent))
+        }
+    }
+    def fixParent(params){
+        if( commonService.isNull(params.parent)){
+            params.parent = null
+        } else if(params.parent instanceof String){
+            params.parent = Fonds.get(Integer.parseInt(params.parent))
+        } else {
+            params.parent.merge()
+        }
+    }
 }

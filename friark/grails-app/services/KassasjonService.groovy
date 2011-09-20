@@ -26,7 +26,7 @@ import org.apache.shiro.SecurityUtils
 class KassasjonService {
 
     boolean transactional = true
-		def archiveService
+		def fondsService
 
 	/**
 	* Finds the classes attached to each of the document links 
@@ -245,7 +245,8 @@ class KassasjonService {
 
 		dok.documentObject.each{
 			if(dok.records?.size() <= 1){
-				archiveService.delteFromArchive(it)				
+            disposeOfRecord( it )
+				//fondsService.deleteFromArchive(it)				
 			}
 			dok.removeFromDocumentObject(it)
 			it.documentDescription = null
@@ -255,7 +256,6 @@ class KassasjonService {
 		dok.disposalDate = new Date()
 		dok.disposedBy = SecurityUtils.subject.principal
 		dok.save()
-		println "slettTilmappe: ${slettTilMappe}"
 
 		if(slettTilMappe){
 			println "sletttilmappe!"
@@ -270,7 +270,6 @@ class KassasjonService {
 					reg.parentFile.save()
 				}
 				reg.delete()
-
 							}
 			if(dok.preservationAndDisposal){
 				println "fiksing bev"
@@ -278,11 +277,6 @@ class KassasjonService {
 			  bev.removeFromDocumentDescription(dok)
 				dok.preservationAndDisposal = null
 			}
-
-			println dok.records
-			println dok.documentObject
-			println dok.remark
-
 			dok.documentObject = null
 			dok.delete()
 		} else {

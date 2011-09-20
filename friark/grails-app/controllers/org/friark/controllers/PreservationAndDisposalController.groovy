@@ -7,7 +7,6 @@ import org.friark.ds.PreservationAndDisposal
 
 class PreservationAndDisposalController {
 	def preservationAndDisposalService
-	 
 	
 	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def index = {

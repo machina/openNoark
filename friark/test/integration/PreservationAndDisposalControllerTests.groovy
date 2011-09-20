@@ -34,6 +34,7 @@ class PreservationAndDisposalControllerTests extends ControllerUnitTestCase {
      *	som er registrert som presedenssak.
      * 
      */
+     /*
     void testKassasjonPrecedentSak(){
       def (ark, del, reg) = createStructure()
       def sm = new CaseFile(fileID: "10/00001", fileType: "dill", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "referansearkivdel.id": del.id, administrativeUnit: "a", caseDate: new Date(), caseStatus: "2", systemID: "13", caseResponsible: "somebody else")
@@ -58,6 +59,7 @@ class PreservationAndDisposalControllerTests extends ControllerUnitTestCase {
       controller.save()
       assertEquals 1, PreservationAndDisposal.list().size()
     }
+    */
 
     def createStructure(){
       Fonds ark = new Fonds(systemID: "1", title: "title", fondsStatus: "Opprettet", createdDate: new Date(), createdBy: "meg")

@@ -27,19 +27,20 @@ class BaseTests extends GrailsUnitTestCase {
     }
 
     void testPoly() {
-	String systemID = UUID.randomUUID().toString()
-	Fonds arkiv = new Fonds(title: "hei", createdDate: new Date(), createdBy: "da tester", systemID: systemID)
-	if(!arkiv.save()){
-	   println arkiv.errors
-  	   fail("save failed")
-	}
+      String systemID = UUID.randomUUID().toString()
+	   Fonds arkiv = new Fonds(title: "hei", createdDate: new Date(), createdBy: "da tester", systemID: systemID)
 
-	assertEquals "no Fonds exists?", 1, Fonds.list().size()
-	def res = Base.findBySystemID(systemID);
-	//def res = Base.findAll()[0];
-	assertNotNull res
-	assertTrue res instanceof Fonds
+	   if(!arkiv.save()){
+	      println arkiv.errors
+  	      fail("save failed")
+	   }
 
-	assertEquals "hei", res.title
+	   assertEquals "no Fonds exists?", 1, Fonds.list().size()
+
+	   def res = Base.findBySystemID(systemID);
+	   assertNotNull res
+	   assertTrue res instanceof Fonds
+
+	   assertEquals "hei", res.title
     }
 }

@@ -20,25 +20,24 @@ import org.friark.ds.*
 import org.friark.ds.Fonds
 
 class CommonServiceTests extends GrailsUnitTestCase {
-    protected void setUp() {
-        super.setUp()
-    }
+   protected void setUp() {
+      super.setUp()
+   }
 
-    protected void tearDown() {
-        super.tearDown()
-    }
+   protected void tearDown() {
+      super.tearDown()
+   }
 
-		void testGetParameter(){
-			createParameter()
-			def commonService = new CommonService()
-			assertEquals "1", commonService.getParameter("en")
-			assertEquals "2", commonService.getParameter("to")
+	void testGetParameter(){
+      createParameter()
+	   def commonService = new CommonService()
+		assertEquals "1", commonService.getParameter("en")
+		assertEquals "2", commonService.getParameter("to")
+	}
 
-		}
 
-
-		void createParameter(){
-			new Parameter(key: "en", value: "1").save()
-			new Parameter(key: "to", value: "2").save()
-		}
+	void createParameter(){
+		new Parameter(key: "en", value: "1").save()
+		new Parameter(key: "to", value: "2").save()
+	}
 }

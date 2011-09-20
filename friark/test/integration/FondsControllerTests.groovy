@@ -22,45 +22,51 @@ class FondsControllerTests extends ControllerUnitTestCase {
         super.setUp()
 			controller.commonService = new CommonService()
 			controller.metaClass.message = { def attrs ->
-				return attrs.code
-			}
+	   	   return attrs.code
+	   		}
     }
 
     protected void tearDown() {
         super.tearDown()
     }
-/*
-	
+
+/*	
 	void testupdateOppretterdato() {
-				Fonds ark = new Fonds(systemID: "1", title: "title", arkivstatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
-		if(!ark.save()){
-			println ark.errors
-			fail "unable to save archive"
-		}
+		Fonds ark = createFonds() 
 		assertNotNull Fonds.get(ark.id)
-		println "ark.id: ${ark.id}"
+
 		controller.request.params = [id: ark.id, title:  "title", arkivstatus: "Opprettet",createdBy: "meg", createdDate_day: 1, createdDate_month: 12, createdDate: "struct", createdDate_year: 2009]
-			controller.params.id = ark.id
-		 controller.request.method = "POST"
-		def retval = controller.update([createdDate: Date.parse("yyyy-MM-dd", "2009-12-1")] as UpdateFondsCommand)
-		println "retval.errors: ${retval.errors}"
-		assertTrue( retval.errors.toString().contains("fonds.cannot.change.created.date") )
-	}
-
-
-	void testupdatefinalisedDate() {
-		def createdDate = new Date()
-
-    Fonds ark = new Fonds(systemID: "21", title: "title", arkivstatus: "Opprettet", createdDate: createdDate, createdBy: "meg", finalisedDate: new Date())
-    ark.save()
-
-    controller.request.params = [title: "title", arkivstatus: "Opprettet", createdBy: "meg", finalisedDate: null ]
 		controller.params.id = ark.id
 		controller.request.method = "POST"
 
-    def retval = controller.update([] as UpdateFondsCommand)
+		def retval = controller.update([createdDate: Date.parse("yyyy-MM-dd", "2009-12-1")] as UpdateFondsCommand)
 		println "retval.errors: ${retval.errors}"
-    assertTrue (retval.errors.toString().contains( "fonds.cannot.remove.finalised.date") )
-		
-  }*/
+
+		assertTrue( retval.errors.toString().contains("fonds.cannot.change.created.date") )
+	}
+
+   void testupdatefinalisedDate() {
+	   def createdDate = new Date()
+
+      Fonds ark = createFonds();
+
+      controller.request.params = [title: "title", arkivstatus: "Opprettet", createdBy: "meg", finalisedDate: null ]
+		controller.params.id = ark.id
+		controller.request.method = "POST"
+
+      def retval = controller.update([] as UpdateFondsCommand)
+		println "retval.errors: ${retval.errors}"
+      assertTrue (retval.errors.toString().contains( "fonds.cannot.remove.finalised.date") )
+  }
+   def createFonds(){
+      Fonds f =  new Fonds(systemID: "1", title: "title", arkivstatus: "Opprettet", createdDate: new Date(), createdBy: "meg")
+
+		if(!f.save()){
+			println f.errors
+			fail "unable to save archive"
+		}
+
+     return f
+  }
+  */
 }
