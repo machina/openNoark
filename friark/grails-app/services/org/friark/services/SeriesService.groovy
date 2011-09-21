@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 */
+package org.friark.services
 
 import org.friark.ds.*
 

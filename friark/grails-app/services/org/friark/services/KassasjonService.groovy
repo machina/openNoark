@@ -15,6 +15,8 @@
     along with Friark.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+package org.friark.services
+
 import no.friark.*
 import org.friark.ds.*
 import no.machina.gestalt2.SandboxingClassLoader

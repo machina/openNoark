@@ -1,3 +1,5 @@
+package org.friark.services
+
 import org.friark.ds.*
 import org.apache.shiro.SecurityUtils
 class KlassService {
