@@ -1,5 +1,7 @@
 package org.friark.controllers
 
+import org.friark.services.FileService
+
 import grails.converters.XML
 import javax.annotation.Generated
 
