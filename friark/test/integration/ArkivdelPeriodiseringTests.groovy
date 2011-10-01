@@ -42,7 +42,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
 		def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
-		def (mappe, success) = mappeService.save(params)
+		def (mappe, success) = mappeService.create(params)
 		println mappe.errors
 		assertTrue "save failed", success
 		assertEquals 1, BasicFile.list().size()
@@ -69,7 +69,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
 		def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
-		def (mappe, success) = mappeService.save(params)
+		def (mappe, success) = mappeService.create(params)
 		assertFalse "save succeeded", success
 		assertEquals 0, BasicFile.list().size()
 
@@ -89,7 +89,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
     def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
-    def (mappe, success) = mappeService.save(params)
+    def (mappe, success) = mappeService.create(params)
 		
 		def del2  = new Series(systemID: "5", title: "title", recordSectionStatus: "Opprettet", documentMedium: "text/html", createdBy:"deg", createdDate: new Date(), parent: ark, precursor: del)
 
@@ -102,7 +102,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
 		def registreringService = new RegistreringService()
 		registreringService.commonService = new CommonService()
-		registreringService.registrer(params)
+		registreringService.create(params)
 
 		del = Series.get(del.id)
     assertEquals(1, del.file.size())
@@ -110,7 +110,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		del.periodStatus = "Overlappingsperiode"
 		saveOrFail del
 		
-		registreringService.registrer(params)
+		registreringService.create(params)
 		
 		del = Series.get(del.id)
     assertEquals(0, del.file.size())
@@ -134,7 +134,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 
     def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
-    def (mappe, success) = mappeService.save(params)
+    def (mappe, success) = mappeService.create(params)
     assertFalse "save succeeded", success
     assertEquals 0, BasicFile.list().size()
 
@@ -152,13 +152,12 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
     mappeService.commonService = new CommonService()
 		mappeService.mappeIdGeneratorService = new MappeIdGeneratorService()
 
-    def params = [ fileID: "2010/00001", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
+    def params = [ fileID: "2010/00461", fileType: "BasicFile", title:"mappe", officialTitle: "mappe", description:"mappe", documentMedium:"papyrus", createdDate: new Date(), createdBy: "meg", recordSection: del, "recordSection.id": del.id]
 
-    mappeService.save(params)
+    mappeService.create(params)
 
-		params.fileID = "2010/00002"
-		def (mappe)= mappeService.save(params)
-	
+		params.fileID = "2010/00031"
+		def (mappe)= mappeService.create(params)
 		def arkivdelService = new SeriesService()
 
 		def res = arkivdelService.findOpenMappe(del)
@@ -166,7 +165,7 @@ class ArkivdelPeriodiseringTests extends GrailsUnitTestCase {
 		assertEquals 2, res.size() 
 
 		mappe.finalisedDate = new Date()
-		saveOrFail mappe
+		mappe.save()
 		
 		//del = Series.get(del.id)	
 		res = arkivdelService.findOpenMappe(del)
