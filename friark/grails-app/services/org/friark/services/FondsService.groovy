@@ -1,4 +1,4 @@
-package org.friark
+package org.friark.services
 
 import org.friark.ds.*
 
