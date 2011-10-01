@@ -27,8 +27,8 @@ import org.apache.shiro.SecurityUtils
 */
 class KassasjonService {
 
-    boolean transactional = true
-		def fondsService
+	boolean transactional = true
+	def fondsService
 
 	/**
 	* Finds the classes attached to each of the document links 

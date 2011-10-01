@@ -19,6 +19,7 @@ import grails.test.*
 import org.friark.ds.*
 import org.friark.ds.Fonds
 import org.friark.services.FondsService
+import org.friark.services.KassasjonService
 
 class KassasjonServiceTests extends GrailsUnitTestCase {
    protected void setUp() {
