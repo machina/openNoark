@@ -1,10 +1,7 @@
-/**
-Metadata for møteregistrering
-<br/>
-Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg.
-
-*/
 package org.friark.ds
+/**
+Metadata for møteregistrering amp;#xA;<br/> amp;#xA;Metadata for basisregistrering inngår i møteregistrering, følgende metadata kommer i tillegg. amp;#xA;
+*/
 class meetingRecord extends BasicRecord{
   String moeteregistreringstype
   String moetesakstype
@@ -30,4 +27,6 @@ class meetingRecord extends BasicRecord{
   static hasMany = [toMeetingRecord:SimplifiedRecord, fromMeetingRecord:SimplifiedRecord]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

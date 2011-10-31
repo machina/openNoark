@@ -1,12 +1,7 @@
-/**
-Metadata for avskrivning
-
-Grupperes inn i:	Journalpost
-Forekomst:		0-M
-.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp.
-
-*/
 package org.friark.ds
+/**
+Metadata for avskrivning amp;#xA; amp;#xA;Grupperes inn i: Journalpost amp;#xA;Forekomst:  0-M amp;#xA;.Avskrivning er obligatorisk for inngående dokumenter og organinterne dokumenter som skal følges opp. amp;#xA;
+*/
 class SignOff {
   Date signOffDate
   String signedOffBy
@@ -28,4 +23,6 @@ class SignOff {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

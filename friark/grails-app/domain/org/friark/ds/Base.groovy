@@ -7,6 +7,7 @@ class Base {
   }
   static hasMany = [:]
   static mapping = {
-    tablePerHierarchy false
   }
+  static searchable = false
+  static loggable = false
 }

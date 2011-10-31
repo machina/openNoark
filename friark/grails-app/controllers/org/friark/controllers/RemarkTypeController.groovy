@@ -4,7 +4,7 @@ import grails.converters.XML
 import javax.annotation.Generated
 
 import org.friark.ds.RemarkType
-
+	
 class RemarkTypeController {
 	def remarkTypeService
 	 

@@ -10,4 +10,6 @@ class RemarkType {
   static hasMany = [remark:Remark]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

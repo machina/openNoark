@@ -1,13 +1,7 @@
-/**
-Metadata for utført kassasjon
-<br/>
-Grupperes inn i:	Dokumentbeskrivelse<br/>
-Forekomst:		0-1
-
-Ved kassasjon skal dokumentobjektet slettes. 
-
-*/
 package org.friark.ds
+/**
+Metadata for utført kassasjon amp;#xA;<br/> amp;#xA;Grupperes inn i: Dokumentbeskrivelse<br/> amp;#xA;Forekomst:  0-1 amp;#xA; amp;#xA;Ved kassasjon skal dokumentobjektet slettes.  amp;#xA;
+*/
 class CompletedDisposal {
   Date disposedOfDate
   String disposedOfBy
@@ -20,4 +14,6 @@ class CompletedDisposal {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

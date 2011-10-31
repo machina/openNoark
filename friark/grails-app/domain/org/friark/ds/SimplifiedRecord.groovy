@@ -1,7 +1,7 @@
+package org.friark.ds
 /**
 Metadata for forenklet registrering
 */
-package org.friark.ds
 class SimplifiedRecord extends Base{
   String recordType
   Date createdDate
@@ -13,13 +13,13 @@ class SimplifiedRecord extends Base{
   Series recordSection
   PreservationAndDisposal preservationAndDisposal
   static constraints = {
-    recordSection( validator: {
-      if(it == null || it.finalisedDate == null) return true
-      return "Kan ikke legge en registrering under en avsluttet arkivdel."
+    recordSection( validator: { 
+      if(it == null || it.finalisedDate == null) return true 
+      return "Kan ikke legge en registrering under en avsluttet arkivdel." 
     })
-    parentFile( validator: {
-      if(it == null || it.finalisedDate == null) return true
-      return "Kan ikke legge en registrering under en avsluttet mappe."
+    parentFile( validator: { 
+      if(it == null || it.finalisedDate == null) return true 
+      return "Kan ikke legge en registrering under en avsluttet mappe." 
     })
     recordType(nullable: false)
     recordType(unique: false)
@@ -46,8 +46,8 @@ class SimplifiedRecord extends Base{
   }
   static hasMany = [document:DocumentLink, documentObject:DocumentObject]
   static mapping = {
-    tablePerHierarchy false
   }
+  static searchable = true
+  static loggable = false
   static auditable = true
-  static searchable = [except: ['recordSection','parentFile']]
 }

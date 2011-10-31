@@ -1,11 +1,7 @@
-/**
-Metadata for endringslogg
-
-Metadata for endringslogg skal ikke grupperes inn i en annen arkivenhet, men avleveres som en egen fil.  Endringsloggen må derfor ha referanse til hvilken arkivenhet endringen tilhører, og hvilket metadataelement som er blitt endret. 
-
-Ikke alle endringer skal avleveres. Aktuelle endringer kan  være  endring av saksstatus, journal-status, tilgangsrestriksjon, klassifikasjon (referanse til klasse), saksansvarlig, saksbehandler. Nærmere spesifikasjon av hvilke endringer som skal avleveres, vil komme i en senere versjon. 
-*/
 package org.friark.ds
+/**
+Metadata for endringslogg amp;#xA; amp;#xA;Metadata for endringslogg skal ikke grupperes inn i en annen arkivenhet, men avleveres som en egen fil.  Endringsloggen må derfor ha referanse til hvilken arkivenhet endringen tilhører, og hvilket metadataelement som er blitt endret.  amp;#xA; amp;#xA;Ikke alle endringer skal avleveres. Aktuelle endringer kan  være  endring av saksstatus, journal-status, tilgangsrestriksjon, klassifikasjon (referanse til klasse), saksansvarlig, saksbehandler. Nærmere spesifikasjon av hvilke endringer som skal avleveres, vil komme i en senere versjon. 
+*/
 class ChangeLog {
   String recordUnit
   String metadata
@@ -30,4 +26,6 @@ class ChangeLog {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

@@ -1,10 +1,7 @@
-/**
-Metadata for gradering
-<br/>
-Grupperes inn i:	Basismappe, Forenklet registrering, Dokmentbeskrivelse.
-Forekomst:	0-1
-*/
 package org.friark.ds
+/**
+Metadata for gradering amp;#xA;<br/> amp;#xA;Grupperes inn i: Basismappe, Forenklet registrering, Dokmentbeskrivelse. amp;#xA;Forekomst: 0-1
+*/
 class Grading {
   String grading
   Date gradingDate
@@ -26,4 +23,6 @@ class Grading {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

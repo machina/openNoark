@@ -11,4 +11,6 @@ class Parameter {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

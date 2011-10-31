@@ -1,9 +1,7 @@
-/**
-Metadata for journalpost
-
-Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg.
-*/
 package org.friark.ds
+/**
+Metadata for journalpost amp;#xA; amp;#xA;Metadata for basisregistrering inngår i journalpost, følgende metadata kommer i tillegg.
+*/
 class RegistryEntry extends BasicRecord{
   String serialNumber
   String registryEntryType
@@ -51,4 +49,6 @@ class RegistryEntry extends BasicRecord{
   static hasMany = [clients:Client]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

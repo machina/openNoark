@@ -1,10 +1,7 @@
-/**
-Metadata for dokumentflyt
-<br/>
-Grupperes inn i:	Journalpost
-Forekomst:		0-M
-*/
 package org.friark.ds
+/**
+Metadata for dokumentflyt amp;#xA;<br/> amp;#xA;Grupperes inn i: Journalpost amp;#xA;Forekomst:  0-M
+*/
 class DocumentFlow {
   String flowTo
   String flowFrom
@@ -29,4 +26,6 @@ class DocumentFlow {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

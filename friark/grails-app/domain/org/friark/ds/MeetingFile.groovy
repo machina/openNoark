@@ -1,9 +1,7 @@
-/**
-Metadata for møtemappe
-<br/>
-Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg.
-*/
 package org.friark.ds
+/**
+Metadata for møtemappe amp;#xA;<br/> amp;#xA;Metadata for basismappe inngår i møtemappe, følgende metadata kommer i tillegg.
+*/
 class MeetingFile extends BasicFile{
   String meetingNumber
   String board
@@ -28,4 +26,6 @@ class MeetingFile extends BasicFile{
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

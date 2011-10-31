@@ -1,10 +1,7 @@
-/**
-Metadata for korrespondansepart
-<br/>
-Grupperes inn i:	Journalpost
-Forekomst:		1-M
-*/
 package org.friark.ds
+/**
+Metadata for korrespondansepart amp;#xA;<br/> amp;#xA;Grupperes inn i: Journalpost amp;#xA;Forekomst:  1-M
+*/
 class Client {
   String clientType
   String clientName
@@ -41,4 +38,6 @@ class Client {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

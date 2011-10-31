@@ -1,7 +1,7 @@
+package org.friark.ds
 /**
 Metadata for arkivdel
 */
-package org.friark.ds
 class Series extends Base{
   String title
   String description
@@ -13,16 +13,16 @@ class Series extends Base{
   String finalisedBy
   Date recordsPeriodStartDate
   Date recordsPeriodEndDate
+  String periodStatus
   Fonds parent
   Series precursor
   Series successor
   ClassificationSystem classificationSystem
   PreservationAndDisposal preservationAndDisposal
-  String periodStatus
   static constraints = {
-    parent( validator: {
-      if(it.fondsStatus == "Opprettet") return true
-      return "Kan ikke legge inn arkivdeler under et avsluttet arkiv."
+    parent( validator: { 
+      if(it.fondsStatus == "Opprettet") return true 
+      return "Kan ikke legge inn arkivdeler under et avsluttet arkiv." 
     })
     recordSectionStatus(inList: ["Opprettet", "Avsluttet"])
     periodStatus(inList: ["Aktiv periode", "Overlappingsperiode","Avsluttet periode"])
@@ -48,6 +48,8 @@ class Series extends Base{
     recordsPeriodStartDate(unique: false)
     recordsPeriodEndDate(nullable: true)
     recordsPeriodEndDate(unique: false)
+    periodStatus(nullable: true)
+    periodStatus(unique: false)
     parent(nullable: false)
     parent(unique: false)
     precursor(nullable: true)
@@ -62,12 +64,11 @@ class Series extends Base{
     record(unique: true)
     preservationAndDisposal(nullable: true)
     preservationAndDisposal(unique: false)
-    periodStatus(nullable: true)
-    periodStatus(unique: false)
   }
   static hasMany = [storageLocation:String, file:BasicFile, record:SimplifiedRecord]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
   static auditable = true
-  static searchable = [except: ['parent','classificationSystem']]
 }

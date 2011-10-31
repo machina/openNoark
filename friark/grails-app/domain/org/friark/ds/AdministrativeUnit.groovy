@@ -1,11 +1,7 @@
-/**
-Metadata for administrasjonsstruktur
-
-Metadata for administrasjonsstruktur skal ikke avleves, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata enn det som er listet opp her. 
-
-
-*/
 package org.friark.ds
+/**
+Metadata for administrasjonsstruktur amp;#xA; amp;#xA;Metadata for administrasjonsstruktur skal ikke avleves, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata enn det som er listet opp her.  amp;#xA; amp;#xA;
+*/
 class AdministrativeUnit {
   String administrativeUnitName
   Date createdDate
@@ -30,4 +26,6 @@ class AdministrativeUnit {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

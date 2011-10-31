@@ -1,9 +1,7 @@
-/**
-Metadata for saksmappe
-
-Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg.
-*/
 package org.friark.ds
+/**
+Metadata for saksmappe amp;#xA; amp;#xA;Metadata for basismappe inngår i saksmappe, følgende metadata kommer i tillegg.
+*/
 class CaseFile extends BasicFile{
   Date caseDate
   String administrativeUnit
@@ -36,5 +34,7 @@ class CaseFile extends BasicFile{
   static hasMany = [secondaryClassification:Klass]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
   static belongsTo = Klass
 }

@@ -1,7 +1,7 @@
+package org.friark.ds
 /**
 Metadata for dokumentobjekt
 */
-package org.friark.ds
 class DocumentObject extends Base{
   String versionNumber
   String variantFormat
@@ -9,17 +9,17 @@ class DocumentObject extends Base{
   String formatDetails
   Date createdDate
   String createdBy
-  DocumentDescription documentDescription
-  SimplifiedRecord record
   String documentFile
   String checksum
   String checksumAlgorithm
   String fileSize
+  DocumentDescription documentDescription
+  SimplifiedRecord record
   static constraints = {
-    documentDescription( validator: { val, obj ->
-      if(obj.documentDescription == null && obj.record == null) return "Dokumentobjekt må være tilknyttet enten et dokumentobjekt eller en registrering."
-      if(obj.documentDescription != null && obj.record != null) return "Dokumentobjekt må være tilknyttet enten et dokumentobjekt eller en registrering."
-      return true
+    documentDescription( validator: { val, obj -> 
+      if(obj.documentDescription == null && obj.record == null) return "Dokumentobjekt må være tilknyttet enten et dokumentobjekt eller en registrering." 
+      if(obj.documentDescription != null && obj.record != null) return "Dokumentobjekt må være tilknyttet enten et dokumentobjekt eller en registrering." 
+      return true 
     })
     versionNumber(nullable: false)
     versionNumber(unique: false)
@@ -33,10 +33,6 @@ class DocumentObject extends Base{
     createdDate(unique: false)
     createdBy(nullable: false)
     createdBy(unique: false)
-    documentDescription(nullable: true)
-    documentDescription(unique: false)
-    record(nullable: true)
-    record(unique: false)
     documentFile(nullable: true)
     documentFile(unique: false)
     checksum(nullable: true)
@@ -45,8 +41,14 @@ class DocumentObject extends Base{
     checksumAlgorithm(unique: false)
     fileSize(nullable: true)
     fileSize(unique: false)
+    documentDescription(nullable: true)
+    documentDescription(unique: false)
+    record(nullable: true)
+    record(unique: false)
   }
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

@@ -1,19 +1,13 @@
-/**
-Metadata for bevaring og kassasjon
-<br/>
-Grupperes inn i:	Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse
-Forekomst:		0-1
-<br/>
-I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået.
-*/
 package org.friark.ds
+/**
+Metadata for bevaring og kassasjon amp;#xA;<br/> amp;#xA;Grupperes inn i: Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse amp;#xA;Forekomst:  0-1 amp;#xA;<br/> amp;#xA;I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på saksnivået.
+*/
 class PreservationAndDisposal {
   String disposalDecision
   String disposalAuthority
   String preservationTime
   Date disposalDate
   static constraints = {
-    disposalDecision(inList: ["Bevares", "Kasseres", "Vurderes senere"])
     disposalDecision(nullable: false)
     disposalDecision(unique: false)
     disposalAuthority(nullable: true)
@@ -36,4 +30,6 @@ class PreservationAndDisposal {
   static hasMany = [record:SimplifiedRecord, series:Series, file:BasicFile, klass:Klass, documentDescription:DocumentDescription]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

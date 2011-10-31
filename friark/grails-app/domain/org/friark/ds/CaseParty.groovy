@@ -1,12 +1,7 @@
-/**
-Metadata for sakspart
-<br/>
-Grupperes inn i:	Saksmappe<br/>
-Forekomst:		0-M
-
-
-*/
 package org.friark.ds
+/**
+Metadata for sakspart amp;#xA;<br/> amp;#xA;Grupperes inn i: Saksmappe<br/> amp;#xA;Forekomst:  0-M amp;#xA; amp;#xA;
+*/
 class CaseParty {
   String casePartyID
   String casePartyName
@@ -43,4 +38,6 @@ class CaseParty {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

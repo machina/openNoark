@@ -1,9 +1,7 @@
-/**
-Metadata for brukeradministrasjon
-
-Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her.
-*/
 package org.friark.ds
+/**
+Metadata for brukeradministrasjon amp;#xA; amp;#xA;Metadata for brukeradministrasjon skal ikke avleveres, men skal kunne migreres mellom systemer. Slik migrering kan omfatte flere metadata en det som er listet opp her.
+*/
 class UserAdministration {
   String userName
   String userRole
@@ -28,4 +26,6 @@ class UserAdministration {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

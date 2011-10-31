@@ -1,14 +1,7 @@
-/**
-Metadata for skjerming
-<br/>
-Grupperes inn i:	Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse
-<br/>
-Forekomst:		0-1
-<br/>
-I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på journalpostnivået.
-
-*/
 package org.friark.ds
+/**
+Metadata for skjerming amp;#xA;<br/> amp;#xA;Grupperes inn i: Arkivdel, Klasse, Basismappe, Forenklet registrering, Dokumentbeskrivelse amp;#xA;<br/> amp;#xA;Forekomst:  0-1 amp;#xA;<br/> amp;#xA;I Noark 4 har disse attributtene forskjellig navn avhengig av hvilket nivå i arkivstrukturen de er tilknyttet. Nedenfor er tatt med referanse til attributter på journalpostnivået. amp;#xA;
+*/
 class Screening {
   String accessRestriction
   String screeningAuthority
@@ -32,4 +25,6 @@ class Screening {
   static hasMany = [screeningMetadata:String]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

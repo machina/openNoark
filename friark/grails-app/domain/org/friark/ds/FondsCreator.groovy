@@ -1,11 +1,7 @@
-/**
-Metadata for arkivskaper
-
-Grupperes inn i:	Arkiv
-Forekomst:		1-M
-
-*/
 package org.friark.ds
+/**
+Metadata for arkivskaper amp;#xA; amp;#xA;Grupperes inn i: Arkiv amp;#xA;Forekomst:  1-M amp;#xA;
+*/
 class FondsCreator {
   String fondsCreatorID
   String fondsCreatorName
@@ -23,5 +19,6 @@ class FondsCreator {
   static hasMany = [fonds:Fonds]
   static mapping = {
   }
-  static searchable = [except: ['arkiv']]
+  static searchable = false
+  static loggable = false
 }

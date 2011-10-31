@@ -1,12 +1,10 @@
 package org.friark.controllers
 
-import org.friark.services.FileService
-
 import grails.converters.XML
 import javax.annotation.Generated
 
 import org.friark.ds.BasicFile
-
+	
 class FileController {
 	def fileService
 	 

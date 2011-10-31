@@ -1,7 +1,7 @@
+package org.friark.ds
 /**
 Metadata for arkiv (Fonds)
 */
-package org.friark.ds
 class Fonds extends Base{
   String title
   String description
@@ -13,7 +13,6 @@ class Fonds extends Base{
   String finalisedBy
   Fonds parent
   static constraints = {
-    fondsStatus(inList: ["Opprettet", "Avsluttet"])
     title(nullable: false)
     title(unique: false)
     description(nullable: true)
@@ -44,7 +43,8 @@ class Fonds extends Base{
   static hasMany = [storageLocation:String, referenceChildSeries:Series, subFonds:Fonds, fondsCreator:FondsCreator]
   static mapping = {
   }
-  static auditable = true
   static searchable = true
+  static loggable = false
+  static auditable = true
   static belongsTo = FondsCreator
 }

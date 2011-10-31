@@ -1,10 +1,7 @@
-/**
-Metadata for dokumentbeskrivelse
-
-En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor. 
-
-*/
 package org.friark.ds
+/**
+Metadata for dokumentbeskrivelse amp;#xA; amp;#xA;En dokumentbeskrivelse kan være knyttet til mer enn en registrering, og ved avlevering vil metadata bli duplisert for hver tilknytning. Referansen til registreringen finnes i objektet dokumentlink nedenfor.  amp;#xA;
+*/
 class DocumentDescription extends Base{
   String documentType
   String documentStatus
@@ -15,9 +12,9 @@ class DocumentDescription extends Base{
   String createdBy
   String documentMedium
   String storageLocation
-  PreservationAndDisposal preservationAndDisposal
   Date disposalDate
   String disposedBy
+  PreservationAndDisposal preservationAndDisposal
   static constraints = {
     documentType(nullable: false)
     documentType(unique: false)
@@ -37,6 +34,10 @@ class DocumentDescription extends Base{
     documentMedium(unique: false)
     storageLocation(nullable: true)
     storageLocation(unique: false)
+    disposalDate(nullable: true)
+    disposalDate(unique: false)
+    disposedBy(nullable: true)
+    disposedBy(unique: false)
     documentObject(nullable: true)
     documentObject(unique: true)
     preservationAndDisposal(nullable: true)
@@ -45,14 +46,11 @@ class DocumentDescription extends Base{
     remark(unique: false)
     records(nullable: true)
     records(unique: true)
-    disposalDate(nullable: true)
-    disposalDate(unique: false)
-    disposedBy(nullable: true)
-    disposedBy(unique: false)
   }
   static hasMany = [documentObject:DocumentObject, remark:Remark, records:DocumentLink]
   static mapping = {
   }
-  static searchable = true
+  static searchable = false
+  static loggable = false
   static auditable = true
 }

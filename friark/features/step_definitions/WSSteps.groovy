@@ -87,7 +87,7 @@ When(~"I POST a new object to the ([A-z]*) Controller"){ String ctrl ->
         case 'Fonds':
 
         browser.post("http://localhost:${System.getProperty('server.port', '9090') }/friark/ws/${ctrlName['Fonds']}.xml",defaultFonds)
-        //println "new fonds says: "+browser.pageSource
+        println "new fonds says: "+browser.pageSource
         currentResult = browser.pageSource
         break
         case 'Series':

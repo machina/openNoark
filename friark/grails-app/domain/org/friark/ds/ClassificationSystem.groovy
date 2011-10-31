@@ -1,7 +1,7 @@
+package org.friark.ds
 /**
 Metadata for klassifikasjonssystem
 */
-package org.friark.ds
 class ClassificationSystem extends Base{
   String classificationType
   String title
@@ -31,7 +31,7 @@ class ClassificationSystem extends Base{
   static hasMany = [child:Klass]
   static mapping = {
   }
-  static searchable = true
+  static searchable = false
+  static loggable = false
   static auditable = true
-  String toString(){"${title}"}
 }

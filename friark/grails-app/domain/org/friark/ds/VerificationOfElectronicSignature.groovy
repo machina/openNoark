@@ -1,10 +1,7 @@
-/**
-Metadata for verifisering av elektronisk signatur
-<br/>
-Grupperes inn i:	Journalpost<br/>
-Forekomst:		0-1
-*/
 package org.friark.ds
+/**
+Metadata for verifisering av elektronisk signatur amp;#xA;<br/> amp;#xA;Grupperes inn i: Journalpost<br/> amp;#xA;Forekomst:  0-1
+*/
 class VerificationOfElectronicSignature {
   String electronicSignatureSecurityLevel
   String electronicSignatureVerified
@@ -23,4 +20,6 @@ class VerificationOfElectronicSignature {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

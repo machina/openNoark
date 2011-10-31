@@ -2,7 +2,7 @@ package org.friark.controllers
 
 import grails.converters.XML
 import javax.annotation.Generated
-
+	
 class SearchController {
 	def searchService
 	 

@@ -1,11 +1,7 @@
-/**
-Metadata for merknad
-<br/>
-Grupperes inn i:	Basismappe, Basisregistrering, Dokumentbeskrivelse
-Forekomst:		0-M
-
-*/
 package org.friark.ds
+/**
+Metadata for merknad amp;#xA;<br/> amp;#xA;Grupperes inn i: Basismappe, Basisregistrering, Dokumentbeskrivelse amp;#xA;Forekomst:  0-M amp;#xA;
+*/
 class Remark {
   String remarkText
   Date remarkDate
@@ -33,4 +29,6 @@ class Remark {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

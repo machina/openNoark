@@ -1,7 +1,7 @@
+package org.friark.ds
 /**
 Metadata for basismappe
 */
-package org.friark.ds
 class BasicFile extends Base{
   String fileID
   String fileType
@@ -18,9 +18,9 @@ class BasicFile extends Base{
   Series recordSection
   PreservationAndDisposal bevaringOgKassasjon
   static constraints = {
-    recordSection( validator: {
-      if(it == null || it.finalisedDate == null) return true
-      return "Kan ikke legge en mappe under en avsluttet arkivdel."
+    recordSection( validator: { 
+      if(it == null || it.finalisedDate == null) return true 
+      return "Kan ikke legge en mappe under en avsluttet arkivdel." 
     })
     fileID(nullable: false)
     fileID(unique: true)
@@ -63,8 +63,8 @@ class BasicFile extends Base{
   }
   static hasMany = [keyword:String, storageLocation:String, childRecord:SimplifiedRecord, childFile:BasicFile, merknad:Remark]
   static mapping = {
-    tablePerHierarchy false
   }
+  static searchable = false
+  static loggable = false
   static auditable = true
-  static searchable = [except: ['recordSection']]
 }

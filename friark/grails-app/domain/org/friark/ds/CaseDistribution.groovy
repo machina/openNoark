@@ -1,10 +1,7 @@
-/**
-Metadata for saksfordeling
-<br/>
-Grupperes inn i:	Saksmappe, journalpost
-Forekomst:		0-M
-*/
 package org.friark.ds
+/**
+Metadata for saksfordeling amp;#xA;<br/> amp;#xA;Grupperes inn i: Saksmappe, journalpost amp;#xA;Forekomst:  0-M
+*/
 class CaseDistribution {
   String distributedTo
   String distributedBy
@@ -20,4 +17,6 @@ class CaseDistribution {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

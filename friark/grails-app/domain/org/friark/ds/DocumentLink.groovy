@@ -1,22 +1,15 @@
-/**
-Metadata for dokumentlink
-<br/>
-Grupperes inn i:	Dokumentbeskrivelse
-Forekomst:		1
-<br/>
-Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. 
-*/
 package org.friark.ds
+/**
+Metadata for dokumentlink amp;#xA;<br/> amp;#xA;Grupperes inn i: Dokumentbeskrivelse amp;#xA;Forekomst:  1 amp;#xA;<br/> amp;#xA;Det skal opprettes en ny dokumentlink for hver gang et dokument knyttes til en registrering. 
+*/
 class DocumentLink {
-  SimplifiedRecord referenceRecord
   String linkedRecordAs
   String documentNumber
   Date linkedDate
   String linkedBy
+  SimplifiedRecord referenceRecord
   DocumentDescription documentDescription
   static constraints = {
-    referenceRecord(nullable: false)
-    referenceRecord(unique: false)
     linkedRecordAs(nullable: false)
     linkedRecordAs(unique: false)
     documentNumber(nullable: false)
@@ -25,10 +18,14 @@ class DocumentLink {
     linkedDate(unique: false)
     linkedBy(nullable: false)
     linkedBy(unique: false)
+    referenceRecord(nullable: false)
+    referenceRecord(unique: false)
     documentDescription(nullable: true)
     documentDescription(unique: false)
   }
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

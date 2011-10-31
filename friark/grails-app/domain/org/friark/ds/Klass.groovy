@@ -1,7 +1,7 @@
+package org.friark.ds
 /**
 Metadata for klasse
 */
-package org.friark.ds
 class Klass extends Base{
   String classID
   String title
@@ -49,16 +49,7 @@ class Klass extends Base{
   static hasMany = [keyword:String, childClass:Klass, childFile:BasicFile, childRecord:SimplifiedRecord]
   static mapping = {
   }
-  String fullId
+  static searchable = false
+  static loggable = false
   static auditable = true
-  static transients = ["fullId"]
-  def afterLoad = {
-    if(parentClass){
-    	fullId = "${parentClass.classID}.${classID}"
-    }else{
-    	fullId = "${classID}"
-    }
-    println "fullId: ${fullId}"
-  }
-  String toString(){"Klasse : ${fullId}"}
 }

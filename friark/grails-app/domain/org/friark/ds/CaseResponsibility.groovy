@@ -1,12 +1,7 @@
-/**
-Metadata for saksansvar
-<br/>
-Grupperes inn i:	Journalpost<br/>
-Forekomst:		1-M
-
-Ved organinterne dokumenter som skal følges opp, er det behov for å gruppere informasjon om saksansvar fordi denne  kan forekomme flere ganger. 
-*/
 package org.friark.ds
+/**
+Metadata for saksansvar amp;#xA;<br/> amp;#xA;Grupperes inn i: Journalpost<br/> amp;#xA;Forekomst:  1-M amp;#xA; amp;#xA;Ved organinterne dokumenter som skal følges opp, er det behov for å gruppere informasjon om saksansvar fordi denne  kan forekomme flere ganger. 
+*/
 class CaseResponsibility {
   String administrativeUnit
   String executiveOfficer
@@ -24,4 +19,6 @@ class CaseResponsibility {
   static hasMany = [registryEntry:RegistryEntry]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

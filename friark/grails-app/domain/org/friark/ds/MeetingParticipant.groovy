@@ -1,11 +1,7 @@
-/**
-Metadata for møtedeltaker
-<br/>
-Grupperes inn i:	Møtemappe
-Forekomst:		1-M
-
-*/
 package org.friark.ds
+/**
+Metadata for møtedeltaker amp;#xA;<br/> amp;#xA;Grupperes inn i: Møtemappe amp;#xA;Forekomst:  1-M amp;#xA;
+*/
 class MeetingParticipant {
   String meetingParticipantName
   String meetingParticipantFunction
@@ -18,4 +14,6 @@ class MeetingParticipant {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

@@ -1,10 +1,7 @@
-/**
-Metadata for presedens
-<br/>
-Grupperes inn i:	Saksmappe, Journalpost<br/>
-Forekomst:		0-M
-*/
 package org.friark.ds
+/**
+Metadata for presedens amp;#xA;<br/> amp;#xA;Grupperes inn i: Saksmappe, Journalpost<br/> amp;#xA;Forekomst:  0-M
+*/
 class Precedent {
   Date precedentDate
   Date createdDate
@@ -47,4 +44,6 @@ class Precedent {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

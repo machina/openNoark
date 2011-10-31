@@ -1,10 +1,7 @@
-/**
-Metadata for avlevering
-
-Metadata for avlevering skal avleveres som en egen fil.
-
-*/
 package org.friark.ds
+/**
+Metadata for avlevering amp;#xA; amp;#xA;Metadata for avlevering skal avleveres som en egen fil. amp;#xA;
+*/
 class Transfer {
   String responsibleExport
   Date exportedDate
@@ -35,4 +32,6 @@ class Transfer {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }

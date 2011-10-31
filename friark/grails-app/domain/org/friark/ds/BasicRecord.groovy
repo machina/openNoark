@@ -1,9 +1,7 @@
-/**
-Metadata for basisregistrering
-
-Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg.
-*/
 package org.friark.ds
+/**
+Metadata for basisregistrering amp;#xA; amp;#xA;Metadata for forenkletRegistrering inngår i basisregistrering, følgende metadata kommer i tillegg.
+*/
 class BasicRecord extends SimplifiedRecord{
   String recordID
   String title
@@ -32,6 +30,7 @@ class BasicRecord extends SimplifiedRecord{
   }
   static hasMany = [keyword:String, author:String, storageLocation:String, merknad:Remark]
   static mapping = {
-    tablePerHierarchy false
   }
+  static searchable = false
+  static loggable = false
 }

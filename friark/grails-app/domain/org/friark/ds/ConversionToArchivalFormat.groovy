@@ -1,12 +1,7 @@
-/**
-Metadata for konvertering til arkivformat
-<br/>
-Grupperes inn i:	Dokumentobjekt
-Forekomst:		0-1
-<br/>
-Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konvertering er valgfritt, og kan forekomme en gang.
-*/
 package org.friark.ds
+/**
+Metadata for konvertering til arkivformat amp;#xA;<br/> amp;#xA;Grupperes inn i: Dokumentobjekt amp;#xA;Forekomst:  0-1 amp;#xA;<br/> amp;#xA;Metadata for konvertering skal grupperes i metadata for dokumentobjekt. Konvertering er valgfritt, og kan forekomme en gang.
+*/
 class ConversionToArchivalFormat {
   Date convertedDate
   String convertedBy
@@ -25,4 +20,6 @@ class ConversionToArchivalFormat {
   static hasMany = [:]
   static mapping = {
   }
+  static searchable = false
+  static loggable = false
 }
